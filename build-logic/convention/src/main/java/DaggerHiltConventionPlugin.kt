@@ -4,27 +4,31 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.dependencies
 
-class HiltConventionPlugin : Plugin<Project> {
+class DaggerHiltConventionPlugin : Plugin<Project> {
+
     override fun apply(target: Project) {
-        with(target) {
+        target.run {
             apply(plugin = "com.google.devtools.ksp")
 
             dependencies {
-                "ksp"(libs.findLibrary("hilt.compiler").get())
+                add("ksp",libs.findLibrary("hilt.compiler").get())
             }
+
 
             pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
                 dependencies {
-                    "implementation"(libs.findLibrary("hilt.core").get())
+                    add("implementation",libs.findLibrary("hilt.core").get())
                 }
             }
+
 
             pluginManager.withPlugin("com.android.base") {
                 apply(plugin = "dagger.hilt.android.plugin")
                 dependencies {
-                    "implementation"(libs.findLibrary("hilt.android").get())
+                    add("implementation",libs.findLibrary("hilt.android").get())
                 }
             }
         }
+
     }
 }

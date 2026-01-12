@@ -2,10 +2,7 @@ package com.tbc.convention
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project
-import org.gradle.api.provider.Provider
-import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
-import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
 
 
 internal fun Project.configureAndroidCompose(
@@ -16,32 +13,17 @@ internal fun Project.configureAndroidCompose(
             compose = true
         }
 
-        dependencies {
+        dependencies{
             val bom = libs.findLibrary("androidx-compose-bom").get()
-            "implementation"(platform(bom))
-            "androidTestImplementation"(platform(bom))
-            "implementation"(libs.findLibrary("androidx-compose-ui-tooling-preview").get())
-            "debugImplementation"(libs.findLibrary("androidx-compose-ui-tooling").get())
+            add("implementation", platform(bom))
+            add("implementation", libs.findLibrary("androidx-ui").get())
+            add("implementation", libs.findLibrary("androidx-ui-graphics").get())
+            add("implementation", libs.findLibrary("androidx-ui-tooling-preview").get())
+            add("implementation", libs.findLibrary("androidx-material3").get())
+            add("implementation", libs.findLibrary("androidx-activity-compose").get())
+            add("implementation", libs.findLibrary("androidx-material-icons-extended").get())
+            add("debugImplementation", libs.findLibrary("androidx-ui-tooling").get())
+            add("androidTestImplementation", platform(bom))
         }
-    }
-
-    extensions.configure<ComposeCompilerGradlePluginExtension> {
-        fun Provider<String>.onlyIfTrue() = flatMap { provider { it.takeIf(String::toBoolean) } }
-        fun Provider<*>.relativeToRootProject(dir: String) = map {
-            isolated.rootProject.projectDirectory
-                .dir("build")
-                .dir(projectDir.toRelativeString(rootDir))
-        }.map { it.dir(dir) }
-
-        project.providers.gradleProperty("enableComposeCompilerMetrics").onlyIfTrue()
-            .relativeToRootProject("compose-metrics")
-            .let(metricsDestination::set)
-
-        project.providers.gradleProperty("enableComposeCompilerReports").onlyIfTrue()
-            .relativeToRootProject("compose-reports")
-            .let(reportsDestination::set)
-
-        stabilityConfigurationFiles
-            .add(isolated.rootProject.projectDirectory.file("compose_compiler_config.conf"))
     }
 }
