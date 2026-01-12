@@ -1,19 +1,18 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.voltech.android.application)
+    alias(libs.plugins.voltech.android.application.compose)
+    alias(libs.plugins.voltech.android.application.firebase)
+    alias(libs.plugins.voltech.hilt)
+    alias(libs.plugins.google.osslicenses)
+    alias(libs.plugins.baselineprofile)
+    alias(libs.plugins.roborazzi)
+    alias(libs.plugins.kotlin.serialization)
 }
-
 android {
     namespace = "com.tbc.voltech"
-    compileSdk {
-        version = release(36)
-    }
 
     defaultConfig {
         applicationId = "com.tbc.voltech"
-        minSdk = 24
-        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -29,32 +28,54 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-    buildFeatures {
-        compose = true
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+//    implementation(projects.feature.interests.api)
+//    implementation(projects.feature.interests.impl)
+//    implementation(projects.feature.foryou.api)
+//    implementation(projects.feature.foryou.impl)
+//    implementation(projects.feature.bookmarks.api)
+//    implementation(projects.feature.bookmarks.impl)
+//    implementation(projects.feature.topic.api)
+//    implementation(projects.feature.topic.impl)
+//    implementation(projects.feature.search.api)
+//    implementation(projects.feature.search.impl)
+//    implementation(projects.feature.settings.impl)
+//
+//    implementation(projects.core.common)
+//    implementation(projects.core.ui)
+//    implementation(projects.core.designsystem)
+//    implementation(projects.core.data)
+//    implementation(projects.core.model)
+//    implementation(projects.core.analytics)
+//    implementation(projects.sync.work)
+
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.compose.material3.adaptive)
+    implementation(libs.androidx.compose.material3.adaptive.layout)
+    implementation(libs.androidx.compose.material3.adaptive.navigation)
+    implementation(libs.androidx.compose.material3.adaptive.navigation3)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
+    implementation(libs.androidx.compose.runtime.tracing)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.lifecycle.viewModel.navigation3)
+    implementation(libs.androidx.profileinstaller)
+    implementation(libs.androidx.tracing.ktx)
+    implementation(libs.androidx.window.core)
+    implementation(libs.kotlinx.coroutines.guava)
+    implementation(libs.coil.kt)
+    implementation(libs.kotlinx.serialization.json)
+
+    ksp(libs.hilt.compiler)
 }
