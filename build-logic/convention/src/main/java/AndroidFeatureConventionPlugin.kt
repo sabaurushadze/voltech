@@ -17,7 +17,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation",libs.findLibrary("androidx.navigation.compose").get())
                 add("implementation",libs.findLibrary("serialization.json").get())
 
-                add("implementation",project(":core:ui"))
+                add("implementation",project(":core:presentation"))
                 add("implementation",project(":core:designsystem"))
             }
         }

@@ -20,5 +20,16 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "voltech"
 include(":app")
+
+include(":core:presentation")
+include(":core:domain")
+include(":core:data")
+include(":core:designsystem")
+
+include(":feature:auth")
+include(":feature:auth:data")
+include(":feature:auth:domain")
+include(":feature:auth:presentation")
