@@ -1,6 +1,4 @@
 import com.android.build.gradle.LibraryExtension
-import com.tbc.convention.ExtensionType
-import com.tbc.convention.configureBuildTypes
 import com.tbc.convention.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -17,7 +15,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
-                configureBuildTypes(this,ExtensionType.LIBRARY)
+//                configureBuildTypes(this,ExtensionType.LIBRARY)
             }
 
         }

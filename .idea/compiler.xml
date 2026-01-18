@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="11">
       <module name="voltech.datastore.data" target="21" />
+      <module name="voltech.feature.auth.data2" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>

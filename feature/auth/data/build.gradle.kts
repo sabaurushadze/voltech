@@ -6,6 +6,7 @@ plugins {
 
 android {
     namespace = "com.tbc.auth.data"
+
 }
 
 dependencies {

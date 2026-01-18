@@ -1,0 +1,23 @@
+package com.tbc.data.repository.login
+
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.tbc.data.mapper.mapExceptionToSignInError
+import com.tbc.domain.repository.login.LogInRepository
+import com.tbc.domain.util.DataError
+import com.tbc.domain.util.Resource
+import kotlinx.coroutines.tasks.await
+import javax.inject.Inject
+
+class LogInRepositoryImpl @Inject constructor() : LogInRepository {
+    override suspend fun logIn(email: String, password: String): Resource<Unit, DataError.Auth> {
+        return try {
+            Firebase.auth
+                .signInWithEmailAndPassword(email, password)
+                .await()
+            Resource.Success(Unit)
+        } catch (e: Exception) {
+            Resource.Failure(error = mapExceptionToSignInError(e))
+        }
+    }
+}

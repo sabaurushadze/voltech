@@ -45,4 +45,13 @@ dependencies {
     implementation(libs.splash.screen)
 
     implementation(libs.accompanist.permissions)
+
+    implementation(projects.feature.auth.data)
+    implementation(projects.feature.auth.domain)
+    implementation(projects.feature.auth.presentation)
+
+    implementation(projects.core.designsystem)
+    implementation(projects.core.presentation)
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
 }

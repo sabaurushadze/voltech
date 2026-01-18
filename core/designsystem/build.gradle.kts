@@ -3,5 +3,5 @@ plugins {
 }
 
 android {
-    namespace = "com.tbc.core.designsystem"
+    namespace = "com.tbc.designsystem"
 }

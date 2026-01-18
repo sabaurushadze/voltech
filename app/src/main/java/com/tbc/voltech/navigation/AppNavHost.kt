@@ -1,0 +1,41 @@
+package com.tbc.voltech.navigation
+
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.runtime.Composable
+import androidx.navigation.compose.NavHost
+import com.tbc.presentation.navigation.RegisterScreenRoute
+import com.tbc.presentation.navigation.authNavGraph
+import com.tbc.voltech.presentation.AppState
+import kotlin.reflect.KClass
+
+@Composable
+fun AppNavHost(
+    appState: AppState,
+    startDestination: KClass<*>,
+    onShowSnackBar: (String) -> Unit,
+    onSuccessfulAuth: () -> Unit,
+) {
+    val navController = appState.navController
+
+    NavHost(
+        navController = navController,
+        startDestination = startDestination,
+        enterTransition = { EnterTransition.None },
+        exitTransition = { ExitTransition.None },
+        popEnterTransition = { EnterTransition.None },
+        popExitTransition = { ExitTransition.None }
+    ) {
+        authNavGraph(
+            onShowSnackBar = onShowSnackBar,
+            navigateToRegister = {
+                navController.navigate(RegisterScreenRoute)
+            },
+            navigateBack = {
+                navController.navigateUp()
+            },
+            onSuccessfulAuth = onSuccessfulAuth
+        )
+
+    }
+}

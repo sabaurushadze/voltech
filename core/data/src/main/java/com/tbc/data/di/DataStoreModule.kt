@@ -1,4 +1,4 @@
-package com.tbc.data.local.datastore.di
+package com.tbc.data.di
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -18,7 +18,7 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class RepositoryModule {
+abstract class DataStoreModule {
 
     @Singleton
     @Binds

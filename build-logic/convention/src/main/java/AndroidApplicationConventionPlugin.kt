@@ -1,8 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.tbc.convention.AndroidProject
 import com.tbc.convention.AndroidProject.TARGET_SDK
-import com.tbc.convention.ExtensionType
-import com.tbc.convention.configureBuildTypes
 import com.tbc.convention.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -26,7 +24,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
                 configureKotlinAndroid(this)
 
-                configureBuildTypes(this,ExtensionType.APPLICATION)
+//                configureBuildTypes(this,ExtensionType.APPLICATION)
             }
 
         }
