@@ -12,6 +12,7 @@ sealed interface DataError : Error {
         data object Unauthenticated : Auth
         data object InvalidCredential : Auth
         data object AccountAlreadyExists : Auth
+        data object WeakPassword : Auth
         data object Cancelled : Auth
         data object Unknown : Auth
     }

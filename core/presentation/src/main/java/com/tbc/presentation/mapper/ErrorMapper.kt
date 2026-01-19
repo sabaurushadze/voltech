@@ -33,6 +33,8 @@ private fun DataError.Network.toStringResId(): Int = when (this) {
 }
 
 private fun DataError.Auth.toStringResId(): Int = when (this) {
+    DataError.Auth.InvalidCredential -> R.string.email_or_password_is_incorrect
+    DataError.Auth.WeakPassword -> R.string.password_too_weak
     DataError.Auth.Unauthenticated -> R.string.error_unauthenticated
     DataError.Auth.AccountAlreadyExists -> R.string.error_permission_denied
     else -> R.string.something_went_wrong_please_try_again

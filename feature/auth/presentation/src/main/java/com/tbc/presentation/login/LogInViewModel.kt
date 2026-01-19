@@ -1,6 +1,8 @@
 package com.tbc.presentation.login
 
 import androidx.lifecycle.viewModelScope
+import com.tbc.domain.usecase.ValidateEmailUseCase
+import com.tbc.domain.usecase.ValidatePasswordUseCase
 import com.tbc.domain.usecase.login.LogInWithEmailAndPasswordUseCase
 import com.tbc.domain.util.onFailure
 import com.tbc.domain.util.onSuccess
@@ -13,15 +15,23 @@ import javax.inject.Inject
 @HiltViewModel
 class LogInViewModel @Inject constructor(
     private val logInUseCase: LogInWithEmailAndPasswordUseCase,
+    private val validateEmailUseCase: ValidateEmailUseCase,
+    private val validatePasswordUseCase: ValidatePasswordUseCase,
 ) : BaseViewModel<LogInState, LogInSideEffect, LogInEvent>(LogInState()) {
 
     override fun onEvent(event: LogInEvent) {
         when (event) {
+
             is LogInEvent.LogIn -> logIn()
             is LogInEvent.NavigateToRegister -> navigateToRegister()
             is LogInEvent.EmailChanged -> updateEmail(event.email)
             is LogInEvent.PasswordChanged -> updatePassword(event.password)
+            LogInEvent.PasswordVisibilityChanged -> updatePasswordVisibility()
         }
+    }
+
+    private fun updatePasswordVisibility() {
+        updateState { copy(isPasswordVisible = !isPasswordVisible) }
     }
 
     private fun navigateToRegister() {
@@ -29,17 +39,34 @@ class LogInViewModel @Inject constructor(
     }
 
     private fun logIn() = viewModelScope.launch {
-        updateState { copy(isLoading = true) }
-        logInUseCase(email = state.value.email, password = state.value.password)
-            .onSuccess {
-                emitSideEffect(LogInSideEffect.Success)
-                updateState { copy(isLoading = false) }
+        updateState { copy(
+            isLoading = true,
+            showPasswordError = false,
+            showEmailError = false
+        ) }
+        val isEmailValid = validateEmailUseCase(state.value.email)
+        val isPasswordValid = validatePasswordUseCase(state.value.password)
+        if (isEmailValid && isPasswordValid) {
+            logInUseCase(email = state.value.email, password = state.value.password)
+                .onSuccess {
+                    emitSideEffect(LogInSideEffect.Success)
+                    updateState { copy(isLoading = false) }
 
+                }
+                .onFailure {
+                    emitSideEffect(LogInSideEffect.ShowSnackBar(errorRes = it.toStringResId()))
+                    updateState { copy(isLoading = false) }
+                }
+        } else {
+            updateState {
+                copy(
+                    showEmailError = !isEmailValid,
+                    showPasswordError = !isPasswordValid,
+                    isLoading = false
+                )
             }
-            .onFailure {
-                emitSideEffect(LogInSideEffect.ShowSnackBar(errorRes = it.toStringResId()))
-                updateState { copy(isLoading = false) }
-            }
+        }
+
     }
 
     private fun updateEmail(email: String) {

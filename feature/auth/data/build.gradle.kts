@@ -11,8 +11,6 @@ android {
 
 dependencies {
     implementation(libs.firebase.auth)
-    implementation(libs.androidx.work.runtime.ktx)
-
 }
 
 dependencies {

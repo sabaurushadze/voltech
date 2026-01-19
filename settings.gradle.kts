@@ -33,3 +33,8 @@ include(":feature:auth")
 include(":feature:auth:data")
 include(":feature:auth:domain")
 include(":feature:auth:presentation")
+
+include(":feature:home")
+include(":feature:home:data")
+include(":feature:home:domain")
+include(":feature:home:presentation")

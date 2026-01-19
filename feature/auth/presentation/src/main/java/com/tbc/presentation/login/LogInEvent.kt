@@ -5,4 +5,6 @@ sealed class LogInEvent {
     data object NavigateToRegister : LogInEvent()
     data class EmailChanged(val email: String) : LogInEvent()
     data class PasswordChanged(val password: String) : LogInEvent()
+    data object PasswordVisibilityChanged : LogInEvent()
+
 }

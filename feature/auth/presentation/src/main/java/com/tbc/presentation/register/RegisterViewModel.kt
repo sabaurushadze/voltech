@@ -1,7 +1,10 @@
 package com.tbc.presentation.register
 
 import androidx.lifecycle.viewModelScope
+import com.tbc.domain.usecase.ValidateEmailUseCase
+import com.tbc.domain.usecase.ValidatePasswordUseCase
 import com.tbc.domain.usecase.register.RegisterWithEmailAndPasswordUseCase
+import com.tbc.domain.usecase.register.ValidateRegistrationPasswordUseCase
 import com.tbc.domain.util.onFailure
 import com.tbc.domain.util.onSuccess
 import com.tbc.presentation.base.BaseViewModel
@@ -13,28 +16,53 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
     private val registerUseCase: RegisterWithEmailAndPasswordUseCase,
+    private val validateEmailUseCase: ValidateEmailUseCase,
+    private val validateRegistrationPasswordUseCase: ValidateRegistrationPasswordUseCase,
 ) : BaseViewModel<RegisterState, RegisterSideEffect, RegisterEvent>(RegisterState()) {
 
     override fun onEvent(event: RegisterEvent) {
         when (event) {
+
             is RegisterEvent.EmailChanged -> updateEmail(event.email)
             is RegisterEvent.PasswordChanged -> updatePassword(event.password)
             RegisterEvent.Register -> register()
+            RegisterEvent.PasswordVisibilityChanged -> updatePasswordVisibility()
         }
     }
 
-    private fun register() = viewModelScope.launch {
-        updateState { copy(isLoading = true) }
+    private fun updatePasswordVisibility() {
+        updateState { copy(isPasswordVisible = !isPasswordVisible) }
+    }
 
-        registerUseCase(email = state.value.email, password = state.value.password)
-            .onSuccess {
-                emitSideEffect(RegisterSideEffect.Success)
-                updateState { copy(isLoading = false) }
+    private fun register() = viewModelScope.launch {
+        updateState { copy(
+            isLoading = true,
+            showPasswordError = false,
+            showEmailError = false
+        ) }
+        val isEmailValid = validateEmailUseCase(state.value.email)
+        val isPasswordValid = validateRegistrationPasswordUseCase(state.value.password)
+
+        if (isEmailValid && isPasswordValid) {
+            registerUseCase(email = state.value.email, password = state.value.password)
+                .onSuccess {
+                    emitSideEffect(RegisterSideEffect.Success)
+                    updateState { copy(isLoading = false) }
+                }
+                .onFailure {
+                    emitSideEffect(RegisterSideEffect.ShowSnackBar(errorRes = it.toStringResId()))
+                    updateState { copy(isLoading = false) }
+                }
+        } else {
+            updateState {
+                copy(
+                    showEmailError = !isEmailValid,
+                    showPasswordError = !isPasswordValid,
+                    isLoading = false
+                )
             }
-            .onFailure {
-                emitSideEffect(RegisterSideEffect.ShowSnackBar(errorRes = it.toStringResId()))
-                updateState { copy(isLoading = false) }
-            }
+        }
+
     }
 
     private fun updateEmail(email: String) {

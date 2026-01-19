@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.tbc.designsystem"
 }
+
+dependencies{
+    implementation(libs.androidx.ui.text.google.fonts)
+}

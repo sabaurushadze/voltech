@@ -50,6 +50,10 @@ dependencies {
     implementation(projects.feature.auth.domain)
     implementation(projects.feature.auth.presentation)
 
+    implementation(projects.feature.home.data)
+    implementation(projects.feature.home.domain)
+    implementation(projects.feature.home.presentation)
+
     implementation(projects.core.designsystem)
     implementation(projects.core.presentation)
     implementation(projects.core.data)

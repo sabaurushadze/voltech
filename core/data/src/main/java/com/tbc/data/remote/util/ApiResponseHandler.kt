@@ -1,5 +1,8 @@
 package com.tbc.data.remote.util
 
+import android.util.Log.d
+import android.util.Log.e
+import android.util.Log.i
 import com.tbc.domain.util.DataError
 import com.tbc.domain.util.Resource
 import retrofit2.HttpException

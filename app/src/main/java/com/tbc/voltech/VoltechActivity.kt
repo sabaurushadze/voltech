@@ -11,6 +11,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.tbc.designsystem.theme.VoltechTheme
 import com.tbc.presentation.login.LogInScreen
 import com.tbc.presentation.navigation.AuthNavGraphRoute
+import com.tbc.presentation.navigation.HomeScreenRoute
 import com.tbc.voltech.main.MainActivityEvent
 import com.tbc.voltech.main.MainViewModel
 import com.tbc.voltech.presentation.VoltechApplication
@@ -36,7 +37,7 @@ class VoltechActivity : ComponentActivity() {
 
             state.isAuthorized?.let { isAuthorized ->
                 val startDestination =
-                    if (isAuthorized) AuthNavGraphRoute::class else AuthNavGraphRoute::class
+                    if (isAuthorized) HomeScreenRoute::class else AuthNavGraphRoute::class
                 val appState = rememberAppState()
                 VoltechTheme() {
                     VoltechApplication(

@@ -1,5 +1,6 @@
 package com.tbc.data.repository.register
 
+import android.util.Log.d
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.tbc.data.mapper.mapExceptionToSignInError
@@ -17,6 +18,7 @@ class RegisterRepositoryImpl @Inject constructor() : RegisterRepository {
                 .await()
             Resource.Success(Unit)
         } catch (e: Exception) {
+            d("asdd", "$e")
             Resource.Failure(error = mapExceptionToSignInError(e))
         }
     }

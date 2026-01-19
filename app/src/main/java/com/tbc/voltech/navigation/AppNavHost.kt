@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import com.tbc.presentation.navigation.RegisterScreenRoute
 import com.tbc.presentation.navigation.authNavGraph
+import com.tbc.presentation.navigation.homeNavGraph
 import com.tbc.voltech.presentation.AppState
 import kotlin.reflect.KClass
 
@@ -37,5 +38,8 @@ fun AppNavHost(
             onSuccessfulAuth = onSuccessfulAuth
         )
 
+        homeNavGraph(
+            onShowSnackBar = onShowSnackBar
+        )
     }
 }

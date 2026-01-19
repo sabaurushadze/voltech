@@ -12,11 +12,12 @@
     <string name="unknown_error">Unknown Error</string>
     <string name="no_internet_connection">No internet connection</string>
     <string name="user_with_this_email_cannot_be_registered">User with this email cannot be registered</string>
-    <string name="error_permission_denied">Permission denied</string>
+    <string name="error_permission_denied">Email with this account already exists</string>
     <string name="error_document_not_found">Document not found</string>
     <string name="error_unauthenticated">Your session has expired. Please log in again.</string>
     <string name="error_email_field_empty">Email field is empty</string>
     <string name="error_wrong_email_format">Wrong email format</string>
     <string name="error_password_field_empty">Password field is empty</string>
-    <string name="password_too_weak">Password must be at least 8 characters. \nContain at least 1 uppercase letter \nand one symbol.</string>
+    <string name="password_too_weak">Password must be at least 8 characters and include 1 number or special character</string>
+    <string name="email_or_password_is_incorrect">Email or Password is incorrect.</string>
 </resources>

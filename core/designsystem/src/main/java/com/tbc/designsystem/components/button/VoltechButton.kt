@@ -1,9 +1,11 @@
-package com.tbc.designsystem.components
+package com.tbc.designsystem.components.button
 
+import android.R
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -15,24 +17,26 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.tbc.designsystem.theme.Black
+import com.tbc.designsystem.theme.Dimen
+import com.tbc.designsystem.theme.TextStyles
 
 @Composable
 fun VoltechButton(
     modifier: Modifier = Modifier,
-    text: String = "",
+    text: String,
     border: BorderStroke? = null,
-    shape: Shape = RoundedCornerShape(4.dp),
-    buttonColor: Color = Black,
+    shape: Shape = RoundedCornerShape(Dimen.size6),
+    buttonColor: Color = MaterialTheme.colorScheme.primary,
     textColor: Color = Black,
-    textSize: TextUnit = 14.sp,
+    enabled: Boolean = true,
     onClick: () -> Unit,
 ) {
     val content: @Composable () -> Unit = {
         Text(
             text = text,
-            fontSize = textSize,
             textAlign = TextAlign.Center,
-            color = textColor
+            color = textColor,
+            style = TextStyles.bodyMedium
         )
     }
 
@@ -41,7 +45,8 @@ fun VoltechButton(
             modifier = modifier,
             border = border,
             shape = shape,
-            onClick = onClick
+            onClick = onClick,
+            enabled = enabled
         ) {
             content()
         }
@@ -55,6 +60,7 @@ fun VoltechButton(
                 contentColor = textColor
             ),
             shape = shape,
+            enabled = enabled,
             onClick = onClick
         ) {
             content()

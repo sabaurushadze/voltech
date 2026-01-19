@@ -5,4 +5,8 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="register">Register</string>
+    <string name="enter_valid_email">Please enter a valid email</string>
+    <string name="empty_password_field">Password field cannot be empty</string>
+    <string name="or">or</string>
+    <string name="password_format_error">Password must be at least 8 characters and include 1 number or special character</string>
 </resources>

@@ -15,8 +15,7 @@ import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -25,17 +24,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.auth.presentation.R
-import com.tbc.designsystem.components.VoltechButton
-import com.tbc.designsystem.theme.Black
+import com.tbc.designsystem.components.button.VoltechButton
+import com.tbc.designsystem.components.textfield.PasswordTextField
+import com.tbc.designsystem.components.textfield.TextInputField
+import com.tbc.designsystem.theme.Dimen
+import com.tbc.designsystem.theme.TextStyles
 import com.tbc.designsystem.theme.VoltechTheme
-import com.tbc.designsystem.theme.White
 
 @Composable
 fun RegisterScreen(
@@ -77,22 +77,27 @@ fun RegisterContent(
     onEvent: (RegisterEvent) -> Unit,
     onBackClick: () -> Unit,
 ) {
+    val emailError = if (state.showEmailError) stringResource(R.string.enter_valid_email) else null
+    val passwordError =
+        if (state.showPasswordError) stringResource(R.string.password_format_error) else null
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(Dimen.size16)
     ) {
 
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .statusBarsPadding()
-                .height(48.dp),
+                .height(Dimen.size48),
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(
                 onClick = { onBackClick() },
-                modifier = Modifier.size(48.dp)
+                modifier = Modifier.size(Dimen.size48)
             ) {
                 Icon(
                     imageVector = Icons.Default.ArrowBackIosNew,
@@ -107,64 +112,61 @@ fun RegisterContent(
             verticalArrangement = Arrangement.Center
         ) {
 
+            Text(
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(bottom = Dimen.size48),
+                text = stringResource(R.string.register),
+                color = MaterialTheme.colorScheme.onBackground,
+                style = TextStyles.headlineLarge
+            )
             if (state.isLoading) {
                 CircularProgressIndicator(
                     modifier = Modifier
-                        .size(48.dp)
+                        .size(Dimen.size48)
                         .align(Alignment.CenterHorizontally),
-                    color = Black
+                    color = MaterialTheme.colorScheme.primary
+
                 )
             }
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                modifier = Modifier.padding(
-                    bottom = 32.dp
-                ),
-                text = stringResource(R.string.register),
-                fontSize = 32.sp
-            )
 
-            OutlinedTextField(
+            Spacer(modifier = Modifier.height(Dimen.size16))
+
+            TextInputField(
                 value = state.email,
-                onValueChange = { onEvent(RegisterEvent.EmailChanged(it)) },
-                label = { Text(stringResource(R.string.email)) },
+                onTextChanged = { onEvent(RegisterEvent.EmailChanged(it)) },
                 modifier = Modifier.fillMaxWidth(),
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = Black,
-                    focusedTextColor = Black,
-                    focusedLabelColor = Black,
-                    focusedLeadingIconColor = Black,
-
-                    )
+                label = stringResource(R.string.email),
+                enabled = !state.isLoading,
+                errorText = emailError,
+                imeAction = ImeAction.Next,
+                keyboardType = KeyboardType.Email,
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(Dimen.size16))
 
-            OutlinedTextField(
+            PasswordTextField(
+                modifier = Modifier.fillMaxWidth(),
                 value = state.password,
-                onValueChange = { onEvent(RegisterEvent.PasswordChanged(it)) },
-                label = { Text(stringResource(R.string.password)) },
-                modifier = Modifier.fillMaxWidth(),
-                visualTransformation = PasswordVisualTransformation(),
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = Black,
-                    focusedTextColor = Black,
-                    focusedLabelColor = Black,
-                    focusedLeadingIconColor = Black,
-
-                    )
+                enabled = !state.isLoading,
+                label = stringResource(R.string.password),
+                isPasswordVisible = state.isPasswordVisible,
+                errorText = passwordError,
+                imeAction = ImeAction.Done,
+                onTextChanged = { onEvent(RegisterEvent.PasswordChanged(it)) },
+                onToggleTextVisibility = { onEvent(RegisterEvent.PasswordVisibilityChanged) }
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(Dimen.size16))
 
             VoltechButton(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(52.dp),
+                    .height(Dimen.buttonLarge),
                 text = stringResource(R.string.register),
-                buttonColor = Black,
-                textColor = White,
-                textSize = 14.sp,
+                buttonColor = MaterialTheme.colorScheme.primary,
+                textColor = MaterialTheme.colorScheme.onPrimary,
+                enabled = state.isRegisterEnabled,
                 onClick = {
                     onEvent(RegisterEvent.Register)
                 }
