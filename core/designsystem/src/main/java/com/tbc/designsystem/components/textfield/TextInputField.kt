@@ -1,8 +1,6 @@
 package com.tbc.designsystem.components.textfield
 
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -11,9 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
-import com.tbc.designsystem.theme.Dimen
 import com.tbc.designsystem.theme.TextStyles
-import com.tbc.designsystem.theme.Transparent
+import com.tbc.designsystem.theme.VoltechColor
+import com.tbc.designsystem.theme.VoltechRadius
 
 @Composable
 fun TextInputField(
@@ -31,12 +29,7 @@ fun TextInputField(
         modifier = modifier,
         value = value,
         enabled = enabled,
-        colors = OutlinedTextFieldDefaults.colors(
-            unfocusedContainerColor = Transparent,
-            errorContainerColor = Transparent,
-            disabledContainerColor = Transparent,
-            focusedContainerColor = Transparent,
-        ),
+        colors = OutlinedTextFieldDefaults.colors(),
         label = label?.let {
             {
                 Text(
@@ -52,14 +45,14 @@ fun TextInputField(
                 Text(
                     text = it,
                     style = TextStyles.bodySmall,
-                    color = MaterialTheme.colorScheme.error
+                    color = VoltechColor.error
                 )
             }
         },
         visualTransformation = visualTransformation,
         singleLine = true,
         isError = errorText != null,
-        shape = RoundedCornerShape(Dimen.roundedCornerMediumSize),
+        shape = VoltechRadius.radius16,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction),
     )
 }

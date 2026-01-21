@@ -1,0 +1,1866 @@
+{
+  "pc_parts": [
+    {
+      "id": 1,
+      "title": "GeForce RTX 4060 8GB",
+      "category": 1,
+      "condition": "new",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+      ],
+      "description": "A high-end next-gen GPU designed for 4K and AI workloads.",
+      "brand": "ASUS",
+      "warranty": 3,
+      "model": "RTX 4060",
+      "memorySize": "16GB GDDR7"
+    },
+    {
+      "id": 2,
+      "title": "GeForce RTX 4060 8GB",
+      "category": 1,
+      "condition": "pre owned",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+      ],
+      "description": "A high-end next-gen GPU designed for 4K and AI workloads.",
+      "brand": "ASUS",
+      "warranty": 3,
+      "model": "RTX 4060",
+      "memorySize": "16GB GDDR7"
+    },
+    {
+      "id": 3,
+      "title": "GeForce RTX 5060 8GB",
+      "category": 1,
+      "condition": "new",
+      "price": 1099.49,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+      ],
+      "description": "A high-end next-gen GPU designed for 4K and AI workloads.",
+      "brand": "ASUS",
+      "warranty": 3,
+      "model": "RTX 4060",
+      "memorySize": "16GB GDDR7"
+    },
+    {
+      "id": 4,
+      "title": "GeForce RTX 5070Ti 16GB",
+      "category": 1,
+      "condition": "new",
+      "price": 400,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+      ],
+      "description": "A high-end next-gen GPU designed for 4K and AI workloads.",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "RTX 4060",
+      "memorySize": "16GB GDDR7"
+    },
+    {
+      "id": 5,
+      "title": "GeForce RTX 5090 24GB",
+      "category": 1,
+      "condition": "open box",
+      "price": 3499.99,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+      ],
+      "description": "A high-end next-gen GPU designed for 4K and AI workloads.",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "RTX 4060",
+      "memorySize": "16GB GDDR7"
+    },
+    {
+      "id": 6,
+      "title": "GeForce RTX 4070Ti 12GB",
+      "category": 1,
+      "condition": "new",
+      "price": 1954,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+      ],
+      "description": "A high-end next-gen GPU designed for 4K and AI workloads.",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "RTX 4060",
+      "memorySize": "16GB GDDR7"
+    },
+    {
+      "id": 7,
+      "title": "GeForce RTX 4070 12GB",
+      "category": 1,
+      "condition": "pre owned",
+      "price": 1785.23,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+      ],
+      "description": "A high-end next-gen GPU designed for 4K and AI workloads.",
+      "brand": "MSI",
+      "warranty": 24,
+      "model": "RTX 4060",
+      "memorySize": "8GB GDDR7"
+    },
+    {
+      "id": 8,
+      "title": "GeForce RTX 4060Ti 8GB",
+      "category": 1,
+      "condition": "open box",
+      "price": 1490,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+      ],
+      "description": "A high-end next-gen GPU designed for 4K and AI workloads.",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "RTX 4060",
+      "memorySize": "8GB GDDR7"
+    },
+    {
+      "id": 9,
+      "title": "GeForce RTX 3090 24GB",
+      "category": 1,
+      "condition": "open box",
+      "price": 1730,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+      ],
+      "description": "A high-end next-gen GPU designed for 4K and AI workloads.",
+      "brand": "MSI",
+      "warranty": 6,
+      "model": "RTX 4060",
+      "memorySize": "8GB GDDR7"
+    },
+    {
+      "id": 10,
+      "title": "GeForce RTX 3080Ti 12GB",
+      "category": 1,
+      "condition": "pre owned",
+      "price": 1590,
+      "discount": 20,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+      ],
+      "description": "A high-end next-gen GPU designed for 4K and AI workloads.",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "RTX 4060",
+      "cores": "8GB GDDR7"
+    },
+    {
+      "id": 11,
+      "title": "Intel Core i5-14400",
+      "category": 2,
+      "condition": "new",
+      "price": 1250,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png"
+      ],
+      "description": "A high-end cpu to work with Android studio",
+      "brand": "Intel",
+      "warranty": 3,
+      "model": "i5",
+      "cores": "16GB GDDR7"
+    },
+    {
+      "id": 12,
+      "title": "Intel Core i7-14600 Unlocked",
+      "category": 2,
+      "condition": "pre owned",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png"
+      ],
+      "description": "A high-end cpu to work with Android studio",
+      "brand": "Intel",
+      "warranty": 3,
+      "model": "i7",
+      "cores": "16GB GDDR7"
+    },
+    {
+      "id": 13,
+      "title": "Intel Core i7-14600 Unlocked",
+      "category": 2,
+      "condition": "new",
+      "price": 1099.49,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png"
+      ],
+      "description": "A high-end cpu to work with Android studio",
+      "brand": "Intel",
+      "warranty": 3,
+      "model": "i7",
+      "cores": "16GB GDDR7"
+    },
+    {
+      "id": 14,
+      "title": "Intel Core i7-14600 Unlocked",
+      "category": 2,
+      "condition": "new",
+      "price": 400,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png"
+      ],
+      "description": "A high-end cpu to work with Android studio",
+      "brand": "Intel",
+      "warranty": 3,
+      "model": "i7",
+      "cores": "16GB GDDR7"
+    },
+    {
+      "id": 15,
+      "title": "Intel Core i7-14600 Unlocked",
+      "category": 2,
+      "condition": "open box",
+      "price": 3499.99,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png"
+      ],
+      "description": "A high-end cpu to work with Android studio",
+      "brand": "Intel",
+      "warranty": 12,
+      "model": "i7",
+      "cores": "16GB GDDR7"
+    },
+    {
+      "id": 16,
+      "title": "Intel Core i7-14600 Unlocked",
+      "category": 2,
+      "condition": "new",
+      "price": 1954,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png"
+      ],
+      "description": "A high-end cpu to work with Android studio",
+      "brand": "Intel",
+      "warranty": 3,
+      "model": "i7",
+      "cores": "16GB GDDR7"
+    },
+    {
+      "id": 17,
+      "title": "Intel Core i7-14600 Unlocked",
+      "category": 2,
+      "condition": "pre owned",
+      "price": 1785.23,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png"
+      ],
+      "description": "A high-end cpu to work with Android studio",
+      "brand": "Intel",
+      "warranty": 24,
+      "model": "i7",
+      "cores": "8GB GDDR7"
+    },
+    {
+      "id": 18,
+      "title": "Intel Core i7-14600 Unlocked",
+      "category": 2,
+      "condition": "open box",
+      "price": 1490,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png"
+      ],
+      "description": "A high-end cpu to work with Android studio",
+      "brand": "Intel",
+      "warranty": 3,
+      "model": "i7",
+      "cores": "8GB GDDR7"
+    },
+    {
+      "id": 19,
+      "title": "Intel Core i7-14600 Unlocked",
+      "category": 2,
+      "condition": "open box",
+      "price": 1730,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png"
+      ],
+      "description": "A high-end cpu to work with Android studio",
+      "brand": "Intel",
+      "warranty": 6,
+      "model": "i7",
+      "cores": "8GB GDDR7"
+    },
+    {
+      "id": 20,
+      "title": "Intel Core i7-14600 Unlocked",
+      "category": 2,
+      "condition": "pre owned",
+      "price": 1590,
+      "discount": 20,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu/cpu_i7.png"
+      ],
+      "description": "A high-end cpu to work with Android studio",
+      "brand": "Intel",
+      "warranty": 12,
+      "model": "i7",
+      "cores": "8GB GDDR7"
+    },
+    {
+      "id": 21,
+      "title": "MSI MAG B550 TOMAHAWK",
+      "category": 3,
+      "condition": "new",
+      "price": 1250,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png"
+      ],
+      "description": "High-end motherboard for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 22,
+      "title": "MSI MAG B550 TOMAHAWK",
+      "category": 3,
+      "condition": "pre owned",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png"
+      ],
+      "description": "High-end motherboard for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 23,
+      "title": "MSI MAG B550 TOMAHAWK",
+      "category": 3,
+      "condition": "new",
+      "price": 1099.49,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png"
+      ],
+      "description": "High-end motherboard for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 24,
+      "title": "MSI MAG B550 TOMAHAWK",
+      "category": 3,
+      "condition": "new",
+      "price": 400,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png"
+      ],
+      "description": "High-end motherboard for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 25,
+      "title": "MSI MAG B550 TOMAHAWK",
+      "category": 3,
+      "condition": "open box",
+      "price": 3499.99,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png"
+      ],
+      "description": "High-end motherboard for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 26,
+      "title": "MSI MAG B550 TOMAHAWK",
+      "category": 3,
+      "condition": "new",
+      "price": 1954,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png"
+      ],
+      "description": "High-end motherboard for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 27,
+      "title": "MSI MAG B550 TOMAHAWK",
+      "category": 3,
+      "condition": "pre owned",
+      "price": 1785.23,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png"
+      ],
+      "description": "High-end motherboard for gaming",
+      "brand": "MSI",
+      "warranty": 24,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 28,
+      "title": "MSI MAG B550 TOMAHAWK",
+      "category": 3,
+      "condition": "open box",
+      "price": 1490,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png"
+      ],
+      "description": "High-end motherboard for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 29,
+      "title": "MSI MAG B550 TOMAHAWK",
+      "category": 3,
+      "condition": "open box",
+      "price": 1730,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png"
+      ],
+      "description": "High-end motherboard for gaming",
+      "brand": "MSI",
+      "warranty": 6,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 30,
+      "title": "MSI MAG B550 TOMAHAWK",
+      "category": 3,
+      "condition": "pre owned",
+      "price": 1590,
+      "discount": 20,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/motherboard/motherboard.png"
+      ],
+      "description": "High-end motherboard for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 31,
+      "title": "KINGSTON FURY BEAST DDR5 32GB",
+      "category": 4,
+      "condition": "new",
+      "price": 1250,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png"
+      ],
+      "description": "High-end RAM for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 32,
+      "title": "KINGSTON FURY BEAST DDR5 32GB",
+      "category": 4,
+      "condition": "pre owned",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png"
+      ],
+      "description": "High-end RAM for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 33,
+      "title": "KINGSTON FURY BEAST DDR5 32GB",
+      "category": 4,
+      "condition": "new",
+      "price": 1099.49,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png"
+      ],
+      "description": "High-end RAM for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 34,
+      "title": "KINGSTON FURY BEAST DDR5 32GB",
+      "category": 4,
+      "condition": "new",
+      "price": 400,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png"
+      ],
+      "description": "High-end RAM for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 35,
+      "title": "KINGSTON FURY BEAST DDR5 32GB",
+      "category": 4,
+      "condition": "open box",
+      "price": 3499.99,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png"
+      ],
+      "description": "High-end RAM for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 36,
+      "title": "KINGSTON FURY BEAST DDR5 32GB",
+      "category": 4,
+      "condition": "new",
+      "price": 1954,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png"
+      ],
+      "description": "High-end RAM for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 37,
+      "title": "KINGSTON FURY BEAST DDR5 32GB",
+      "category": 4,
+      "condition": "pre owned",
+      "price": 1785.23,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png"
+      ],
+      "description": "High-end RAM for gaming",
+      "brand": "MSI",
+      "warranty": 24,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 38,
+      "title": "KINGSTON FURY BEAST DDR5 32GB",
+      "category": 4,
+      "condition": "open box",
+      "price": 1490,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png"
+      ],
+      "description": "High-end RAM for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 39,
+      "title": "KINGSTON FURY BEAST DDR5 32GB",
+      "category": 4,
+      "condition": "open box",
+      "price": 1730,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png"
+      ],
+      "description": "High-end RAM for gaming",
+      "brand": "MSI",
+      "warranty": 6,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 40,
+      "title": "KINGSTON FURY BEAST DDR5 32GB",
+      "category": 4,
+      "condition": "pre owned",
+      "price": 1590,
+      "discount": 20,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ram/ramfurybeast.png"
+      ],
+      "description": "High-end RAM for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 41,
+      "title": "SAMSUNG 990 PRO 2TB",
+      "category": 5,
+      "condition": "new",
+      "price": 1250,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png"
+      ],
+      "description": "High-end SSD for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 42,
+      "title": "SAMSUNG 990 PRO 2TB",
+      "category": 5,
+      "condition": "pre owned",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png"
+      ],
+      "description": "High-end SSD for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 43,
+      "title": "SAMSUNG 990 PRO 2TB",
+      "category": 5,
+      "condition": "new",
+      "price": 1099.49,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png"
+      ],
+      "description": "High-end SSD for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 44,
+      "title": "SAMSUNG 990 PRO 2TB",
+      "category": 5,
+      "condition": "new",
+      "price": 400,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png"
+      ],
+      "description": "High-end SSD for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 45,
+      "title": "SAMSUNG 990 PRO 2TB",
+      "category": 5,
+      "condition": "open box",
+      "price": 3499.99,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png"
+      ],
+      "description": "High-end SSD for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 46,
+      "title": "SAMSUNG 990 PRO 2TB",
+      "category": 5,
+      "condition": "new",
+      "price": 1954,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png"
+      ],
+      "description": "High-end SSD for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 47,
+      "title": "SAMSUNG 990 PRO 2TB",
+      "category": 5,
+      "condition": "pre owned",
+      "price": 1785.23,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png"
+      ],
+      "description": "High-end SSD for gaming",
+      "brand": "MSI",
+      "warranty": 24,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 48,
+      "title": "SAMSUNG 990 PRO 2TB",
+      "category": 5,
+      "condition": "open box",
+      "price": 1490,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png"
+      ],
+      "description": "High-end SSD for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 49,
+      "title": "SAMSUNG 990 PRO 2TB",
+      "category": 5,
+      "condition": "open box",
+      "price": 1730,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png"
+      ],
+      "description": "High-end SSD for gaming",
+      "brand": "MSI",
+      "warranty": 6,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 50,
+      "title": "SAMSUNG 990 PRO 2TB",
+      "category": 5,
+      "condition": "pre owned",
+      "price": 1590,
+      "discount": 20,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/ssd/ssd990pro.png"
+      ],
+      "description": "High-end SSD for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 51,
+      "title": "CORSAIR RM850",
+      "category": 6,
+      "condition": "new",
+      "price": 1250,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 52,
+      "title": "CORSAIR RM850",
+      "category": 6,
+      "condition": "pre owned",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 53,
+      "title": "CORSAIR RM850",
+      "category": 6,
+      "condition": "new",
+      "price": 1099.49,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 54,
+      "title": "CORSAIR RM850",
+      "category": 6,
+      "condition": "new",
+      "price": 400,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 55,
+      "title": "CORSAIR RM850",
+      "category": 6,
+      "condition": "open box",
+      "price": 3499.99,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 56,
+      "title": "CORSAIR RM850",
+      "category": 6,
+      "condition": "new",
+      "price": 1954,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 57,
+      "title": "CORSAIR RM850",
+      "category": 6,
+      "condition": "pre owned",
+      "price": 1785.23,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 24,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 58,
+      "title": "CORSAIR RM850",
+      "category": 6,
+      "condition": "open box",
+      "price": 1490,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 59,
+      "title": "CORSAIR RM850",
+      "category": 6,
+      "condition": "open box",
+      "price": 1730,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 6,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 60,
+      "title": "CORSAIR RM850",
+      "category": 6,
+      "condition": "pre owned",
+      "price": 1590,
+      "discount": 20,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/psu/psucorsair850.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 61,
+      "title": "THERMALRIGHT Peerless Assassin 120",
+      "category": 7,
+      "condition": "new",
+      "price": 1250,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 62,
+      "title": "THERMALRIGHT Peerless Assassin 120",
+      "category": 7,
+      "condition": "pre owned",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 63,
+      "title": "THERMALRIGHT Peerless Assassin 120",
+      "category": 7,
+      "condition": "new",
+      "price": 1099.49,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 64,
+      "title": "THERMALRIGHT Peerless Assassin 120",
+      "category": 7,
+      "condition": "new",
+      "price": 400,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 65,
+      "title": "THERMALRIGHT Peerless Assassin 120",
+      "category": 7,
+      "condition": "open box",
+      "price": 3499.99,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 66,
+      "title": "THERMALRIGHT Peerless Assassin 120",
+      "category": 7,
+      "condition": "new",
+      "price": 1954,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 67,
+      "title": "THERMALRIGHT Peerless Assassin 120",
+      "category": 7,
+      "condition": "pre owned",
+      "price": 1785.23,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 24,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 68,
+      "title": "THERMALRIGHT Peerless Assassin 120",
+      "category": 7,
+      "condition": "open box",
+      "price": 1490,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 69,
+      "title": "THERMALRIGHT Peerless Assassin 120",
+      "category": 7,
+      "condition": "open box",
+      "price": 1730,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 6,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 70,
+      "title": "THERMALRIGHT Peerless Assassin 120",
+      "category": 7,
+      "condition": "pre owned",
+      "price": 1590,
+      "discount": 20,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/cpu_cooler/cpucooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 71,
+      "title": "Western Digital HDD 4TB",
+      "category": 8,
+      "condition": "new",
+      "price": 1250,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 72,
+      "title": "Western Digital HDD 4TB",
+      "category": 8,
+      "condition": "pre owned",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 73,
+      "title": "Western Digital HDD 4TB",
+      "category": 8,
+      "condition": "new",
+      "price": 1099.49,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 74,
+      "title": "Western Digital HDD 4TB",
+      "category": 8,
+      "condition": "new",
+      "price": 400,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 75,
+      "title": "Western Digital HDD 4TB",
+      "category": 8,
+      "condition": "open box",
+      "price": 3499.99,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 76,
+      "title": "Western Digital HDD 4TB",
+      "category": 8,
+      "condition": "new",
+      "price": 1954,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 77,
+      "title": "Western Digital HDD 4TB",
+      "category": 8,
+      "condition": "pre owned",
+      "price": 1785.23,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 24,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 78,
+      "title": "Western Digital HDD 4TB",
+      "category": 8,
+      "condition": "open box",
+      "price": 1490,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 79,
+      "title": "Western Digital HDD 4TB",
+      "category": 8,
+      "condition": "open box",
+      "price": 1730,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 6,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 80,
+      "title": "Western Digital HDD 4TB",
+      "category": 8,
+      "condition": "pre owned",
+      "price": 1590,
+      "discount": 20,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/hdd/hdd_wd.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 81,
+      "title": "ARCTIC LIQUID FREEZER III",
+      "category": 9,
+      "condition": "new",
+      "price": 1250,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 82,
+      "title": "ARCTIC LIQUID FREEZER III",
+      "category": 9,
+      "condition": "pre owned",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 83,
+      "title": "ARCTIC LIQUID FREEZER III",
+      "category": 9,
+      "condition": "new",
+      "price": 1099.49,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 84,
+      "title": "ARCTIC LIQUID FREEZER III",
+      "category": 9,
+      "condition": "new",
+      "price": 400,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 85,
+      "title": "ARCTIC LIQUID FREEZER III",
+      "category": 9,
+      "condition": "open box",
+      "price": 3499.99,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 86,
+      "title": "ARCTIC LIQUID FREEZER III",
+      "category": 9,
+      "condition": "new",
+      "price": 1954,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 87,
+      "title": "ARCTIC LIQUID FREEZER III",
+      "category": 9,
+      "condition": "pre owned",
+      "price": 1785.23,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 24,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 88,
+      "title": "ARCTIC LIQUID FREEZER III",
+      "category": 9,
+      "condition": "open box",
+      "price": 1490,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 89,
+      "title": "ARCTIC LIQUID FREEZER III",
+      "category": 9,
+      "condition": "open box",
+      "price": 1730,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 6,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 90,
+      "title": "ARCTIC LIQUID FREEZER III",
+      "category": 9,
+      "condition": "pre owned",
+      "price": 1590,
+      "discount": 20,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case_cooler/case_cooler.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 91,
+      "title": "LANCOOL 217",
+      "category": 10,
+      "condition": "new",
+      "price": 1250,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 92,
+      "title": "LANCOOL 217",
+      "category": 10,
+      "condition": "pre owned",
+      "price": 50,
+      "discount": 0,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 93,
+      "title": "LANCOOL 217",
+      "category": 10,
+      "condition": "new",
+      "price": 1099.49,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 94,
+      "title": "LANCOOL 217",
+      "category": 10,
+      "condition": "new",
+      "price": 400,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 95,
+      "title": "LANCOOL 217",
+      "category": 10,
+      "condition": "open box",
+      "price": 3499.99,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 96,
+      "title": "LANCOOL 217",
+      "category": 10,
+      "condition": "new",
+      "price": 1954,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 97,
+      "title": "LANCOOL 217",
+      "category": 10,
+      "condition": "pre owned",
+      "price": 1785.23,
+      "discount": 5,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 24,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 98,
+      "title": "LANCOOL 217",
+      "category": 10,
+      "condition": "open box",
+      "price": 1490,
+      "discount": 0,
+      "quantity": 2,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 3,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 99,
+      "title": "LANCOOL 217",
+      "category": 10,
+      "condition": "open box",
+      "price": 1730,
+      "discount": 0,
+      "quantity": 1,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 6,
+      "model": "Gaming PLUS"
+    },
+    {
+      "id": 100,
+      "title": "LANCOOL 217",
+      "category": 10,
+      "condition": "pre owned",
+      "price": 1590,
+      "discount": 20,
+      "quantity": 5,
+      "images": [
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png",
+        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/case/lianlicase.png"
+      ],
+      "description": "High-end PSU for gaming",
+      "brand": "MSI",
+      "warranty": 12,
+      "model": "Gaming PLUS"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "category": 1
+    },
+    {
+      "id": 2,
+      "category": 2
+    },
+    {
+      "id": 3,
+      "category": 3
+    },
+    {
+      "id": 4,
+      "category": 4
+    },
+    {
+      "id": 5,
+      "category": 5
+    },
+    {
+      "id": 6,
+      "category": 6
+    },
+    {
+      "id": 7,
+      "category": 7
+    },
+    {
+      "id": 8,
+      "category": 8
+    },
+    {
+      "id": 9,
+      "category": 9
+    },
+    {
+      "id": 10,
+      "category": 10
+    }
+  ]
+}

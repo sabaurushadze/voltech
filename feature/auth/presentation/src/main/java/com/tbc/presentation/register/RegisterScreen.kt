@@ -15,7 +15,6 @@ import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -35,6 +34,7 @@ import com.tbc.designsystem.components.textfield.PasswordTextField
 import com.tbc.designsystem.components.textfield.TextInputField
 import com.tbc.designsystem.theme.Dimen
 import com.tbc.designsystem.theme.TextStyles
+import com.tbc.designsystem.theme.VoltechColor
 import com.tbc.designsystem.theme.VoltechTheme
 
 @Composable
@@ -117,7 +117,7 @@ fun RegisterContent(
                     .align(Alignment.CenterHorizontally)
                     .padding(bottom = Dimen.size48),
                 text = stringResource(R.string.register),
-                color = MaterialTheme.colorScheme.onBackground,
+                color = VoltechColor.onBackground,
                 style = TextStyles.headlineLarge
             )
             if (state.isLoading) {
@@ -125,7 +125,7 @@ fun RegisterContent(
                     modifier = Modifier
                         .size(Dimen.size48)
                         .align(Alignment.CenterHorizontally),
-                    color = MaterialTheme.colorScheme.primary
+                    color = VoltechColor.primary
 
                 )
             }
@@ -164,8 +164,7 @@ fun RegisterContent(
                     .fillMaxWidth()
                     .height(Dimen.buttonLarge),
                 text = stringResource(R.string.register),
-                buttonColor = MaterialTheme.colorScheme.primary,
-                textColor = MaterialTheme.colorScheme.onPrimary,
+                buttonColor = VoltechColor.primary,
                 enabled = state.isRegisterEnabled,
                 onClick = {
                     onEvent(RegisterEvent.Register)

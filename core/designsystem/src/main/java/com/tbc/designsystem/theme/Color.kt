@@ -1,24 +1,38 @@
 package com.tbc.designsystem.theme
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 
+val LocalColor = compositionLocalOf { VoltechColors() }
 
-val Black = Color(0xFF000000)
-val White = Color(0xFFFFFFFF)
+val VoltechColor: VoltechColors
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalColor.current
 
-val Blue200 = Color(0xFF5A9BFF)
-val Blue500 = Color(0xFF0064D2)
-val Blue700 = Color(0xFF003A8F)
+data class VoltechColors(
+    val primary: Color = Color.Unspecified,
+    val onPrimary: Color = Color.Unspecified,
+    val background: Color = Color.Unspecified,
+    val onBackground: Color = Color.Unspecified,
 
-val Green200 = Color(0xFF81C784)
-val Green500 = Color(0xFF2E7D32)
-val Green700 = Color(0xFF1B5E20)
+    val error: Color = Color.Unspecified
+    )
 
-val Red200 = Color(0xFFEF9A9A)
-val Red500 = Color(0xFFD32F2F)
-val Red700 = Color(0xFFB71C1C)
+internal val lightVoltechColors = VoltechColors(
+    primary = Color(0xFF0064D2),
+    onPrimary = Color(0xFFFFFFFF),
+    background = Color(0xFFF6F9FF),
+    onBackground = Color(0xFF101010),
+    error = Color(0xFFB61616)
+)
 
-val Gray200 = Color(0xFFEEEEEE)
-val Gray500 = Color(0xFF9E9E9E)
-val Gray700 = Color(0xFF424242)
-val Transparent = Color(0x00000000)
+internal val darkVoltechColors = VoltechColors(
+    primary = Color(0xFF5A9BFF),
+    onPrimary = Color(0xFF000000),
+    background = Color(0xFF2C2E36),
+    onBackground = Color(0xFFF5F6FC),
+    error = Color(0xFFEA5858)
+)

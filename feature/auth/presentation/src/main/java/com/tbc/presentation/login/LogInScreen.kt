@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -31,6 +30,7 @@ import com.tbc.designsystem.components.textfield.PasswordTextField
 import com.tbc.designsystem.components.textfield.TextInputField
 import com.tbc.designsystem.theme.Dimen
 import com.tbc.designsystem.theme.TextStyles
+import com.tbc.designsystem.theme.VoltechColor
 import com.tbc.designsystem.theme.VoltechTheme
 
 @Composable
@@ -94,7 +94,7 @@ fun LogInContent(
                     .align(Alignment.CenterHorizontally)
                     .padding(bottom = Dimen.size48),
                 text = stringResource(R.string.log_in),
-                color = MaterialTheme.colorScheme.onBackground,
+                color = VoltechColor.onBackground,
                 style = TextStyles.headlineLarge
             )
             if (state.isLoading) {
@@ -102,7 +102,7 @@ fun LogInContent(
                     modifier = Modifier
                         .size(Dimen.size48)
                         .align(Alignment.CenterHorizontally),
-                    color = MaterialTheme.colorScheme.primary
+                    color = VoltechColor.primary
                 )
             }
             Spacer(modifier = Modifier.height(Dimen.size16))
@@ -142,8 +142,7 @@ fun LogInContent(
                     .fillMaxWidth()
                     .height(Dimen.buttonLarge),
                 text = stringResource(R.string.log_in),
-                buttonColor = MaterialTheme.colorScheme.primary,
-                textColor = MaterialTheme.colorScheme.onPrimary,
+                buttonColor = VoltechColor.primary,
                 enabled = state.isLoginEnabled,
                 onClick = {
                     onEvent(LogInEvent.LogIn)
@@ -163,10 +162,9 @@ fun LogInContent(
                     .fillMaxWidth()
                     .height(Dimen.buttonLarge),
                 text = stringResource(R.string.register),
-                buttonColor = MaterialTheme.colorScheme.primary,
-                textColor = MaterialTheme.colorScheme.onBackground,
+                buttonColor = VoltechColor.primary,
                 border = BorderStroke(
-                    Dimen.size1, MaterialTheme.colorScheme.onBackground
+                    Dimen.size1, VoltechColor.onBackground
                 ),
                 onClick = {
                     onEvent(LogInEvent.NavigateToRegister)
