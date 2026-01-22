@@ -9,9 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
-import com.tbc.designsystem.theme.TextStyles
 import com.tbc.designsystem.theme.VoltechColor
 import com.tbc.designsystem.theme.VoltechRadius
+import com.tbc.designsystem.theme.VoltechTextStyle
 
 @Composable
 fun TextInputField(
@@ -34,17 +34,17 @@ fun TextInputField(
             {
                 Text(
                     text = it,
-                    style = TextStyles.bodySmall
+                    style = VoltechTextStyle.body14Normal
                 )
             }
         },
-        textStyle = TextStyles.bodyLarge,
+        textStyle = VoltechTextStyle.body16Normal,
         onValueChange = { onTextChanged(it) },
         supportingText = errorText?.let {
             {
                 Text(
                     text = it,
-                    style = TextStyles.bodySmall,
+                    style = VoltechTextStyle.body14Normal,
                     color = VoltechColor.error
                 )
             }

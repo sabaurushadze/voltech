@@ -10,8 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.tbc.designsystem.theme.Dimen
-import com.tbc.designsystem.theme.TextStyles
 import com.tbc.designsystem.theme.VoltechColor
+import com.tbc.designsystem.theme.VoltechTextStyle
 
 @Composable
 fun Divider(
@@ -31,7 +31,7 @@ fun Divider(
             Text(
                 modifier = Modifier.padding(horizontal = Dimen.size24),
                 text = it,
-                style = TextStyles.labelMedium,
+                style = VoltechTextStyle.body16Normal,
                 color = textColor
             )
 

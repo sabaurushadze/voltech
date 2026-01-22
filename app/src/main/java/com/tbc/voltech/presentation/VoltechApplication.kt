@@ -13,6 +13,9 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.NavDestination.Companion.hierarchy
 import com.tbc.voltech.navigation.AppNavHost
 import kotlinx.coroutines.launch
 import kotlin.reflect.KClass
@@ -43,6 +46,10 @@ fun VoltechApplication(
 ) {
     val coroutineScope = appState.coroutineScope
 
+    val currentDestination = appState.currentDestination
+    val topLevelDestinations = appState.topLevelDestinations
+    val currentTopLevelDestination = appState.currentTopLevelDestination
+
     Scaffold(
         snackbarHost = {
             SnackbarHost(
@@ -50,6 +57,16 @@ fun VoltechApplication(
                 hostState = snackbarHostState,
             )
         },
+        bottomBar = {
+            VoltechBottomNavigation(
+                destinations = topLevelDestinations,
+                visible = currentTopLevelDestination != null,
+                currentDestination = currentDestination,
+                onNavigateToDestination = { destination ->
+                    appState.navigateToTopLevelDestination(destination)
+                }
+            )
+        }
     ) { innerPadding ->
         Box(
             modifier = Modifier
@@ -71,3 +88,8 @@ fun VoltechApplication(
 
     }
 }
+
+fun NavDestination?.isRouteInHierarchy(route: KClass<*>) =
+    this?.hierarchy?.any {
+        it.hasRoute(route)
+    } ?: false

@@ -33,8 +33,8 @@ import com.tbc.designsystem.components.button.VoltechButton
 import com.tbc.designsystem.components.textfield.PasswordTextField
 import com.tbc.designsystem.components.textfield.TextInputField
 import com.tbc.designsystem.theme.Dimen
-import com.tbc.designsystem.theme.TextStyles
 import com.tbc.designsystem.theme.VoltechColor
+import com.tbc.designsystem.theme.VoltechTextStyle
 import com.tbc.designsystem.theme.VoltechTheme
 
 @Composable
@@ -118,7 +118,7 @@ fun RegisterContent(
                     .padding(bottom = Dimen.size48),
                 text = stringResource(R.string.register),
                 color = VoltechColor.onBackground,
-                style = TextStyles.headlineLarge
+                style = VoltechTextStyle.title32Bold
             )
             if (state.isLoading) {
                 CircularProgressIndicator(

@@ -2,6 +2,7 @@ package com.tbc.designsystem.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 
@@ -15,9 +16,13 @@ fun VoltechTheme(
         else -> lightVoltechColors
     }
 
-    CompositionLocalProvider(LocalColor provides colorScheme) {
+    CompositionLocalProvider(
+        LocalColor provides colorScheme,
+        LocalTypography provides AppTypography()
+
+    ) {
         MaterialTheme(
-            typography = AppTypography,
+            typography = Typography(),
             content = content
         )
     }

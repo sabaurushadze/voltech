@@ -12,8 +12,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.style.TextAlign
 import com.tbc.designsystem.theme.Dimen
-import com.tbc.designsystem.theme.TextStyles
 import com.tbc.designsystem.theme.VoltechColor
+import com.tbc.designsystem.theme.VoltechTextStyle
 
 @Composable
 fun VoltechButton(
@@ -31,7 +31,7 @@ fun VoltechButton(
             text = text,
             textAlign = TextAlign.Center,
 //            color = textColor,
-            style = TextStyles.bodyMedium
+            style = VoltechTextStyle.body16Normal
         )
     }
 

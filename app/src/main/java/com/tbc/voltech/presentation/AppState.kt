@@ -11,6 +11,8 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
+import com.tbc.presentation.navigation.AuthNavGraphRoute
+import com.tbc.presentation.navigation.HomeScreenRoute
 import com.tbc.voltech.navigation.TopLevelDestination
 import kotlinx.coroutines.CoroutineScope
 
@@ -61,9 +63,11 @@ data class AppState(
             restoreState = true
         }
 
-//            when (topLevelDestination) {
-//
-//            }
+            when (topLevelDestination) {
+                TopLevelDestination.HOME -> navController.navigate(HomeScreenRoute, topLevelNavOptions)
+//                TopLevelDestination.PARTS -> navController.navigate(aq iqneba pcparts route, topLevelNavOptions)
+
+            }
 
     }
 
