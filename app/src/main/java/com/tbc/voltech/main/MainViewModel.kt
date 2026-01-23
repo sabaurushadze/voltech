@@ -1,11 +1,10 @@
 package com.tbc.voltech.main
 
 import androidx.lifecycle.viewModelScope
-import com.tbc.domain.user_info.GetUserAuthStateUseCase
-import com.tbc.domain.user_info.IsUserAuthenticatedUseCase
-import com.tbc.presentation.base.BaseViewModel
+import com.tbc.auth.domain.user_info.GetUserAuthStateUseCase
+import com.tbc.auth.domain.user_info.IsUserAuthenticatedUseCase
+import com.tbc.core.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

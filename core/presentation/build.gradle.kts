@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.tbc.presentation"
+    namespace = "com.tbc.core.presentation"
 }
 
 dependencies {

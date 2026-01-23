@@ -1,0 +1,12 @@
+plugins {
+    alias(libs.plugins.voltech.android.feature)
+}
+
+android {
+    namespace = "com.tbc.search.presentation"
+}
+
+dependencies {
+    implementation(projects.feature.search.domain)
+    implementation(projects.core.domain)
+}

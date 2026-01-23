@@ -5,7 +5,7 @@ plugins {
 }
 
 android{
-    namespace = "com.tbc.data"
+    namespace = "com.tbc.core.data"
 
     buildTypes {
         debug {

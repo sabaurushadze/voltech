@@ -15,8 +15,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavDestination
-import com.tbc.designsystem.theme.Dimen
-import com.tbc.designsystem.theme.VoltechColor
+import com.tbc.core.designsystem.theme.Dimen
+import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.voltech.navigation.TopLevelDestination
 
 @Composable

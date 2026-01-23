@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.voltech.android.library)
     alias(libs.plugins.voltech.dagger.hilt)
-//    alias(libs.plugins.voltech.retrofit)
 }
 
 android {

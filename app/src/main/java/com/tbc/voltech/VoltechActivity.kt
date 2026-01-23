@@ -8,17 +8,15 @@ import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.tbc.designsystem.theme.VoltechTheme
-import com.tbc.presentation.login.LogInScreen
-import com.tbc.presentation.navigation.AuthNavGraphRoute
-import com.tbc.presentation.navigation.HomeScreenRoute
+import com.tbc.core.designsystem.theme.VoltechTheme
+import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
+import com.tbc.home.presentation.navigation.HomeScreenRoute
 import com.tbc.voltech.main.MainActivityEvent
 import com.tbc.voltech.main.MainViewModel
 import com.tbc.voltech.presentation.VoltechApplication
 import com.tbc.voltech.presentation.rememberAppState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.getValue
-import kotlin.reflect.KClass
 
 @AndroidEntryPoint
 class VoltechActivity : ComponentActivity() {

@@ -7,12 +7,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
-import com.tbc.presentation.navigation.AuthNavGraphRoute
-import com.tbc.presentation.navigation.HomeScreenRoute
+import com.tbc.home.presentation.navigation.HomeScreenRoute
+import com.tbc.search.presentation.navigation.SearchNavGraphRoute
+import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.voltech.navigation.TopLevelDestination
 import kotlinx.coroutines.CoroutineScope
 
@@ -50,7 +52,7 @@ data class AppState(
     val currentTopLevelDestination: TopLevelDestination?
         @Composable get() {
             return TopLevelDestination.entries.firstOrNull { topLevelDestination ->
-                currentDestination?.hasRoute(route = topLevelDestination.route) == true
+                currentDestination.isRouteInHierarchy(topLevelDestination.route)
             }
         }
 
@@ -65,8 +67,7 @@ data class AppState(
 
             when (topLevelDestination) {
                 TopLevelDestination.HOME -> navController.navigate(HomeScreenRoute, topLevelNavOptions)
-//                TopLevelDestination.PARTS -> navController.navigate(aq iqneba pcparts route, topLevelNavOptions)
-
+                TopLevelDestination.SEARCH -> navController.navigate(SearchScreenRoute, topLevelNavOptions)
             }
 
     }

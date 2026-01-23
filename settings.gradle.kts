@@ -38,3 +38,8 @@ include(":feature:home")
 include(":feature:home:data")
 include(":feature:home:domain")
 include(":feature:home:presentation")
+
+include(":feature:search")
+include(":feature:search:data")
+include(":feature:search:domain")
+include(":feature:search:presentation")
