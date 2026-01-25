@@ -25,4 +25,28 @@ class DataStoreManagerImpl @Inject constructor(private val dataStore: DataStore<
             }
         }
     }
+
+    override suspend fun <T> addToSet(
+        key: Preferences.Key<Set<T>>,
+        value: T
+    ) {
+        dataStore.edit { preferences ->
+            val current = preferences[key] ?: emptySet()
+            preferences[key] = current + value
+        }
+    }
+
+    override fun <T> getSet(
+        key: Preferences.Key<Set<T>>
+    ): Flow<List<T>> =
+        dataStore.data.map { preferences ->
+            preferences[key]?.toList() ?: emptyList()
+        }
+
+    override suspend fun <T> removeFromSet(key: Preferences.Key<Set<T>>, value: T) {
+        dataStore.edit { preferences ->
+            val current = preferences[key] ?: emptySet()
+            preferences[key] = current - value
+        }
+    }
 }

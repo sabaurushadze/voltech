@@ -4,6 +4,7 @@ import com.tbc.search.presentation.model.UiSearchItem
 
 data class SearchState(
     val query: String = "",
-    val titles: List<UiSearchItem> = listOf(),
     val isLoading: Boolean = false,
+    val titles: List<UiSearchItem> = listOf(),
+    val recentSearchList: List<String> = emptyList(),
 )

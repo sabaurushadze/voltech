@@ -52,5 +52,4 @@ data class AppDimens(
     val iconMedium: Dp = 20.dp,
     val iconSmall: Dp = 16.dp,
 
-
     )

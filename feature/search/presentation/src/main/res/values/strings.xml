@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="search_on_voltech">Search on voltech</string>
+    <string name="recent_searchs">Recent Searchs</string>
 </resources>

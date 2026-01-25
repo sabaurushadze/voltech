@@ -1,6 +1,7 @@
 package com.tbc.search.presentation.screen.search
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -8,17 +9,23 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.designsystem.components.textfield.TextInputField
@@ -61,7 +68,6 @@ private fun LogInContent(
     state: SearchState,
     onEvent: (SearchEvent) -> Unit,
 ) {
-
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -78,6 +84,29 @@ private fun LogInContent(
 
         Spacer(modifier = Modifier.height(Dimen.size16))
 
+        if(state.query.isEmpty()){
+            Text(
+                modifier = Modifier.padding(horizontal = Dimen.size16),
+                text = stringResource(R.string.recent_searchs)
+            )
+
+            Spacer(modifier = Modifier.height(Dimen.size16))
+
+            LazyColumn{
+                items(state.recentSearchList){ item ->
+                    RecentSearchItem(
+                        title = item,
+                        onRecentSearchItemClick = {
+                            onEvent(SearchEvent.NavigateToFeedWithQuery(item))
+                        },
+                        onRemoveClick = {
+                            onEvent(SearchEvent.RemoveRecentSearch(item))
+                        }
+                    )
+                }
+            }
+        }
+
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -86,12 +115,12 @@ private fun LogInContent(
                     title = item.title,
                     onSearchItemClick = {
                         onEvent(SearchEvent.NavigateToFeedWithQuery(item.title))
+                        onEvent(SearchEvent.SaveRecentSearch(item.title))
                     }
                 )
             }
         }
     }
-
 }
 
 @Composable
@@ -112,7 +141,39 @@ private fun SearchItem(
         )
     }
 }
-//
+
+@Composable
+private fun RecentSearchItem(
+    title: String,
+    onRecentSearchItemClick: () -> Unit,
+    onRemoveClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onRecentSearchItemClick() }
+            .padding(horizontal = Dimen.size16,),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = title,
+            style = VoltechTextStyle.body16Bold,
+            color = VoltechColor.onBackground
+        )
+
+        IconButton(
+            onClick = { onRemoveClick() }
+        ) {
+            Icon(
+                modifier = Modifier.size(12.dp),
+                painter = painterResource(R.drawable.ic_remove_x),
+                contentDescription = null
+            )
+        }
+    }
+}
+
 //@Preview(showBackground = true)
 //@Composable
 //fun SimpleComposablePreview() {
