@@ -1,6 +1,10 @@
 package com.tbc.search.presentation.screen.search
 
 import androidx.lifecycle.viewModelScope
+import com.tbc.core.domain.datastore.preference_keys.VoltechPreferenceKeys
+import com.tbc.core.domain.datastore.usecase.AddToSetPreferenceUseCase
+import com.tbc.core.domain.datastore.usecase.GetSetPreferenceUseCase
+import com.tbc.core.domain.datastore.usecase.RemoveFromSetPreferenceUseCase
 import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
@@ -18,13 +22,16 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val searchItemByQueryUseCase: SearchItemByQueryUseCase,
+    private val addToSetPreferenceUseCase: AddToSetPreferenceUseCase,
+    private val getSetPreferenceUseCase: GetSetPreferenceUseCase,
+    private val removeFromSetPreferenceUseCase: RemoveFromSetPreferenceUseCase
 ) : BaseViewModel<SearchState, SearchSideEffect, SearchEvent>(SearchState()) {
 
     private val queryFlow = MutableStateFlow("")
 
-
     init {
         observeQuery()
+        fetchRecentSearches()
     }
 
     override fun onEvent(event: SearchEvent) {
@@ -32,11 +39,41 @@ class SearchViewModel @Inject constructor(
             is SearchEvent.QueryChanged -> updateQuery(event.query)
             is SearchEvent.SearchByQuery -> searchByQuery(event.query)
             is SearchEvent.NavigateToFeedWithQuery -> navigateToFeedWithQuery(event.query)
+            is SearchEvent.SaveRecentSearch -> saveRecentSearch(event.query)
+            is SearchEvent.RemoveRecentSearch -> removeRecentSearch(event.query)
         }
     }
 
     private fun navigateToFeedWithQuery(query: String) {
         emitSideEffect(SearchSideEffect.NavigateToFeed(query))
+    }
+
+    private fun saveRecentSearch(query: String){
+        viewModelScope.launch {
+            addToSetPreferenceUseCase(
+                VoltechPreferenceKeys.RECENT_SEARCHES,
+                query
+            )
+        }
+    }
+
+    private fun fetchRecentSearches(){
+        viewModelScope.launch {
+            getSetPreferenceUseCase(
+                VoltechPreferenceKeys.RECENT_SEARCHES
+            ).collectLatest {
+                updateState { copy(recentSearchList = it) }
+            }
+        }
+    }
+
+    private fun removeRecentSearch(query: String){
+        viewModelScope.launch {
+            removeFromSetPreferenceUseCase(
+                VoltechPreferenceKeys.RECENT_SEARCHES,
+                query
+            )
+        }
     }
 
 //    uketesi gza tu arsebobs sanaxavia

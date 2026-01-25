@@ -10,4 +10,5 @@ class SetPreferenceUseCase @Inject constructor(
     suspend operator fun <T> invoke(key: Preferences.Key<T>, value: T) {
         preferencesRepository.setPreference(key, value)
     }
+
 }
