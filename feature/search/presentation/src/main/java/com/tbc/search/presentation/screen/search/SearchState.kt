@@ -1,6 +1,6 @@
 package com.tbc.search.presentation.screen.search
 
-import com.tbc.search.presentation.model.UiSearchItem
+import com.tbc.search.presentation.model.search.UiSearchItem
 
 data class SearchState(
     val query: String = "",

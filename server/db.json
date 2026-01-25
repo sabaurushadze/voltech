@@ -5,14 +5,14 @@
       "title": "saba",
       "category": "GPU",
       "condition": "new",
-      "price": 50,
+      "price": 50.0,
       "images": [
         "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
         "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
         "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
       ],
       "quantity": 10,
-      "location": "Akhmetelis metrostan mesame mosaxvevshi",
+      "location": "Tbilisi",
       "userDescription": "Magari gpua ra ormagi maq gadaxdili gatant nachuqar fashi"
     },
     {
@@ -20,14 +20,14 @@
       "title": "I7 12700 INTEL",
       "category": "CPU",
       "condition": "new",
-      "price": 50,
+      "price": 50.0,
       "images": [
         "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
         "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
         "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
       ],
       "quantity": 10,
-      "location": "Akhmetelis metrostan mesame mosaxvevshi",
+      "location": "Tbilisi",
       "userDescription": "Magari gpua ra ormagi maq gadaxdili gatant nachuqar fashi"
     },
     {
@@ -35,14 +35,14 @@
       "title": "GeForce RTX 5090 32GB",
       "category": "GPU",
       "condition": "new",
-      "price": 50,
+      "price": 50.0,
       "images": [
         "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
         "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
         "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
       ],
       "quantity": 10,
-      "location": "Akhmetelis metrostan mesame mosaxvevshi",
+      "location": "Tbilisi",
       "userDescription": "Magari gpua ra ormagi maq gadaxdili gatant nachuqar fashi"
     }
   ]

@@ -9,4 +9,6 @@ dependencies{
 
 dependencies{
     implementation(projects.core.domain)
+    implementation(libs.androidx.paging.common)
+
 }

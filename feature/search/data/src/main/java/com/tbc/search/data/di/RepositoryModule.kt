@@ -1,7 +1,9 @@
 package com.tbc.search.data.di
 
-import com.tbc.search.data.repository.SearchItemRepositoryImpl
-import com.tbc.search.domain.repository.SearchItemRepository
+import com.tbc.search.data.repository.feed.FeedRepositoryImpl
+import com.tbc.search.data.repository.search.SearchItemRepositoryImpl
+import com.tbc.search.domain.repository.feed.FeedRepository
+import com.tbc.search.domain.repository.search.SearchItemRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -16,5 +18,9 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindSearchItemRepository(impl: SearchItemRepositoryImpl): SearchItemRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindFeedRepository(impl: FeedRepositoryImpl): FeedRepository
 
 }

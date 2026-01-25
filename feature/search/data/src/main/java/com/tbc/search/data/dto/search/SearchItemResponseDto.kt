@@ -1,4 +1,4 @@
-package com.tbc.search.data.dto
+package com.tbc.search.data.dto.search
 
 import kotlinx.serialization.Serializable
 

@@ -1,0 +1,28 @@
+package com.tbc.search.data.repository.feed
+
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import com.tbc.search.data.paging.feed.FeedPagingSource
+import com.tbc.search.data.service.feed.FeedService
+import com.tbc.search.domain.model.feed.FeedItem
+import com.tbc.search.domain.model.feed.FeedQuery
+import com.tbc.search.domain.repository.feed.FeedRepository
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+
+class FeedRepositoryImpl @Inject constructor(
+    private val feedService: FeedService,
+) : FeedRepository {
+    override fun getFeedItemsPaging(
+        query: FeedQuery,
+        pageSize: Int,
+    ): Flow<PagingData<FeedItem>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = pageSize,
+            ),
+            pagingSourceFactory = { FeedPagingSource(service = feedService, query = query) }
+        ).flow
+    }
+}

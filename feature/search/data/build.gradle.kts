@@ -12,4 +12,7 @@ dependencies {
     implementation(projects.feature.search.domain)
     implementation(projects.core.domain)
     implementation(projects.core.data)
+
+    implementation(libs.androidx.paging)
+    implementation(libs.androidx.paging.compose)
 }

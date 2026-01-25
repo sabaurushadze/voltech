@@ -9,8 +9,8 @@ import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.core.presentation.mapper.toStringResId
-import com.tbc.search.domain.usecase.SearchItemByQueryUseCase
-import com.tbc.search.presentation.mapper.toPresentation
+import com.tbc.search.domain.usecase.search.SearchItemByQueryUseCase
+import com.tbc.search.presentation.mapper.search.toPresentation
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -91,9 +91,6 @@ class SearchViewModel @Inject constructor(
                 }
         }
     }
-
-
-
 
     private fun updateQuery(query: String) {
         updateState { copy(query = query) }
