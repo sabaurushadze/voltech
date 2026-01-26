@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Icon
@@ -18,9 +19,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -31,7 +37,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.designsystem.components.textfield.TextInputField
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
+import com.tbc.core.designsystem.theme.VoltechRadius
 import com.tbc.core.designsystem.theme.VoltechTextStyle
+import com.tbc.core.presentation.extension.collectEvent
 import com.tbc.search.presentation.R
 
 @Composable
@@ -43,21 +51,28 @@ fun SearchScreen(
     val context = LocalResources.current
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    val focusRequester = remember { FocusRequester() }
+    val keyboardController = LocalSoftwareKeyboardController.current
+
     LogInContent(
         state = state,
-        onEvent = viewModel::onEvent
+        onEvent = viewModel::onEvent,
+        focusRequester = focusRequester
     )
 
     LaunchedEffect(Unit) {
-        viewModel.sideEffect.collect { sideEffect ->
-            when (sideEffect) {
-                is SearchSideEffect.ShowSnackBar -> {
-                    val error = context.getString(sideEffect.errorRes)
-                    onShowSnackBar(error)
-                }
+        focusRequester.requestFocus()
+        keyboardController?.show()
+    }
 
-                is SearchSideEffect.NavigateToFeed -> navigateToFeed(sideEffect.query)
+    viewModel.sideEffect.collectEvent { sideEffect ->
+        when (sideEffect) {
+            is SearchSideEffect.ShowSnackBar -> {
+                val error = context.getString(sideEffect.errorRes)
+                onShowSnackBar(error)
             }
+
+            is SearchSideEffect.NavigateToFeed -> navigateToFeed(sideEffect.query)
         }
     }
 }
@@ -67,24 +82,29 @@ fun SearchScreen(
 private fun LogInContent(
     state: SearchState,
     onEvent: (SearchEvent) -> Unit,
+    focusRequester: FocusRequester
 ) {
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .systemBarsPadding()
     ) {
         TextInputField(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = Dimen.size16),
+                .padding(horizontal = Dimen.size16)
+                .focusRequester(focusRequester),
             value = state.query,
             onTextChanged = { onEvent(SearchEvent.QueryChanged(it)) },
             label = stringResource(R.string.search_on_voltech),
             imeAction = ImeAction.Next,
+            shape = VoltechRadius.radius24,
             keyboardType = KeyboardType.Email,
         )
 
         Spacer(modifier = Modifier.height(Dimen.size16))
 
-        if(state.query.isEmpty()){
+        if (state.query.isEmpty()) {
             Text(
                 modifier = Modifier.padding(horizontal = Dimen.size16),
                 text = stringResource(R.string.recent_searchs)
@@ -92,8 +112,8 @@ private fun LogInContent(
 
             Spacer(modifier = Modifier.height(Dimen.size16))
 
-            LazyColumn{
-                items(state.recentSearchList){ item ->
+            LazyColumn {
+                items(state.recentSearchList) { item ->
                     RecentSearchItem(
                         title = item,
                         onRecentSearchItemClick = {
@@ -152,7 +172,7 @@ private fun RecentSearchItem(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onRecentSearchItemClick() }
-            .padding(horizontal = Dimen.size16,),
+            .padding(horizontal = Dimen.size16),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -173,17 +193,3 @@ private fun RecentSearchItem(
         }
     }
 }
-
-//@Preview(showBackground = true)
-//@Composable
-//fun SimpleComposablePreview() {
-//    VoltechTheme() {
-//        LogInContent(
-//            state = SearchState(
-//                isLoading = true,
-//                query = "123",
-//            ),
-//            onEvent = {},
-//        )
-//    }
-//}

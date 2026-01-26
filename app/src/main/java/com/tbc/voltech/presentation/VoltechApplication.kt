@@ -7,15 +7,25 @@ import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material3.BottomAppBarDefaults
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.dimensionResource
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
+import com.tbc.core.designsystem.theme.Dimen
+import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.voltech.navigation.AppNavHost
 import kotlinx.coroutines.launch
 import kotlin.reflect.KClass
@@ -37,6 +47,7 @@ fun VoltechApplication(
 
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VoltechApplication(
     appState: AppState,
@@ -50,7 +61,11 @@ fun VoltechApplication(
     val topLevelDestinations = appState.topLevelDestinations
     val currentTopLevelDestination = appState.currentTopLevelDestination
 
+    val bottomAppBarScrollBehavior = BottomAppBarDefaults.exitAlwaysScrollBehavior()
+
+
     Scaffold(
+        modifier = Modifier.nestedScroll(bottomAppBarScrollBehavior.nestedScrollConnection),
         snackbarHost = {
             SnackbarHost(
                 modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing),
@@ -71,6 +86,7 @@ fun VoltechApplication(
         Box(
             modifier = Modifier
                 .padding(innerPadding)
+                .nestedScroll(bottomAppBarScrollBehavior.nestedScrollConnection)
                 .consumeWindowInsets(innerPadding)
                 .imePadding()
         ) {

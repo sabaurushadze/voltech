@@ -1,39 +1,15 @@
 package com.tbc.search.presentation.model.feed
 
+import androidx.annotation.StringRes
+
 data class UiFeedItem(
     val id: Int,
     val title: String,
-    val category: UiCategory,
-    val condition: UiCondition,
-    val price: Double,
-    val images: List<String>,
+    @param:StringRes val categoryRes: Int,
+    @param:StringRes val conditionRes: Int,
+    val price: String,
+    val image: String,
     val quantity: Int,
-    val location: UiLocation,
-    val userDescription: String,
+    @param:StringRes val locationRes: Int,
+    val userDescription: String
 )
-
-enum class UiCategory {
-    GPU,
-    CPU,
-    MOTHERBOARD,
-    RAM,
-    SSD,
-    HDD,
-    CPU_COOLER,
-    PSU,
-    CASE_COOLER,
-    CASE,
-    MONITOR,
-    CABEL,
-}
-
-enum class UiCondition {
-    NEW,
-    USED,
-    PARTS,
-}
-
-enum class UiLocation {
-    DIDI_DIGHOMI,
-    GLDANI,
-}

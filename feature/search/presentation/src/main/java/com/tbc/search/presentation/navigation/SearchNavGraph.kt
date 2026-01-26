@@ -13,6 +13,7 @@ import kotlinx.serialization.Serializable
 fun NavGraphBuilder.searchNavGraph(
     onShowSnackBar: (String) -> Unit,
     navigateToFeed: (String) -> Unit,
+    navigateToSearch: () -> Unit,
 ) {
 
     navigation<SearchNavGraphRoute>(startDestination = SearchScreenRoute) {
@@ -25,8 +26,13 @@ fun NavGraphBuilder.searchNavGraph(
         }
 
         composable<FeedScreenRoute> { backStackEntry ->
-            val feedRoute = backStackEntry.toRoute<FeedScreenRoute>()
-            FeedScreen()
+            val route = backStackEntry.toRoute<FeedScreenRoute>()
+
+            FeedScreen(
+                query = route.query,
+                onShowSnackBar = onShowSnackBar,
+                navigateToSearch = navigateToSearch
+            )
         }
     }
 
@@ -40,4 +46,4 @@ data object SearchNavGraphRoute
 data object SearchScreenRoute
 
 @Serializable
-data object FeedScreenRoute
+data class FeedScreenRoute(val query: String)

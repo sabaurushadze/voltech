@@ -13,27 +13,55 @@ data class FeedItem(
 )
 
 enum class Category {
-    GPU,
-    CPU,
-    MOTHERBOARD,
-    RAM,
-    SSD,
-    HDD,
-    CPU_COOLER,
-    PSU,
-    CASE_COOLER,
-    CASE,
-    MONITOR,
-    CABEL,
+    GPU, CPU, MOTHERBOARD, RAM, SSD, HDD, CPU_COOLER, PSU, CASE_COOLER, CASE, MONITOR, CABEL, OTHER;
+
+    companion object {
+        fun fromString(value: String): Category {
+            return when (value) {
+                "GPU" -> GPU
+                "CPU" -> CPU
+                "MOTHERBOARD" -> MOTHERBOARD
+                "RAM" -> RAM
+                "SSD" -> SSD
+                "HDD" -> HDD
+                "CPU_COOLER" -> CPU_COOLER
+                "PSU" -> PSU
+                "CASE_COOLER" -> CASE_COOLER
+                "CASE" -> CASE
+                "MONITOR" -> MONITOR
+                "CABEL" -> CABEL
+                else -> OTHER
+            }
+        }
+    }
 }
 
 enum class Condition {
-    NEW,
-    USED,
-    PARTS,
+    NEW, USED, PARTS;
+
+    companion object {
+        fun fromString(value: String): Condition {
+            return when (value) {
+                "NEW" -> NEW
+                "USED" -> USED
+                "PARTS" -> PARTS
+                else -> NEW
+            }
+        }
+    }
+
 }
 
 enum class Location {
-    DIDI_DIGHOMI,
-    GLDANI,
+    DIDI_DIGHOMI, GLDANI;
+
+    companion object {
+        fun fromString(value: String): Location {
+            return when (value) {
+                "DIDI_DIGHOMI" -> DIDI_DIGHOMI
+                "GLDANI" -> GLDANI
+                else -> DIDI_DIGHOMI
+            }
+        }
+    }
 }

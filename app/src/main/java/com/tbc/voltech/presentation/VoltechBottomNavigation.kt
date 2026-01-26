@@ -4,7 +4,12 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.BottomAppBarDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -19,6 +24,7 @@ import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.voltech.navigation.TopLevelDestination
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VoltechBottomNavigation(
     destinations: List<TopLevelDestination>,
@@ -26,13 +32,17 @@ fun VoltechBottomNavigation(
     visible: Boolean,
     onNavigateToDestination: (TopLevelDestination) -> Unit,
 ) {
+    val bottomAppBarScrollBehavior = BottomAppBarDefaults.exitAlwaysScrollBehavior()
+
     AnimatedVisibility(
         visible = visible,
         enter = fadeIn() + expandVertically(),
         exit = ExitTransition.None
     ) {
 
-        NavigationBar(
+        BottomAppBar(
+            windowInsets = WindowInsets.navigationBars,
+            scrollBehavior = bottomAppBarScrollBehavior,
             modifier = Modifier.clip(
                 shape = RoundedCornerShape(
                     topStart = Dimen.size16,

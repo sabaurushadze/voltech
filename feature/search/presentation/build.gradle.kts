@@ -9,5 +9,5 @@ android {
 dependencies {
     implementation(projects.feature.search.domain)
     implementation(projects.core.domain)
-    implementation(libs.androidx.paging.common)
+    implementation(libs.androidx.paging.compose)
 }

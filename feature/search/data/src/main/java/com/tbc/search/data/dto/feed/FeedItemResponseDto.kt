@@ -6,40 +6,11 @@ import kotlinx.serialization.Serializable
 data class FeedItemResponseDto(
     val id: Int,
     val title: String,
-    val category: CategoryDto,
-    val condition: ConditionDto,
+    val category: String,
+    val condition: String,
     val price: Double,
     val images: List<String>,
     val quantity: Int,
-    val location: LocationDto,
+    val location: String,
     val userDescription: String,
 )
-
-@Serializable
-enum class CategoryDto {
-    GPU,
-    CPU,
-    MOTHERBOARD,
-    RAM,
-    SSD,
-    HDD,
-    CPU_COOLER,
-    PSU,
-    CASE_COOLER,
-    CASE,
-    MONITOR,
-    CABEL,
-}
-
-@Serializable
-enum class ConditionDto {
-    NEW,
-    USED,
-    PARTS,
-}
-
-@Serializable
-enum class LocationDto {
-    DIDI_DIGHOMI,
-    GLDANI,
-}

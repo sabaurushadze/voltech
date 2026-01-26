@@ -1,0 +1,22 @@
+package com.tbc.core.designsystem.components.loading
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import com.tbc.core.designsystem.theme.VoltechColor
+
+@Composable
+fun LoadingOverlay() {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        CircularProgressIndicator(
+            color = VoltechColor.primary
+        )
+    }
+}
+

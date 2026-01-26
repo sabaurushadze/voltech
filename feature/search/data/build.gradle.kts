@@ -14,5 +14,4 @@ dependencies {
     implementation(projects.core.data)
 
     implementation(libs.androidx.paging)
-    implementation(libs.androidx.paging.compose)
 }

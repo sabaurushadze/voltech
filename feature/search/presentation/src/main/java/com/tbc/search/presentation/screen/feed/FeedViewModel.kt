@@ -5,6 +5,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
 import com.tbc.core.presentation.base.BaseViewModel
+import com.tbc.search.domain.model.feed.FeedQuery
 import com.tbc.search.domain.usecase.feed.GetFeedItemsPagingUseCase
 import com.tbc.search.presentation.mapper.feed.toPresentation
 import com.tbc.search.presentation.model.feed.UiFeedItem
@@ -24,8 +25,19 @@ class FeedViewModel @Inject constructor(
     override fun onEvent(event: FeedEvent) {
         when (event) {
             is FeedEvent.GetItems -> {
-
             }
+
+            is FeedEvent.SaveSearchQuery -> saveSearchQuery(event.query)
+        }
+    }
+
+    private fun saveSearchQuery(searchQuery: String) {
+        updateState {
+            copy(
+                query = FeedQuery(
+                    titleLike = searchQuery,
+                )
+            )
         }
     }
 
@@ -44,7 +56,7 @@ class FeedViewModel @Inject constructor(
                             domainFeedItem.toPresentation()
                         }
                     }
-                    .cachedIn(viewModelScope)
+//                    .cachedIn(viewModelScope)
             }
 
     companion object {

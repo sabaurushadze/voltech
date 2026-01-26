@@ -2,48 +2,1503 @@
   "items": [
     {
       "id": 1,
-      "title": "saba",
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
       "category": "GPU",
       "condition": "new",
       "price": 50.0,
       "images": [
-        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
-        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
-        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
       "quantity": 10,
       "location": "Tbilisi",
-      "userDescription": "Magari gpua ra ormagi maq gadaxdili gatant nachuqar fashi"
+      "userDescription": "3 tve meyena sistemashi marto"
     },
     {
       "id": 2,
-      "title": "I7 12700 INTEL",
-      "category": "CPU",
-      "condition": "new",
-      "price": 50.0,
-      "images": [
-        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
-        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
-        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
-      ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "Magari gpua ra ormagi maq gadaxdili gatant nachuqar fashi"
-    },
-    {
-      "id": 3,
-      "title": "GeForce RTX 5090 32GB",
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
       "category": "GPU",
       "condition": "new",
       "price": 50.0,
       "images": [
-        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
-        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png",
-        "https://raw.githubusercontent.com/sabaurushadze/api-images/refs/heads/main/gpu/4060/rtx_4060_8gb_1.png"
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
       "quantity": 10,
       "location": "Tbilisi",
-      "userDescription": "Magari gpua ra ormagi maq gadaxdili gatant nachuqar fashi"
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 3,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 4,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 5,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 6,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 7,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 8,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 9,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 10,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 11,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 12,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 13,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 14,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 15,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 16,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 17,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 18,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 19,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 20,
+      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 21,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 22,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 23,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 24,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 25,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 26,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 27,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 28,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 29,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 30,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 31,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 32,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 33,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 34,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 35,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 36,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 37,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 38,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 39,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 40,
+      "title": "RTX 4070 12GB VRAM ASUS TUF",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 41,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 42,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 43,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 44,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 45,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 46,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 47,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 48,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 49,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 50,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 51,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 52,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 53,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 54,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 55,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 56,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 57,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 58,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 59,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 60,
+      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 61,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 62,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 63,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 64,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 65,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 66,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 67,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 68,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 69,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 70,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 71,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 72,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 73,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 74,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 75,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 76,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 77,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 78,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 79,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 80,
+      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 81,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 82,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 83,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 84,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 85,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 86,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 87,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 88,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 89,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 90,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 91,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 92,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 93,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 94,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 95,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 96,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 97,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 98,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 99,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
+    },
+    {
+      "id": 100,
+      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "category": "GPU",
+      "condition": "new",
+      "price": 50.0,
+      "images": [
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+      ],
+      "quantity": 10,
+      "location": "Tbilisi",
+      "userDescription": "3 tve meyena sistemashi marto"
     }
   ]
 }

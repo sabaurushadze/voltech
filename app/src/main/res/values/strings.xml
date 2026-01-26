@@ -3,4 +3,5 @@
     <string name="home">Home</string>
     <string name="parts">Parts</string>
     <string name="search">Search</string>
+    <string name="search_on_voltech">Search on Voltech</string>
 </resources>

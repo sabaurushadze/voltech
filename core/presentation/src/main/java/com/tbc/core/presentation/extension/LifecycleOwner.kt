@@ -22,3 +22,17 @@ fun <T> CollectEvent(
         }
     }
 }
+
+@Composable
+fun <T> Flow<T>.collectEvent(
+    lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
+    action: suspend (T) -> Unit,
+) {
+    val lifecycleOwner = LocalLifecycleOwner.current
+
+    LaunchedEffect(this, lifecycleOwner) {
+        lifecycleOwner.lifecycle.repeatOnLifecycle(lifecycleState) {
+            collect { action(it) }
+        }
+    }
+}

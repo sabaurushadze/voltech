@@ -1,5 +1,8 @@
 package com.tbc.core.designsystem.components.textfield
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -9,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
+import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechRadius
 import com.tbc.core.designsystem.theme.VoltechTextStyle
@@ -23,13 +27,20 @@ fun TextInputField(
     errorText: String? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     imeAction: ImeAction = ImeAction.None,
+    shape: RoundedCornerShape = VoltechRadius.radius16,
     keyboardType: KeyboardType = KeyboardType.Unspecified,
 ) {
     OutlinedTextField(
-        modifier = modifier,
+        modifier = modifier
+            .height(Dimen.size64),
         value = value,
         enabled = enabled,
-        colors = OutlinedTextFieldDefaults.colors(),
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedBorderColor = VoltechColor.onBackground,
+            unfocusedBorderColor = VoltechColor.onBackground,
+            focusedLabelColor = VoltechColor.primary,
+            unfocusedLabelColor = VoltechColor.onBackground
+        ),
         label = label?.let {
             {
                 Text(
@@ -52,7 +63,45 @@ fun TextInputField(
         visualTransformation = visualTransformation,
         singleLine = true,
         isError = errorText != null,
-        shape = VoltechRadius.radius16,
+        shape = shape,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction),
+    )
+}
+
+@Composable
+fun TextInputFieldDummy(
+    value: String = "",
+    onTextChanged: (String) -> Unit = {},
+    modifier: Modifier = Modifier,
+    label: String? = null,
+    enabled: Boolean = false,
+    shape: RoundedCornerShape = VoltechRadius.radius16,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    onClick: () -> Unit = {}
+) {
+    OutlinedTextField(
+        readOnly = true,
+        modifier = modifier
+            .clickable(onClick = onClick)
+            .height(Dimen.size64),
+        value = value,
+        enabled = enabled,
+        colors = OutlinedTextFieldDefaults.colors(
+            disabledBorderColor = VoltechColor.onBackground,
+            unfocusedTextColor = VoltechColor.onBackground,
+        ),
+        label = label?.let {
+            {
+                Text(
+                    text = it,
+                    style = VoltechTextStyle.body14Normal
+                )
+            }
+        },
+        textStyle = VoltechTextStyle.body16Normal,
+        onValueChange = { onTextChanged(it) },
+        visualTransformation = visualTransformation,
+        singleLine = true,
+        shape = shape,
     )
 }

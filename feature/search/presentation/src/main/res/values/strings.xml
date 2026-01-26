@@ -2,4 +2,24 @@
 <resources>
     <string name="search_on_voltech">Search on voltech</string>
     <string name="recent_searchs">Recent Searchs</string>
+    <string name="didi_digohmi">Didi dighomi</string>
+    <string name="gldani">Gldani</string>
+
+    <string name="condition_new">New</string>
+    <string name="condition_used">Used</string>
+    <string name="condition_parts">Parts</string>
+
+    <string name="category_gpu">GPU</string>
+    <string name="category_cpu">CPU</string>
+    <string name="category_motherboard">MOTHERBOARD</string>
+    <string name="category_ram">RAM</string>
+    <string name="category_ssd">SSD</string>
+    <string name="category_hdd">HDD</string>
+    <string name="category_cpu_cooler">CPU COOLER</string>
+    <string name="category_psu">PSU</string>
+    <string name="category_case_cooler">CASE COOLER</string>
+    <string name="category_case">CASE</string>
+    <string name="category_monitor">MONITOR</string>
+    <string name="category_cabel">CABEL</string>
+    <string name="category_other">Other item</string>
 </resources>
