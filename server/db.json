@@ -2,1503 +2,1503 @@
   "items": [
     {
       "id": 1,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "GPU Item 1",
+      "category": "CABEL",
+      "condition": "USED",
+      "price": 3000,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 17,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for GPU Item 1, condition parts."
     },
     {
       "id": 2,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE_COOLER Item 2",
+      "category": "CASE_COOLER",
+      "condition": "PARTS",
+      "price": 397.02,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 7,
+      "location": "GLDANI",
+      "userDescription": "Description for CASE_COOLER Item 2, condition new."
     },
     {
       "id": 3,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 3",
+      "category": "PSU",
+      "condition": "NEW",
+      "price": 191.1,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 11,
+      "location": "GLDANI",
+      "userDescription": "Description for PSU Item 3, condition new."
     },
     {
       "id": 4,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 4",
+      "category": "SSD",
+      "condition": "PARTS",
+      "price": 145.78,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 3,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for SSD Item 4, condition parts."
     },
     {
       "id": 5,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 5",
+      "category": "MOTHERBOARD",
+      "condition": "PARTS",
+      "price": 42.45,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 3,
+      "location": "GLDANI",
+      "userDescription": "Description for MOTHERBOARD Item 5, condition parts."
     },
     {
       "id": 6,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE_COOLER Item 6",
+      "category": "CASE_COOLER",
+      "condition": "PARTS",
+      "price": 468.52,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 17,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE_COOLER Item 6, condition parts."
     },
     {
       "id": 7,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 7",
+      "category": "MOTHERBOARD",
+      "condition": "USED",
+      "price": 279.12,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 15,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for MOTHERBOARD Item 7, condition used."
     },
     {
       "id": 8,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "RAM Item 8",
+      "category": "RAM",
+      "condition": "USED",
+      "price": 23.48,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 12,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for RAM Item 8, condition used."
     },
     {
       "id": 9,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 9",
+      "category": "SSD",
+      "condition": "USED",
+      "price": 441.53,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 2,
+      "location": "GLDANI",
+      "userDescription": "Description for SSD Item 9, condition used."
     },
     {
       "id": 10,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "HDD Item 10",
+      "category": "HDD",
+      "condition": "NEW",
+      "price": 176.55,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 19,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for HDD Item 10, condition new."
     },
     {
       "id": 11,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE_COOLER Item 11",
+      "category": "CASE_COOLER",
+      "condition": "USED",
+      "price": 139.29,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 13,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE_COOLER Item 11, condition used."
     },
     {
       "id": 12,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 12",
+      "category": "MOTHERBOARD",
+      "condition": "PARTS",
+      "price": 473.11,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 7,
+      "location": "GLDANI",
+      "userDescription": "Description for MOTHERBOARD Item 12, condition parts."
     },
     {
       "id": 13,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 13",
+      "category": "PSU",
+      "condition": "USED",
+      "price": 441.14,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
       "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for PSU Item 13, condition used."
     },
     {
       "id": 14,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 14",
+      "category": "SSD",
+      "condition": "PARTS",
+      "price": 449.13,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 13,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for SSD Item 14, condition parts."
     },
     {
       "id": 15,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 15",
+      "category": "SSD",
+      "condition": "PARTS",
+      "price": 80.35,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 13,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for SSD Item 15, condition parts."
     },
     {
       "id": 16,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 16",
+      "category": "PSU",
+      "condition": "USED",
+      "price": 184.06,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 2,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for PSU Item 16, condition used."
     },
     {
       "id": 17,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 17",
+      "category": "SSD",
+      "condition": "NEW",
+      "price": 188.36,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 14,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for SSD Item 17, condition new."
     },
     {
       "id": 18,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "HDD Item 18",
+      "category": "HDD",
+      "condition": "PARTS",
+      "price": 272.45,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 18,
+      "location": "GLDANI",
+      "userDescription": "Description for HDD Item 18, condition parts."
     },
     {
       "id": 19,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "RAM Item 19",
+      "category": "RAM",
+      "condition": "PARTS",
+      "price": 351.65,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 6,
+      "location": "GLDANI",
+      "userDescription": "Description for RAM Item 19, condition parts."
     },
     {
       "id": 20,
-      "title": "RTX 4060 8GB VRAM MSI GAMING X SUPER",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "RAM Item 20",
+      "category": "RAM",
+      "condition": "PARTS",
+      "price": 428.9,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 14,
+      "location": "GLDANI",
+      "userDescription": "Description for RAM Item 20, condition parts."
     },
     {
       "id": 21,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 21",
+      "category": "MOTHERBOARD",
+      "condition": "PARTS",
+      "price": 303.55,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 2,
+      "location": "GLDANI",
+      "userDescription": "Description for MOTHERBOARD Item 21, condition parts."
     },
     {
       "id": 22,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "RAM Item 22",
+      "category": "RAM",
+      "condition": "USED",
+      "price": 316.46,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 11,
+      "location": "GLDANI",
+      "userDescription": "Description for RAM Item 22, condition used."
     },
     {
       "id": 23,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CPU Item 23",
+      "category": "CPU",
+      "condition": "NEW",
+      "price": 354.07,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 4,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CPU Item 23, condition new."
     },
     {
       "id": 24,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE Item 24",
+      "category": "CASE",
+      "condition": "USED",
+      "price": 305.81,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 3,
+      "location": "GLDANI",
+      "userDescription": "Description for CASE Item 24, condition used."
     },
     {
       "id": 25,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 25",
+      "category": "PSU",
+      "condition": "PARTS",
+      "price": 127.15,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 19,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for PSU Item 25, condition parts."
     },
     {
       "id": 26,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CABEL Item 26",
+      "category": "CABEL",
+      "condition": "PARTS",
+      "price": 207.71,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 13,
+      "location": "GLDANI",
+      "userDescription": "Description for CABEL Item 26, condition parts."
     },
     {
       "id": 27,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 27",
+      "category": "PSU",
+      "condition": "USED",
+      "price": 223.34,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 6,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for PSU Item 27, condition used."
     },
     {
       "id": 28,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CPU Item 28",
+      "category": "CPU",
+      "condition": "NEW",
+      "price": 452.01,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 12,
+      "location": "GLDANI",
+      "userDescription": "Description for CPU Item 28, condition new."
     },
     {
       "id": 29,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CABEL Item 29",
+      "category": "CABEL",
+      "condition": "USED",
+      "price": 347.43,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 9,
+      "location": "GLDANI",
+      "userDescription": "Description for CABEL Item 29, condition used."
     },
     {
       "id": 30,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE_COOLER Item 30",
+      "category": "CASE_COOLER",
+      "condition": "PARTS",
+      "price": 341.28,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 17,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE_COOLER Item 30, condition parts."
     },
     {
       "id": 31,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 31",
+      "category": "PSU",
+      "condition": "NEW",
+      "price": 183.13,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 18,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for PSU Item 31, condition new."
     },
     {
       "id": 32,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CABEL Item 32",
+      "category": "CABEL",
+      "condition": "PARTS",
+      "price": 281.53,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 3,
+      "location": "GLDANI",
+      "userDescription": "Description for CABEL Item 32, condition parts."
     },
     {
       "id": 33,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "RAM Item 33",
+      "category": "RAM",
+      "condition": "NEW",
+      "price": 359.33,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 5,
+      "location": "GLDANI",
+      "userDescription": "Description for RAM Item 33, condition new."
     },
     {
       "id": 34,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 34",
+      "category": "MOTHERBOARD",
+      "condition": "PARTS",
+      "price": 142.21,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 14,
+      "location": "GLDANI",
+      "userDescription": "Description for MOTHERBOARD Item 34, condition parts."
     },
     {
       "id": 35,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 35",
+      "category": "MOTHERBOARD",
+      "condition": "USED",
+      "price": 190.67,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 20,
+      "location": "GLDANI",
+      "userDescription": "Description for MOTHERBOARD Item 35, condition used."
     },
     {
       "id": 36,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 36",
+      "category": "MOTHERBOARD",
+      "condition": "NEW",
+      "price": 204.77,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 13,
+      "location": "GLDANI",
+      "userDescription": "Description for MOTHERBOARD Item 36, condition new."
     },
     {
       "id": 37,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE_COOLER Item 37",
+      "category": "CASE_COOLER",
+      "condition": "NEW",
+      "price": 384.62,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 11,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE_COOLER Item 37, condition new."
     },
     {
       "id": 38,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 38",
+      "category": "SSD",
+      "condition": "USED",
+      "price": 257.78,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 17,
+      "location": "GLDANI",
+      "userDescription": "Description for SSD Item 38, condition used."
     },
     {
       "id": 39,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CABEL Item 39",
+      "category": "CABEL",
+      "condition": "NEW",
+      "price": 447.47,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 4,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CABEL Item 39, condition new."
     },
     {
       "id": 40,
-      "title": "RTX 4070 12GB VRAM ASUS TUF",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MONITOR Item 40",
+      "category": "MONITOR",
+      "condition": "NEW",
+      "price": 80.38,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 17,
+      "location": "GLDANI",
+      "userDescription": "Description for MONITOR Item 40, condition new."
     },
     {
       "id": 41,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 41",
+      "category": "PSU",
+      "condition": "NEW",
+      "price": 162.7,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 1,
+      "location": "GLDANI",
+      "userDescription": "Description for PSU Item 41, condition new."
     },
     {
       "id": 42,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 42",
+      "category": "MOTHERBOARD",
+      "condition": "NEW",
+      "price": 483.21,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 17,
+      "location": "GLDANI",
+      "userDescription": "Description for MOTHERBOARD Item 42, condition new."
     },
     {
       "id": 43,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "HDD Item 43",
+      "category": "HDD",
+      "condition": "PARTS",
+      "price": 340.21,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 20,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for HDD Item 43, condition parts."
     },
     {
       "id": 44,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 44",
+      "category": "SSD",
+      "condition": "USED",
+      "price": 73.94,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 11,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for SSD Item 44, condition used."
     },
     {
       "id": 45,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
+      "title": "GPU Item 45",
       "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "condition": "PARTS",
+      "price": 434.57,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 5,
+      "location": "GLDANI",
+      "userDescription": "Description for GPU Item 45, condition parts."
     },
     {
       "id": 46,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MONITOR Item 46",
+      "category": "MONITOR",
+      "condition": "NEW",
+      "price": 82.98,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 9,
+      "location": "GLDANI",
+      "userDescription": "Description for MONITOR Item 46, condition new."
     },
     {
       "id": 47,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 47",
+      "category": "MOTHERBOARD",
+      "condition": "PARTS",
+      "price": 121.97,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 2,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for MOTHERBOARD Item 47, condition parts."
     },
     {
       "id": 48,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 48",
+      "category": "PSU",
+      "condition": "PARTS",
+      "price": 198.69,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 18,
+      "location": "GLDANI",
+      "userDescription": "Description for PSU Item 48, condition parts."
     },
     {
       "id": 49,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE Item 49",
+      "category": "CASE",
+      "condition": "USED",
+      "price": 150.79,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 15,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE Item 49, condition used."
     },
     {
       "id": 50,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CPU Item 50",
+      "category": "CPU",
+      "condition": "USED",
+      "price": 359.37,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 19,
+      "location": "GLDANI",
+      "userDescription": "Description for CPU Item 50, condition used."
     },
     {
       "id": 51,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CABEL Item 51",
+      "category": "CABEL",
+      "condition": "USED",
+      "price": 303.36,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 18,
+      "location": "GLDANI",
+      "userDescription": "Description for CABEL Item 51, condition used."
     },
     {
       "id": 52,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 52",
+      "category": "SSD",
+      "condition": "USED",
+      "price": 180.91,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 11,
+      "location": "GLDANI",
+      "userDescription": "Description for SSD Item 52, condition used."
     },
     {
       "id": 53,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CPU Item 53",
+      "category": "CPU",
+      "condition": "NEW",
+      "price": 179.54,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 16,
+      "location": "GLDANI",
+      "userDescription": "Description for CPU Item 53, condition new."
     },
     {
       "id": 54,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 54",
+      "category": "SSD",
+      "condition": "NEW",
+      "price": 223.46,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 9,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for SSD Item 54, condition new."
     },
     {
       "id": 55,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 55",
+      "category": "SSD",
+      "condition": "PARTS",
+      "price": 196.16,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 11,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for SSD Item 55, condition parts."
     },
     {
       "id": 56,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 56",
+      "category": "PSU",
+      "condition": "PARTS",
+      "price": 354.41,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 18,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for PSU Item 56, condition parts."
     },
     {
       "id": 57,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE Item 57",
+      "category": "CASE",
+      "condition": "USED",
+      "price": 252.2,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 5,
+      "location": "GLDANI",
+      "userDescription": "Description for CASE Item 57, condition used."
     },
     {
       "id": 58,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "HDD Item 58",
+      "category": "HDD",
+      "condition": "USED",
+      "price": 385.12,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 20,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for HDD Item 58, condition used."
     },
     {
       "id": 59,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE_COOLER Item 59",
+      "category": "CASE_COOLER",
+      "condition": "PARTS",
+      "price": 180.26,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 11,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE_COOLER Item 59, condition parts."
     },
     {
       "id": 60,
-      "title": "RTX 4080 16GB VRAM Gigabyte AORUS",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE_COOLER Item 60",
+      "category": "CASE_COOLER",
+      "condition": "USED",
+      "price": 62.97,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 19,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE_COOLER Item 60, condition used."
     },
     {
       "id": 61,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MONITOR Item 61",
+      "category": "MONITOR",
+      "condition": "PARTS",
+      "price": 313.3,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 8,
+      "location": "GLDANI",
+      "userDescription": "Description for MONITOR Item 61, condition parts."
     },
     {
       "id": 62,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CPU Item 62",
+      "category": "CPU",
+      "condition": "NEW",
+      "price": 357.65,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 16,
+      "location": "GLDANI",
+      "userDescription": "Description for CPU Item 62, condition new."
     },
     {
       "id": 63,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 63",
+      "category": "PSU",
+      "condition": "PARTS",
+      "price": 411.65,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 7,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for PSU Item 63, condition parts."
     },
     {
       "id": 64,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "RAM Item 64",
+      "category": "RAM",
+      "condition": "NEW",
+      "price": 454.29,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 15,
+      "location": "GLDANI",
+      "userDescription": "Description for RAM Item 64, condition new."
     },
     {
       "id": 65,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "RAM Item 65",
+      "category": "RAM",
+      "condition": "USED",
+      "price": 327.43,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 1,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for RAM Item 65, condition used."
     },
     {
       "id": 66,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 66",
+      "category": "PSU",
+      "condition": "PARTS",
+      "price": 262.42,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 12,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for PSU Item 66, condition parts."
     },
     {
       "id": 67,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE Item 67",
+      "category": "CASE",
+      "condition": "NEW",
+      "price": 275.04,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 20,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE Item 67, condition new."
     },
     {
       "id": 68,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "title": "GPU Item 68",
       "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "condition": "USED",
+      "price": 320.43,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 6,
+      "location": "GLDANI",
+      "userDescription": "Description for GPU Item 68, condition used."
     },
     {
       "id": 69,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "title": "GPU Item 69",
       "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "condition": "PARTS",
+      "price": 152.11,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 6,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for GPU Item 69, condition parts."
     },
     {
       "id": 70,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE_COOLER Item 70",
+      "category": "CASE_COOLER",
+      "condition": "NEW",
+      "price": 143.6,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 5,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE_COOLER Item 70, condition new."
     },
     {
       "id": 71,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "title": "GPU Item 71",
       "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "condition": "USED",
+      "price": 423.79,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 15,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for GPU Item 71, condition used."
     },
     {
       "id": 72,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE Item 72",
+      "category": "CASE",
+      "condition": "PARTS",
+      "price": 62.97,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 5,
+      "location": "GLDANI",
+      "userDescription": "Description for CASE Item 72, condition parts."
     },
     {
       "id": 73,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
+      "title": "GPU Item 73",
       "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "condition": "PARTS",
+      "price": 70.65,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 18,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for GPU Item 73, condition parts."
     },
     {
       "id": 74,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE Item 74",
+      "category": "CASE",
+      "condition": "PARTS",
+      "price": 153.84,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 2,
+      "location": "GLDANI",
+      "userDescription": "Description for CASE Item 74, condition parts."
     },
     {
       "id": 75,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CABEL Item 75",
+      "category": "CABEL",
+      "condition": "PARTS",
+      "price": 416.2,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 9,
+      "location": "GLDANI",
+      "userDescription": "Description for CABEL Item 75, condition parts."
     },
     {
       "id": 76,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 76",
+      "category": "MOTHERBOARD",
+      "condition": "USED",
+      "price": 204.92,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 5,
+      "location": "GLDANI",
+      "userDescription": "Description for MOTHERBOARD Item 76, condition used."
     },
     {
       "id": 77,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 77",
+      "category": "SSD",
+      "condition": "USED",
+      "price": 164.36,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 17,
+      "location": "GLDANI",
+      "userDescription": "Description for SSD Item 77, condition used."
     },
     {
       "id": 78,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 78",
+      "category": "MOTHERBOARD",
+      "condition": "NEW",
+      "price": 468.43,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 12,
+      "location": "GLDANI",
+      "userDescription": "Description for MOTHERBOARD Item 78, condition new."
     },
     {
       "id": 79,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE_COOLER Item 79",
+      "category": "CASE_COOLER",
+      "condition": "PARTS",
+      "price": 378.35,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 18,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE_COOLER Item 79, condition parts."
     },
     {
       "id": 80,
-      "title": "RTX 4090 24GB VRAM EVGA FTW3",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CPU Item 80",
+      "category": "CPU",
+      "condition": "NEW",
+      "price": 128.57,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 19,
+      "location": "GLDANI",
+      "userDescription": "Description for CPU Item 80, condition new."
     },
     {
       "id": 81,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CPU_COOLER Item 81",
+      "category": "CPU_COOLER",
+      "condition": "USED",
+      "price": 320.68,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 5,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CPU_COOLER Item 81, condition used."
     },
     {
       "id": 82,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CABEL Item 82",
+      "category": "CABEL",
+      "condition": "PARTS",
+      "price": 67.54,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 14,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CABEL Item 82, condition parts."
     },
     {
       "id": 83,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "HDD Item 83",
+      "category": "HDD",
+      "condition": "NEW",
+      "price": 216.72,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 3,
+      "location": "GLDANI",
+      "userDescription": "Description for HDD Item 83, condition new."
     },
     {
       "id": 84,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CPU Item 84",
+      "category": "CPU",
+      "condition": "USED",
+      "price": 123.42,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 18,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CPU Item 84, condition used."
     },
     {
       "id": 85,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 85",
+      "category": "SSD",
+      "condition": "PARTS",
+      "price": 245.37,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 17,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for SSD Item 85, condition parts."
     },
     {
       "id": 86,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CPU_COOLER Item 86",
+      "category": "CPU_COOLER",
+      "condition": "NEW",
+      "price": 475.8,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 8,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CPU_COOLER Item 86, condition new."
     },
     {
       "id": 87,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CABEL Item 87",
+      "category": "CABEL",
+      "condition": "NEW",
+      "price": 345.16,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 20,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CABEL Item 87, condition new."
     },
     {
       "id": 88,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 88",
+      "category": "SSD",
+      "condition": "NEW",
+      "price": 467.51,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 20,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for SSD Item 88, condition new."
     },
     {
       "id": 89,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 89",
+      "category": "MOTHERBOARD",
+      "condition": "USED",
+      "price": 392.89,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 9,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for MOTHERBOARD Item 89, condition used."
     },
     {
       "id": 90,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
+      "title": "GPU Item 90",
       "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "condition": "NEW",
+      "price": 255.71,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 12,
+      "location": "GLDANI",
+      "userDescription": "Description for GPU Item 90, condition new."
     },
     {
       "id": 91,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "PSU Item 91",
+      "category": "PSU",
+      "condition": "USED",
+      "price": 132.57,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 18,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for PSU Item 91, condition used."
     },
     {
       "id": 92,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CABEL Item 92",
+      "category": "CABEL",
+      "condition": "NEW",
+      "price": 96.19,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 15,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CABEL Item 92, condition new."
     },
     {
       "id": 93,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "RAM Item 93",
+      "category": "RAM",
+      "condition": "USED",
+      "price": 360.93,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 9,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for RAM Item 93, condition used."
     },
     {
       "id": 94,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CABEL Item 94",
+      "category": "CABEL",
+      "condition": "USED",
+      "price": 465.02,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 13,
+      "location": "GLDANI",
+      "userDescription": "Description for CABEL Item 94, condition used."
     },
     {
       "id": 95,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 95",
+      "category": "MOTHERBOARD",
+      "condition": "NEW",
+      "price": 208.48,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 15,
+      "location": "GLDANI",
+      "userDescription": "Description for MOTHERBOARD Item 95, condition new."
     },
     {
       "id": 96,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "SSD Item 96",
+      "category": "SSD",
+      "condition": "PARTS",
+      "price": 307.07,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 8,
+      "location": "GLDANI",
+      "userDescription": "Description for SSD Item 96, condition parts."
     },
     {
       "id": 97,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 97",
+      "category": "MOTHERBOARD",
+      "condition": "PARTS",
+      "price": 296.79,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 11,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for MOTHERBOARD Item 97, condition parts."
     },
     {
       "id": 98,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "MOTHERBOARD Item 98",
+      "category": "MOTHERBOARD",
+      "condition": "PARTS",
+      "price": 133.97,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 8,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for MOTHERBOARD Item 98, condition parts."
     },
     {
       "id": 99,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "HDD Item 99",
+      "category": "HDD",
+      "condition": "NEW",
+      "price": 322.49,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
-      "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "quantity": 17,
+      "location": "GLDANI",
+      "userDescription": "Description for HDD Item 99, condition new."
     },
     {
       "id": 100,
-      "title": "RTX 5090 24GB VRAM MSI SUPRIM X",
-      "category": "GPU",
-      "condition": "new",
-      "price": 50.0,
+      "title": "CASE_COOLER Item 100",
+      "category": "CASE_COOLER",
+      "condition": "USED",
+      "price": 335.78,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
       "quantity": 10,
-      "location": "Tbilisi",
-      "userDescription": "3 tve meyena sistemashi marto"
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Description for CASE_COOLER Item 100, condition used."
     }
   ]
 }

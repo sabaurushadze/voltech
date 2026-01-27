@@ -29,7 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.auth.presentation.R
-import com.tbc.core.designsystem.components.button.VoltechButton
+import com.tbc.core.designsystem.components.button.PrimaryButton
 import com.tbc.core.designsystem.components.textfield.PasswordTextField
 import com.tbc.core.designsystem.components.textfield.TextInputField
 import com.tbc.core.designsystem.theme.Dimen
@@ -159,12 +159,11 @@ fun RegisterContent(
 
             Spacer(modifier = Modifier.height(Dimen.size16))
 
-            VoltechButton(
+            PrimaryButton(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(Dimen.buttonLarge),
+                    .height(Dimen.buttonLarge)
+                    .fillMaxWidth(),
                 text = stringResource(R.string.register),
-                buttonColor = VoltechColor.primary,
                 enabled = state.isRegisterEnabled,
                 onClick = {
                     onEvent(RegisterEvent.Register)

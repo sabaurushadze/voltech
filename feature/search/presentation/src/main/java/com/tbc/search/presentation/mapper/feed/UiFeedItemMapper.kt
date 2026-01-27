@@ -53,7 +53,6 @@ fun Category.toStringRes(): Int {
         Category.CASE -> R.string.category_case
         Category.MONITOR -> R.string.category_monitor
         Category.CABEL -> R.string.category_cabel
-        Category.OTHER -> R.string.category_other
     }
 }
 

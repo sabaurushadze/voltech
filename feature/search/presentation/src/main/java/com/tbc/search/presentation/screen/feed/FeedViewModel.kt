@@ -5,8 +5,11 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
 import com.tbc.core.presentation.base.BaseViewModel
-import com.tbc.search.domain.model.feed.FeedQuery
+import com.tbc.search.domain.model.feed.Category
+import com.tbc.search.domain.model.feed.Condition
+import com.tbc.search.domain.model.feed.Location
 import com.tbc.search.domain.usecase.feed.GetFeedItemsPagingUseCase
+import com.tbc.search.presentation.enums.feed.SortType
 import com.tbc.search.presentation.mapper.feed.toPresentation
 import com.tbc.search.presentation.model.feed.UiFeedItem
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,19 +27,131 @@ class FeedViewModel @Inject constructor(
 
     override fun onEvent(event: FeedEvent) {
         when (event) {
+
             is FeedEvent.GetItems -> {
             }
 
             is FeedEvent.SaveSearchQuery -> saveSearchQuery(event.query)
+            FeedEvent.HideSortSheet -> hideSortBottomSheet()
+            FeedEvent.ShowSortSheet -> showSortBottomSheet()
+            is FeedEvent.SelectSortType -> selectSortType(event.sortType)
+
+            FeedEvent.HideFilterSheet -> hideFilterBottomSheet()
+            FeedEvent.ShowFilterSheet -> showFilterBottomSheet()
+
+            is FeedEvent.UpdateMinPrice -> updateMinPrice(event.value)
+            is FeedEvent.UpdateMaxPrice -> updateMaxPrice(event.value)
+            FeedEvent.FilterItems -> applyFilters()
+            is FeedEvent.ToggleCategory -> {
+                toggleCategory(
+                    category = event.category,
+                    isSelected = event.selected
+                )
+            }
+            is FeedEvent.ToggleCondition -> {
+                toggleCondition(
+                    condition = event.condition,
+                    isSelected = event.selected
+                )
+            }
+            is FeedEvent.ToggleLocation -> {
+                toggleLocation(
+                    location = event.location,
+                    isSelected = event.selected
+                )
+            }
         }
+    }
+
+    private fun toggleLocation(location: Location, isSelected: Boolean) {
+        updateState {
+            val newSet = filterState.selectedLocations.toMutableSet()
+            if (isSelected) newSet.add(location) else newSet.remove(location)
+            copy(filterState = filterState.copy(selectedLocations = newSet))
+        }
+    }
+
+    private fun toggleCondition(condition: Condition, isSelected: Boolean) {
+        updateState {
+            val newSet = filterState.selectedConditions.toMutableSet()
+            if (isSelected) newSet.add(condition) else newSet.remove(condition)
+            copy(filterState = filterState.copy(selectedConditions = newSet))
+        }
+    }
+    private fun toggleCategory(category: Category, isSelected: Boolean) {
+        updateState {
+            val newSet = filterState.selectedCategories.toMutableSet()
+            if (isSelected) newSet.add(category) else newSet.remove(category)
+            copy(filterState = filterState.copy(selectedCategories = newSet))
+        }
+    }
+
+    private fun updateMinPrice(value: String) {
+        updateState { copy(filterState = filterState.copy(minPrice = value)) }
+    }
+
+    private fun updateMaxPrice(value: String) {
+        updateState { copy(filterState = filterState.copy(maxPrice = value)) }
+    }
+
+    private fun applyFilters() {
+        val filter = state.value.filterState
+        updateState {
+            val updatedQuery = query.copy(
+                titleLike = null,
+                category = filter.selectedCategories.takeIf { it.isNotEmpty() }?.map { it.name },
+                condition = filter.selectedConditions.takeIf { it.isNotEmpty() }?.map { it.name },
+                location = filter.selectedLocations.takeIf { it.isNotEmpty() }?.map { it.name },
+                minPrice = filter.minPrice.toFloatOrNull(),
+                maxPrice = filter.maxPrice.toFloatOrNull(),
+            )
+
+            copy(
+                query = updatedQuery,
+                selectedFilter = false
+            )
+        }
+    }
+
+    private fun selectSortType(sortType: SortType) {
+        updateState {
+            val updatedQuery = query.copy(
+                sortBy = PRICE,
+                sortDescending = sortType == SortType.PRICE_HIGHEST
+            )
+            copy(
+                selectedSortType = sortType,
+                selectedSort = false,
+                query = updatedQuery
+            )
+        }
+    }
+
+    private fun showSortBottomSheet() {
+        updateState { copy(selectedSort = true) }
+    }
+
+    private fun hideSortBottomSheet() {
+        updateState { copy(selectedSort = false) }
+    }
+
+    private fun showFilterBottomSheet() {
+        updateState { copy(selectedFilter = true) }
+    }
+
+    private fun hideFilterBottomSheet() {
+        updateState { copy(selectedFilter = false) }
     }
 
     private fun saveSearchQuery(searchQuery: String) {
         updateState {
+            val initQuery = query.copy(
+                sortBy = "price",
+                sortDescending = false,
+                titleLike = searchQuery
+            )
             copy(
-                query = FeedQuery(
-                    titleLike = searchQuery,
-                )
+                query = initQuery
             )
         }
     }
@@ -56,11 +171,12 @@ class FeedViewModel @Inject constructor(
                             domainFeedItem.toPresentation()
                         }
                     }
-//                    .cachedIn(viewModelScope)
+                    .cachedIn(viewModelScope)
             }
 
     companion object {
         private const val PAGE_SIZE = 10
+        private const val PRICE = "price"
 
     }
 }

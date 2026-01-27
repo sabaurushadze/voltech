@@ -8,11 +8,11 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.BottomAppBarDefaults
+import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -31,9 +31,8 @@ fun VoltechBottomNavigation(
     currentDestination: NavDestination?,
     visible: Boolean,
     onNavigateToDestination: (TopLevelDestination) -> Unit,
+    bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
-    val bottomAppBarScrollBehavior = BottomAppBarDefaults.exitAlwaysScrollBehavior()
-
     AnimatedVisibility(
         visible = visible,
         enter = fadeIn() + expandVertically(),
@@ -43,6 +42,7 @@ fun VoltechBottomNavigation(
         BottomAppBar(
             windowInsets = WindowInsets.navigationBars,
             scrollBehavior = bottomAppBarScrollBehavior,
+            containerColor = VoltechColor.surface,
             modifier = Modifier.clip(
                 shape = RoundedCornerShape(
                     topStart = Dimen.size16,
@@ -74,6 +74,13 @@ fun VoltechBottomNavigation(
                         if (!selected)
                             onNavigateToDestination(destination)
                     },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = VoltechColor.primary,
+                        unselectedIconColor = VoltechColor.onBackground,
+                        selectedTextColor = VoltechColor.primary,
+                        unselectedTextColor = VoltechColor.onBackground,
+                        indicatorColor = VoltechColor.primary.copy(alpha = 0.12f)
+                    )
                 )
             }
         }

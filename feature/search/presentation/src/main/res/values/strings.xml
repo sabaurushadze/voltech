@@ -22,4 +22,22 @@
     <string name="category_monitor">MONITOR</string>
     <string name="category_cabel">CABEL</string>
     <string name="category_other">Other item</string>
+    <string name="sort">Sort</string>
+    <string name="filter">Filter</string>
+    <string name="loading_searching">Searching...</string>
+    <string name="sort_price_highest">Highest Price</string>
+    <string name="sort_price_lowest">Lowest Price</string>
+    <string name="filter_category">Category</string>
+    <string name="filter_price">Price</string>
+    <string name="filter_location">Location</string>
+    <string name="filter_condition">Condition</string>
+    <string name="minimum_price">Min</string>
+    <string name="maximum_price">Max</string>
+    <string name="price">Price</string>
+    <string name="condition">Condition</string>
+    <string name="location">Location</string>
+    <string name="category">Category</string>
+    <string name="all_locations">All locations</string>
+    <string name="all_parts">All parts</string>
+    <string name="all_categories">All categories</string>
 </resources>

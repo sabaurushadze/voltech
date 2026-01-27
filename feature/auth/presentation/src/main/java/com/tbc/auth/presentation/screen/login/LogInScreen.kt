@@ -24,12 +24,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.auth.presentation.R
-import com.tbc.core.designsystem.components.button.VoltechButton
+import com.tbc.core.designsystem.components.button.PrimaryButton
+import com.tbc.core.designsystem.components.button.SecondaryButton
 import com.tbc.core.designsystem.components.divider.Divider
 import com.tbc.core.designsystem.components.textfield.PasswordTextField
 import com.tbc.core.designsystem.components.textfield.TextInputField
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
+import com.tbc.core.designsystem.theme.VoltechRadius
 import com.tbc.core.designsystem.theme.VoltechTextStyle
 import com.tbc.core.designsystem.theme.VoltechTheme
 
@@ -137,16 +139,16 @@ fun LogInContent(
 
             Spacer(modifier = Modifier.height(Dimen.size16))
 
-            VoltechButton(
+            PrimaryButton(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(Dimen.buttonLarge),
+                    .height(Dimen.buttonLarge)
+                    .fillMaxWidth(),
                 text = stringResource(R.string.log_in),
-                buttonColor = VoltechColor.primary,
                 enabled = state.isLoginEnabled,
+                shape = VoltechRadius.radius16,
                 onClick = {
                     onEvent(LogInEvent.LogIn)
-                }
+                },
             )
 
             Spacer(modifier = Modifier.height(Dimen.size16))
@@ -157,12 +159,11 @@ fun LogInContent(
 
             Spacer(modifier = Modifier.height(Dimen.size16))
 
-            VoltechButton(
+            SecondaryButton(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(Dimen.buttonLarge),
                 text = stringResource(R.string.register),
-                buttonColor = VoltechColor.primary,
                 border = BorderStroke(
                     Dimen.size1, VoltechColor.onBackground
                 ),

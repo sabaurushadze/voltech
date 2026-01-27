@@ -10,12 +10,13 @@ import javax.inject.Inject
 
 class FeedPagingSource @Inject constructor(
     private val service: FeedService,
-    private val query: FeedQuery
+    private val query: FeedQuery,
 
-) : PagingSource<Int, FeedItem>(){
+    ) : PagingSource<Int, FeedItem>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, FeedItem> {
         return try {
             val page = params.key ?: 1
+            val order = if (query.sortDescending) DESC else ASC
 
             val response = service.getItemsWithPagination(
                 query = query.titleLike,
@@ -25,6 +26,7 @@ class FeedPagingSource @Inject constructor(
                 location = query.location,
                 condition = query.condition,
                 sortBy = query.sortBy,
+                order = order,
                 page = page,
                 perPage = PER_PAGE_COUNT,
             )
@@ -53,6 +55,8 @@ class FeedPagingSource @Inject constructor(
 
     companion object {
         const val PER_PAGE_COUNT = 10
+        private const val DESC = "desc"
+        private const val ASC = "asc"
     }
 
 }

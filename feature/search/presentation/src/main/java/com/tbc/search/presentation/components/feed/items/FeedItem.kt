@@ -1,4 +1,4 @@
-package com.tbc.search.presentation.components.feed
+package com.tbc.search.presentation.components.feed.items
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -134,6 +134,65 @@ private fun FeedItemContent(
         color = VoltechColor.neutralText1,
         style = VoltechTextStyle.body14Normal,
         maxLines = 1
+    )
+}
+
+@Composable
+fun FeedItemPlaceholderCard() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(Dimen.size8)
+        ) {
+            Box(
+                modifier = Modifier
+                    .height(Dimen.size132)
+                    .width(Dimen.size132)
+                    .clip(VoltechRadius.radius16)
+            ) {
+                BaseAsyncImage(
+                    url = "",
+                    modifier = Modifier
+                        .matchParentSize(),
+                )
+            }
+
+            Spacer(modifier = Modifier.width(Dimen.size16))
+
+            Column(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Spacer(modifier = Modifier.height(Dimen.size4))
+
+                FeedItemPlaceholderContent()
+            }
+        }
+
+
+    }
+}
+
+
+@Composable
+private fun FeedItemPlaceholderContent() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth(0.8f)
+            .height(Dimen.size16)
+            .background(VoltechColor.neutral1)
+    )
+
+    Spacer(modifier = Modifier.height(Dimen.size4))
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth(0.6f)
+            .height(Dimen.size16)
+            .background(VoltechColor.neutral1)
     )
 }
 

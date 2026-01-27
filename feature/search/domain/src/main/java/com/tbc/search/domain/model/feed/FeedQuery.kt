@@ -2,9 +2,9 @@ package com.tbc.search.domain.model.feed
 
 data class FeedQuery(
     val titleLike: String? = null,
-    val category: String? = null,
-    val location: String? = null,
-    val condition: String? = null,
+    val category: List<String>? = null,
+    val location: List<String>? = null,
+    val condition: List<String>? = null,
     val minPrice: Float? = null,
     val maxPrice: Float? = null,
     val sortBy: String? = null,

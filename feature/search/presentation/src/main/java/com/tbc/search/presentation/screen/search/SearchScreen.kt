@@ -1,5 +1,6 @@
 package com.tbc.search.presentation.screen.search
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,7 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
@@ -82,11 +82,12 @@ fun SearchScreen(
 private fun LogInContent(
     state: SearchState,
     onEvent: (SearchEvent) -> Unit,
-    focusRequester: FocusRequester
+    focusRequester: FocusRequester,
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(VoltechColor.background)
             .systemBarsPadding()
     ) {
         TextInputField(

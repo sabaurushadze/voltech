@@ -1,19 +1,21 @@
 package com.tbc.search.presentation.navigation
 
+import androidx.compose.material3.BottomAppBarScrollBehavior
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavType
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import androidx.navigation.toRoute
 import com.tbc.search.presentation.screen.feed.FeedScreen
 import com.tbc.search.presentation.screen.search.SearchScreen
 import kotlinx.serialization.Serializable
 
+@OptIn(ExperimentalMaterial3Api::class)
 fun NavGraphBuilder.searchNavGraph(
     onShowSnackBar: (String) -> Unit,
     navigateToFeed: (String) -> Unit,
     navigateToSearch: () -> Unit,
+    bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
 
     navigation<SearchNavGraphRoute>(startDestination = SearchScreenRoute) {
@@ -31,7 +33,8 @@ fun NavGraphBuilder.searchNavGraph(
             FeedScreen(
                 query = route.query,
                 onShowSnackBar = onShowSnackBar,
-                navigateToSearch = navigateToSearch
+                navigateToSearch = navigateToSearch,
+                bottomAppBarScrollBehavior = bottomAppBarScrollBehavior
             )
         }
     }

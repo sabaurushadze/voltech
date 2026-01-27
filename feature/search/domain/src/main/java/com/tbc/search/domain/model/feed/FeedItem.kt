@@ -13,7 +13,7 @@ data class FeedItem(
 )
 
 enum class Category {
-    GPU, CPU, MOTHERBOARD, RAM, SSD, HDD, CPU_COOLER, PSU, CASE_COOLER, CASE, MONITOR, CABEL, OTHER;
+    GPU, CPU, MOTHERBOARD, RAM, SSD, HDD, CPU_COOLER, PSU, CASE_COOLER, CASE, MONITOR, CABEL;
 
     companion object {
         fun fromString(value: String): Category {
@@ -30,7 +30,7 @@ enum class Category {
                 "CASE" -> CASE
                 "MONITOR" -> MONITOR
                 "CABEL" -> CABEL
-                else -> OTHER
+                else -> GPU
             }
         }
     }
