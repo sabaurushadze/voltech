@@ -19,7 +19,6 @@ import kotlin.reflect.KClass
 fun AppNavHost(
     appState: AppState,
     startDestination: KClass<*>,
-    onShowSnackBar: (String) -> Unit,
     onSuccessfulAuth: () -> Unit,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
@@ -34,7 +33,6 @@ fun AppNavHost(
         popExitTransition = { ExitTransition.None }
     ) {
         authNavGraph(
-            onShowSnackBar = onShowSnackBar,
             navigateToRegister = {
                 navController.navigate(RegisterScreenRoute)
             },
@@ -45,11 +43,9 @@ fun AppNavHost(
         )
 
         homeNavGraph(
-            onShowSnackBar = onShowSnackBar
         )
 
         searchNavGraph(
-            onShowSnackBar = onShowSnackBar,
             navigateToFeed = { query ->
                 navController.navigate(FeedScreenRoute(query))
             },

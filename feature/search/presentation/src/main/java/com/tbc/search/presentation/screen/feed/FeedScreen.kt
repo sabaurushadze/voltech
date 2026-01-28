@@ -28,7 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -42,7 +42,8 @@ import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechRadius
 import com.tbc.core.designsystem.theme.VoltechTextStyle
-import com.tbc.core.presentation.extension.collectEvent
+import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
+import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.search.presentation.R
 import com.tbc.search.presentation.components.feed.items.FeedItemCard
 import com.tbc.search.presentation.components.feed.items.FeedItemPlaceholderCard
@@ -56,12 +57,12 @@ import com.tbc.search.presentation.model.feed.UiFeedItem
 @Composable
 fun FeedScreen(
     viewModel: FeedViewModel = hiltViewModel(),
-    onShowSnackBar: (String) -> Unit,
     navigateToSearch: () -> Unit,
     query: String,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
-    val context = LocalResources.current
+    val snackbarHostState = LocalSnackbarHostState.current
+    val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
     val pagingItems = viewModel.feedPagingFlow.collectAsLazyPagingItems()
     val isContentReady = pagingItems.loadState.refresh !is LoadState.Loading
@@ -85,11 +86,11 @@ fun FeedScreen(
         listState.scrollToItem(0)
     }
 
-    viewModel.sideEffect.collectEvent { sideEffect ->
+    viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
             is FeedSideEffect.ShowSnackBar -> {
                 val error = context.getString(sideEffect.errorRes)
-                onShowSnackBar(error)
+                snackbarHostState.showSnackbar(message = error)
             }
 
             is FeedSideEffect.NavigateToItemDetails -> {}

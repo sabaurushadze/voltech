@@ -12,7 +12,6 @@ import kotlinx.serialization.Serializable
 
 @OptIn(ExperimentalMaterial3Api::class)
 fun NavGraphBuilder.searchNavGraph(
-    onShowSnackBar: (String) -> Unit,
     navigateToFeed: (String) -> Unit,
     navigateToSearch: () -> Unit,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
@@ -22,7 +21,6 @@ fun NavGraphBuilder.searchNavGraph(
 
         composable<SearchScreenRoute> {
             SearchScreen(
-                onShowSnackBar = onShowSnackBar,
                 navigateToFeed = navigateToFeed
             )
         }
@@ -32,7 +30,6 @@ fun NavGraphBuilder.searchNavGraph(
 
             FeedScreen(
                 query = route.query,
-                onShowSnackBar = onShowSnackBar,
                 navigateToSearch = navigateToSearch,
                 bottomAppBarScrollBehavior = bottomAppBarScrollBehavior
             )

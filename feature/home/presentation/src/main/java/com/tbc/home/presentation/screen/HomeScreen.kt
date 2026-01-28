@@ -6,7 +6,6 @@ import com.tbc.core.designsystem.theme.VoltechTextStyle
 
 @Composable
 fun HomeScreen(
-    onShowSnackBar: (String) -> Unit,
 
     ) {
     Text(text = "Home Screen!", style = VoltechTextStyle.title18Bold)

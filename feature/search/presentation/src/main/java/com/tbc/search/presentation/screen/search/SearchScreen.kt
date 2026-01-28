@@ -25,7 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -39,16 +39,17 @@ import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechRadius
 import com.tbc.core.designsystem.theme.VoltechTextStyle
-import com.tbc.core.presentation.extension.collectEvent
+import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
+import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.search.presentation.R
 
 @Composable
 fun SearchScreen(
     viewModel: SearchViewModel = hiltViewModel(),
-    onShowSnackBar: (String) -> Unit,
     navigateToFeed: (String) -> Unit,
 ) {
-    val context = LocalResources.current
+    val snackbarHostState = LocalSnackbarHostState.current
+    val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     val focusRequester = remember { FocusRequester() }
@@ -65,11 +66,11 @@ fun SearchScreen(
         keyboardController?.show()
     }
 
-    viewModel.sideEffect.collectEvent { sideEffect ->
+    viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
             is SearchSideEffect.ShowSnackBar -> {
                 val error = context.getString(sideEffect.errorRes)
-                onShowSnackBar(error)
+                snackbarHostState.showSnackbar(message = error)
             }
 
             is SearchSideEffect.NavigateToFeed -> navigateToFeed(sideEffect.query)

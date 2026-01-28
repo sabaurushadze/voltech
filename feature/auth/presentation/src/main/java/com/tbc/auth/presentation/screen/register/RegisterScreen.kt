@@ -1,5 +1,6 @@
 package com.tbc.auth.presentation.screen.register
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,7 +22,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -36,15 +37,16 @@ import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechTextStyle
 import com.tbc.core.designsystem.theme.VoltechTheme
+import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 
 @Composable
 fun RegisterScreen(
     viewModel: RegisterViewModel = hiltViewModel(),
     navigateBack: () -> Unit = {},
-    onShowSnackBar: (String) -> Unit,
     onSuccessfulAuth: () -> Unit = {},
 ) {
-    val context = LocalResources.current
+    val snackbarHostState = LocalSnackbarHostState.current
+    val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     RegisterContent(
@@ -62,7 +64,7 @@ fun RegisterScreen(
 
                 is RegisterSideEffect.ShowSnackBar -> {
                     val error = context.getString(sideEffect.errorRes)
-                    onShowSnackBar(error)
+                    snackbarHostState.showSnackbar(message = error)
                 }
             }
         }
@@ -85,6 +87,7 @@ fun RegisterContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(VoltechColor.background)
             .padding(Dimen.size16)
     ) {
 

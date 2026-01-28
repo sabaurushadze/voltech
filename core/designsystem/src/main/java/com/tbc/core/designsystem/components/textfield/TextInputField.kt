@@ -35,8 +35,7 @@ fun TextInputField(
     keyboardType: KeyboardType = KeyboardType.Unspecified,
 ) {
     OutlinedTextField(
-        modifier = modifier
-            .height(Dimen.size64),
+        modifier = modifier,
         value = value,
         enabled = enabled,
         colors = OutlinedTextFieldDefaults.colors(

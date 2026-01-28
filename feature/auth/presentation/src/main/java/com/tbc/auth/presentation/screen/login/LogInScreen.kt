@@ -1,6 +1,7 @@
 package com.tbc.auth.presentation.screen.login
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,7 +17,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -34,15 +35,16 @@ import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechRadius
 import com.tbc.core.designsystem.theme.VoltechTextStyle
 import com.tbc.core.designsystem.theme.VoltechTheme
+import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 
 @Composable
 fun LogInScreen(
     viewModel: LogInViewModel = hiltViewModel(),
     onSuccessfulAuth: () -> Unit,
     navigateToRegister: () -> Unit,
-    onShowSnackBar: (String) -> Unit,
 ) {
-    val context = LocalResources.current
+    val snackbarHostState = LocalSnackbarHostState.current
+    val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     LogInContent(
@@ -59,7 +61,7 @@ fun LogInScreen(
 
                 is LogInSideEffect.ShowSnackBar -> {
                     val error = context.getString(sideEffect.errorRes)
-                    onShowSnackBar(error)
+                    snackbarHostState.showSnackbar(message = error)
                 }
 
                 LogInSideEffect.NavigateToRegister -> {
@@ -84,6 +86,7 @@ fun LogInContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(VoltechColor.background)
             .padding(Dimen.size16)
     ) {
         Column(

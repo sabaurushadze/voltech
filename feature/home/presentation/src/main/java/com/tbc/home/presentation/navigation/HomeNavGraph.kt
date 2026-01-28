@@ -6,12 +6,10 @@ import com.tbc.home.presentation.screen.HomeScreen
 import kotlinx.serialization.Serializable
 
 fun NavGraphBuilder.homeNavGraph(
-    onShowSnackBar: (String) -> Unit,
 ) {
 
     composable<HomeScreenRoute> {
         HomeScreen(
-            onShowSnackBar = onShowSnackBar,
         )
     }
 

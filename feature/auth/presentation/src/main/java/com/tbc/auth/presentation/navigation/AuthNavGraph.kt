@@ -8,7 +8,6 @@ import com.tbc.auth.presentation.screen.register.RegisterScreen
 import kotlinx.serialization.Serializable
 
 fun NavGraphBuilder.authNavGraph(
-    onShowSnackBar: (String) -> Unit,
     navigateToRegister: () -> Unit,
     navigateBack: () -> Unit,
     onSuccessfulAuth: () -> Unit,
@@ -18,7 +17,6 @@ fun NavGraphBuilder.authNavGraph(
 
         composable<LoginScreenRoute> {
             LogInScreen(
-                onShowSnackBar = onShowSnackBar,
                 navigateToRegister = navigateToRegister,
                 onSuccessfulAuth = onSuccessfulAuth
             )
@@ -27,7 +25,6 @@ fun NavGraphBuilder.authNavGraph(
 
         composable<RegisterScreenRoute> {
             RegisterScreen(
-                onShowSnackBar = onShowSnackBar,
                 navigateBack = navigateBack,
                 onSuccessfulAuth = onSuccessfulAuth
             )
