@@ -17,7 +17,7 @@
     },
     {
       "id": 2,
-      "title": "CASE_COOLER Item 2",
+      "title": "GPU Item 1",
       "category": "CASE_COOLER",
       "condition": "PARTS",
       "price": 397.02,
@@ -32,7 +32,7 @@
     },
     {
       "id": 3,
-      "title": "PSU Item 3",
+      "title": "GPU Item 1",
       "category": "PSU",
       "condition": "NEW",
       "price": 191.1,
@@ -47,7 +47,7 @@
     },
     {
       "id": 4,
-      "title": "SSD Item 4",
+      "title": "GPU Item 1",
       "category": "SSD",
       "condition": "PARTS",
       "price": 145.78,
@@ -62,7 +62,7 @@
     },
     {
       "id": 5,
-      "title": "MOTHERBOARD Item 5",
+      "title": "GPU Item 1",
       "category": "MOTHERBOARD",
       "condition": "PARTS",
       "price": 42.45,
@@ -77,7 +77,7 @@
     },
     {
       "id": 6,
-      "title": "CASE_COOLER Item 6",
+      "title": "GPU Item 1",
       "category": "CASE_COOLER",
       "condition": "PARTS",
       "price": 468.52,
@@ -92,7 +92,7 @@
     },
     {
       "id": 7,
-      "title": "MOTHERBOARD Item 7",
+      "title": "GPU Item 1",
       "category": "MOTHERBOARD",
       "condition": "USED",
       "price": 279.12,
@@ -107,7 +107,7 @@
     },
     {
       "id": 8,
-      "title": "RAM Item 8",
+      "title": "GPU Item 1",
       "category": "RAM",
       "condition": "USED",
       "price": 23.48,
@@ -122,7 +122,7 @@
     },
     {
       "id": 9,
-      "title": "SSD Item 9",
+      "title": "GPU Item 1",
       "category": "SSD",
       "condition": "USED",
       "price": 441.53,
@@ -137,7 +137,7 @@
     },
     {
       "id": 10,
-      "title": "HDD Item 10",
+      "title": "GPU Item 1",
       "category": "HDD",
       "condition": "NEW",
       "price": 176.55,

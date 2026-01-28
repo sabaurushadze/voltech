@@ -1,16 +1,12 @@
 package com.tbc.search.presentation.screen.feed
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
@@ -19,38 +15,32 @@ import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.tbc.core.designsystem.components.button.IconTextButton
-import com.tbc.core.designsystem.components.textfield.TextInputFieldDummy
+import com.tbc.core.designsystem.components.topappbar.FeedAppBar
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
+import com.tbc.core.presentation.compositionlocal.LocalTopBarState
 import com.tbc.core.presentation.extension.collectSideEffect
-import com.tbc.search.presentation.R
 import com.tbc.search.presentation.components.feed.items.FeedItemCard
 import com.tbc.search.presentation.components.feed.items.FeedItemPlaceholderCard
 import com.tbc.search.presentation.components.feed.sheet.FilterBottomSheet
 import com.tbc.search.presentation.components.feed.sheet.SortBottomSheet
 import com.tbc.search.presentation.enums.feed.SortType
-import com.tbc.search.presentation.extension.isScrollingUp
 import com.tbc.search.presentation.model.feed.UiFeedItem
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -60,9 +50,13 @@ fun FeedScreen(
     navigateToSearch: () -> Unit,
     query: String,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
+    topAppBarScrollBehavior: TopAppBarScrollBehavior,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
+
+    val topBarState = LocalTopBarState.current
+
     val state by viewModel.state.collectAsStateWithLifecycle()
     val pagingItems = viewModel.feedPagingFlow.collectAsLazyPagingItems()
     val isContentReady = pagingItems.loadState.refresh !is LoadState.Loading
@@ -73,6 +67,29 @@ fun FeedScreen(
     )
 
     val listState = rememberLazyListState()
+
+    LaunchedEffect(isContentReady) {
+        topBarState.setTopBar(
+            content = {
+                FeedAppBar(
+                    onSearchClick = navigateToSearch,
+                    onSortClick = { viewModel.onEvent(FeedEvent.ShowSortSheet) },
+                    onFilterClick = { viewModel.onEvent(FeedEvent.ShowFilterSheet) },
+                    isLoading = state.isLoading,
+                    scrollBehavior = topAppBarScrollBehavior,
+                    isContentReady = isContentReady
+                )
+            },
+            behavior = topAppBarScrollBehavior,
+            key = "FeedScreen"
+        )
+    }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            topBarState.clearTopBar(key = "FeedScreen")
+        }
+    }
 
     LaunchedEffect(query) {
         viewModel.onEvent(FeedEvent.SaveSearchQuery(query))
@@ -101,7 +118,6 @@ fun FeedScreen(
         state = state,
         pagingItems = pagingItems,
         onEvent = viewModel::onEvent,
-        onSearchClick = navigateToSearch,
         listState = listState,
         isContentReady = isContentReady,
         bottomAppBarScrollBehavior = bottomAppBarScrollBehavior
@@ -145,7 +161,6 @@ private fun FeedContent(
     state: FeedState,
     pagingItems: LazyPagingItems<UiFeedItem>,
     onEvent: (FeedEvent) -> Unit,
-    onSearchClick: () -> Unit,
     listState: LazyListState,
     isContentReady: Boolean,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
@@ -156,61 +171,6 @@ private fun FeedContent(
             .background(VoltechColor.background)
             .fillMaxSize()
     ) {
-        AnimatedVisibility(
-            visible = listState.isScrollingUp().value
-        ) {
-            Column(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                TextInputFieldDummy(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = Dimen.size16),
-                    label = stringResource(R.string.search_on_voltech),
-                    shape = VoltechRadius.radius24,
-                    startIcon = ImageVector.vectorResource(R.drawable.ic_search),
-                    onClick = onSearchClick,
-                )
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = Dimen.size16),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    if (!isContentReady) {
-                        Text(
-                            text = stringResource(R.string.loading_searching),
-                            style = VoltechTextStyle.body16Bold,
-                            color = VoltechColor.onBackground
-                        )
-                    } else {
-                        Spacer(modifier = Modifier)
-                    }
-                    Row {
-                        IconTextButton(
-                            icon = ImageVector.vectorResource(R.drawable.ic_filter),
-                            textRes = R.string.sort,
-                            loading = state.isLoading,
-                            enabled = !state.isLoading,
-                            onClick = { onEvent(FeedEvent.ShowSortSheet) },
-                        )
-                        IconTextButton(
-                            icon = ImageVector.vectorResource(R.drawable.ic_sort),
-                            textRes = R.string.filter,
-                            loading = state.isLoading,
-                            enabled = !state.isLoading,
-                            onClick = { onEvent(FeedEvent.ShowFilterSheet) },
-                        )
-                    }
-                }
-            }
-
-        }
-
-        Spacer(modifier = Modifier.height(Dimen.size8))
-
         LazyColumn(
             modifier = modifier
                 .systemBarsPadding(),

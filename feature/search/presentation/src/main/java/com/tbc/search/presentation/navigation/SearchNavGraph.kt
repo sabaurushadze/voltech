@@ -2,6 +2,7 @@ package com.tbc.search.presentation.navigation
 
 import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
@@ -15,13 +16,16 @@ fun NavGraphBuilder.searchNavGraph(
     navigateToFeed: (String) -> Unit,
     navigateToSearch: () -> Unit,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
+    topAppBarScrollBehavior: TopAppBarScrollBehavior,
+    topAppBarPinnedScrollBehavior: TopAppBarScrollBehavior
 ) {
 
     navigation<SearchNavGraphRoute>(startDestination = SearchScreenRoute) {
 
         composable<SearchScreenRoute> {
             SearchScreen(
-                navigateToFeed = navigateToFeed
+                navigateToFeed = navigateToFeed,
+                topAppBarScrollBehavior = topAppBarPinnedScrollBehavior
             )
         }
 
@@ -31,7 +35,8 @@ fun NavGraphBuilder.searchNavGraph(
             FeedScreen(
                 query = route.query,
                 navigateToSearch = navigateToSearch,
-                bottomAppBarScrollBehavior = bottomAppBarScrollBehavior
+                bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
+                topAppBarScrollBehavior = topAppBarScrollBehavior,
             )
         }
     }

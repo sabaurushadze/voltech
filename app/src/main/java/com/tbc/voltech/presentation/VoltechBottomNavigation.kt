@@ -38,7 +38,6 @@ fun VoltechBottomNavigation(
         enter = fadeIn() + expandVertically(),
         exit = ExitTransition.None
     ) {
-
         BottomAppBar(
             windowInsets = WindowInsets.navigationBars,
             scrollBehavior = bottomAppBarScrollBehavior,
