@@ -20,7 +20,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechRadius
@@ -62,10 +61,9 @@ fun FeedItemCard(
                         .matchParentSize(),
                 )
 
+
                 FavoriteButton(
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(Dimen.size4),
+                    modifier = Modifier.align(Alignment.TopEnd),
                     isSelected = isFavoriteIconSelected,
                     onFavoriteIconClick = { onFavoriteIconClick() }
                 )
@@ -96,7 +94,7 @@ private fun FeedItemContent(
     title: String,
     price: String,
     condition: String,
-    location: String
+    location: String,
 ) {
     Text(
         modifier = Modifier.fillMaxWidth(),
@@ -204,18 +202,17 @@ private fun FavoriteButton(
 ) {
     val heartIcon = if (isSelected) R.drawable.ic_filled_heart else R.drawable.ic_outlined_heart
 
-
     Box(
         modifier = modifier
-            .size(Dimen.size32)
+            .size(Dimen.size50)
             .clickable { onFavoriteIconClick() },
         contentAlignment = Alignment.Center
     ) {
         Box(
             modifier = Modifier
-                .size(Dimen.size24)
+                .size(Dimen.size32)
                 .shadow(
-                    elevation = 4.dp,
+                    elevation = Dimen.size2,
                     shape = VoltechRadius.radius64,
                     clip = false
                 )
@@ -227,7 +224,7 @@ private fun FavoriteButton(
                 painter = painterResource(id = heartIcon),
                 contentDescription = "",
                 tint = VoltechColor.onBackground,
-                modifier = Modifier.size(Dimen.size12)
+                modifier = Modifier.size(Dimen.size18)
             )
         }
     }

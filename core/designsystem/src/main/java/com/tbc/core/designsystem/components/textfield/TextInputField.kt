@@ -33,6 +33,7 @@ fun TextInputField(
     imeAction: ImeAction = ImeAction.None,
     shape: RoundedCornerShape = VoltechRadius.radius16,
     keyboardType: KeyboardType = KeyboardType.Unspecified,
+    startIcon: ImageVector? = null,
 ) {
     OutlinedTextField(
         modifier = modifier,
@@ -68,6 +69,15 @@ fun TextInputField(
         isError = errorText != null,
         shape = shape,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction),
+        leadingIcon = startIcon?.let { icon ->
+            {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    tint = VoltechColor.onBackground
+                )
+            }
+        }
     )
 }
 
@@ -81,7 +91,7 @@ fun TextInputFieldDummy(
     shape: RoundedCornerShape = VoltechRadius.radius16,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onClick: () -> Unit = {},
-    startIcon: ImageVector? = null
+    startIcon: ImageVector? = null,
 ) {
     OutlinedTextField(
         readOnly = true,
@@ -90,7 +100,7 @@ fun TextInputFieldDummy(
                 onClick = onClick,
                 indication = null,
                 interactionSource = remember { MutableInteractionSource() }
-                )
+            )
             .height(Dimen.size64),
         value = value,
         enabled = enabled,
@@ -102,7 +112,8 @@ fun TextInputFieldDummy(
             {
                 Text(
                     text = it,
-                    style = VoltechTextStyle.body14Normal
+                    style = VoltechTextStyle.body14Normal,
+                    color = VoltechColor.onBackground
                 )
             }
         },

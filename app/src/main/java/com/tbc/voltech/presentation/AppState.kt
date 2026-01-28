@@ -7,13 +7,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
-import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
+import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
 import com.tbc.home.presentation.navigation.HomeScreenRoute
-import com.tbc.search.presentation.navigation.SearchNavGraphRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.voltech.navigation.TopLevelDestination
 import kotlinx.coroutines.CoroutineScope
@@ -27,7 +26,6 @@ fun rememberAppState(
     return remember(navHostController) { AppState(navHostController, coroutineScope) }
 
 }
-
 
 data class AppState(
     val navController: NavHostController,
@@ -56,6 +54,19 @@ data class AppState(
             }
         }
 
+    val shouldShowBottomBar: Boolean
+        @Composable get() {
+            val destination = currentDestination ?: return false
+
+            val hiddenRoutes = listOf(
+                AuthNavGraphRoute::class,
+            )
+
+            return hiddenRoutes.none { route ->
+                destination.hasRoute(route)
+            } && currentTopLevelDestination != null
+        }
+
     fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {
         val topLevelNavOptions = navOptions {
             popUpTo(navController.graph.findStartDestination().id) {
@@ -65,10 +76,13 @@ data class AppState(
             restoreState = true
         }
 
-            when (topLevelDestination) {
-                TopLevelDestination.HOME -> navController.navigate(HomeScreenRoute, topLevelNavOptions)
-                TopLevelDestination.SEARCH -> navController.navigate(SearchScreenRoute, topLevelNavOptions)
-            }
+        when (topLevelDestination) {
+            TopLevelDestination.HOME -> navController.navigate(HomeScreenRoute, topLevelNavOptions)
+            TopLevelDestination.SEARCH -> navController.navigate(
+                SearchScreenRoute,
+                topLevelNavOptions
+            )
+        }
 
     }
 
