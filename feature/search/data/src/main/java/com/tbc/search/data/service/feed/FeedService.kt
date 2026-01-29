@@ -7,19 +7,6 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface FeedService {
-//    @GET(ITEMS)
-//    suspend fun getItemsWithPagination(
-//        @Query(TITLE_LIKE) query: String? = null,
-//        @Query(CATEGORY) category: String? = null,
-//        @Query(CONDITION) condition: String? = null,
-//        @Query(LOCATION) location: String? = null,
-//        @Query(PRICE_GREATER_THAN) minPrice: Float? = null,
-//        @Query(PRICE_LESS_THAN) maxPrice: Float? = null,
-//        @Query(ORDER) order: String? = null,
-//        @Query(SORT) sortBy: String? = null,
-//        @Query(PAGE) page: Int,
-//        @Query(PER_PAGE) perPage: Int,
-//    ): Response<List<FeedItemResponseDto>>
     @GET(ITEMS)
     suspend fun getItemsWithPagination(
         @Query(TITLE_LIKE) query: String? = null,

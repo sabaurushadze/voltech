@@ -18,9 +18,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -39,7 +39,6 @@ import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechTextStyle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
-import com.tbc.core.presentation.compositionlocal.LocalTopBarState
 import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.search.presentation.R
 
@@ -48,12 +47,12 @@ import com.tbc.search.presentation.R
 fun SearchScreen(
     viewModel: SearchViewModel = hiltViewModel(),
     navigateToFeed: (String) -> Unit,
-    topAppBarScrollBehavior: TopAppBarScrollBehavior,
 ) {
-    val topBarState = LocalTopBarState.current
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val topAppBarScrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+
 
     val focusRequester = remember { FocusRequester() }
     val keyboardController = LocalSoftwareKeyboardController.current
@@ -61,30 +60,6 @@ fun SearchScreen(
     LaunchedEffect(Unit) {
         focusRequester.requestFocus()
         keyboardController?.show()
-    }
-
-    LaunchedEffect(Unit) {
-        topBarState.setTopBar(
-            content = {
-                SearchAppBar(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .focusRequester(focusRequester),
-                    query = state.query,
-                    onTextChanged = { viewModel.onEvent(SearchEvent.QueryChanged(it)) },
-                    scrollBehavior = topAppBarScrollBehavior,
-                    focusRequester = focusRequester,
-                )
-            },
-            behavior = topAppBarScrollBehavior,
-            key = "SearchScreen"
-        )
-    }
-
-    DisposableEffect(Unit) {
-        onDispose {
-            topBarState.clearTopBar("SearchScreen")
-        }
     }
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
@@ -101,15 +76,20 @@ fun SearchScreen(
     LogInContent(
         state = state,
         onEvent = viewModel::onEvent,
+        topAppBarScrollBehavior = topAppBarScrollBehavior,
+        focusRequester = focusRequester,
     )
 
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun LogInContent(
     state: SearchState,
     onEvent: (SearchEvent) -> Unit,
+    topAppBarScrollBehavior: TopAppBarScrollBehavior,
+    focusRequester: FocusRequester,
 ) {
     Column(
         modifier = Modifier
@@ -117,6 +97,16 @@ private fun LogInContent(
             .background(VoltechColor.background)
             .systemBarsPadding()
     ) {
+        SearchAppBar(
+            modifier = Modifier
+                .fillMaxWidth()
+                .focusRequester(focusRequester),
+            query = state.query,
+            onTextChanged = { onEvent(SearchEvent.QueryChanged(it)) },
+            scrollBehavior = topAppBarScrollBehavior,
+            focusRequester = focusRequester,
+        )
+
         if (state.query.isEmpty()) {
             Text(
                 modifier = Modifier.padding(horizontal = Dimen.size16),

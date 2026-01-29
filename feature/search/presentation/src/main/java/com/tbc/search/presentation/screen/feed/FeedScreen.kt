@@ -15,10 +15,10 @@ import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -34,7 +34,6 @@ import com.tbc.core.designsystem.components.topappbar.FeedAppBar
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
-import com.tbc.core.presentation.compositionlocal.LocalTopBarState
 import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.search.presentation.components.feed.items.FeedItemCard
 import com.tbc.search.presentation.components.feed.items.FeedItemPlaceholderCard
@@ -50,12 +49,11 @@ fun FeedScreen(
     navigateToSearch: () -> Unit,
     query: String,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
-    topAppBarScrollBehavior: TopAppBarScrollBehavior,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
 
-    val topBarState = LocalTopBarState.current
+    val topAppBarScrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     val state by viewModel.state.collectAsStateWithLifecycle()
     val pagingItems = viewModel.feedPagingFlow.collectAsLazyPagingItems()
@@ -66,30 +64,8 @@ fun FeedScreen(
         skipPartiallyExpanded = true
     )
 
+
     val listState = rememberLazyListState()
-
-    LaunchedEffect(isContentReady) {
-        topBarState.setTopBar(
-            content = {
-                FeedAppBar(
-                    onSearchClick = navigateToSearch,
-                    onSortClick = { viewModel.onEvent(FeedEvent.ShowSortSheet) },
-                    onFilterClick = { viewModel.onEvent(FeedEvent.ShowFilterSheet) },
-                    isLoading = state.isLoading,
-                    scrollBehavior = topAppBarScrollBehavior,
-                    isContentReady = isContentReady
-                )
-            },
-            behavior = topAppBarScrollBehavior,
-            key = "FeedScreen"
-        )
-    }
-
-    DisposableEffect(Unit) {
-        onDispose {
-            topBarState.clearTopBar(key = "FeedScreen")
-        }
-    }
 
     LaunchedEffect(query) {
         viewModel.onEvent(FeedEvent.SaveSearchQuery(query))
@@ -120,7 +96,9 @@ fun FeedScreen(
         onEvent = viewModel::onEvent,
         listState = listState,
         isContentReady = isContentReady,
-        bottomAppBarScrollBehavior = bottomAppBarScrollBehavior
+        bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
+        topAppBarScrollBehavior = topAppBarScrollBehavior,
+        navigateToSearch = navigateToSearch
     )
 
     if (state.selectedSort) {
@@ -161,16 +139,28 @@ private fun FeedContent(
     state: FeedState,
     pagingItems: LazyPagingItems<UiFeedItem>,
     onEvent: (FeedEvent) -> Unit,
+    navigateToSearch: () -> Unit,
     listState: LazyListState,
     isContentReady: Boolean,
+    topAppBarScrollBehavior: TopAppBarScrollBehavior,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
     Column(
         modifier = Modifier
+            .nestedScroll(topAppBarScrollBehavior.nestedScrollConnection)
             .nestedScroll(bottomAppBarScrollBehavior.nestedScrollConnection)
             .background(VoltechColor.background)
             .fillMaxSize()
     ) {
+        FeedAppBar(
+            onSearchClick = navigateToSearch,
+            onSortClick = { onEvent(FeedEvent.ShowSortSheet) },
+            onFilterClick = { onEvent(FeedEvent.ShowFilterSheet) },
+            isLoading = !isContentReady,
+            scrollBehavior = topAppBarScrollBehavior,
+            isContentReady = isContentReady,
+        )
+
         LazyColumn(
             modifier = modifier
                 .systemBarsPadding(),

@@ -9,19 +9,14 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
-import com.tbc.core.presentation.compositionlocal.LocalTopBarState
-import com.tbc.core.presentation.state.TopBarState
 import com.tbc.voltech.navigation.AppNavHost
 import kotlin.reflect.KClass
 
@@ -33,29 +28,19 @@ fun VoltechApplication(
     onSuccessfulAuth: () -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
-    val topBarState = remember { TopBarState() }
     val currentDestination = appState.currentDestination
     val topLevelDestinations = appState.topLevelDestinations
     val shouldShowBottomBar = appState.shouldShowBottomBar
     val bottomAppBarScrollBehavior = BottomAppBarDefaults.exitAlwaysScrollBehavior()
 
-    val topAppBarScrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-    val topAppBarPinnedScrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
-
     CompositionLocalProvider(
         LocalSnackbarHostState provides snackbarHostState,
-        LocalTopBarState provides topBarState
     ) {
         Scaffold(
-            modifier = Modifier
-                .nestedScroll(topBarState.scrollBehavior?.nestedScrollConnection ?: rememberNestedScrollInteropConnection()),
             snackbarHost = {
                 SnackbarHost(
                     hostState = snackbarHostState,
                 )
-            },
-            topBar = {
-                topBarState.topBarContent?.invoke()
             },
             bottomBar = {
                 VoltechBottomNavigation(
@@ -80,8 +65,6 @@ fun VoltechApplication(
                     startDestination = startDestination,
                     onSuccessfulAuth = onSuccessfulAuth,
                     bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
-                    topAppBarScrollBehavior = topAppBarScrollBehavior,
-                    topAppBarPinnedScrollBehavior = topAppBarPinnedScrollBehavior
                 )
 
             }

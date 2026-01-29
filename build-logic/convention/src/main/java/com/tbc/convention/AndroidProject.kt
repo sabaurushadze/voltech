@@ -8,6 +8,4 @@ internal object AndroidProject {
     const val COMPILE_SDK = 36
     const val MIN_SDK = 24
 
-//    private const val BASE_URL_LOCAL = "http://10.0.2.2:8080/api/"
-//    const val BASE_URL = BASE_URL_LOCAL
 }
