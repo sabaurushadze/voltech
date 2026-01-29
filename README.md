@@ -115,9 +115,23 @@ The JSON Server provides the following endpoints:
 ## Tech Stack
 
 ### Architecture & Design Pattern
-- **MVVM Architecture** - Model-View-ViewModel pattern
-- **Clean Architecture** - Separation of concerns with multi-module structure
-- **Repository Pattern** - Data abstraction layer
+- **Modular MVI Architecture** - Unidirectional data flow with intent-based state management
+- **Clean Architecture** - Separation of concerns with clear dependency rules
+
+The project follows a **multi-module architecture** organized into feature modules and shared core modules:
+```
+:app                         
+:build-logic                  
+:core
+  ├─ :designsystem           
+  ├─ :presentation                
+  ├─ :data                  
+  └─ :domain                             
+:feature
+  ├─ :auth                  
+  ├─ :home
+  ├─ :search           
+```
 
 ### UI
 - **[Jetpack Compose](https://developer.android.com/jetpack/compose)** - Modern declarative UI toolkit
