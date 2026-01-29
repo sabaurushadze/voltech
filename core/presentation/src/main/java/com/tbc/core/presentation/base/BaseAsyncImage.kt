@@ -18,7 +18,7 @@ fun BaseAsyncImage(
     contentDescription: String = "",
     contentScale: ContentScale = ContentScale.Crop,
     placeholderRes: Int = R.drawable.placeholder,
-    errorRes: Int = R.drawable.placeholder
+    errorRes: Int = R.drawable.placeholder,
 ) {
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
@@ -29,8 +29,6 @@ fun BaseAsyncImage(
         error = painterResource(errorRes),
         contentDescription = contentDescription,
         contentScale = contentScale,
-        modifier = modifier.clip(
-            VoltechRadius.radius16
-        )
+        modifier = modifier
     )
 }

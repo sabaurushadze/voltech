@@ -28,15 +28,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.core.designsystem.components.topappbar.SearchAppBar
+import com.tbc.core.designsystem.components.textfield.TextInputField
+import com.tbc.search.presentation.components.feed.topbar.SearchAppBar
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
+import com.tbc.core.designsystem.theme.VoltechRadius
 import com.tbc.core.designsystem.theme.VoltechTextStyle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
@@ -51,7 +57,6 @@ fun SearchScreen(
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
-    val topAppBarScrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
 
     val focusRequester = remember { FocusRequester() }
@@ -73,10 +78,9 @@ fun SearchScreen(
         }
     }
 
-    LogInContent(
+    SearchContent(
         state = state,
         onEvent = viewModel::onEvent,
-        topAppBarScrollBehavior = topAppBarScrollBehavior,
         focusRequester = focusRequester,
     )
 
@@ -85,10 +89,9 @@ fun SearchScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun LogInContent(
+private fun SearchContent(
     state: SearchState,
     onEvent: (SearchEvent) -> Unit,
-    topAppBarScrollBehavior: TopAppBarScrollBehavior,
     focusRequester: FocusRequester,
 ) {
     Column(
@@ -97,15 +100,21 @@ private fun LogInContent(
             .background(VoltechColor.background)
             .systemBarsPadding()
     ) {
-        SearchAppBar(
+        TextInputField(
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(horizontal = Dimen.size16)
                 .focusRequester(focusRequester),
-            query = state.query,
+            value = state.query,
             onTextChanged = { onEvent(SearchEvent.QueryChanged(it)) },
-            scrollBehavior = topAppBarScrollBehavior,
-            focusRequester = focusRequester,
+            label = stringResource(R.string.search_on_voltech),
+            imeAction = ImeAction.Next,
+            shape = VoltechRadius.radius24,
+            keyboardType = KeyboardType.Email,
+            startIcon = ImageVector.vectorResource(R.drawable.ic_search)
         )
+
+        Spacer(modifier = Modifier.height(Dimen.size16))
 
         if (state.query.isEmpty()) {
             Text(

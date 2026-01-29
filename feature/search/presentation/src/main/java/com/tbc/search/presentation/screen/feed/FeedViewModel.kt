@@ -28,9 +28,6 @@ class FeedViewModel @Inject constructor(
     override fun onEvent(event: FeedEvent) {
         when (event) {
 
-            is FeedEvent.GetItems -> {
-            }
-
             is FeedEvent.SaveSearchQuery -> saveSearchQuery(event.query)
             FeedEvent.HideSortSheet -> hideSortBottomSheet()
             FeedEvent.ShowSortSheet -> showSortBottomSheet()
@@ -48,19 +45,28 @@ class FeedViewModel @Inject constructor(
                     isSelected = event.selected
                 )
             }
+
             is FeedEvent.ToggleCondition -> {
                 toggleCondition(
                     condition = event.condition,
                     isSelected = event.selected
                 )
             }
+
             is FeedEvent.ToggleLocation -> {
                 toggleLocation(
                     location = event.location,
                     isSelected = event.selected
                 )
             }
+
+            is FeedEvent.FeedItemClick -> navigateToDetails(event.id)
+
         }
+    }
+
+    private fun navigateToDetails(id: Int) {
+        emitSideEffect(FeedSideEffect.NavigateToItemDetails(id))
     }
 
     private fun toggleLocation(location: Location, isSelected: Boolean) {
@@ -78,6 +84,7 @@ class FeedViewModel @Inject constructor(
             copy(filterState = filterState.copy(selectedConditions = newSet))
         }
     }
+
     private fun toggleCategory(category: Category, isSelected: Boolean) {
         updateState {
             val newSet = filterState.selectedCategories.toMutableSet()

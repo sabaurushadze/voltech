@@ -1,4 +1,4 @@
-package com.tbc.core.designsystem.components.topappbar
+package com.tbc.search.presentation.components.feed.topbar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +21,7 @@ import androidx.compose.ui.res.vectorResource
 import com.tbc.core.designsystem.R
 import com.tbc.core.designsystem.components.button.IconTextButton
 import com.tbc.core.designsystem.components.textfield.TextInputFieldDummy
+import com.tbc.core.designsystem.components.topappbar.VoltechTopAppBarDefaults
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechRadius

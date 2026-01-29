@@ -7,12 +7,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import androidx.navigation.toRoute
 import com.tbc.search.presentation.screen.feed.FeedScreen
+import com.tbc.search.presentation.screen.item_details.ItemDetailsScreen
 import com.tbc.search.presentation.screen.search.SearchScreen
 import kotlinx.serialization.Serializable
 
 @OptIn(ExperimentalMaterial3Api::class)
 fun NavGraphBuilder.searchNavGraph(
     navigateToFeed: (String) -> Unit,
+    navigateToItemDetails: (Int) -> Unit,
     navigateToSearch: () -> Unit,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
@@ -32,6 +34,15 @@ fun NavGraphBuilder.searchNavGraph(
                 query = route.query,
                 navigateToSearch = navigateToSearch,
                 bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
+                navigateToItemDetails = navigateToItemDetails,
+            )
+        }
+
+        composable<ItemDetailsRoute> { backStackEntry ->
+            val route = backStackEntry.toRoute<ItemDetailsRoute>()
+
+            ItemDetailsScreen(
+                id = route.id
             )
         }
     }
@@ -47,3 +58,6 @@ data object SearchScreenRoute
 
 @Serializable
 data class FeedScreenRoute(val query: String)
+
+@Serializable
+data class ItemDetailsRoute(val id: Int)

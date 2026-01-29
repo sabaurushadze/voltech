@@ -58,7 +58,8 @@ fun FeedItemCard(
                 BaseAsyncImage(
                     url = imageUrl,
                     modifier = Modifier
-                        .matchParentSize(),
+                        .matchParentSize()
+                        .clip(VoltechRadius.radius16),
                 )
 
 
@@ -155,7 +156,8 @@ fun FeedItemPlaceholderCard() {
                 BaseAsyncImage(
                     url = "",
                     modifier = Modifier
-                        .matchParentSize(),
+                        .matchParentSize()
+                        .clip(VoltechRadius.radius16),
                 )
             }
 

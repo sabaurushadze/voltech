@@ -30,7 +30,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.tbc.core.designsystem.components.topappbar.FeedAppBar
+import com.tbc.search.presentation.components.feed.topbar.FeedAppBar
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
@@ -47,6 +47,7 @@ import com.tbc.search.presentation.model.feed.UiFeedItem
 fun FeedScreen(
     viewModel: FeedViewModel = hiltViewModel(),
     navigateToSearch: () -> Unit,
+    navigateToItemDetails: (Int) -> Unit,
     query: String,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
@@ -86,7 +87,9 @@ fun FeedScreen(
                 snackbarHostState.showSnackbar(message = error)
             }
 
-            is FeedSideEffect.NavigateToItemDetails -> {}
+            is FeedSideEffect.NavigateToItemDetails -> {
+                navigateToItemDetails(sideEffect.id)
+            }
         }
     }
 
@@ -184,14 +187,14 @@ private fun FeedContent(
 
                 item?.let {
                     FeedItemCard(
-                        imageUrl = it.image,
+                        imageUrl = it.images.first(),
                         title = it.title,
                         condition = stringResource(it.conditionRes),
                         price = it.price,
                         location = stringResource(it.locationRes),
                         isFavoriteIconSelected = false,
                         onFavoriteIconClick = { },
-                        onRootClick = { }
+                        onRootClick = { onEvent(FeedEvent.FeedItemClick(item.id)) }
                     )
                 }
 

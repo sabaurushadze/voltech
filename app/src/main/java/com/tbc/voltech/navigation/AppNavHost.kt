@@ -10,6 +10,7 @@ import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.auth.presentation.navigation.authNavGraph
 import com.tbc.home.presentation.navigation.homeNavGraph
 import com.tbc.search.presentation.navigation.FeedScreenRoute
+import com.tbc.search.presentation.navigation.ItemDetailsRoute
 import com.tbc.search.presentation.navigation.searchNavGraph
 import com.tbc.voltech.presentation.AppState
 import kotlin.reflect.KClass
@@ -51,7 +52,10 @@ fun AppNavHost(
             navigateToSearch = {
                 navController.navigateUp()
             },
-            bottomAppBarScrollBehavior = bottomAppBarScrollBehavior
+            bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
+            navigateToItemDetails = { id ->
+                navController.navigate(ItemDetailsRoute(id))
+            },
         )
 
 

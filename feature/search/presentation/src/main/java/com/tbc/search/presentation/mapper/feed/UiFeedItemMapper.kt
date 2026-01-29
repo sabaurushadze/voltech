@@ -17,8 +17,8 @@ fun FeedItem.toPresentation(): UiFeedItem {
         categoryRes = category.toStringRes(),
         conditionRes = condition.toStringRes(),
         price = price.toPriceUsStyle(),
-        image = images.first(),
-        quantity = quantity,
+        images = images,
+        quantity = quantity.toString(),
         locationRes = location.toStringRes(),
         userDescription = userDescription
     )

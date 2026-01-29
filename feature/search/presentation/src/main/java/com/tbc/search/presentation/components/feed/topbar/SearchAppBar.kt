@@ -1,4 +1,4 @@
-package com.tbc.core.designsystem.components.topappbar
+package com.tbc.search.presentation.components.feed.topbar
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +17,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import com.tbc.core.designsystem.R
 import com.tbc.core.designsystem.components.textfield.TextInputField
+import com.tbc.core.designsystem.components.topappbar.VoltechTopAppBarDefaults
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechRadius
 

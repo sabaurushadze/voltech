@@ -21,13 +21,12 @@ interface FeedService {
         @Query(PER_PAGE) perPage: Int,
     ): Response<List<FeedItemResponseDto>>
 
-    @GET("$ITEMS/${ID}")
+    @GET("$ITEMS/{id}")
     suspend fun getItemDetails(
-        @Path(ID) id: Int,
+        @Path("id") id: Int,
     ): Response<FeedItemResponseDto>
 
     companion object {
-        private const val ID = "id"
         private const val TITLE_LIKE = "title_like"
         private const val CATEGORY = "category"
         private const val CONDITION = "condition"

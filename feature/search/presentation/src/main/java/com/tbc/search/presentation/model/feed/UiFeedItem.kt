@@ -8,8 +8,8 @@ data class UiFeedItem(
     @param:StringRes val categoryRes: Int,
     @param:StringRes val conditionRes: Int,
     val price: String,
-    val image: String,
-    val quantity: Int,
+    val images: List<String>,
+    val quantity: String,
     @param:StringRes val locationRes: Int,
     val userDescription: String
 )

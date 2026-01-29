@@ -6,7 +6,7 @@ import com.tbc.search.domain.model.feed.Location
 import com.tbc.search.presentation.enums.feed.SortType
 
 sealed class FeedEvent {
-    data class GetItems(val query: String) : FeedEvent()
+    data class FeedItemClick(val id: Int) : FeedEvent()
 
     data class SaveSearchQuery(val query: String) : FeedEvent()
     data object ShowSortSheet : FeedEvent()
