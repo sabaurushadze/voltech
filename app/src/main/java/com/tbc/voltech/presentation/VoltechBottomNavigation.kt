@@ -43,12 +43,6 @@ fun VoltechBottomNavigation(
             windowInsets = WindowInsets.navigationBars,
             scrollBehavior = bottomAppBarScrollBehavior,
             containerColor = VoltechColor.surface,
-            modifier = Modifier.clip(
-                shape = RoundedCornerShape(
-                    topStart = Dimen.size16,
-                    topEnd = Dimen.size16
-                )
-            )
         ) {
             destinations.forEach { destination ->
                 val selected = currentDestination.isRouteInHierarchy(destination.route)

@@ -10,8 +10,10 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.toArgb
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
+import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechTheme
 import com.tbc.home.presentation.navigation.HomeScreenRoute
 import com.tbc.profile.domain.model.settings.VoltechThemeOption
@@ -38,7 +40,16 @@ class VoltechActivity : ComponentActivity() {
             val showDarkTheme =
                 ((state.themeOption == VoltechThemeOption.SYSTEM) && isSystemInDarkTheme()) || (state.themeOption == VoltechThemeOption.DARK)
 
-            enableEdgeToEdge()
+            enableEdgeToEdge(
+                statusBarStyle = SystemBarStyle.auto(
+                    lightScrim = Color.TRANSPARENT,
+                    darkScrim = Color.TRANSPARENT,
+                ) { showDarkTheme },
+                navigationBarStyle = SystemBarStyle.auto(
+                    lightScrim = lightScrim,
+                    darkScrim = darkScrim,
+                ) { showDarkTheme },
+            )
 
             state.isAuthorized?.let { isAuthorized ->
                 val startDestination =
@@ -56,3 +67,6 @@ class VoltechActivity : ComponentActivity() {
         }
     }
 }
+
+private val lightScrim = Color.argb(0xe6, 0xFF, 0xFF, 0xFF)
+private val darkScrim = Color.argb(0x80, 0x1b, 0x1b, 0x1b)

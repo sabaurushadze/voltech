@@ -1,0 +1,12 @@
+package com.tbc.profile.presentation.mapper
+
+import com.tbc.profile.domain.model.settings.VoltechThemeOption
+import com.tbc.profile.presentation.R
+
+fun VoltechThemeOption.toStringRes(): Int {
+    return when(this) {
+        VoltechThemeOption.LIGHT -> R.string.theme_light
+        VoltechThemeOption.DARK -> R.string.theme_dark
+        VoltechThemeOption.SYSTEM -> R.string.theme_system
+    }
+}
