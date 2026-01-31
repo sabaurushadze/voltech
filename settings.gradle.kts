@@ -43,3 +43,9 @@ include(":feature:search")
 include(":feature:search:data")
 include(":feature:search:domain")
 include(":feature:search:presentation")
+
+include(":feature:profile")
+
+include(":feature:profile:data")
+include(":feature:profile:presentation")
+include(":feature:profile:domain")

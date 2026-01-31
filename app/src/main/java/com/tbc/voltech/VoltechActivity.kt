@@ -1,22 +1,25 @@
 package com.tbc.voltech
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.tbc.core.designsystem.theme.VoltechTheme
 import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
+import com.tbc.core.designsystem.theme.VoltechTheme
 import com.tbc.home.presentation.navigation.HomeScreenRoute
-import com.tbc.voltech.main.MainActivityEvent
+import com.tbc.profile.domain.model.settings.VoltechThemeOption
+import com.tbc.voltech.main.MainEvent
 import com.tbc.voltech.main.MainViewModel
 import com.tbc.voltech.presentation.VoltechApplication
 import com.tbc.voltech.presentation.rememberAppState
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.getValue
 
 @AndroidEntryPoint
 class VoltechActivity : ComponentActivity() {
@@ -26,28 +29,30 @@ class VoltechActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
 
         splashScreen.setKeepOnScreenCondition { viewModel.state.value.isLoading }
 
         setContent {
             val state by viewModel.state.collectAsState()
 
+            val showDarkTheme =
+                ((state.themeOption == VoltechThemeOption.SYSTEM) && isSystemInDarkTheme()) || (state.themeOption == VoltechThemeOption.DARK)
+
+            enableEdgeToEdge()
+
             state.isAuthorized?.let { isAuthorized ->
                 val startDestination =
                     if (isAuthorized) HomeScreenRoute::class else AuthNavGraphRoute::class
                 val appState = rememberAppState()
-                VoltechTheme() {
+                VoltechTheme(darkTheme = showDarkTheme) {
                     VoltechApplication(
                         appState = appState,
                         startDestination = startDestination,
                         onSuccessfulAuth = {
-                            viewModel.onEvent(MainActivityEvent.OnSuccessfulAuth)
-                        }
-                    )
+                            viewModel.onEvent(MainEvent.OnSuccessfulAuth)
+                        })
                 }
             }
         }
     }
 }
-

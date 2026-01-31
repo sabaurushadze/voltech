@@ -17,7 +17,9 @@ data class VoltechColors(
     val onPrimary: Color = Color.Unspecified,
     val background: Color = Color.Unspecified,
     val onBackground: Color = Color.Unspecified,
+    val onBackgroundSecondary: Color = Color.Unspecified,
     val surface: Color = Color.Unspecified,
+    val onSurface: Color = Color.Unspecified,
 
     val neutral1: Color = Color.Unspecified,
 
@@ -32,7 +34,11 @@ internal val lightVoltechColors = VoltechColors(
     onPrimary = Color(0xFFFFFFFF),
     background = Color(0xFFFFFFFF),
     onBackground = Color(0xFF101010),
+    onBackgroundSecondary = Color(0xFF7A7A7A),
+
+
     surface = Color(0xFFF5F5F5),
+    onSurface = Color(0xFF101010),
 
     neutral1 = Color(0xFFE0E0E0),
 
@@ -48,8 +54,13 @@ internal val darkVoltechColors = VoltechColors(
     onPrimary = Color(0xFF000000),
     background = Color(0xFF2C2E36),
     onBackground = Color(0xFFFFFFFF),
+    onBackgroundSecondary = Color(0xFF4B4B4B),
+
+
+
     neutral1 = Color(0xFFE0E0E0),
     surface = Color(0xFF262626),
+    onSurface = Color(0xFFFFFFFF),
 
 
 

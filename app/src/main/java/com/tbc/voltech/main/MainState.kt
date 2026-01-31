@@ -1,6 +1,9 @@
 package com.tbc.voltech.main
 
-data class MainActivityState(
+import com.tbc.profile.domain.model.settings.VoltechThemeOption
+
+data class MainState(
+    val themeOption: VoltechThemeOption = VoltechThemeOption.SYSTEM,
     val isAuthorized: Boolean? = null,
 ){
     val isLoading:Boolean

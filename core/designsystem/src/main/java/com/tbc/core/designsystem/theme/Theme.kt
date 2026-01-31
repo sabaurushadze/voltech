@@ -5,6 +5,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import com.tbc.core.designsystem.util.LocalDarkTheme
 
 @Composable
 fun VoltechTheme(
@@ -18,8 +19,8 @@ fun VoltechTheme(
 
     CompositionLocalProvider(
         LocalColor provides colorScheme,
-        LocalTypography provides AppTypography()
-
+        LocalTypography provides AppTypography(),
+        LocalDarkTheme provides darkTheme,
     ) {
         MaterialTheme(
             typography = Typography(),

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">voltech</string>
     <string name="home">Home</string>
-    <string name="parts">Parts</string>
     <string name="search">Search</string>
+    <string name="profile">Profile</string>
     <string name="search_on_voltech">Search on Voltech</string>
 </resources>

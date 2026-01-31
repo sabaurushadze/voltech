@@ -28,7 +28,6 @@ fun NavGraphBuilder.authNavGraph(
                 navigateBack = navigateBack,
                 onSuccessfulAuth = onSuccessfulAuth
             )
-
         }
     }
 
