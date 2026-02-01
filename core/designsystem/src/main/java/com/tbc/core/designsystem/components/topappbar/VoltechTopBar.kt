@@ -64,7 +64,7 @@ fun VoltechTopBar(
 }
 
 @Composable
-fun VoltechTopBarBackButton(
+private fun VoltechTopBarBackButton(
     onBackClick: () -> Unit,
     clickableSize: Dp = Dimen.size64,
     rippleSize: Dp = Dimen.size36,
