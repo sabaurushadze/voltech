@@ -6,7 +6,6 @@ import com.tbc.search.data.mapper.feed.toDomain
 import com.tbc.search.data.service.feed.FeedService
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.FeedQuery
-import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class FeedPagingSource @Inject constructor(
@@ -19,7 +18,7 @@ class FeedPagingSource @Inject constructor(
             val page = params.key ?: 1
 
 //            delay because it loads so fast we cant see loading animations
-            delay(1000)
+//            delay(1000)
 
             val order = if (query.sortDescending) DESC else ASC
 

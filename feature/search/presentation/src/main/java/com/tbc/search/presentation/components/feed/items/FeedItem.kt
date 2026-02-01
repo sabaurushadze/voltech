@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechRadius
@@ -66,7 +68,7 @@ fun FeedItemCard(
                 FavoriteButton(
                     modifier = Modifier.align(Alignment.TopEnd),
                     isSelected = isFavoriteIconSelected,
-                    onFavoriteIconClick = { onFavoriteIconClick() }
+                    onFavoriteIconClick = { onFavoriteIconClick() },
                 )
             }
 
@@ -197,10 +199,11 @@ private fun FeedItemPlaceholderContent() {
 }
 
 @Composable
-private fun FavoriteButton(
+fun FavoriteButton(
     modifier: Modifier = Modifier,
     isSelected: Boolean,
     onFavoriteIconClick: () -> Unit,
+    iconSize: Dp = Dimen.size18,
 ) {
     val heartIcon = if (isSelected) R.drawable.ic_filled_heart else R.drawable.ic_outlined_heart
 
@@ -212,7 +215,7 @@ private fun FavoriteButton(
     ) {
         Box(
             modifier = Modifier
-                .size(Dimen.size32)
+                .wrapContentSize()
                 .shadow(
                     elevation = Dimen.size2,
                     shape = VoltechRadius.radius64,
@@ -226,7 +229,9 @@ private fun FavoriteButton(
                 painter = painterResource(id = heartIcon),
                 contentDescription = "",
                 tint = VoltechColor.onBackground,
-                modifier = Modifier.size(Dimen.size18)
+                modifier = Modifier
+                    .padding(Dimen.size12)
+                    .size(iconSize)
             )
         }
     }
@@ -240,7 +245,6 @@ fun FeedItemWrapperPreview() {
         FeedItemCard(
             isFavoriteIconSelected = true,
             onFavoriteIconClick = { },
-
             onRootClick = {},
             imageUrl = "",
             title = "RTX 4060 super duper magari umagresi video barati",

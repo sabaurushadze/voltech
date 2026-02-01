@@ -20,6 +20,7 @@ class ItemDetailsViewModel @Inject constructor(
     override fun onEvent(event: ItemDetailsEvent) {
         when (event) {
             is ItemDetailsEvent.GetItemDetails -> getItemDetails(event.id)
+            is ItemDetailsEvent.SelectImageByIndex -> updateState { copy(selectedImage = event.index) }
         }
     }
 

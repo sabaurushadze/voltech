@@ -10,6 +10,8 @@ data class FeedItem(
     val quantity: Int,
     val location: Location,
     val userDescription: String,
+    val sellerAvatar: String?,
+    val sellerUserName: String,
 )
 
 enum class Category {

@@ -11,5 +11,7 @@ data class UiFeedItem(
     val images: List<String>,
     val quantity: String,
     @param:StringRes val locationRes: Int,
-    val userDescription: String
+    val userDescription: String,
+    val sellerAvatar: String?,
+    val sellerUserName: String,
 )

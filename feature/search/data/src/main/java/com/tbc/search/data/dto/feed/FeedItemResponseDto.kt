@@ -13,4 +13,6 @@ data class FeedItemResponseDto(
     val quantity: Int,
     val location: String,
     val userDescription: String,
+    val sellerAvatar: String?,
+    val sellerUserName: String,
 )
