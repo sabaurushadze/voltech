@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
 import com.tbc.home.presentation.navigation.HomeScreenRoute
+import com.tbc.profile.presentation.navigation.ProfileScreenRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.voltech.navigation.TopLevelDestination
 import kotlinx.coroutines.CoroutineScope
@@ -78,9 +79,14 @@ data class AppState(
 
         when (topLevelDestination) {
             TopLevelDestination.HOME -> navController.navigate(HomeScreenRoute, topLevelNavOptions)
+
             TopLevelDestination.SEARCH -> navController.navigate(
                 SearchScreenRoute,
                 topLevelNavOptions
+            )
+
+            TopLevelDestination.PROFILE -> navController.navigate(
+                ProfileScreenRoute, topLevelNavOptions
             )
         }
 

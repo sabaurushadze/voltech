@@ -38,4 +38,6 @@ dependencies{
     implementation(projects.core.domain)
     implementation(libs.preferences.datastore)
     implementation(libs.firebase.auth)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
 }

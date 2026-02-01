@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
+import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.voltech.navigation.AppNavHost
 import kotlin.reflect.KClass
@@ -37,6 +38,7 @@ fun VoltechApplication(
         LocalSnackbarHostState provides snackbarHostState,
     ) {
         Scaffold(
+            containerColor = VoltechColor.background,
             snackbarHost = {
                 SnackbarHost(
                     hostState = snackbarHostState,

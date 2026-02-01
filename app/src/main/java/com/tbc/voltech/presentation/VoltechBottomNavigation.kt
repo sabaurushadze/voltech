@@ -6,6 +6,7 @@ import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.BottomAppBarScrollBehavior
@@ -42,12 +43,6 @@ fun VoltechBottomNavigation(
             windowInsets = WindowInsets.navigationBars,
             scrollBehavior = bottomAppBarScrollBehavior,
             containerColor = VoltechColor.surface,
-            modifier = Modifier.clip(
-                shape = RoundedCornerShape(
-                    topStart = Dimen.size16,
-                    topEnd = Dimen.size16
-                )
-            )
         ) {
             destinations.forEach { destination ->
                 val selected = currentDestination.isRouteInHierarchy(destination.route)
@@ -56,6 +51,7 @@ fun VoltechBottomNavigation(
 
                     icon = {
                         Icon(
+                            modifier = Modifier.size(Dimen.size28),
                             imageVector = if (selected) destination.selectedIcon else destination.unselectedIcon,
                             contentDescription = destination.name,
                             tint = if (selected) VoltechColor.primary else VoltechColor.onBackground

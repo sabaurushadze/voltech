@@ -58,6 +58,10 @@ dependencies {
     implementation(projects.feature.search.domain)
     implementation(projects.feature.search.presentation)
 
+    implementation(projects.feature.profile.data)
+    implementation(projects.feature.profile.domain)
+    implementation(projects.feature.profile.presentation)
+
     implementation(projects.core.designsystem)
     implementation(projects.core.presentation)
     implementation(projects.core.data)

@@ -9,6 +9,8 @@ import androidx.navigation.compose.NavHost
 import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.auth.presentation.navigation.authNavGraph
 import com.tbc.home.presentation.navigation.homeNavGraph
+import com.tbc.profile.presentation.navigation.SettingsScreenRoute
+import com.tbc.profile.presentation.navigation.profileNavGraph
 import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.ItemDetailsRoute
 import com.tbc.search.presentation.navigation.searchNavGraph
@@ -57,6 +59,12 @@ fun AppNavHost(
                 navController.navigate(ItemDetailsRoute(id))
             },
         )
+
+        profileNavGraph(
+            navigateToSettings = { navController.navigate(SettingsScreenRoute) },
+            navigateBack = { navController.navigateUp() }
+        )
+
 
 
     }
