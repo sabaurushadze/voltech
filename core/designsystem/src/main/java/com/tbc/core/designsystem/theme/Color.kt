@@ -6,11 +6,17 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 val LocalColor = compositionLocalOf { VoltechColors() }
+val LocalFixedColor = compositionLocalOf { VoltechFixedColors() }
 
 val VoltechColor: VoltechColors
     @Composable
     @ReadOnlyComposable
     get() = LocalColor.current
+
+val VoltechFixedColor: VoltechFixedColors
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalFixedColor.current
 
 data class VoltechColors(
     val primary: Color = Color.Unspecified,
@@ -26,6 +32,14 @@ data class VoltechColors(
     val error: Color = Color.Unspecified,
     val unspecified: Color = Color.Unspecified,
     )
+
+data class VoltechFixedColors(
+    val black: Color = Color.Unspecified,
+    val white: Color = Color.Unspecified,
+    val transparent: Color = Color.Unspecified,
+    val lightGray: Color = Color.Unspecified,
+    val blue: Color = Color.Unspecified,
+)
 
 internal val lightVoltechColors = VoltechColors(
     primary = Color(0xFF0064D2),
@@ -51,8 +65,16 @@ internal val darkVoltechColors = VoltechColors(
     neutral1 = Color(0xFFE0E0E0),
     surface = Color(0xFF262626),
 
-
+    neutralText1 = Color(0xFF939292),
 
     error = Color(0xFFEA5858),
     unspecified = Color.Unspecified
+)
+
+internal val fixedVoltechColors = VoltechFixedColors(
+    black = Color(0xFF000000),
+    white = Color(0xFFFFFFFF),
+    transparent = Color(0x00FFFFFF),
+    lightGray = Color(0xFFF3F1F1),
+    blue = Color(0xFF0a4bff),
 )
