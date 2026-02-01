@@ -8,12 +8,14 @@
       "price": 3000,
       "images": [
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/3YFv9Jx6/s-l1600.png",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
       "quantity": 17,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for GPU Item 1, condition parts."
+      "userDescription": "Description for GPU Item 1, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechZone_GE"
     },
     {
       "id": 2,
@@ -28,7 +30,9 @@
       ],
       "quantity": 7,
       "location": "GLDANI",
-      "userDescription": "Description for CASE_COOLER Item 2, condition new."
+      "userDescription": "Description for CASE_COOLER Item 2, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PC_Master"
     },
     {
       "id": 3,
@@ -43,7 +47,9 @@
       ],
       "quantity": 11,
       "location": "GLDANI",
-      "userDescription": "Description for PSU Item 3, condition new."
+      "userDescription": "Description for PSU Item 3, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Giorgi_Tech"
     },
     {
       "id": 4,
@@ -58,7 +64,9 @@
       ],
       "quantity": 3,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for SSD Item 4, condition parts."
+      "userDescription": "Description for SSD Item 4, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "CompuStore"
     },
     {
       "id": 5,
@@ -73,7 +81,9 @@
       ],
       "quantity": 3,
       "location": "GLDANI",
-      "userDescription": "Description for MOTHERBOARD Item 5, condition parts."
+      "userDescription": "Description for MOTHERBOARD Item 5, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Digital_Hub"
     },
     {
       "id": 6,
@@ -88,7 +98,9 @@
       ],
       "quantity": 17,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE_COOLER Item 6, condition parts."
+      "userDescription": "Description for CASE_COOLER Item 6, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "NikaPC"
     },
     {
       "id": 7,
@@ -103,7 +115,9 @@
       ],
       "quantity": 15,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for MOTHERBOARD Item 7, condition used."
+      "userDescription": "Description for MOTHERBOARD Item 7, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "GamingParts_TBS"
     },
     {
       "id": 8,
@@ -118,7 +132,9 @@
       ],
       "quantity": 12,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for RAM Item 8, condition used."
+      "userDescription": "Description for RAM Item 8, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "EliteHardware"
     },
     {
       "id": 9,
@@ -133,7 +149,9 @@
       ],
       "quantity": 2,
       "location": "GLDANI",
-      "userDescription": "Description for SSD Item 9, condition used."
+      "userDescription": "Description for SSD Item 9, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechSeller99"
     },
     {
       "id": 10,
@@ -148,7 +166,9 @@
       ],
       "quantity": 19,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for HDD Item 10, condition new."
+      "userDescription": "Description for HDD Item 10, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ComponentKing"
     },
     {
       "id": 11,
@@ -163,7 +183,9 @@
       ],
       "quantity": 13,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE_COOLER Item 11, condition used."
+      "userDescription": "Description for CASE_COOLER Item 11, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PCWorld_GE"
     },
     {
       "id": 12,
@@ -178,7 +200,9 @@
       ],
       "quantity": 7,
       "location": "GLDANI",
-      "userDescription": "Description for MOTHERBOARD Item 12, condition parts."
+      "userDescription": "Description for MOTHERBOARD Item 12, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "HardwareDepo"
     },
     {
       "id": 13,
@@ -193,7 +217,9 @@
       ],
       "quantity": 10,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for PSU Item 13, condition used."
+      "userDescription": "Description for PSU Item 13, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Alex_Computers"
     },
     {
       "id": 14,
@@ -208,7 +234,9 @@
       ],
       "quantity": 13,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for SSD Item 14, condition parts."
+      "userDescription": "Description for SSD Item 14, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechMarket_TBS"
     },
     {
       "id": 15,
@@ -223,7 +251,9 @@
       ],
       "quantity": 13,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for SSD Item 15, condition parts."
+      "userDescription": "Description for SSD Item 15, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PowerPC_Shop"
     },
     {
       "id": 16,
@@ -238,7 +268,9 @@
       ],
       "quantity": 2,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for PSU Item 16, condition used."
+      "userDescription": "Description for PSU Item 16, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ByteBazaar"
     },
     {
       "id": 17,
@@ -253,7 +285,9 @@
       ],
       "quantity": 14,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for SSD Item 17, condition new."
+      "userDescription": "Description for SSD Item 17, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "GeorgeIT"
     },
     {
       "id": 18,
@@ -268,7 +302,9 @@
       ],
       "quantity": 18,
       "location": "GLDANI",
-      "userDescription": "Description for HDD Item 18, condition parts."
+      "userDescription": "Description for HDD Item 18, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "CircuitCity_GE"
     },
     {
       "id": 19,
@@ -283,7 +319,9 @@
       ],
       "quantity": 6,
       "location": "GLDANI",
-      "userDescription": "Description for RAM Item 19, condition parts."
+      "userDescription": "Description for RAM Item 19, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechNinja"
     },
     {
       "id": 20,
@@ -298,7 +336,9 @@
       ],
       "quantity": 14,
       "location": "GLDANI",
-      "userDescription": "Description for RAM Item 20, condition parts."
+      "userDescription": "Description for RAM Item 20, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "DataStore_TBS"
     },
     {
       "id": 21,
@@ -313,7 +353,9 @@
       ],
       "quantity": 2,
       "location": "GLDANI",
-      "userDescription": "Description for MOTHERBOARD Item 21, condition parts."
+      "userDescription": "Description for MOTHERBOARD Item 21, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "GigaStore"
     },
     {
       "id": 22,
@@ -328,7 +370,9 @@
       ],
       "quantity": 11,
       "location": "GLDANI",
-      "userDescription": "Description for RAM Item 22, condition used."
+      "userDescription": "Description for RAM Item 22, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PC_Warehouse"
     },
     {
       "id": 23,
@@ -343,7 +387,9 @@
       ],
       "quantity": 4,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CPU Item 23, condition new."
+      "userDescription": "Description for CPU Item 23, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechDealer"
     },
     {
       "id": 24,
@@ -358,7 +404,9 @@
       ],
       "quantity": 3,
       "location": "GLDANI",
-      "userDescription": "Description for CASE Item 24, condition used."
+      "userDescription": "Description for CASE Item 24, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ComponentHub"
     },
     {
       "id": 25,
@@ -373,7 +421,9 @@
       ],
       "quantity": 19,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for PSU Item 25, condition parts."
+      "userDescription": "Description for PSU Item 25, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ProHardware_GE"
     },
     {
       "id": 26,
@@ -388,7 +438,9 @@
       ],
       "quantity": 13,
       "location": "GLDANI",
-      "userDescription": "Description for CABEL Item 26, condition parts."
+      "userDescription": "Description for CABEL Item 26, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "DeviceDepot"
     },
     {
       "id": 27,
@@ -403,7 +455,9 @@
       ],
       "quantity": 6,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for PSU Item 27, condition used."
+      "userDescription": "Description for PSU Item 27, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "MegaTech_TBS"
     },
     {
       "id": 28,
@@ -418,7 +472,9 @@
       ],
       "quantity": 12,
       "location": "GLDANI",
-      "userDescription": "Description for CPU Item 28, condition new."
+      "userDescription": "Description for CPU Item 28, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PCParts_Pro"
     },
     {
       "id": 29,
@@ -433,7 +489,9 @@
       ],
       "quantity": 9,
       "location": "GLDANI",
-      "userDescription": "Description for CABEL Item 29, condition used."
+      "userDescription": "Description for CABEL Item 29, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechSupply_GE"
     },
     {
       "id": 30,
@@ -448,7 +506,9 @@
       ],
       "quantity": 17,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE_COOLER Item 30, condition parts."
+      "userDescription": "Description for CASE_COOLER Item 30, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "HardwareHero"
     },
     {
       "id": 31,
@@ -463,7 +523,9 @@
       ],
       "quantity": 18,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for PSU Item 31, condition new."
+      "userDescription": "Description for PSU Item 31, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechZone_GE"
     },
     {
       "id": 32,
@@ -478,7 +540,9 @@
       ],
       "quantity": 3,
       "location": "GLDANI",
-      "userDescription": "Description for CABEL Item 32, condition parts."
+      "userDescription": "Description for CABEL Item 32, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PC_Master"
     },
     {
       "id": 33,
@@ -493,7 +557,9 @@
       ],
       "quantity": 5,
       "location": "GLDANI",
-      "userDescription": "Description for RAM Item 33, condition new."
+      "userDescription": "Description for RAM Item 33, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Giorgi_Tech"
     },
     {
       "id": 34,
@@ -508,7 +574,9 @@
       ],
       "quantity": 14,
       "location": "GLDANI",
-      "userDescription": "Description for MOTHERBOARD Item 34, condition parts."
+      "userDescription": "Description for MOTHERBOARD Item 34, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "CompuStore"
     },
     {
       "id": 35,
@@ -523,7 +591,9 @@
       ],
       "quantity": 20,
       "location": "GLDANI",
-      "userDescription": "Description for MOTHERBOARD Item 35, condition used."
+      "userDescription": "Description for MOTHERBOARD Item 35, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Digital_Hub"
     },
     {
       "id": 36,
@@ -538,7 +608,9 @@
       ],
       "quantity": 13,
       "location": "GLDANI",
-      "userDescription": "Description for MOTHERBOARD Item 36, condition new."
+      "userDescription": "Description for MOTHERBOARD Item 36, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "NikaPC"
     },
     {
       "id": 37,
@@ -553,7 +625,9 @@
       ],
       "quantity": 11,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE_COOLER Item 37, condition new."
+      "userDescription": "Description for CASE_COOLER Item 37, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "GamingParts_TBS"
     },
     {
       "id": 38,
@@ -568,7 +642,9 @@
       ],
       "quantity": 17,
       "location": "GLDANI",
-      "userDescription": "Description for SSD Item 38, condition used."
+      "userDescription": "Description for SSD Item 38, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "EliteHardware"
     },
     {
       "id": 39,
@@ -583,7 +659,9 @@
       ],
       "quantity": 4,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CABEL Item 39, condition new."
+      "userDescription": "Description for CABEL Item 39, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechSeller99"
     },
     {
       "id": 40,
@@ -598,7 +676,9 @@
       ],
       "quantity": 17,
       "location": "GLDANI",
-      "userDescription": "Description for MONITOR Item 40, condition new."
+      "userDescription": "Description for MONITOR Item 40, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ComponentKing"
     },
     {
       "id": 41,
@@ -613,7 +693,9 @@
       ],
       "quantity": 1,
       "location": "GLDANI",
-      "userDescription": "Description for PSU Item 41, condition new."
+      "userDescription": "Description for PSU Item 41, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PCWorld_GE"
     },
     {
       "id": 42,
@@ -628,7 +710,9 @@
       ],
       "quantity": 17,
       "location": "GLDANI",
-      "userDescription": "Description for MOTHERBOARD Item 42, condition new."
+      "userDescription": "Description for MOTHERBOARD Item 42, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "HardwareDepo"
     },
     {
       "id": 43,
@@ -643,7 +727,9 @@
       ],
       "quantity": 20,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for HDD Item 43, condition parts."
+      "userDescription": "Description for HDD Item 43, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Alex_Computers"
     },
     {
       "id": 44,
@@ -658,7 +744,9 @@
       ],
       "quantity": 11,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for SSD Item 44, condition used."
+      "userDescription": "Description for SSD Item 44, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechMarket_TBS"
     },
     {
       "id": 45,
@@ -673,7 +761,9 @@
       ],
       "quantity": 5,
       "location": "GLDANI",
-      "userDescription": "Description for GPU Item 45, condition parts."
+      "userDescription": "Description for GPU Item 45, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PowerPC_Shop"
     },
     {
       "id": 46,
@@ -688,7 +778,9 @@
       ],
       "quantity": 9,
       "location": "GLDANI",
-      "userDescription": "Description for MONITOR Item 46, condition new."
+      "userDescription": "Description for MONITOR Item 46, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ByteBazaar"
     },
     {
       "id": 47,
@@ -703,7 +795,9 @@
       ],
       "quantity": 2,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for MOTHERBOARD Item 47, condition parts."
+      "userDescription": "Description for MOTHERBOARD Item 47, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "GeorgeIT"
     },
     {
       "id": 48,
@@ -718,7 +812,9 @@
       ],
       "quantity": 18,
       "location": "GLDANI",
-      "userDescription": "Description for PSU Item 48, condition parts."
+      "userDescription": "Description for PSU Item 48, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "CircuitCity_GE"
     },
     {
       "id": 49,
@@ -733,7 +829,9 @@
       ],
       "quantity": 15,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE Item 49, condition used."
+      "userDescription": "Description for CASE Item 49, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechNinja"
     },
     {
       "id": 50,
@@ -748,7 +846,9 @@
       ],
       "quantity": 19,
       "location": "GLDANI",
-      "userDescription": "Description for CPU Item 50, condition used."
+      "userDescription": "Description for CPU Item 50, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "DataStore_TBS"
     },
     {
       "id": 51,
@@ -763,7 +863,9 @@
       ],
       "quantity": 18,
       "location": "GLDANI",
-      "userDescription": "Description for CABEL Item 51, condition used."
+      "userDescription": "Description for CABEL Item 51, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "GigaStore"
     },
     {
       "id": 52,
@@ -778,7 +880,9 @@
       ],
       "quantity": 11,
       "location": "GLDANI",
-      "userDescription": "Description for SSD Item 52, condition used."
+      "userDescription": "Description for SSD Item 52, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PC_Warehouse"
     },
     {
       "id": 53,
@@ -793,7 +897,9 @@
       ],
       "quantity": 16,
       "location": "GLDANI",
-      "userDescription": "Description for CPU Item 53, condition new."
+      "userDescription": "Description for CPU Item 53, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechDealer"
     },
     {
       "id": 54,
@@ -808,7 +914,9 @@
       ],
       "quantity": 9,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for SSD Item 54, condition new."
+      "userDescription": "Description for SSD Item 54, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ComponentHub"
     },
     {
       "id": 55,
@@ -823,7 +931,9 @@
       ],
       "quantity": 11,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for SSD Item 55, condition parts."
+      "userDescription": "Description for SSD Item 55, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ProHardware_GE"
     },
     {
       "id": 56,
@@ -838,7 +948,9 @@
       ],
       "quantity": 18,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for PSU Item 56, condition parts."
+      "userDescription": "Description for PSU Item 56, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "DeviceDepot"
     },
     {
       "id": 57,
@@ -853,7 +965,9 @@
       ],
       "quantity": 5,
       "location": "GLDANI",
-      "userDescription": "Description for CASE Item 57, condition used."
+      "userDescription": "Description for CASE Item 57, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "MegaTech_TBS"
     },
     {
       "id": 58,
@@ -868,7 +982,9 @@
       ],
       "quantity": 20,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for HDD Item 58, condition used."
+      "userDescription": "Description for HDD Item 58, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PCParts_Pro"
     },
     {
       "id": 59,
@@ -883,7 +999,9 @@
       ],
       "quantity": 11,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE_COOLER Item 59, condition parts."
+      "userDescription": "Description for CASE_COOLER Item 59, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechSupply_GE"
     },
     {
       "id": 60,
@@ -898,7 +1016,9 @@
       ],
       "quantity": 19,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE_COOLER Item 60, condition used."
+      "userDescription": "Description for CASE_COOLER Item 60, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "HardwareHero"
     },
     {
       "id": 61,
@@ -913,7 +1033,9 @@
       ],
       "quantity": 8,
       "location": "GLDANI",
-      "userDescription": "Description for MONITOR Item 61, condition parts."
+      "userDescription": "Description for MONITOR Item 61, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechZone_GE"
     },
     {
       "id": 62,
@@ -928,7 +1050,9 @@
       ],
       "quantity": 16,
       "location": "GLDANI",
-      "userDescription": "Description for CPU Item 62, condition new."
+      "userDescription": "Description for CPU Item 62, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PC_Master"
     },
     {
       "id": 63,
@@ -943,7 +1067,9 @@
       ],
       "quantity": 7,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for PSU Item 63, condition parts."
+      "userDescription": "Description for PSU Item 63, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Giorgi_Tech"
     },
     {
       "id": 64,
@@ -958,7 +1084,9 @@
       ],
       "quantity": 15,
       "location": "GLDANI",
-      "userDescription": "Description for RAM Item 64, condition new."
+      "userDescription": "Description for RAM Item 64, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "CompuStore"
     },
     {
       "id": 65,
@@ -973,7 +1101,9 @@
       ],
       "quantity": 1,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for RAM Item 65, condition used."
+      "userDescription": "Description for RAM Item 65, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Digital_Hub"
     },
     {
       "id": 66,
@@ -988,7 +1118,9 @@
       ],
       "quantity": 12,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for PSU Item 66, condition parts."
+      "userDescription": "Description for PSU Item 66, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "NikaPC"
     },
     {
       "id": 67,
@@ -1003,7 +1135,9 @@
       ],
       "quantity": 20,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE Item 67, condition new."
+      "userDescription": "Description for CASE Item 67, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "GamingParts_TBS"
     },
     {
       "id": 68,
@@ -1018,7 +1152,9 @@
       ],
       "quantity": 6,
       "location": "GLDANI",
-      "userDescription": "Description for GPU Item 68, condition used."
+      "userDescription": "Description for GPU Item 68, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "EliteHardware"
     },
     {
       "id": 69,
@@ -1033,7 +1169,9 @@
       ],
       "quantity": 6,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for GPU Item 69, condition parts."
+      "userDescription": "Description for GPU Item 69, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechSeller99"
     },
     {
       "id": 70,
@@ -1048,7 +1186,9 @@
       ],
       "quantity": 5,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE_COOLER Item 70, condition new."
+      "userDescription": "Description for CASE_COOLER Item 70, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ComponentKing"
     },
     {
       "id": 71,
@@ -1063,7 +1203,9 @@
       ],
       "quantity": 15,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for GPU Item 71, condition used."
+      "userDescription": "Description for GPU Item 71, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PCWorld_GE"
     },
     {
       "id": 72,
@@ -1078,7 +1220,9 @@
       ],
       "quantity": 5,
       "location": "GLDANI",
-      "userDescription": "Description for CASE Item 72, condition parts."
+      "userDescription": "Description for CASE Item 72, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "HardwareDepo"
     },
     {
       "id": 73,
@@ -1093,7 +1237,9 @@
       ],
       "quantity": 18,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for GPU Item 73, condition parts."
+      "userDescription": "Description for GPU Item 73, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Alex_Computers"
     },
     {
       "id": 74,
@@ -1108,7 +1254,9 @@
       ],
       "quantity": 2,
       "location": "GLDANI",
-      "userDescription": "Description for CASE Item 74, condition parts."
+      "userDescription": "Description for CASE Item 74, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechMarket_TBS"
     },
     {
       "id": 75,
@@ -1123,7 +1271,9 @@
       ],
       "quantity": 9,
       "location": "GLDANI",
-      "userDescription": "Description for CABEL Item 75, condition parts."
+      "userDescription": "Description for CABEL Item 75, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PowerPC_Shop"
     },
     {
       "id": 76,
@@ -1138,7 +1288,9 @@
       ],
       "quantity": 5,
       "location": "GLDANI",
-      "userDescription": "Description for MOTHERBOARD Item 76, condition used."
+      "userDescription": "Description for MOTHERBOARD Item 76, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ByteBazaar"
     },
     {
       "id": 77,
@@ -1153,7 +1305,9 @@
       ],
       "quantity": 17,
       "location": "GLDANI",
-      "userDescription": "Description for SSD Item 77, condition used."
+      "userDescription": "Description for SSD Item 77, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "GeorgeIT"
     },
     {
       "id": 78,
@@ -1168,7 +1322,9 @@
       ],
       "quantity": 12,
       "location": "GLDANI",
-      "userDescription": "Description for MOTHERBOARD Item 78, condition new."
+      "userDescription": "Description for MOTHERBOARD Item 78, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "CircuitCity_GE"
     },
     {
       "id": 79,
@@ -1183,7 +1339,9 @@
       ],
       "quantity": 18,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE_COOLER Item 79, condition parts."
+      "userDescription": "Description for CASE_COOLER Item 79, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechNinja"
     },
     {
       "id": 80,
@@ -1198,7 +1356,9 @@
       ],
       "quantity": 19,
       "location": "GLDANI",
-      "userDescription": "Description for CPU Item 80, condition new."
+      "userDescription": "Description for CPU Item 80, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "DataStore_TBS"
     },
     {
       "id": 81,
@@ -1213,7 +1373,9 @@
       ],
       "quantity": 5,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CPU_COOLER Item 81, condition used."
+      "userDescription": "Description for CPU_COOLER Item 81, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "GigaStore"
     },
     {
       "id": 82,
@@ -1228,7 +1390,9 @@
       ],
       "quantity": 14,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CABEL Item 82, condition parts."
+      "userDescription": "Description for CABEL Item 82, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PC_Warehouse"
     },
     {
       "id": 83,
@@ -1243,7 +1407,9 @@
       ],
       "quantity": 3,
       "location": "GLDANI",
-      "userDescription": "Description for HDD Item 83, condition new."
+      "userDescription": "Description for HDD Item 83, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechDealer"
     },
     {
       "id": 84,
@@ -1258,7 +1424,9 @@
       ],
       "quantity": 18,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CPU Item 84, condition used."
+      "userDescription": "Description for CPU Item 84, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ComponentHub"
     },
     {
       "id": 85,
@@ -1273,7 +1441,9 @@
       ],
       "quantity": 17,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for SSD Item 85, condition parts."
+      "userDescription": "Description for SSD Item 85, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ProHardware_GE"
     },
     {
       "id": 86,
@@ -1288,7 +1458,9 @@
       ],
       "quantity": 8,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CPU_COOLER Item 86, condition new."
+      "userDescription": "Description for CPU_COOLER Item 86, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "DeviceDepot"
     },
     {
       "id": 87,
@@ -1303,7 +1475,9 @@
       ],
       "quantity": 20,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CABEL Item 87, condition new."
+      "userDescription": "Description for CABEL Item 87, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "MegaTech_TBS"
     },
     {
       "id": 88,
@@ -1318,7 +1492,9 @@
       ],
       "quantity": 20,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for SSD Item 88, condition new."
+      "userDescription": "Description for SSD Item 88, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PCParts_Pro"
     },
     {
       "id": 89,
@@ -1333,7 +1509,9 @@
       ],
       "quantity": 9,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for MOTHERBOARD Item 89, condition used."
+      "userDescription": "Description for MOTHERBOARD Item 89, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechSupply_GE"
     },
     {
       "id": 90,
@@ -1348,7 +1526,9 @@
       ],
       "quantity": 12,
       "location": "GLDANI",
-      "userDescription": "Description for GPU Item 90, condition new."
+      "userDescription": "Description for GPU Item 90, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "HardwareHero"
     },
     {
       "id": 91,
@@ -1363,7 +1543,9 @@
       ],
       "quantity": 18,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for PSU Item 91, condition used."
+      "userDescription": "Description for PSU Item 91, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechZone_GE"
     },
     {
       "id": 92,
@@ -1378,7 +1560,9 @@
       ],
       "quantity": 15,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CABEL Item 92, condition new."
+      "userDescription": "Description for CABEL Item 92, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "PC_Master"
     },
     {
       "id": 93,
@@ -1393,7 +1577,9 @@
       ],
       "quantity": 9,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for RAM Item 93, condition used."
+      "userDescription": "Description for RAM Item 93, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Giorgi_Tech"
     },
     {
       "id": 94,
@@ -1408,7 +1594,9 @@
       ],
       "quantity": 13,
       "location": "GLDANI",
-      "userDescription": "Description for CABEL Item 94, condition used."
+      "userDescription": "Description for CABEL Item 94, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "CompuStore"
     },
     {
       "id": 95,
@@ -1423,7 +1611,9 @@
       ],
       "quantity": 15,
       "location": "GLDANI",
-      "userDescription": "Description for MOTHERBOARD Item 95, condition new."
+      "userDescription": "Description for MOTHERBOARD Item 95, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "Digital_Hub"
     },
     {
       "id": 96,
@@ -1438,7 +1628,9 @@
       ],
       "quantity": 8,
       "location": "GLDANI",
-      "userDescription": "Description for SSD Item 96, condition parts."
+      "userDescription": "Description for SSD Item 96, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "NikaPC"
     },
     {
       "id": 97,
@@ -1453,7 +1645,9 @@
       ],
       "quantity": 11,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for MOTHERBOARD Item 97, condition parts."
+      "userDescription": "Description for MOTHERBOARD Item 97, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "GamingParts_TBS"
     },
     {
       "id": 98,
@@ -1468,7 +1662,9 @@
       ],
       "quantity": 8,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for MOTHERBOARD Item 98, condition parts."
+      "userDescription": "Description for MOTHERBOARD Item 98, condition parts.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "EliteHardware"
     },
     {
       "id": 99,
@@ -1483,7 +1679,9 @@
       ],
       "quantity": 17,
       "location": "GLDANI",
-      "userDescription": "Description for HDD Item 99, condition new."
+      "userDescription": "Description for HDD Item 99, condition new.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "TechSeller99"
     },
     {
       "id": 100,
@@ -1498,7 +1696,9 @@
       ],
       "quantity": 10,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE_COOLER Item 100, condition used."
+      "userDescription": "Description for CASE_COOLER Item 100, condition used.",
+      "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+      "sellerUserName": "ComponentKing"
     }
   ]
 }

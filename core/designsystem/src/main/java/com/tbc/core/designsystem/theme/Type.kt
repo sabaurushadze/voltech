@@ -18,6 +18,24 @@ val VoltechTextStyle: AppTypography
 
 @Immutable
 data class AppTypography(
+    val title32Bold: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 32.sp,
+        lineHeight = 24.sp
+    ),
+    val title24Bold: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 24.sp,
+        lineHeight = 26.sp
+    ),
+    val title21Bold: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 21.sp,
+        lineHeight = 26.sp
+    ),
     val title18Bold: TextStyle = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
@@ -71,11 +89,5 @@ data class AppTypography(
         fontWeight = FontWeight.Bold,
         fontSize = 18.sp,
         lineHeight = 20.sp
-    ),
-    val title32Bold: TextStyle = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Bold,
-        fontSize = 32.sp,
-        lineHeight = 24.sp
     ),
 )

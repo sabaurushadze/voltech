@@ -18,6 +18,7 @@ fun VoltechTheme(
 
     CompositionLocalProvider(
         LocalColor provides colorScheme,
+        LocalFixedColor provides fixedVoltechColors,
         LocalTypography provides AppTypography()
 
     ) {
