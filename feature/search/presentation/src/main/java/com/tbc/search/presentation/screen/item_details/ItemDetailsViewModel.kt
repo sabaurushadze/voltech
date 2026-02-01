@@ -21,7 +21,12 @@ class ItemDetailsViewModel @Inject constructor(
         when (event) {
             is ItemDetailsEvent.GetItemDetails -> getItemDetails(event.id)
             is ItemDetailsEvent.SelectImageByIndex -> updateState { copy(selectedImage = event.index) }
+            ItemDetailsEvent.NavigateBackToFeed -> navigateBackToFeed()
         }
+    }
+
+    private fun navigateBackToFeed() {
+        emitSideEffect(ItemDetailsSideEffect.NavigateBackToFeed)
     }
 
     private fun getItemDetails(id: Int) = viewModelScope.launch {

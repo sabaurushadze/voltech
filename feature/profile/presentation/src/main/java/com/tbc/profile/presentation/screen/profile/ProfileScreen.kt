@@ -13,11 +13,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -25,11 +28,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.designsystem.components.topappbar.VoltechTopBar
 import com.tbc.core.designsystem.components.topappbar.VoltechTopBarTitle
+import com.tbc.core.designsystem.components.topbar.TopBarAction
+import com.tbc.core.designsystem.components.topbar.TopBarState
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechRadius
@@ -43,10 +49,13 @@ import com.tbc.profile.presentation.R
 fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel(),
     navigateToSettings: () -> Unit,
+    onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    SetupTopBar(onSetupTopBar)
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
@@ -76,8 +85,6 @@ private fun ProfileContent(
             .background(VoltechColor.background)
             .fillMaxSize()
     ) {
-        VoltechTopBar(title = "Profile")
-
         UserProfileSection(imageUrl = "", userName = "luka")
 
         SectionHeader(title = "Shopping")
@@ -226,6 +233,21 @@ private fun SectionHeader(
     ) {
         Text(
             text = title, color = VoltechColor.onBackground, style = VoltechTextStyle.body22Bold
+        )
+    }
+}
+
+@Composable
+private fun SetupTopBar(
+    onSetupTopBar: (TopBarState) -> Unit,
+) {
+    val title = stringResource(R.string.profile)
+
+    LaunchedEffect(Unit) {
+        onSetupTopBar(
+            TopBarState(
+                title = title,
+            )
         )
     }
 }

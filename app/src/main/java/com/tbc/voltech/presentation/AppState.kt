@@ -2,9 +2,11 @@ package com.tbc.voltech.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -14,6 +16,7 @@ import androidx.navigation.navOptions
 import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
 import com.tbc.home.presentation.navigation.HomeScreenRoute
 import com.tbc.profile.presentation.navigation.ProfileScreenRoute
+import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.voltech.navigation.TopLevelDestination
 import kotlinx.coroutines.CoroutineScope
@@ -68,6 +71,21 @@ data class AppState(
             } && currentTopLevelDestination != null
         }
 
+    val shouldShowTopBar: Boolean
+        @Composable get() {
+            val destination = currentDestination ?: return false
+
+            val hiddenRoutes = listOf(
+                AuthNavGraphRoute::class,
+                SearchScreenRoute::class,
+                FeedScreenRoute::class,
+                HomeScreenRoute::class,
+            )
+
+            return hiddenRoutes.none { route ->
+                destination.hasRoute(route)
+            }
+        }
     fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {
         val topLevelNavOptions = navOptions {
             popUpTo(navController.graph.findStartDestination().id) {

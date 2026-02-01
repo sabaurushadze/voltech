@@ -48,4 +48,5 @@
     <string name="about_this_item">About this item</string>
     <string name="available">available</string>
     <string name="item_available">%1$s available</string>
+    <string name="item">Item</string>
 </resources>

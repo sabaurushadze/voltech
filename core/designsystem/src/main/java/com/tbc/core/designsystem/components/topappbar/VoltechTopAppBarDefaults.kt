@@ -12,4 +12,9 @@ object VoltechTopAppBarDefaults {
             containerColor = VoltechColor.background,
             scrolledContainerColor = VoltechColor.background
         )
+    val secondaryColors: TopAppBarColors
+        @Composable
+        get() = TopAppBarDefaults.topAppBarColors(
+            containerColor = VoltechColor.surface,
+        )
 }

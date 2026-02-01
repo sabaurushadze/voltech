@@ -16,14 +16,19 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
+import com.tbc.core.designsystem.components.topbar.TopBarContent
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
+import com.tbc.voltech.main.MainEvent
+import com.tbc.voltech.main.MainState
 import com.tbc.voltech.navigation.AppNavHost
 import kotlin.reflect.KClass
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VoltechApplication(
+    mainState: MainState,
+    onEvent: (MainEvent) -> Unit,
     appState: AppState,
     startDestination: KClass<*>,
     onSuccessfulAuth: () -> Unit,
@@ -43,6 +48,11 @@ fun VoltechApplication(
                 SnackbarHost(
                     hostState = snackbarHostState,
                 )
+            },
+            topBar = {
+                if (appState.shouldShowTopBar) {
+                    TopBarContent(mainState.topBarState)
+                }
             },
             bottomBar = {
                 VoltechBottomNavigation(
@@ -67,6 +77,7 @@ fun VoltechApplication(
                     startDestination = startDestination,
                     onSuccessfulAuth = onSuccessfulAuth,
                     bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
+                    onSetupAppBar = { onEvent(MainEvent.OnUpdateTopBarState(it)) }
                 )
 
             }

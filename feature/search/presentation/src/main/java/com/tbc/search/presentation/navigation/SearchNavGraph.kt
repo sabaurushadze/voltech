@@ -6,6 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import androidx.navigation.toRoute
+import com.tbc.core.designsystem.components.topbar.TopBarState
 import com.tbc.search.presentation.screen.feed.FeedScreen
 import com.tbc.search.presentation.screen.item_details.ItemDetailsScreen
 import com.tbc.search.presentation.screen.search.SearchScreen
@@ -16,6 +17,8 @@ fun NavGraphBuilder.searchNavGraph(
     navigateToFeed: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
     navigateToSearch: () -> Unit,
+    navigateBack: () -> Unit,
+    onSetupTopBar: (TopBarState) -> Unit,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
 
@@ -42,7 +45,10 @@ fun NavGraphBuilder.searchNavGraph(
             val route = backStackEntry.toRoute<ItemDetailsRoute>()
 
             ItemDetailsScreen(
-                id = route.id
+                id = route.id,
+                navigateBack = navigateBack,
+                onSetupTopBar = onSetupTopBar,
+                bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
             )
         }
     }

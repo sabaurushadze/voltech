@@ -61,7 +61,11 @@ class VoltechActivity : ComponentActivity() {
                         startDestination = startDestination,
                         onSuccessfulAuth = {
                             viewModel.onEvent(MainEvent.OnSuccessfulAuth)
-                        })
+                        },
+                        mainState = state,
+                        onEvent = viewModel::onEvent
+                    )
+
                 }
             }
         }

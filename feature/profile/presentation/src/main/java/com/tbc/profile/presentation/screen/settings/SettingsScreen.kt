@@ -9,10 +9,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,8 +26,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.designsystem.components.radiobutton.VoltechRadioButtonDefaults
-import com.tbc.core.designsystem.components.topappbar.VoltechTopBar
-import com.tbc.core.designsystem.components.topappbar.VoltechTopBarTitle
+import com.tbc.core.designsystem.components.topbar.TopBarAction
+import com.tbc.core.designsystem.components.topbar.TopBarState
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechTextStyle
@@ -38,10 +41,13 @@ import com.tbc.profile.presentation.mapper.toStringRes
 fun SettingsScreen(
     viewModel: SettingsViewModel = hiltViewModel(),
     navigateBack: () -> Unit,
+    onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    SetupTopBar(onSetupTopBar, viewModel::onEvent)
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
@@ -75,12 +81,6 @@ private fun SettingsContent(
             .background(VoltechColor.background)
             .fillMaxSize()
     ) {
-        VoltechTopBar(
-            title = stringResource(R.string.settings),
-            showBackButton = true,
-            onBackClick = { onEvent(SettingsEvent.NavigateBackToProfile) },
-        )
-
         SettingsHeaderItem(title = stringResource(R.string.account))
 
         SettingsItem(
@@ -196,6 +196,26 @@ private fun SettingsItem(
             text = text,
             color = VoltechColor.onBackground,
             style = VoltechTextStyle.body16Normal
+        )
+    }
+}
+
+@Composable
+private fun SetupTopBar(
+    onSetupTopBar: (TopBarState) -> Unit,
+    onEvent: (SettingsEvent) -> Unit,
+) {
+    val title = stringResource(id = R.string.settings)
+
+    LaunchedEffect(Unit) {
+        onSetupTopBar(
+            TopBarState(
+                title = title,
+                navigationIcon = TopBarAction(
+                    icon = Icons.AutoMirrored.Default.ArrowBack,
+                    onClick = { onEvent(SettingsEvent.NavigateBackToProfile) }
+                )
+            )
         )
     }
 }

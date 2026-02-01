@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.auth.presentation.navigation.authNavGraph
+import com.tbc.core.designsystem.components.topbar.TopBarState
 import com.tbc.home.presentation.navigation.homeNavGraph
 import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
@@ -21,6 +22,7 @@ import kotlin.reflect.KClass
 @Composable
 fun AppNavHost(
     appState: AppState,
+    onSetupAppBar: (TopBarState) -> Unit,
     startDestination: KClass<*>,
     onSuccessfulAuth: () -> Unit,
     bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
@@ -45,7 +47,9 @@ fun AppNavHost(
             onSuccessfulAuth = onSuccessfulAuth
         )
 
-        homeNavGraph()
+        homeNavGraph(
+            onSetupTopBar = onSetupAppBar,
+        )
 
         searchNavGraph(
             navigateToFeed = { query ->
@@ -58,11 +62,14 @@ fun AppNavHost(
             navigateToItemDetails = { id ->
                 navController.navigate(ItemDetailsRoute(id))
             },
+            navigateBack = { navController.navigateUp() },
+            onSetupTopBar = onSetupAppBar
         )
 
         profileNavGraph(
             navigateToSettings = { navController.navigate(SettingsScreenRoute) },
-            navigateBack = { navController.navigateUp() }
+            navigateBack = { navController.navigateUp() },
+            onSetupTopBar = onSetupAppBar
         )
 
 

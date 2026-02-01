@@ -21,6 +21,9 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,6 +35,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -39,6 +43,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.designsystem.components.button.AppOutlinedButton
+import com.tbc.core.designsystem.components.topbar.TopBarAction
+import com.tbc.core.designsystem.components.topbar.TopBarState
 import com.tbc.core.designsystem.theme.Dimen
 import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.designsystem.theme.VoltechFixedColor
@@ -58,10 +64,15 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 fun ItemDetailsScreen(
     id: Int,
     viewModel: ItemDetailsViewModel = hiltViewModel(),
+    onSetupTopBar: (TopBarState) -> Unit,
+    navigateBack: () -> Unit,
+    bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    SetupTopBar(onSetupTopBar, viewModel::onEvent)
 
     LaunchedEffect(Unit) {
         viewModel.onEvent(ItemDetailsEvent.GetItemDetails(id))
@@ -73,12 +84,15 @@ fun ItemDetailsScreen(
                 val error = context.getString(sideEffect.errorRes)
                 snackbarHostState.showSnackbar(message = error)
             }
+
+            ItemDetailsSideEffect.NavigateBackToFeed -> { navigateBack() }
         }
     }
 
     ItemDetailsContent(
         state = state,
         onEvent = viewModel::onEvent,
+        bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
     )
 }
 
@@ -88,11 +102,13 @@ fun ItemDetailsScreen(
 private fun ItemDetailsContent(
     state: ItemDetailsState,
     onEvent: (ItemDetailsEvent) -> Unit,
+    bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
 
 
     LazyColumn(
         modifier = Modifier
+            .nestedScroll(bottomAppBarScrollBehavior.nestedScrollConnection)
             .fillMaxSize()
             .background(VoltechColor.background)
             .systemBarsPadding()
@@ -461,6 +477,26 @@ private fun ImagePager(
             isSelected = false,
             onFavoriteIconClick = { },
             iconSize = Dimen.size24
+        )
+    }
+}
+
+@Composable
+private fun SetupTopBar(
+    onSetupTopBar: (TopBarState) -> Unit,
+    onEvent: (ItemDetailsEvent) -> Unit,
+) {
+    val title = stringResource(id = R.string.item)
+
+    LaunchedEffect(Unit) {
+        onSetupTopBar(
+            TopBarState(
+                title = title,
+                navigationIcon = TopBarAction(
+                    icon = Icons.AutoMirrored.Default.ArrowBack,
+                    onClick = { onEvent(ItemDetailsEvent.NavigateBackToFeed) }
+                )
+            )
         )
     }
 }
