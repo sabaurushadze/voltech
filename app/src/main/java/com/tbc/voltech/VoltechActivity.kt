@@ -10,11 +10,9 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.graphics.toArgb
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechTheme
+import com.tbc.core_ui.theme.VoltechTheme
 import com.tbc.home.presentation.navigation.HomeScreenRoute
 import com.tbc.profile.domain.model.settings.VoltechThemeOption
 import com.tbc.voltech.main.MainEvent

@@ -1,6 +1,6 @@
 package com.tbc.voltech.main
 
-import com.tbc.core.designsystem.components.topbar.TopBarState
+import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.profile.domain.model.settings.VoltechThemeOption
 
 data class MainState(

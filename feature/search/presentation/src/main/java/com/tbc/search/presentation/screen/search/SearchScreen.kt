@@ -18,8 +18,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -38,15 +36,14 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.core.designsystem.components.textfield.TextInputField
-import com.tbc.search.presentation.components.feed.topbar.SearchAppBar
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
-import com.tbc.search.presentation.R
+import com.tbc.core_ui.components.textfield.TextInputField
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.resource.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -97,7 +94,7 @@ private fun SearchContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(VoltechColor.background)
+            .background(VoltechColor.backgroundPrimary)
             .systemBarsPadding()
     ) {
         TextInputField(
@@ -169,7 +166,7 @@ private fun SearchItem(
         Text(
             text = title,
             style = VoltechTextStyle.body16Bold,
-            color = VoltechColor.onBackground
+            color = VoltechColor.foregroundPrimary
         )
     }
 }
@@ -191,7 +188,7 @@ private fun RecentSearchItem(
         Text(
             text = title,
             style = VoltechTextStyle.body16Bold,
-            color = VoltechColor.onBackground
+            color = VoltechColor.foregroundPrimary
         )
 
         IconButton(

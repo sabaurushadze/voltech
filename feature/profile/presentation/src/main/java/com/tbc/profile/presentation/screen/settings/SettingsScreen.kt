@@ -25,16 +25,16 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.core.designsystem.components.radiobutton.VoltechRadioButtonDefaults
-import com.tbc.core.designsystem.components.topbar.TopBarAction
-import com.tbc.core.designsystem.components.topbar.TopBarState
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechTextStyle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
+import com.tbc.core_ui.components.radiobutton.VoltechRadioButtonDefaults
+import com.tbc.core_ui.components.topbar.TopBarAction
+import com.tbc.core_ui.components.topbar.TopBarState
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.profile.domain.model.settings.VoltechThemeOption
-import com.tbc.profile.presentation.R
+import com.tbc.resource.R
 import com.tbc.profile.presentation.mapper.toStringRes
 
 @Composable
@@ -78,7 +78,7 @@ private fun SettingsContent(
 
     Column(
         modifier = Modifier
-            .background(VoltechColor.background)
+            .background(VoltechColor.backgroundPrimary)
             .fillMaxSize()
     ) {
         SettingsHeaderItem(title = stringResource(R.string.account))
@@ -115,12 +115,12 @@ private fun ThemeDialog(
     onThemeSelected: (VoltechThemeOption) -> Unit,
 ) {
     AlertDialog(
-        containerColor = VoltechColor.surface,
+        containerColor = VoltechColor.backgroundSecondary,
         onDismissRequest = onDismiss,
         title = {
             Text(
                 text = stringResource(R.string.select_app_theme),
-                color = VoltechColor.onSurface,
+                color = VoltechColor.foregroundSecondary,
                 style = VoltechTextStyle.body18Normal
             )
         },
@@ -143,7 +143,7 @@ private fun ThemeDialog(
 
                         Text(
                             text = stringResource(option.toStringRes()),
-                            color = VoltechColor.onSurface,
+                            color = VoltechColor.foregroundSecondary,
                             style = VoltechTextStyle.body20Bold,
                             modifier = Modifier.padding(start = Dimen.size8)
                         )
@@ -154,7 +154,7 @@ private fun ThemeDialog(
         confirmButton = {
             Text(
                 text = stringResource(R.string.cancel),
-                color = VoltechColor.primary,
+                color = VoltechColor.foregroundAccent,
                 style = VoltechTextStyle.body16Bold,
                 modifier = Modifier
                     .clickable { onDismiss() }
@@ -175,7 +175,7 @@ private fun SettingsHeaderItem(
     ) {
         Text(
             text = title,
-            color = VoltechColor.primary,
+            color = VoltechColor.foregroundAccent,
             style = VoltechTextStyle.body16Normal
         )
     }
@@ -194,7 +194,7 @@ private fun SettingsItem(
     ) {
         Text(
             text = text,
-            color = VoltechColor.onBackground,
+            color = VoltechColor.foregroundPrimary,
             style = VoltechTextStyle.body16Normal
         )
     }
@@ -212,6 +212,7 @@ private fun SetupTopBar(
             TopBarState(
                 title = title,
                 navigationIcon = TopBarAction(
+//                    sheni chawere da sheucvale feri
                     icon = Icons.AutoMirrored.Default.ArrowBack,
                     onClick = { onEvent(SettingsEvent.NavigateBackToProfile) }
                 )

@@ -24,18 +24,18 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.auth.presentation.R
-import com.tbc.core.designsystem.components.button.PrimaryButton
-import com.tbc.core.designsystem.components.button.SecondaryButton
-import com.tbc.core.designsystem.components.divider.Divider
-import com.tbc.core.designsystem.components.textfield.PasswordTextField
-import com.tbc.core.designsystem.components.textfield.TextInputField
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
-import com.tbc.core.designsystem.theme.VoltechTheme
+import com.tbc.resource.R
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
+import com.tbc.core_ui.components.button.PrimaryButton
+import com.tbc.core_ui.components.button.SecondaryButton
+import com.tbc.core_ui.components.divider.Divider
+import com.tbc.core_ui.components.textfield.PasswordTextField
+import com.tbc.core_ui.components.textfield.TextInputField
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.core_ui.theme.VoltechTheme
 
 @Composable
 fun LogInScreen(
@@ -86,7 +86,7 @@ fun LogInContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(VoltechColor.background)
+            .background(VoltechColor.backgroundPrimary)
             .padding(Dimen.size16)
     ) {
         Column(
@@ -99,7 +99,7 @@ fun LogInContent(
                     .align(Alignment.CenterHorizontally)
                     .padding(bottom = Dimen.size48),
                 text = stringResource(R.string.log_in),
-                color = VoltechColor.onBackground,
+                color = VoltechColor.foregroundPrimary,
                 style = VoltechTextStyle.title32Bold
             )
             if (state.isLoading) {
@@ -107,7 +107,7 @@ fun LogInContent(
                     modifier = Modifier
                         .size(Dimen.size48)
                         .align(Alignment.CenterHorizontally),
-                    color = VoltechColor.primary
+                    color = VoltechColor.foregroundAccent
                 )
             }
             Spacer(modifier = Modifier.height(Dimen.size16))
@@ -168,7 +168,7 @@ fun LogInContent(
                     .height(Dimen.buttonLarge),
                 text = stringResource(R.string.register),
                 border = BorderStroke(
-                    Dimen.size1, VoltechColor.onBackground
+                    Dimen.size1, VoltechColor.foregroundPrimary
                 ),
                 onClick = {
                     onEvent(LogInEvent.NavigateToRegister)

@@ -14,6 +14,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
+import com.tbc.auth.presentation.navigation.LoginScreenRoute
+import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.home.presentation.navigation.HomeScreenRoute
 import com.tbc.profile.presentation.navigation.ProfileScreenRoute
 import com.tbc.search.presentation.navigation.FeedScreenRoute
@@ -76,7 +78,8 @@ data class AppState(
             val destination = currentDestination ?: return false
 
             val hiddenRoutes = listOf(
-                AuthNavGraphRoute::class,
+                LoginScreenRoute::class,
+                RegisterScreenRoute::class,
                 SearchScreenRoute::class,
                 FeedScreenRoute::class,
                 HomeScreenRoute::class,

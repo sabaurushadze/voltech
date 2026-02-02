@@ -5,10 +5,9 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.res.stringResource
-import com.tbc.core.designsystem.components.topbar.TopBarAction
-import com.tbc.core.designsystem.components.topbar.TopBarState
-import com.tbc.core.designsystem.theme.VoltechTextStyle
+import com.tbc.core_ui.components.topbar.TopBarAction
+import com.tbc.core_ui.components.topbar.TopBarState
+import com.tbc.core_ui.theme.VoltechTextStyle
 
 @Composable
 fun HomeScreen(
@@ -32,7 +31,7 @@ private fun SetupTopBar(
                 title = title,
                 navigationIcon = TopBarAction(
                     icon = Icons.AutoMirrored.Default.ArrowBack,
-                    onClick = {  }
+                    onClick = { }
                 )
             )
         )

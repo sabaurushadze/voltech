@@ -2,13 +2,12 @@ package com.tbc.voltech.navigation
 
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
-import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.auth.presentation.navigation.authNavGraph
-import com.tbc.core.designsystem.components.topbar.TopBarState
+import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.home.presentation.navigation.homeNavGraph
 import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
@@ -25,7 +24,6 @@ fun AppNavHost(
     onSetupAppBar: (TopBarState) -> Unit,
     startDestination: KClass<*>,
     onSuccessfulAuth: () -> Unit,
-    bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
     val navController = appState.navController
 
@@ -58,7 +56,6 @@ fun AppNavHost(
             navigateToSearch = {
                 navController.navigateUp()
             },
-            bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
             navigateToItemDetails = { id ->
                 navController.navigate(ItemDetailsRoute(id))
             },
@@ -71,7 +68,6 @@ fun AppNavHost(
             navigateBack = { navController.navigateUp() },
             onSetupTopBar = onSetupAppBar
         )
-
 
 
     }

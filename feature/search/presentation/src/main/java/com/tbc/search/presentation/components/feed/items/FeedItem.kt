@@ -22,13 +22,13 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
-import com.tbc.core.designsystem.theme.VoltechTheme
 import com.tbc.core.presentation.base.BaseAsyncImage
-import com.tbc.search.presentation.R
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.core_ui.theme.VoltechTheme
+import com.tbc.resource.R
 
 @Composable
 fun FeedItemCard(
@@ -102,7 +102,7 @@ private fun FeedItemContent(
     Text(
         modifier = Modifier.fillMaxWidth(),
         text = title,
-        color = VoltechColor.onBackground,
+        color = VoltechColor.foregroundPrimary,
         style = VoltechTextStyle.body18Normal,
         maxLines = 3
     )
@@ -112,7 +112,7 @@ private fun FeedItemContent(
     Text(
         modifier = Modifier.fillMaxWidth(),
         text = condition,
-        color = VoltechColor.neutralText1,
+        color = VoltechColor.foregroundSecondary,
         style = VoltechTextStyle.body16Normal,
         maxLines = 1
     )
@@ -122,7 +122,7 @@ private fun FeedItemContent(
     Text(
         modifier = Modifier.fillMaxWidth(),
         text = price,
-        color = VoltechColor.onBackground,
+        color = VoltechColor.foregroundPrimary,
         style = VoltechTextStyle.body22Bold,
         maxLines = 1
     )
@@ -132,7 +132,7 @@ private fun FeedItemContent(
     Text(
         modifier = Modifier.fillMaxWidth(),
         text = location,
-        color = VoltechColor.neutralText1,
+        color = VoltechColor.foregroundSecondary,
         style = VoltechTextStyle.body14Normal,
         maxLines = 1
     )
@@ -185,7 +185,7 @@ private fun FeedItemPlaceholderContent() {
         modifier = Modifier
             .fillMaxWidth(0.8f)
             .height(Dimen.size16)
-            .background(VoltechColor.neutral1)
+            .background(VoltechColor.foregroundSecondary)
     )
 
     Spacer(modifier = Modifier.height(Dimen.size4))
@@ -194,7 +194,7 @@ private fun FeedItemPlaceholderContent() {
         modifier = Modifier
             .fillMaxWidth(0.6f)
             .height(Dimen.size16)
-            .background(VoltechColor.neutral1)
+            .background(VoltechColor.foregroundSecondary)
     )
 }
 
@@ -222,13 +222,13 @@ fun FavoriteButton(
                     clip = false
                 )
                 .clip(VoltechRadius.radius64)
-                .background(VoltechColor.background.copy(alpha = 0.8f)),
+                .background(VoltechColor.backgroundPrimary.copy(alpha = 0.8f)),
             contentAlignment = Alignment.Center
         ) {
             Icon(
                 painter = painterResource(id = heartIcon),
                 contentDescription = "",
-                tint = VoltechColor.onBackground,
+                tint = VoltechColor.foregroundPrimary,
                 modifier = Modifier
                     .padding(Dimen.size12)
                     .size(iconSize)

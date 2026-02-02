@@ -8,6 +8,6 @@ android {
 
 dependencies {
     implementation(projects.core.domain)
-    implementation(projects.core.designsystem)
     implementation(libs.coil.compose)
+    implementation(projects.resource)
 }

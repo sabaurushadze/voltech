@@ -122,11 +122,11 @@ The project follows a **multi-module architecture** organized into feature modul
 ```
 :app                         
 :build-logic                  
-:core
-  ├─ :designsystem           
+:core       
   ├─ :presentation                
   ├─ :data                  
-  └─ :domain                             
+  └─ :domain    
+:core-ui                         
 :feature
   ├─ :auth                  
   ├─ :home

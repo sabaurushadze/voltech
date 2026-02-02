@@ -23,7 +23,6 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,26 +34,25 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.core.designsystem.components.button.AppOutlinedButton
-import com.tbc.core.designsystem.components.topbar.TopBarAction
-import com.tbc.core.designsystem.components.topbar.TopBarState
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechFixedColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
-import com.tbc.core.designsystem.theme.VoltechTheme
 import com.tbc.core.presentation.base.BaseAsyncImage
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
-import com.tbc.search.presentation.R
+import com.tbc.core_ui.components.button.AppOutlinedButton
+import com.tbc.core_ui.components.topbar.TopBarAction
+import com.tbc.core_ui.components.topbar.TopBarState
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechFixedColor
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.core_ui.theme.VoltechTheme
+import com.tbc.resource.R
 import com.tbc.search.presentation.components.feed.items.FavoriteButton
 import com.tbc.search.presentation.components.feed.items.FeedItemCard
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -66,7 +64,6 @@ fun ItemDetailsScreen(
     viewModel: ItemDetailsViewModel = hiltViewModel(),
     onSetupTopBar: (TopBarState) -> Unit,
     navigateBack: () -> Unit,
-    bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -85,14 +82,15 @@ fun ItemDetailsScreen(
                 snackbarHostState.showSnackbar(message = error)
             }
 
-            ItemDetailsSideEffect.NavigateBackToFeed -> { navigateBack() }
+            ItemDetailsSideEffect.NavigateBackToFeed -> {
+                navigateBack()
+            }
         }
     }
 
     ItemDetailsContent(
         state = state,
         onEvent = viewModel::onEvent,
-        bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
     )
 }
 
@@ -102,15 +100,13 @@ fun ItemDetailsScreen(
 private fun ItemDetailsContent(
     state: ItemDetailsState,
     onEvent: (ItemDetailsEvent) -> Unit,
-    bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
 
 
     LazyColumn(
         modifier = Modifier
-            .nestedScroll(bottomAppBarScrollBehavior.nestedScrollConnection)
             .fillMaxSize()
-            .background(VoltechColor.background)
+            .background(VoltechColor.backgroundPrimary)
             .systemBarsPadding()
     ) {
 
@@ -141,7 +137,7 @@ private fun ItemDetailsContent(
                         Text(
                             text = title,
                             style = VoltechTextStyle.title21Bold,
-                            color = VoltechColor.onBackground,
+                            color = VoltechColor.foregroundPrimary,
                             maxLines = 4,
                             overflow = TextOverflow.Ellipsis
                         )
@@ -158,7 +154,7 @@ private fun ItemDetailsContent(
                         Text(
                             text = price,
                             style = VoltechTextStyle.title24Bold,
-                            color = VoltechColor.onBackground
+                            color = VoltechColor.foregroundPrimary
                         )
 
                         Spacer(Modifier.height(Dimen.size24))
@@ -236,7 +232,7 @@ private fun InfoRow(
         Text(
             text = label,
             style = VoltechTextStyle.body16Normal,
-            color = VoltechColor.neutralText1,
+            color = VoltechColor.backgroundSecondary,
             modifier = Modifier.weight(1f)
         )
 
@@ -247,7 +243,7 @@ private fun InfoRow(
             Text(
                 text = value,
                 style = VoltechTextStyle.body16Bold,
-                color = VoltechColor.onBackground
+                color = VoltechColor.foregroundPrimary
             )
         }
     }
@@ -258,14 +254,14 @@ private fun InfoRow(
 private fun AboutItem(
     conditionRes: Int,
     quantity: String,
-    locationRes: Int
-){
+    locationRes: Int,
+) {
     Column(modifier = Modifier.fillMaxWidth()) {
 
         Text(
             text = stringResource(R.string.about_this_item),
             style = VoltechTextStyle.body22Bold,
-            color = VoltechColor.onBackground
+            color = VoltechColor.foregroundPrimary
         )
 
         InfoRow(
@@ -288,7 +284,7 @@ private fun AboutItem(
 @Composable
 private fun SellerItem(
     sellerAvatar: String?,
-    sellerUerName: String
+    sellerUerName: String,
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -308,7 +304,7 @@ private fun SellerItem(
         Text(
             text = sellerUerName,
             style = VoltechTextStyle.body16Bold,
-            color = VoltechColor.onBackground
+            color = VoltechColor.foregroundPrimary
         )
     }
 }
@@ -317,7 +313,7 @@ private fun SellerItem(
 private fun ThumbnailBar(
     imagesList: List<String>,
     selectedImage: Int,
-    onEvent: (ItemDetailsEvent) -> Unit
+    onEvent: (ItemDetailsEvent) -> Unit,
 ) {
     LazyRow(
         modifier = Modifier.padding(
@@ -351,7 +347,7 @@ private fun ThumbnailBar(
                             .fillMaxSize()
                             .border(
                                 width = Dimen.size2,
-                                color = VoltechColor.onBackground,
+                                color = VoltechColor.foregroundPrimary,
                                 shape = VoltechRadius.radius12
                             )
                     )
@@ -367,7 +363,7 @@ private fun ThumbnailBar(
 private fun CurrentPageOverlay(
     listSize: Int,
     currentPosition: Int,
-    modifier: Modifier
+    modifier: Modifier,
 ) {
     Box(
         modifier = modifier
