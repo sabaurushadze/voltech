@@ -31,10 +31,11 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.tbc.search.presentation.components.feed.topbar.FeedAppBar
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
+import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.search.presentation.components.feed.items.FeedItemCard
 import com.tbc.search.presentation.components.feed.items.FeedItemPlaceholderCard
 import com.tbc.search.presentation.components.feed.sheet.FilterBottomSheet
@@ -49,7 +50,6 @@ fun FeedScreen(
     navigateToSearch: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
     query: String,
-    bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -99,14 +99,13 @@ fun FeedScreen(
         onEvent = viewModel::onEvent,
         listState = listState,
         isContentReady = isContentReady,
-        bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
         topAppBarScrollBehavior = topAppBarScrollBehavior,
         navigateToSearch = navigateToSearch
     )
 
     if (state.selectedSort) {
         ModalBottomSheet(
-            containerColor = VoltechColor.background,
+            containerColor = VoltechColor.backgroundSecondary,
             onDismissRequest = { viewModel.onEvent(FeedEvent.HideSortSheet) },
             sheetState = sortBottomSheetState
         ) {
@@ -122,7 +121,7 @@ fun FeedScreen(
 
     if (state.selectedFilter) {
         ModalBottomSheet(
-            containerColor = VoltechColor.background,
+            containerColor = VoltechColor.backgroundSecondary,
             onDismissRequest = { viewModel.onEvent(FeedEvent.HideFilterSheet) },
             sheetState = filterBottomSheetState
         ) {
@@ -146,13 +145,11 @@ private fun FeedContent(
     listState: LazyListState,
     isContentReady: Boolean,
     topAppBarScrollBehavior: TopAppBarScrollBehavior,
-    bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
     Column(
         modifier = Modifier
             .nestedScroll(topAppBarScrollBehavior.nestedScrollConnection)
-            .nestedScroll(bottomAppBarScrollBehavior.nestedScrollConnection)
-            .background(VoltechColor.background)
+            .background(VoltechColor.backgroundPrimary)
             .fillMaxSize()
     ) {
         FeedAppBar(
@@ -192,8 +189,8 @@ private fun FeedContent(
                         condition = stringResource(it.conditionRes),
                         price = it.price,
                         location = stringResource(it.locationRes),
-                        isFavoriteIconSelected = false,
-                        onFavoriteIconClick = { },
+//                        isFavoriteIconSelected = false,
+//                        onFavoriteIconClick = { },
                         onRootClick = { onEvent(FeedEvent.FeedItemClick(item.id)) }
                     )
                 }
@@ -202,8 +199,8 @@ private fun FeedContent(
 
                 HorizontalDivider(
                     modifier = Modifier.fillMaxWidth(),
-                    thickness = Dimen.size1,
-                    color = VoltechColor.neutral1
+                    thickness = VoltechBorder.medium,
+                    color = VoltechColor.borderSubtle
                 )
 
                 Spacer(modifier = Modifier.height(Dimen.size4))

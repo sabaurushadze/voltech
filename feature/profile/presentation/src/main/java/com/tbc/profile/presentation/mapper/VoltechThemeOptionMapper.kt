@@ -1,7 +1,7 @@
 package com.tbc.profile.presentation.mapper
 
 import com.tbc.profile.domain.model.settings.VoltechThemeOption
-import com.tbc.profile.presentation.R
+import com.tbc.resource.R
 
 fun VoltechThemeOption.toStringRes(): Int {
     return when(this) {

@@ -18,14 +18,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import com.tbc.core.designsystem.R
-import com.tbc.core.designsystem.components.button.IconTextButton
-import com.tbc.core.designsystem.components.textfield.TextInputFieldDummy
-import com.tbc.core.designsystem.components.topappbar.VoltechTopAppBarDefaults
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
+import com.tbc.core_ui.components.button.BorderlessIconButton
+import com.tbc.core_ui.components.textfield.TextInputFieldDummy
+import com.tbc.core_ui.components.topbar.VoltechTopAppBarDefaults
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.resource.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -59,7 +59,7 @@ fun FeedAppBar(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(VoltechColor.background)
+                        .background(VoltechColor.backgroundPrimary)
                         .padding(end = Dimen.size16),
                     horizontalArrangement = Arrangement.End,
                     verticalAlignment = Alignment.CenterVertically
@@ -67,27 +67,39 @@ fun FeedAppBar(
                     if (!isContentReady) {
                         Text(
                             text = stringResource(R.string.loading_searching),
-                            style = VoltechTextStyle.body16Bold,
-                            color = VoltechColor.onBackground,
+                            style = VoltechTextStyle.bodyBold,
+                            color = VoltechColor.foregroundPrimary,
                             modifier = Modifier.weight(1f)
                         )
                     } else {
                         Spacer(modifier = Modifier.weight(1f))
                     }
-                    IconTextButton(
-                        icon = ImageVector.vectorResource(R.drawable.ic_filter),
-                        textRes = R.string.sort,
-                        loading = isLoading,
+                    BorderlessIconButton(
+                        icon = R.drawable.ic_filter,
+                        text = stringResource(R.string.sort),
                         enabled = !isLoading,
                         onClick = onSortClick,
                     )
-                    IconTextButton(
-                        icon = ImageVector.vectorResource(R.drawable.ic_sort),
-                        textRes = R.string.filter,
-                        loading = isLoading,
+                    BorderlessIconButton(
+                        icon = R.drawable.ic_sort,
+                        text = stringResource(R.string.filter),
                         enabled = !isLoading,
                         onClick = onFilterClick,
                     )
+//                    IconTextButton(
+//                        icon = ImageVector.vectorResource(R.drawable.ic_filter),
+//                        textRes = R.string.sort,
+//                        loading = isLoading,
+//                        enabled = !isLoading,
+//                        onClick = onSortClick,
+//                    )
+//                    IconTextButton(
+//                        icon = ImageVector.vectorResource(R.drawable.ic_sort),
+//                        textRes = R.string.filter,
+//                        loading = isLoading,
+//                        enabled = !isLoading,
+//                        onClick = onFilterClick,
+//                    )
                 }
             }
         },

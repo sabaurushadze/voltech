@@ -24,7 +24,7 @@ class ApiResponseHandler @Inject constructor() {
                 Resource.Failure(error = error)
             }
         } catch (e: Exception) {
-            d("ApiResponseHandler", "ApiResponseHandler: $e")
+            d("asdd", "ApiResponseHandler: $e")
             Resource.Failure(error = mapExceptionToNetworkError(e))
         }
     }

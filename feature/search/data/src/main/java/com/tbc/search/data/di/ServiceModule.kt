@@ -1,5 +1,6 @@
 package com.tbc.search.data.di
 
+import com.tbc.search.data.service.favorite.FavoriteService
 import com.tbc.search.data.service.feed.FeedService
 import com.tbc.search.data.service.search.SearchService
 import dagger.Module
@@ -22,5 +23,11 @@ object ServiceModule {
     @Singleton
     fun provideFeedService(retrofit: Retrofit): FeedService {
         return retrofit.create(FeedService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFavoriteService(retrofit: Retrofit): FavoriteService {
+        return retrofit.create(FavoriteService::class.java)
     }
 }

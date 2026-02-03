@@ -16,12 +16,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.tbc.core.designsystem.components.radiobutton.VoltechRadioButtonDefaults
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechTextStyle
-import com.tbc.core.designsystem.theme.VoltechTheme
-import com.tbc.search.presentation.R
+import com.tbc.core_ui.components.radiobutton.VoltechRadioButtonDefaults
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.core_ui.theme.VoltechTheme
+import com.tbc.resource.R
 import com.tbc.search.presentation.enums.feed.SortType
 import com.tbc.search.presentation.mapper.feed.toStringRes
 
@@ -37,9 +37,9 @@ fun SortBottomSheet(
     ) {
         Text(
             modifier = Modifier.padding(start = Dimen.size16),
-            text = "Sort",
-            style = VoltechTextStyle.body22Bold,
-            color = VoltechColor.onBackground
+            text = stringResource(R.string.sort),
+            style = VoltechTextStyle.title1,
+            color = VoltechColor.foregroundPrimary
         )
 
         Spacer(modifier = Modifier.height(Dimen.size16))
@@ -80,8 +80,8 @@ fun SortItem(
         Row(modifier = Modifier.fillMaxWidth()) {
             Text(
                 text = stringResource(titleRes),
-                style = VoltechTextStyle.body16Normal,
-                color = VoltechColor.onBackground
+                style = VoltechTextStyle.body,
+                color = VoltechColor.foregroundPrimary
             )
         }
     }

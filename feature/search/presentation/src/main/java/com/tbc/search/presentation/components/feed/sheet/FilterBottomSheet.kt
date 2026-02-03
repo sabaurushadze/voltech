@@ -21,17 +21,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import com.tbc.core.designsystem.components.button.PrimaryButton
-import com.tbc.core.designsystem.components.checkbox.VoltechCheckBoxDefaults
-import com.tbc.core.designsystem.components.textfield.TextInputField
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
+import com.tbc.core_ui.components.button.PrimaryButton
+import com.tbc.core_ui.components.checkbox.VoltechCheckBoxDefaults
+import com.tbc.core_ui.components.textfield.TextInputField
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.search.domain.model.feed.Category
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.Location
-import com.tbc.search.presentation.R
+import com.tbc.resource.R
 import com.tbc.search.presentation.mapper.feed.toStringRes
 import com.tbc.search.presentation.screen.feed.FeedEvent
 import com.tbc.search.presentation.screen.feed.FeedState
@@ -44,19 +44,18 @@ fun FilterBottomSheet(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(VoltechColor.background)
     ) {
         Text(
             modifier = Modifier.padding(start = Dimen.size16),
             text = stringResource(R.string.filter),
-            style = VoltechTextStyle.body22Bold,
-            color = VoltechColor.onBackground
+            style = VoltechTextStyle.title1,
+            color = VoltechColor.foregroundPrimary
         )
         Spacer(modifier = Modifier.height(Dimen.size16))
 
         HorizontalDivider(
             modifier = Modifier.fillMaxWidth(),
-            color = VoltechColor.neutral1
+            color = VoltechColor.borderStrong
         )
 
         LazyColumn(
@@ -70,8 +69,8 @@ fun FilterBottomSheet(
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size16),
                     text = stringResource(R.string.price),
-                    style = VoltechTextStyle.body20Bold,
-                    color = VoltechColor.onBackground
+                    style = VoltechTextStyle.title2,
+                    color = VoltechColor.foregroundPrimary
                 )
             }
 
@@ -90,8 +89,8 @@ fun FilterBottomSheet(
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size8),
                     text = stringResource(R.string.condition),
-                    style = VoltechTextStyle.body20Bold,
-                    color = VoltechColor.onBackground
+                    style = VoltechTextStyle.title2,
+                    color = VoltechColor.foregroundPrimary
                 )
             }
             items(Condition.entries) { condition ->
@@ -110,8 +109,8 @@ fun FilterBottomSheet(
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size8),
                     text = stringResource(R.string.location),
-                    style = VoltechTextStyle.body20Bold,
-                    color = VoltechColor.onBackground
+                    style = VoltechTextStyle.title2,
+                    color = VoltechColor.foregroundPrimary
                 )
             }
             items(Location.entries) { location ->
@@ -130,8 +129,8 @@ fun FilterBottomSheet(
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size8),
                     text = stringResource(R.string.category),
-                    style = VoltechTextStyle.body20Bold,
-                    color = VoltechColor.onBackground
+                    style = VoltechTextStyle.title2,
+                    color = VoltechColor.foregroundPrimary
                 )
             }
             items(Category.entries) { category ->
@@ -148,22 +147,22 @@ fun FilterBottomSheet(
 
         HorizontalDivider(
             modifier = Modifier.fillMaxWidth(),
-            color = VoltechColor.neutral1
+            color = VoltechColor.borderStrong
         )
 
-        Spacer(modifier = Modifier.height(Dimen.size16))
+        Spacer(modifier = Modifier.height(Dimen.size8))
 
         PrimaryButton(
             modifier = Modifier
                 .padding(horizontal = Dimen.size16)
-                .height(Dimen.buttonLarge)
                 .fillMaxWidth(),
             text = stringResource(R.string.filter),
-            shape = VoltechRadius.radius16,
             onClick = {
                 onEvent(FeedEvent.FilterItems)
             },
         )
+
+        Spacer(modifier = Modifier.height(Dimen.size8))
     }
 }
 
@@ -229,8 +228,8 @@ private fun FilterItem(
         Row(modifier = Modifier.fillMaxWidth()) {
             Text(
                 text = text,
-                style = VoltechTextStyle.body16Normal,
-                color = VoltechColor.onBackground
+                style = VoltechTextStyle.body,
+                color = VoltechColor.foregroundPrimary
             )
         }
     }

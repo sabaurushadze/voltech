@@ -2,12 +2,12 @@ package com.tbc.voltech.navigation
 
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
-import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.auth.presentation.navigation.authNavGraph
+import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.home.presentation.navigation.homeNavGraph
 import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
@@ -21,9 +21,9 @@ import kotlin.reflect.KClass
 @Composable
 fun AppNavHost(
     appState: AppState,
+    onSetupAppBar: (TopBarState) -> Unit,
     startDestination: KClass<*>,
     onSuccessfulAuth: () -> Unit,
-    bottomAppBarScrollBehavior: BottomAppBarScrollBehavior,
 ) {
     val navController = appState.navController
 
@@ -45,7 +45,9 @@ fun AppNavHost(
             onSuccessfulAuth = onSuccessfulAuth
         )
 
-        homeNavGraph()
+        homeNavGraph(
+            onSetupTopBar = onSetupAppBar,
+        )
 
         searchNavGraph(
             navigateToFeed = { query ->
@@ -54,17 +56,18 @@ fun AppNavHost(
             navigateToSearch = {
                 navController.navigateUp()
             },
-            bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
             navigateToItemDetails = { id ->
                 navController.navigate(ItemDetailsRoute(id))
             },
+            navigateBack = { navController.navigateUp() },
+            onSetupTopBar = onSetupAppBar
         )
 
         profileNavGraph(
             navigateToSettings = { navController.navigate(SettingsScreenRoute) },
-            navigateBack = { navController.navigateUp() }
+            navigateBack = { navController.navigateUp() },
+            onSetupTopBar = onSetupAppBar
         )
-
 
 
     }

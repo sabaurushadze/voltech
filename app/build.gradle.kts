@@ -31,14 +31,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     testImplementation(libs.kotlinx.coroutines.test)
 
-    // navigation
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
 
-    // serialization
     implementation(libs.serialization.json)
 
-    //worker
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.hilt.work)
     ksp(libs.androidx.hilt.work.compiler)
@@ -62,8 +59,11 @@ dependencies {
     implementation(projects.feature.profile.domain)
     implementation(projects.feature.profile.presentation)
 
-    implementation(projects.core.designsystem)
     implementation(projects.core.presentation)
     implementation(projects.core.data)
     implementation(projects.core.domain)
+
+    implementation(projects.coreUi)
+
+    implementation(projects.resource)
 }

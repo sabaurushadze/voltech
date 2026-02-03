@@ -1,0 +1,11 @@
+plugins {
+    alias(libs.plugins.voltech.android.library.compose)
+}
+
+android {
+    namespace = "com.tbc.core_ui"
+}
+
+dependencies {
+    implementation(projects.resource)
+}

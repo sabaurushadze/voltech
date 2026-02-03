@@ -4,7 +4,7 @@ import com.tbc.search.domain.model.feed.Category
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.Location
-import com.tbc.search.presentation.R
+import com.tbc.resource.R
 import com.tbc.search.presentation.model.feed.UiFeedItem
 import java.text.NumberFormat
 import java.util.Currency

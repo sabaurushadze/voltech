@@ -15,11 +15,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import com.tbc.core.designsystem.R
-import com.tbc.core.designsystem.components.textfield.TextInputField
-import com.tbc.core.designsystem.components.topappbar.VoltechTopAppBarDefaults
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechRadius
+import com.tbc.core_ui.components.textfield.TextInputField
+import com.tbc.core_ui.components.topbar.VoltechTopAppBarDefaults
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.resource.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -1,6 +1,6 @@
 package com.tbc.search.presentation.mapper.feed
 
-import com.tbc.search.presentation.R
+import com.tbc.resource.R
 import com.tbc.search.presentation.enums.feed.SortType
 
 fun SortType.toStringRes(): Int {

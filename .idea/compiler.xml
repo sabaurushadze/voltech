@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="11">
+      <module name="resource" target="21" />
+      <module name="voltech.core.designsystem" target="21" />
       <module name="voltech.datastore.data" target="21" />
       <module name="voltech.feature.auth.data2" target="21" />
       <module name="voltech.feature.feed.data" target="21" />

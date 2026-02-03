@@ -3,7 +3,7 @@ package com.tbc.core.presentation.mapper
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Error
 import com.tbc.core.domain.util.ValidationError
-import com.tbc.core.presentation.R
+import com.tbc.resource.R
 
 
 fun Error.toStringResId(): Int = when (this) {

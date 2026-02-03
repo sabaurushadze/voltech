@@ -38,17 +38,21 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.core.designsystem.components.button.AppOutlinedButton
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechFixedColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
-import com.tbc.core.designsystem.theme.VoltechTheme
 import com.tbc.core.presentation.base.BaseAsyncImage
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
-import com.tbc.search.presentation.R
+import com.tbc.core_ui.components.button.PrimaryButton
+import com.tbc.core_ui.components.button.SecondaryButton
+import com.tbc.core_ui.components.button.SecondaryIconButton
+import com.tbc.core_ui.components.topbar.TopBarAction
+import com.tbc.core_ui.components.topbar.TopBarState
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechFixedColor
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.core_ui.theme.VoltechTheme
+import com.tbc.resource.R
 import com.tbc.search.presentation.components.feed.items.FavoriteButton
 import com.tbc.search.presentation.components.feed.items.FeedItemCard
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -58,13 +62,21 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 fun ItemDetailsScreen(
     id: Int,
     viewModel: ItemDetailsViewModel = hiltViewModel(),
+    onSetupTopBar: (TopBarState) -> Unit,
+    navigateBack: () -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    SetupTopBar(onSetupTopBar, viewModel::onEvent)
+
     LaunchedEffect(Unit) {
         viewModel.onEvent(ItemDetailsEvent.GetItemDetails(id))
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.onEvent(ItemDetailsEvent.GetUserUid)
     }
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
@@ -72,6 +84,10 @@ fun ItemDetailsScreen(
             is ItemDetailsSideEffect.ShowSnackBar -> {
                 val error = context.getString(sideEffect.errorRes)
                 snackbarHostState.showSnackbar(message = error)
+            }
+
+            ItemDetailsSideEffect.NavigateBackToFeed -> {
+                navigateBack()
             }
         }
     }
@@ -89,22 +105,27 @@ private fun ItemDetailsContent(
     state: ItemDetailsState,
     onEvent: (ItemDetailsEvent) -> Unit,
 ) {
-
-
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(VoltechColor.background)
+            .background(VoltechColor.backgroundPrimary)
             .systemBarsPadding()
     ) {
 
         state.itemDetails?.let { itemDetails ->
+            val favoriteIds: List<Int> = state.favoriteItem.map { it.itemId }
+            val isFavoriteItem: Boolean = itemDetails.id in favoriteIds
+
             with(itemDetails) {
                 item {
                     ImagePager(
                         imagesList = images,
                         selectedImage = state.selectedImage,
                         onEvent = onEvent,
+                        isFavoriteSelected = isFavoriteItem,
+                        onFavoriteButtonIconClick = {
+                            onEvent(ItemDetailsEvent.OnFavoriteToggle(uid = state.uid, itemId = itemDetails.id))
+                        }
                     )
                 }
 
@@ -124,8 +145,8 @@ private fun ItemDetailsContent(
 
                         Text(
                             text = title,
-                            style = VoltechTextStyle.title21Bold,
-                            color = VoltechColor.onBackground,
+                            style = VoltechTextStyle.title2,
+                            color = VoltechColor.foregroundPrimary,
                             maxLines = 4,
                             overflow = TextOverflow.Ellipsis
                         )
@@ -141,53 +162,36 @@ private fun ItemDetailsContent(
 
                         Text(
                             text = price,
-                            style = VoltechTextStyle.title24Bold,
-                            color = VoltechColor.onBackground
+                            style = VoltechTextStyle.title1,
+                            color = VoltechColor.foregroundPrimary
                         )
 
-                        Spacer(Modifier.height(Dimen.size24))
+                        Spacer(Modifier.height(Dimen.size32))
 
-                        AppOutlinedButton(
+                        PrimaryButton(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .height(Dimen.size48)
-                                .clip(VoltechRadius.radius24),
+                                .fillMaxWidth(),
                             onClick = {},
                             text = stringResource(R.string.buy_it_now),
-                            textColor = VoltechFixedColor.white,
-                            textStyle = VoltechTextStyle.body16Bold,
-                            backgroundColor = VoltechFixedColor.blue,
-                            borderColor = VoltechFixedColor.blue
                         )
 
-                        Spacer(Modifier.height(Dimen.size10))
+                        Spacer(Modifier.height(Dimen.size8))
 
-                        AppOutlinedButton(
+                        SecondaryButton(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .height(Dimen.size48)
-                                .clip(VoltechRadius.radius24),
+                                .fillMaxWidth(),
                             onClick = {},
                             text = stringResource(R.string.add_to_cart),
-                            textColor = VoltechFixedColor.blue,
-                            textStyle = VoltechTextStyle.body16Normal,
-                            backgroundColor = VoltechFixedColor.transparent,
-                            borderColor = VoltechFixedColor.blue
                         )
 
-                        Spacer(Modifier.height(Dimen.size10))
+                        Spacer(Modifier.height(Dimen.size8))
 
-                        AppOutlinedButton(
+                        SecondaryIconButton(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .height(Dimen.size48)
-                                .clip(VoltechRadius.radius24),
+                                .fillMaxWidth(),
+                            icon = R.drawable.ic_outlined_heart,
                             onClick = {},
                             text = stringResource(R.string.add_to_watchlist),
-                            textColor = VoltechFixedColor.blue,
-                            textStyle = VoltechTextStyle.body16Normal,
-                            backgroundColor = VoltechFixedColor.transparent,
-                            borderColor = VoltechFixedColor.blue
                         )
 
                         Spacer(Modifier.height(Dimen.size24))
@@ -198,7 +202,7 @@ private fun ItemDetailsContent(
                             locationRes = locationRes
                         )
 
-                        Spacer(Modifier.height(Dimen.size16))
+                        Spacer(Modifier.height(Dimen.size32))
                     }
                 }
             }
@@ -219,8 +223,8 @@ private fun InfoRow(
     ) {
         Text(
             text = label,
-            style = VoltechTextStyle.body16Normal,
-            color = VoltechColor.neutralText1,
+            style = VoltechTextStyle.body,
+            color = VoltechColor.foregroundSecondary,
             modifier = Modifier.weight(1f)
         )
 
@@ -230,8 +234,8 @@ private fun InfoRow(
         ) {
             Text(
                 text = value,
-                style = VoltechTextStyle.body16Bold,
-                color = VoltechColor.onBackground
+                style = VoltechTextStyle.body,
+                color = VoltechColor.foregroundPrimary
             )
         }
     }
@@ -242,15 +246,17 @@ private fun InfoRow(
 private fun AboutItem(
     conditionRes: Int,
     quantity: String,
-    locationRes: Int
-){
+    locationRes: Int,
+) {
     Column(modifier = Modifier.fillMaxWidth()) {
 
         Text(
             text = stringResource(R.string.about_this_item),
-            style = VoltechTextStyle.body22Bold,
-            color = VoltechColor.onBackground
+            style = VoltechTextStyle.title2,
+            color = VoltechColor.foregroundPrimary
         )
+
+        Spacer(modifier = Modifier.height(Dimen.size16))
 
         InfoRow(
             label = stringResource(R.string.condition),
@@ -272,7 +278,7 @@ private fun AboutItem(
 @Composable
 private fun SellerItem(
     sellerAvatar: String?,
-    sellerUerName: String
+    sellerUerName: String,
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -287,12 +293,12 @@ private fun SellerItem(
             )
         }
 
-        Spacer(Modifier.width(Dimen.size10))
+        Spacer(Modifier.width(Dimen.size8))
 
         Text(
             text = sellerUerName,
-            style = VoltechTextStyle.body16Bold,
-            color = VoltechColor.onBackground
+            style = VoltechTextStyle.body,
+            color = VoltechColor.foregroundPrimary
         )
     }
 }
@@ -301,19 +307,19 @@ private fun SellerItem(
 private fun ThumbnailBar(
     imagesList: List<String>,
     selectedImage: Int,
-    onEvent: (ItemDetailsEvent) -> Unit
+    onEvent: (ItemDetailsEvent) -> Unit,
 ) {
     LazyRow(
         modifier = Modifier.padding(
             vertical = Dimen.size12
         ),
-        horizontalArrangement = Arrangement.spacedBy(Dimen.size10)
+        horizontalArrangement = Arrangement.spacedBy(Dimen.size8)
     ) {
         itemsIndexed(imagesList) { index, image ->
 
             Box(
                 modifier = Modifier
-                    .size(Dimen.size82)
+                    .size(Dimen.size80)
                     .clickable {
                         onEvent(ItemDetailsEvent.SelectImageByIndex(index))
                     }
@@ -335,7 +341,7 @@ private fun ThumbnailBar(
                             .fillMaxSize()
                             .border(
                                 width = Dimen.size2,
-                                color = VoltechColor.onBackground,
+                                color = VoltechColor.foregroundPrimary,
                                 shape = VoltechRadius.radius12
                             )
                     )
@@ -351,12 +357,12 @@ private fun ThumbnailBar(
 private fun CurrentPageOverlay(
     listSize: Int,
     currentPosition: Int,
-    modifier: Modifier
+    modifier: Modifier,
 ) {
     Box(
         modifier = modifier
             .padding(
-                vertical = Dimen.size10,
+                vertical = Dimen.size8,
                 horizontal = Dimen.size16
             )
             .clip(VoltechRadius.radius12)
@@ -372,7 +378,7 @@ private fun CurrentPageOverlay(
         ) {
             Text(
                 text = currentPosition.toString(),
-                style = VoltechTextStyle.body14Bold,
+                style = VoltechTextStyle.body,
                 color = VoltechFixedColor.black,
                 modifier = Modifier
                     .clip(VoltechRadius.radius24)
@@ -382,7 +388,7 @@ private fun CurrentPageOverlay(
 
             Text(
                 text = stringResource(R.string.of),
-                style = VoltechTextStyle.body14Bold,
+                style = VoltechTextStyle.body,
                 color = VoltechFixedColor.black,
                 modifier = Modifier
                     .clip(VoltechRadius.radius24)
@@ -392,7 +398,7 @@ private fun CurrentPageOverlay(
 
             Text(
                 text = listSize.toString(),
-                style = VoltechTextStyle.body14Bold,
+                style = VoltechTextStyle.body,
                 color = VoltechFixedColor.black,
                 modifier = Modifier
                     .clip(VoltechRadius.radius24)
@@ -405,6 +411,8 @@ private fun CurrentPageOverlay(
 private fun ImagePager(
     imagesList: List<String>,
     selectedImage: Int,
+    isFavoriteSelected: Boolean,
+    onFavoriteButtonIconClick: () -> Unit,
     onEvent: (ItemDetailsEvent) -> Unit,
 ) {
     val pagerState = rememberPagerState(
@@ -458,9 +466,30 @@ private fun ImagePager(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(Dimen.size24),
-            isSelected = false,
-            onFavoriteIconClick = { },
-            iconSize = Dimen.size24
+            isSelected = isFavoriteSelected,
+            onFavoriteIconClick = { onFavoriteButtonIconClick() },
+            iconSize = Dimen.size24,
+            iconContainerSize = Dimen.size48
+        )
+    }
+}
+
+@Composable
+private fun SetupTopBar(
+    onSetupTopBar: (TopBarState) -> Unit,
+    onEvent: (ItemDetailsEvent) -> Unit,
+) {
+    val title = stringResource(id = R.string.item)
+
+    LaunchedEffect(Unit) {
+        onSetupTopBar(
+            TopBarState(
+                title = title,
+                navigationIcon = TopBarAction(
+                    icon = R.drawable.ic_arrow_back,
+                    onClick = { onEvent(ItemDetailsEvent.NavigateBackToFeed) }
+                )
+            )
         )
     }
 }
@@ -470,9 +499,6 @@ private fun ImagePager(
 fun FeedItemWrapperPreview() {
     VoltechTheme() {
         FeedItemCard(
-            isFavoriteIconSelected = true,
-            onFavoriteIconClick = { },
-
             onRootClick = {},
             imageUrl = "",
             title = "RTX 4060 super duper magari umagresi video barati",

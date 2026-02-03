@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -22,13 +23,13 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
-import com.tbc.core.designsystem.theme.VoltechTheme
 import com.tbc.core.presentation.base.BaseAsyncImage
-import com.tbc.search.presentation.R
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.core_ui.theme.VoltechTheme
+import com.tbc.resource.R
 
 @Composable
 fun FeedItemCard(
@@ -37,8 +38,6 @@ fun FeedItemCard(
     condition: String,
     price: String,
     location: String,
-    isFavoriteIconSelected: Boolean,
-    onFavoriteIconClick: () -> Unit,
     onRootClick: () -> Unit = {},
 ) {
     Row(
@@ -62,13 +61,6 @@ fun FeedItemCard(
                     modifier = Modifier
                         .matchParentSize()
                         .clip(VoltechRadius.radius16),
-                )
-
-
-                FavoriteButton(
-                    modifier = Modifier.align(Alignment.TopEnd),
-                    isSelected = isFavoriteIconSelected,
-                    onFavoriteIconClick = { onFavoriteIconClick() },
                 )
             }
 
@@ -102,8 +94,8 @@ private fun FeedItemContent(
     Text(
         modifier = Modifier.fillMaxWidth(),
         text = title,
-        color = VoltechColor.onBackground,
-        style = VoltechTextStyle.body18Normal,
+        color = VoltechColor.foregroundPrimary,
+        style = VoltechTextStyle.body,
         maxLines = 3
     )
 
@@ -112,8 +104,8 @@ private fun FeedItemContent(
     Text(
         modifier = Modifier.fillMaxWidth(),
         text = condition,
-        color = VoltechColor.neutralText1,
-        style = VoltechTextStyle.body16Normal,
+        color = VoltechColor.foregroundSecondary,
+        style = VoltechTextStyle.body,
         maxLines = 1
     )
 
@@ -122,8 +114,8 @@ private fun FeedItemContent(
     Text(
         modifier = Modifier.fillMaxWidth(),
         text = price,
-        color = VoltechColor.onBackground,
-        style = VoltechTextStyle.body22Bold,
+        color = VoltechColor.foregroundPrimary,
+        style = VoltechTextStyle.title2,
         maxLines = 1
     )
 
@@ -132,8 +124,8 @@ private fun FeedItemContent(
     Text(
         modifier = Modifier.fillMaxWidth(),
         text = location,
-        color = VoltechColor.neutralText1,
-        style = VoltechTextStyle.body14Normal,
+        color = VoltechColor.foregroundSecondary,
+        style = VoltechTextStyle.body,
         maxLines = 1
     )
 }
@@ -185,7 +177,7 @@ private fun FeedItemPlaceholderContent() {
         modifier = Modifier
             .fillMaxWidth(0.8f)
             .height(Dimen.size16)
-            .background(VoltechColor.neutral1)
+            .background(VoltechColor.backgroundTertiary)
     )
 
     Spacer(modifier = Modifier.height(Dimen.size4))
@@ -194,63 +186,25 @@ private fun FeedItemPlaceholderContent() {
         modifier = Modifier
             .fillMaxWidth(0.6f)
             .height(Dimen.size16)
-            .background(VoltechColor.neutral1)
+            .background(VoltechColor.backgroundTertiary)
     )
 }
 
-@Composable
-fun FavoriteButton(
-    modifier: Modifier = Modifier,
-    isSelected: Boolean,
-    onFavoriteIconClick: () -> Unit,
-    iconSize: Dp = Dimen.size18,
-) {
-    val heartIcon = if (isSelected) R.drawable.ic_filled_heart else R.drawable.ic_outlined_heart
 
-    Box(
-        modifier = modifier
-            .size(Dimen.size50)
-            .clickable { onFavoriteIconClick() },
-        contentAlignment = Alignment.Center
-    ) {
-        Box(
-            modifier = Modifier
-                .wrapContentSize()
-                .shadow(
-                    elevation = Dimen.size2,
-                    shape = VoltechRadius.radius64,
-                    clip = false
-                )
-                .clip(VoltechRadius.radius64)
-                .background(VoltechColor.background.copy(alpha = 0.8f)),
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(
-                painter = painterResource(id = heartIcon),
-                contentDescription = "",
-                tint = VoltechColor.onBackground,
-                modifier = Modifier
-                    .padding(Dimen.size12)
-                    .size(iconSize)
-            )
-        }
-    }
 
-}
-
-@Preview(showBackground = true)
-@Composable
-fun FeedItemWrapperPreview() {
-    VoltechTheme() {
-        FeedItemCard(
-            isFavoriteIconSelected = true,
-            onFavoriteIconClick = { },
-            onRootClick = {},
-            imageUrl = "",
-            title = "RTX 4060 super duper magari umagresi video barati",
-            condition = "New",
-            price = "$1,780.00",
-            location = "Located in Didi Dighomi"
-        )
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun FeedItemWrapperPreview() {
+//    VoltechTheme() {
+//        FeedItemCard(
+//            isFavoriteIconSelected = true,
+//            onFavoriteIconClick = { },
+//            onRootClick = {},
+//            imageUrl = "",
+//            title = "RTX 4060 super duper magari umagresi video barati",
+//            condition = "New",
+//            price = "$1,780.00",
+//            location = "Located in Didi Dighomi"
+//        )
+//    }
+//}

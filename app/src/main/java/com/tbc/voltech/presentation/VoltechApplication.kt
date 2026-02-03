@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -16,14 +15,19 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
-import com.tbc.core.designsystem.theme.VoltechColor
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
+import com.tbc.core_ui.components.topbar.TopBarContent
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.voltech.main.MainEvent
+import com.tbc.voltech.main.MainState
 import com.tbc.voltech.navigation.AppNavHost
 import kotlin.reflect.KClass
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VoltechApplication(
+    mainState: MainState,
+    onEvent: (MainEvent) -> Unit,
     appState: AppState,
     startDestination: KClass<*>,
     onSuccessfulAuth: () -> Unit,
@@ -32,24 +36,27 @@ fun VoltechApplication(
     val currentDestination = appState.currentDestination
     val topLevelDestinations = appState.topLevelDestinations
     val shouldShowBottomBar = appState.shouldShowBottomBar
-    val bottomAppBarScrollBehavior = BottomAppBarDefaults.exitAlwaysScrollBehavior()
 
     CompositionLocalProvider(
         LocalSnackbarHostState provides snackbarHostState,
     ) {
         Scaffold(
-            containerColor = VoltechColor.background,
+            containerColor = VoltechColor.backgroundPrimary,
             snackbarHost = {
                 SnackbarHost(
                     hostState = snackbarHostState,
                 )
+            },
+            topBar = {
+                if (appState.shouldShowTopBar) {
+                    TopBarContent(mainState.topBarState)
+                }
             },
             bottomBar = {
                 VoltechBottomNavigation(
                     destinations = topLevelDestinations,
                     visible = shouldShowBottomBar,
                     currentDestination = currentDestination,
-                    bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
                     onNavigateToDestination = { destination ->
                         appState.navigateToTopLevelDestination(destination)
                     }
@@ -66,7 +73,7 @@ fun VoltechApplication(
                     appState = appState,
                     startDestination = startDestination,
                     onSuccessfulAuth = onSuccessfulAuth,
-                    bottomAppBarScrollBehavior = bottomAppBarScrollBehavior,
+                    onSetupAppBar = { onEvent(MainEvent.OnUpdateTopBarState(it)) }
                 )
 
             }

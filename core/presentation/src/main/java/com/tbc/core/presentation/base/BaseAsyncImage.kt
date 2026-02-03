@@ -2,14 +2,12 @@ package com.tbc.core.presentation.base
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.presentation.R
+import com.tbc.resource.R
 
 @Composable
 fun BaseAsyncImage(

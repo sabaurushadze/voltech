@@ -3,7 +3,6 @@ package com.tbc.profile.presentation.screen.profile
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,40 +12,41 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.ripple.rememberRipple
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.core.designsystem.components.topappbar.VoltechTopBar
-import com.tbc.core.designsystem.components.topappbar.VoltechTopBarTitle
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
 import com.tbc.core.presentation.base.BaseAsyncImage
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
-import com.tbc.profile.presentation.R
+import com.tbc.core_ui.components.topbar.TopBarState
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.resource.R
 
 @Composable
 fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel(),
     navigateToSettings: () -> Unit,
+    onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    SetupTopBar(onSetupTopBar)
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
@@ -73,11 +73,9 @@ private fun ProfileContent(
 ) {
     Column(
         modifier = Modifier
-            .background(VoltechColor.background)
+            .background(VoltechColor.backgroundPrimary)
             .fillMaxSize()
     ) {
-        VoltechTopBar(title = "Profile")
-
         UserProfileSection(imageUrl = "", userName = "luka")
 
         SectionHeader(title = "Shopping")
@@ -123,14 +121,14 @@ private fun IconTextSectionItem(
             modifier = Modifier
                 .clip(VoltechRadius.radius64)
                 .size(Dimen.size48)
-                .background(VoltechColor.surface),
+                .background(VoltechColor.backgroundSecondary),
             contentAlignment = Alignment.Center
         ) {
             Icon(
                 modifier = Modifier.size(Dimen.size24),
                 imageVector = ImageVector.vectorResource(icon),
                 contentDescription = null,
-                tint = VoltechColor.onSurface
+                tint = VoltechColor.foregroundPrimary
             )
         }
 
@@ -141,14 +139,14 @@ private fun IconTextSectionItem(
         ) {
             Text(
                 text = title,
-                color = VoltechColor.onBackground,
-                style = VoltechTextStyle.body16Medium
+                color = VoltechColor.foregroundPrimary,
+                style = VoltechTextStyle.body
             )
 
             Text(
                 text = subTitle,
-                color = VoltechColor.onBackgroundSecondary,
-                style = VoltechTextStyle.body12Medium
+                color = VoltechColor.foregroundSecondary,
+                style = VoltechTextStyle.caption
             )
         }
     }
@@ -169,8 +167,8 @@ private fun TextSectionItem(
     ) {
         Text(
             text = text,
-            color = VoltechColor.onBackground,
-            style = VoltechTextStyle.body16Normal
+            color = VoltechColor.foregroundPrimary,
+            style = VoltechTextStyle.body
         )
     }
 }
@@ -191,14 +189,14 @@ private fun UserProfileSection(
             modifier = Modifier
                 .size(Dimen.size64)
                 .clip(VoltechRadius.radius64)
-                .background(VoltechColor.primary),
+                .background(VoltechColor.foregroundAccent),
             contentAlignment = Alignment.Center
         ) {
             if (imageUrl.isEmpty()) {
                 Text(
                     text = userName.first().toString().uppercase(),
-                    color = VoltechColor.onPrimary,
-                    style = VoltechTextStyle.body22Bold
+                    color = VoltechColor.foregroundOnAccent,
+                    style = VoltechTextStyle.title2
                 )
             } else {
                 BaseAsyncImage(
@@ -210,7 +208,7 @@ private fun UserProfileSection(
         Spacer(modifier = Modifier.width(Dimen.size16))
 
         Text(
-            text = userName, color = VoltechColor.onBackground, style = VoltechTextStyle.body16Bold
+            text = userName, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.body
         )
     }
 }
@@ -221,11 +219,31 @@ private fun SectionHeader(
 ) {
     Row(
         modifier = Modifier
-            .padding(start = Dimen.size16, end = Dimen.size16, top = Dimen.size16, bottom = Dimen.size8)
+            .padding(
+                start = Dimen.size16,
+                end = Dimen.size16,
+                top = Dimen.size16,
+                bottom = Dimen.size8
+            )
             .fillMaxWidth()
     ) {
         Text(
-            text = title, color = VoltechColor.onBackground, style = VoltechTextStyle.body22Bold
+            text = title, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.title2
+        )
+    }
+}
+
+@Composable
+private fun SetupTopBar(
+    onSetupTopBar: (TopBarState) -> Unit,
+) {
+    val title = stringResource(R.string.profile)
+
+    LaunchedEffect(Unit) {
+        onSetupTopBar(
+            TopBarState(
+                title = title,
+            )
         )
     }
 }

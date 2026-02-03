@@ -18,8 +18,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -38,15 +36,14 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.core.designsystem.components.textfield.TextInputField
-import com.tbc.search.presentation.components.feed.topbar.SearchAppBar
-import com.tbc.core.designsystem.theme.Dimen
-import com.tbc.core.designsystem.theme.VoltechColor
-import com.tbc.core.designsystem.theme.VoltechRadius
-import com.tbc.core.designsystem.theme.VoltechTextStyle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
-import com.tbc.search.presentation.R
+import com.tbc.core_ui.components.textfield.TextInputField
+import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechRadius
+import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.resource.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -97,7 +94,7 @@ private fun SearchContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(VoltechColor.background)
+            .background(VoltechColor.backgroundPrimary)
             .systemBarsPadding()
     ) {
         TextInputField(
@@ -119,7 +116,8 @@ private fun SearchContent(
         if (state.query.isEmpty()) {
             Text(
                 modifier = Modifier.padding(horizontal = Dimen.size16),
-                text = stringResource(R.string.recent_searchs)
+                text = stringResource(R.string.recent_searchs),
+                color = VoltechColor.foregroundPrimary
             )
 
             Spacer(modifier = Modifier.height(Dimen.size16))
@@ -168,8 +166,8 @@ private fun SearchItem(
     ) {
         Text(
             text = title,
-            style = VoltechTextStyle.body16Bold,
-            color = VoltechColor.onBackground
+            style = VoltechTextStyle.bodyBold,
+            color = VoltechColor.foregroundPrimary
         )
     }
 }
@@ -190,8 +188,8 @@ private fun RecentSearchItem(
     ) {
         Text(
             text = title,
-            style = VoltechTextStyle.body16Bold,
-            color = VoltechColor.onBackground
+            style = VoltechTextStyle.body,
+            color = VoltechColor.foregroundPrimary
         )
 
         IconButton(
@@ -200,6 +198,7 @@ private fun RecentSearchItem(
             Icon(
                 modifier = Modifier.size(Dimen.size12),
                 painter = painterResource(R.drawable.ic_remove_x),
+                tint = VoltechColor.foregroundPrimary,
                 contentDescription = null
             )
         }

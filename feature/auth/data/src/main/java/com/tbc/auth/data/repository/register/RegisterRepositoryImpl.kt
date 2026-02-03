@@ -18,7 +18,6 @@ class RegisterRepositoryImpl @Inject constructor() : RegisterRepository {
                 .await()
             Resource.Success(Unit)
         } catch (e: Exception) {
-            d("asdd", "$e")
             Resource.Failure(error = mapExceptionToSignInError(e))
         }
     }
