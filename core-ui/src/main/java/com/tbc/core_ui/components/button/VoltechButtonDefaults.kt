@@ -11,7 +11,6 @@ object VoltechButtonDefaults {
         @Composable
         get() = ButtonDefaults.buttonColors(
             containerColor = VoltechColor.foregroundAccent,
-            contentColor = VoltechColor.foregroundOnAccent,
             disabledContainerColor = VoltechColor.foregroundAccent.copy(alpha = 0.28f),
             disabledContentColor = VoltechColor.foregroundOnAccent.copy(alpha = 0.28f)
         )
@@ -19,18 +18,19 @@ object VoltechButtonDefaults {
     val secondaryColors: ButtonColors
         @Composable
         get() = ButtonDefaults.outlinedButtonColors(
-            containerColor = VoltechColor.backgroundPrimary,
-            contentColor = VoltechColor.foregroundPrimary,
-            disabledContainerColor = VoltechColor.backgroundPrimary.copy(alpha = 0.28f),
-            disabledContentColor = VoltechColor.foregroundPrimary.copy(alpha = 0.28f)
+            containerColor = VoltechColor.backgroundTransparent,
+            disabledContentColor = VoltechColor.backgroundPrimary.copy(alpha = 0.18f)
         )
 
-    val iconTextButtonColors: ButtonColors
+    val tertiaryColors: ButtonColors
         @Composable
         get() = ButtonDefaults.outlinedButtonColors(
-            containerColor = VoltechColor.backgroundPrimary,
-            contentColor = VoltechColor.foregroundPrimary,
-            disabledContainerColor = VoltechColor.backgroundPrimary.copy(alpha = 0.28f),
-            disabledContentColor = VoltechColor.foregroundPrimary.copy(alpha = 0.28f)
+            containerColor = VoltechColor.backgroundTransparent,
+        )
+
+    val borderlessColors: ButtonColors
+        @Composable
+        get() = ButtonDefaults.outlinedButtonColors(
+            containerColor = VoltechColor.backgroundTransparent,
         )
 }

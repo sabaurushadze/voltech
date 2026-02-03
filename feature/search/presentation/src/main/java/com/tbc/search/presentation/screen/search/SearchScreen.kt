@@ -116,7 +116,8 @@ private fun SearchContent(
         if (state.query.isEmpty()) {
             Text(
                 modifier = Modifier.padding(horizontal = Dimen.size16),
-                text = stringResource(R.string.recent_searchs)
+                text = stringResource(R.string.recent_searchs),
+                color = VoltechColor.foregroundPrimary
             )
 
             Spacer(modifier = Modifier.height(Dimen.size16))
@@ -165,7 +166,7 @@ private fun SearchItem(
     ) {
         Text(
             text = title,
-            style = VoltechTextStyle.body16Bold,
+            style = VoltechTextStyle.bodyBold,
             color = VoltechColor.foregroundPrimary
         )
     }
@@ -187,7 +188,7 @@ private fun RecentSearchItem(
     ) {
         Text(
             text = title,
-            style = VoltechTextStyle.body16Bold,
+            style = VoltechTextStyle.body,
             color = VoltechColor.foregroundPrimary
         )
 
@@ -197,6 +198,7 @@ private fun RecentSearchItem(
             Icon(
                 modifier = Modifier.size(Dimen.size12),
                 painter = painterResource(R.drawable.ic_remove_x),
+                tint = VoltechColor.foregroundPrimary,
                 contentDescription = null
             )
         }

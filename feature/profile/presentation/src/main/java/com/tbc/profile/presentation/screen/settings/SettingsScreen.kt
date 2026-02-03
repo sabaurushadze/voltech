@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -21,8 +22,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
@@ -81,6 +84,8 @@ private fun SettingsContent(
             .background(VoltechColor.backgroundPrimary)
             .fillMaxSize()
     ) {
+        Spacer(modifier = Modifier.height(Dimen.size8))
+
         SettingsHeaderItem(title = stringResource(R.string.account))
 
         SettingsItem(
@@ -120,8 +125,8 @@ private fun ThemeDialog(
         title = {
             Text(
                 text = stringResource(R.string.select_app_theme),
-                color = VoltechColor.foregroundSecondary,
-                style = VoltechTextStyle.body18Normal
+                color = VoltechColor.foregroundPrimary,
+                style = VoltechTextStyle.title1
             )
         },
         text = {
@@ -143,8 +148,8 @@ private fun ThemeDialog(
 
                         Text(
                             text = stringResource(option.toStringRes()),
-                            color = VoltechColor.foregroundSecondary,
-                            style = VoltechTextStyle.body20Bold,
+                            color = VoltechColor.foregroundPrimary,
+                            style = VoltechTextStyle.title3,
                             modifier = Modifier.padding(start = Dimen.size8)
                         )
                     }
@@ -155,7 +160,7 @@ private fun ThemeDialog(
             Text(
                 text = stringResource(R.string.cancel),
                 color = VoltechColor.foregroundAccent,
-                style = VoltechTextStyle.body16Bold,
+                style = VoltechTextStyle.bodyBold,
                 modifier = Modifier
                     .clickable { onDismiss() }
                     .padding(horizontal = Dimen.size16, vertical = Dimen.size8)
@@ -176,7 +181,7 @@ private fun SettingsHeaderItem(
         Text(
             text = title,
             color = VoltechColor.foregroundAccent,
-            style = VoltechTextStyle.body16Normal
+            style = VoltechTextStyle.body
         )
     }
 }
@@ -195,7 +200,7 @@ private fun SettingsItem(
         Text(
             text = text,
             color = VoltechColor.foregroundPrimary,
-            style = VoltechTextStyle.body16Normal
+            style = VoltechTextStyle.body
         )
     }
 }
@@ -212,8 +217,7 @@ private fun SetupTopBar(
             TopBarState(
                 title = title,
                 navigationIcon = TopBarAction(
-//                    sheni chawere da sheucvale feri
-                    icon = Icons.AutoMirrored.Default.ArrowBack,
+                    icon = R.drawable.ic_arrow_back,
                     onClick = { onEvent(SettingsEvent.NavigateBackToProfile) }
                 )
             )

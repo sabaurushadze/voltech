@@ -44,19 +44,18 @@ fun FilterBottomSheet(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(VoltechColor.backgroundPrimary)
     ) {
         Text(
             modifier = Modifier.padding(start = Dimen.size16),
             text = stringResource(R.string.filter),
-            style = VoltechTextStyle.body22Bold,
+            style = VoltechTextStyle.title1,
             color = VoltechColor.foregroundPrimary
         )
         Spacer(modifier = Modifier.height(Dimen.size16))
 
         HorizontalDivider(
             modifier = Modifier.fillMaxWidth(),
-            color = VoltechColor.backgroundSecondary
+            color = VoltechColor.borderStrong
         )
 
         LazyColumn(
@@ -70,7 +69,7 @@ fun FilterBottomSheet(
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size16),
                     text = stringResource(R.string.price),
-                    style = VoltechTextStyle.body20Bold,
+                    style = VoltechTextStyle.title2,
                     color = VoltechColor.foregroundPrimary
                 )
             }
@@ -90,7 +89,7 @@ fun FilterBottomSheet(
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size8),
                     text = stringResource(R.string.condition),
-                    style = VoltechTextStyle.body20Bold,
+                    style = VoltechTextStyle.title2,
                     color = VoltechColor.foregroundPrimary
                 )
             }
@@ -110,7 +109,7 @@ fun FilterBottomSheet(
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size8),
                     text = stringResource(R.string.location),
-                    style = VoltechTextStyle.body20Bold,
+                    style = VoltechTextStyle.title2,
                     color = VoltechColor.foregroundPrimary
                 )
             }
@@ -130,7 +129,7 @@ fun FilterBottomSheet(
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size8),
                     text = stringResource(R.string.category),
-                    style = VoltechTextStyle.body20Bold,
+                    style = VoltechTextStyle.title2,
                     color = VoltechColor.foregroundPrimary
                 )
             }
@@ -148,22 +147,22 @@ fun FilterBottomSheet(
 
         HorizontalDivider(
             modifier = Modifier.fillMaxWidth(),
-            color = VoltechColor.backgroundSecondary
+            color = VoltechColor.borderStrong
         )
 
-        Spacer(modifier = Modifier.height(Dimen.size16))
+        Spacer(modifier = Modifier.height(Dimen.size8))
 
         PrimaryButton(
             modifier = Modifier
                 .padding(horizontal = Dimen.size16)
-                .height(Dimen.buttonLarge)
                 .fillMaxWidth(),
             text = stringResource(R.string.filter),
-            shape = VoltechRadius.radius16,
             onClick = {
                 onEvent(FeedEvent.FilterItems)
             },
         )
+
+        Spacer(modifier = Modifier.height(Dimen.size8))
     }
 }
 
@@ -229,7 +228,7 @@ private fun FilterItem(
         Row(modifier = Modifier.fillMaxWidth()) {
             Text(
                 text = text,
-                style = VoltechTextStyle.body16Normal,
+                style = VoltechTextStyle.body,
                 color = VoltechColor.foregroundPrimary
             )
         }

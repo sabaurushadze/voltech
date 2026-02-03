@@ -121,7 +121,7 @@ fun RegisterContent(
                     .padding(bottom = Dimen.size48),
                 text = stringResource(R.string.register),
                 color = VoltechColor.foregroundPrimary,
-                style = VoltechTextStyle.title32Bold
+                style = VoltechTextStyle.display1
             )
             if (state.isLoading) {
                 CircularProgressIndicator(
@@ -160,11 +160,10 @@ fun RegisterContent(
                 onToggleTextVisibility = { onEvent(RegisterEvent.PasswordVisibilityChanged) }
             )
 
-            Spacer(modifier = Modifier.height(Dimen.size16))
+            Spacer(modifier = Modifier.height(Dimen.size24))
 
             PrimaryButton(
                 modifier = Modifier
-                    .height(Dimen.buttonLarge)
                     .fillMaxWidth(),
                 text = stringResource(R.string.register),
                 enabled = state.isRegisterEnabled,

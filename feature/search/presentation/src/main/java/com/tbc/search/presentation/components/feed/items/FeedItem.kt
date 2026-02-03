@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -37,8 +38,6 @@ fun FeedItemCard(
     condition: String,
     price: String,
     location: String,
-    isFavoriteIconSelected: Boolean,
-    onFavoriteIconClick: () -> Unit,
     onRootClick: () -> Unit = {},
 ) {
     Row(
@@ -62,13 +61,6 @@ fun FeedItemCard(
                     modifier = Modifier
                         .matchParentSize()
                         .clip(VoltechRadius.radius16),
-                )
-
-
-                FavoriteButton(
-                    modifier = Modifier.align(Alignment.TopEnd),
-                    isSelected = isFavoriteIconSelected,
-                    onFavoriteIconClick = { onFavoriteIconClick() },
                 )
             }
 
@@ -103,7 +95,7 @@ private fun FeedItemContent(
         modifier = Modifier.fillMaxWidth(),
         text = title,
         color = VoltechColor.foregroundPrimary,
-        style = VoltechTextStyle.body18Normal,
+        style = VoltechTextStyle.body,
         maxLines = 3
     )
 
@@ -113,7 +105,7 @@ private fun FeedItemContent(
         modifier = Modifier.fillMaxWidth(),
         text = condition,
         color = VoltechColor.foregroundSecondary,
-        style = VoltechTextStyle.body16Normal,
+        style = VoltechTextStyle.body,
         maxLines = 1
     )
 
@@ -123,7 +115,7 @@ private fun FeedItemContent(
         modifier = Modifier.fillMaxWidth(),
         text = price,
         color = VoltechColor.foregroundPrimary,
-        style = VoltechTextStyle.body22Bold,
+        style = VoltechTextStyle.title2,
         maxLines = 1
     )
 
@@ -133,7 +125,7 @@ private fun FeedItemContent(
         modifier = Modifier.fillMaxWidth(),
         text = location,
         color = VoltechColor.foregroundSecondary,
-        style = VoltechTextStyle.body14Normal,
+        style = VoltechTextStyle.body,
         maxLines = 1
     )
 }
@@ -185,7 +177,7 @@ private fun FeedItemPlaceholderContent() {
         modifier = Modifier
             .fillMaxWidth(0.8f)
             .height(Dimen.size16)
-            .background(VoltechColor.foregroundSecondary)
+            .background(VoltechColor.backgroundTertiary)
     )
 
     Spacer(modifier = Modifier.height(Dimen.size4))
@@ -194,63 +186,25 @@ private fun FeedItemPlaceholderContent() {
         modifier = Modifier
             .fillMaxWidth(0.6f)
             .height(Dimen.size16)
-            .background(VoltechColor.foregroundSecondary)
+            .background(VoltechColor.backgroundTertiary)
     )
 }
 
-@Composable
-fun FavoriteButton(
-    modifier: Modifier = Modifier,
-    isSelected: Boolean,
-    onFavoriteIconClick: () -> Unit,
-    iconSize: Dp = Dimen.size18,
-) {
-    val heartIcon = if (isSelected) R.drawable.ic_filled_heart else R.drawable.ic_outlined_heart
 
-    Box(
-        modifier = modifier
-            .size(Dimen.size50)
-            .clickable { onFavoriteIconClick() },
-        contentAlignment = Alignment.Center
-    ) {
-        Box(
-            modifier = Modifier
-                .wrapContentSize()
-                .shadow(
-                    elevation = Dimen.size2,
-                    shape = VoltechRadius.radius64,
-                    clip = false
-                )
-                .clip(VoltechRadius.radius64)
-                .background(VoltechColor.backgroundPrimary.copy(alpha = 0.8f)),
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(
-                painter = painterResource(id = heartIcon),
-                contentDescription = "",
-                tint = VoltechColor.foregroundPrimary,
-                modifier = Modifier
-                    .padding(Dimen.size12)
-                    .size(iconSize)
-            )
-        }
-    }
 
-}
-
-@Preview(showBackground = true)
-@Composable
-fun FeedItemWrapperPreview() {
-    VoltechTheme() {
-        FeedItemCard(
-            isFavoriteIconSelected = true,
-            onFavoriteIconClick = { },
-            onRootClick = {},
-            imageUrl = "",
-            title = "RTX 4060 super duper magari umagresi video barati",
-            condition = "New",
-            price = "$1,780.00",
-            location = "Located in Didi Dighomi"
-        )
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun FeedItemWrapperPreview() {
+//    VoltechTheme() {
+//        FeedItemCard(
+//            isFavoriteIconSelected = true,
+//            onFavoriteIconClick = { },
+//            onRootClick = {},
+//            imageUrl = "",
+//            title = "RTX 4060 super duper magari umagresi video barati",
+//            condition = "New",
+//            price = "$1,780.00",
+//            location = "Located in Didi Dighomi"
+//        )
+//    }
+//}

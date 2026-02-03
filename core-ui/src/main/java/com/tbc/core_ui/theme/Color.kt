@@ -185,75 +185,14 @@ internal val darkVoltechColors = VoltechColors(
     borderDisabled = VoltechNeutral.N700,
 )
 
-
-//data class VoltechColors(
-//    val primary: Color = Color.Unspecified,
-//    val onPrimary: Color = Color.Unspecified,
-//    val background: Color = Color.Unspecified,
-//    val onBackground: Color = Color.Unspecified,
-//    val onBackgroundSecondary: Color = Color.Unspecified,
-//    val surface: Color = Color.Unspecified,
-//    val onSurface: Color = Color.Unspecified,
-//
-//    val neutral1: Color = Color.Unspecified,
-//
-//    val neutralText1: Color = Color.Unspecified,
-//
-//    val error: Color = Color.Unspecified,
-//    val unspecified: Color = Color.Unspecified,
-//    )
-
 data class VoltechFixedColors(
     val black: Color = Color.Unspecified,
     val white: Color = Color.Unspecified,
-    val transparent: Color = Color.Unspecified,
     val lightGray: Color = Color.Unspecified,
-    val blue: Color = Color.Unspecified,
 )
-
-//internal val lightVoltechColors = VoltechColors(
-//    primary = Color(0xFF0968F6),
-//    onPrimary = Color(0xFFFFFFFF),
-//    background = Color(0xFFFFFFFF),
-//    onBackground = Color(0xFF000000),
-//    onBackgroundSecondary = Color(0xFF7A7A7A),
-//
-//
-//    surface = Color(0xFFF5F5F5),
-//    onSurface = Color(0xFF101010),
-//
-//    neutral1 = Color(0xFFE0E0E0),
-//
-//    neutralText1 = Color(0xFF626262),
-//
-//    error = Color(0xFFB61616),
-//    unspecified = Color.Unspecified
-//
-//)
-//
-//internal val darkVoltechColors = VoltechColors(
-//    primary = Color(0xFF4D93FC),
-//    onPrimary = Color(0xFF000000),
-//    background = Color(0xFF171717),
-//    onBackground = Color(0xFFFFFFFF),
-//    onBackgroundSecondary = Color(0xFF4B4B4B),
-//
-//
-//
-//    neutral1 = Color(0xFFE0E0E0),
-//    surface = Color(0xFF262626),
-//    onSurface = Color(0xFFFFFFFF),
-//
-//    neutralText1 = Color(0xFF939292),
-//
-//    error = Color(0xFFEA5858),
-//    unspecified = Color.Unspecified
-//)
 
 internal val fixedVoltechColors = VoltechFixedColors(
     black = Color(0xFF000000),
     white = Color(0xFFFFFFFF),
-    transparent = Color(0x00FFFFFF),
     lightGray = Color(0xFFF3F1F1),
-    blue = Color(0xFF0a4bff),
 )

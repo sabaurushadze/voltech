@@ -53,19 +53,19 @@ fun PasswordTextField(
             {
                 Text(
                     text = it,
-                    style = VoltechTextStyle.body14Normal,
+                    style = VoltechTextStyle.body,
                     color = VoltechColor.foregroundPrimary
                 )
             }
         },
-        textStyle = VoltechTextStyle.body16Normal,
+        textStyle = VoltechTextStyle.body,
         onValueChange = { onTextChanged(it) },
         visualTransformation = visualTransformation,
         supportingText = errorText?.let {
             {
                 Text(
                     text = it,
-                    style = VoltechTextStyle.body14Normal,
+                    style = VoltechTextStyle.body,
                     color = VoltechColor.foregroundAttention
                 )
             }

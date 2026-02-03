@@ -35,6 +35,7 @@ import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
+import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.search.presentation.components.feed.items.FeedItemCard
 import com.tbc.search.presentation.components.feed.items.FeedItemPlaceholderCard
 import com.tbc.search.presentation.components.feed.sheet.FilterBottomSheet
@@ -104,7 +105,7 @@ fun FeedScreen(
 
     if (state.selectedSort) {
         ModalBottomSheet(
-            containerColor = VoltechColor.backgroundPrimary,
+            containerColor = VoltechColor.backgroundSecondary,
             onDismissRequest = { viewModel.onEvent(FeedEvent.HideSortSheet) },
             sheetState = sortBottomSheetState
         ) {
@@ -120,7 +121,7 @@ fun FeedScreen(
 
     if (state.selectedFilter) {
         ModalBottomSheet(
-            containerColor = VoltechColor.backgroundPrimary,
+            containerColor = VoltechColor.backgroundSecondary,
             onDismissRequest = { viewModel.onEvent(FeedEvent.HideFilterSheet) },
             sheetState = filterBottomSheetState
         ) {
@@ -188,8 +189,8 @@ private fun FeedContent(
                         condition = stringResource(it.conditionRes),
                         price = it.price,
                         location = stringResource(it.locationRes),
-                        isFavoriteIconSelected = false,
-                        onFavoriteIconClick = { },
+//                        isFavoriteIconSelected = false,
+//                        onFavoriteIconClick = { },
                         onRootClick = { onEvent(FeedEvent.FeedItemClick(item.id)) }
                     )
                 }
@@ -198,8 +199,8 @@ private fun FeedContent(
 
                 HorizontalDivider(
                     modifier = Modifier.fillMaxWidth(),
-                    thickness = Dimen.size1,
-                    color = VoltechColor.backgroundSecondary
+                    thickness = VoltechBorder.medium,
+                    color = VoltechColor.borderSubtle
                 )
 
                 Spacer(modifier = Modifier.height(Dimen.size4))

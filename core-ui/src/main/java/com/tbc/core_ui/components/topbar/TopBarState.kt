@@ -1,6 +1,6 @@
 package com.tbc.core_ui.components.topbar
 
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.annotation.DrawableRes
 
 data class TopBarState(
     val title: String = "",
@@ -9,6 +9,6 @@ data class TopBarState(
 )
 
 data class TopBarAction(
-    val icon: ImageVector,
+    @param:DrawableRes val icon: Int,
     val onClick: () -> Unit,
 )

@@ -46,7 +46,7 @@ fun VoltechBottomNavigation(
 
                     icon = {
                         Icon(
-                            modifier = Modifier.size(Dimen.size28),
+                            modifier = Modifier.size(Dimen.size24),
                             imageVector = if (selected) destination.selectedIcon else destination.unselectedIcon,
                             contentDescription = destination.name,
                             tint = if (selected) VoltechColor.foregroundAccent else VoltechColor.foregroundPrimary

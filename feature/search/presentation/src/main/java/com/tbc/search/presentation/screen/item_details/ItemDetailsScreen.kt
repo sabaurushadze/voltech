@@ -21,8 +21,6 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -43,7 +41,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.base.BaseAsyncImage
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
-import com.tbc.core_ui.components.button.AppOutlinedButton
+import com.tbc.core_ui.components.button.PrimaryButton
+import com.tbc.core_ui.components.button.SecondaryButton
+import com.tbc.core_ui.components.button.SecondaryIconButton
 import com.tbc.core_ui.components.topbar.TopBarAction
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
@@ -75,6 +75,10 @@ fun ItemDetailsScreen(
         viewModel.onEvent(ItemDetailsEvent.GetItemDetails(id))
     }
 
+    LaunchedEffect(Unit) {
+        viewModel.onEvent(ItemDetailsEvent.GetUserUid)
+    }
+
     viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
             is ItemDetailsSideEffect.ShowSnackBar -> {
@@ -101,8 +105,6 @@ private fun ItemDetailsContent(
     state: ItemDetailsState,
     onEvent: (ItemDetailsEvent) -> Unit,
 ) {
-
-
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -111,12 +113,19 @@ private fun ItemDetailsContent(
     ) {
 
         state.itemDetails?.let { itemDetails ->
+            val favoriteIds: List<Int> = state.favoriteItem.map { it.itemId }
+            val isFavoriteItem: Boolean = itemDetails.id in favoriteIds
+
             with(itemDetails) {
                 item {
                     ImagePager(
                         imagesList = images,
                         selectedImage = state.selectedImage,
                         onEvent = onEvent,
+                        isFavoriteSelected = isFavoriteItem,
+                        onFavoriteButtonIconClick = {
+                            onEvent(ItemDetailsEvent.OnFavoriteToggle(uid = state.uid, itemId = itemDetails.id))
+                        }
                     )
                 }
 
@@ -136,7 +145,7 @@ private fun ItemDetailsContent(
 
                         Text(
                             text = title,
-                            style = VoltechTextStyle.title21Bold,
+                            style = VoltechTextStyle.title2,
                             color = VoltechColor.foregroundPrimary,
                             maxLines = 4,
                             overflow = TextOverflow.Ellipsis
@@ -153,53 +162,36 @@ private fun ItemDetailsContent(
 
                         Text(
                             text = price,
-                            style = VoltechTextStyle.title24Bold,
+                            style = VoltechTextStyle.title1,
                             color = VoltechColor.foregroundPrimary
                         )
 
-                        Spacer(Modifier.height(Dimen.size24))
+                        Spacer(Modifier.height(Dimen.size32))
 
-                        AppOutlinedButton(
+                        PrimaryButton(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .height(Dimen.size48)
-                                .clip(VoltechRadius.radius24),
+                                .fillMaxWidth(),
                             onClick = {},
                             text = stringResource(R.string.buy_it_now),
-                            textColor = VoltechFixedColor.white,
-                            textStyle = VoltechTextStyle.body16Bold,
-                            backgroundColor = VoltechFixedColor.blue,
-                            borderColor = VoltechFixedColor.blue
                         )
 
-                        Spacer(Modifier.height(Dimen.size10))
+                        Spacer(Modifier.height(Dimen.size8))
 
-                        AppOutlinedButton(
+                        SecondaryButton(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .height(Dimen.size48)
-                                .clip(VoltechRadius.radius24),
+                                .fillMaxWidth(),
                             onClick = {},
                             text = stringResource(R.string.add_to_cart),
-                            textColor = VoltechFixedColor.blue,
-                            textStyle = VoltechTextStyle.body16Normal,
-                            backgroundColor = VoltechFixedColor.transparent,
-                            borderColor = VoltechFixedColor.blue
                         )
 
-                        Spacer(Modifier.height(Dimen.size10))
+                        Spacer(Modifier.height(Dimen.size8))
 
-                        AppOutlinedButton(
+                        SecondaryIconButton(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .height(Dimen.size48)
-                                .clip(VoltechRadius.radius24),
+                                .fillMaxWidth(),
+                            icon = R.drawable.ic_outlined_heart,
                             onClick = {},
                             text = stringResource(R.string.add_to_watchlist),
-                            textColor = VoltechFixedColor.blue,
-                            textStyle = VoltechTextStyle.body16Normal,
-                            backgroundColor = VoltechFixedColor.transparent,
-                            borderColor = VoltechFixedColor.blue
                         )
 
                         Spacer(Modifier.height(Dimen.size24))
@@ -210,7 +202,7 @@ private fun ItemDetailsContent(
                             locationRes = locationRes
                         )
 
-                        Spacer(Modifier.height(Dimen.size16))
+                        Spacer(Modifier.height(Dimen.size32))
                     }
                 }
             }
@@ -231,8 +223,8 @@ private fun InfoRow(
     ) {
         Text(
             text = label,
-            style = VoltechTextStyle.body16Normal,
-            color = VoltechColor.backgroundSecondary,
+            style = VoltechTextStyle.body,
+            color = VoltechColor.foregroundSecondary,
             modifier = Modifier.weight(1f)
         )
 
@@ -242,7 +234,7 @@ private fun InfoRow(
         ) {
             Text(
                 text = value,
-                style = VoltechTextStyle.body16Bold,
+                style = VoltechTextStyle.body,
                 color = VoltechColor.foregroundPrimary
             )
         }
@@ -260,9 +252,11 @@ private fun AboutItem(
 
         Text(
             text = stringResource(R.string.about_this_item),
-            style = VoltechTextStyle.body22Bold,
+            style = VoltechTextStyle.title2,
             color = VoltechColor.foregroundPrimary
         )
+
+        Spacer(modifier = Modifier.height(Dimen.size16))
 
         InfoRow(
             label = stringResource(R.string.condition),
@@ -299,11 +293,11 @@ private fun SellerItem(
             )
         }
 
-        Spacer(Modifier.width(Dimen.size10))
+        Spacer(Modifier.width(Dimen.size8))
 
         Text(
             text = sellerUerName,
-            style = VoltechTextStyle.body16Bold,
+            style = VoltechTextStyle.body,
             color = VoltechColor.foregroundPrimary
         )
     }
@@ -319,13 +313,13 @@ private fun ThumbnailBar(
         modifier = Modifier.padding(
             vertical = Dimen.size12
         ),
-        horizontalArrangement = Arrangement.spacedBy(Dimen.size10)
+        horizontalArrangement = Arrangement.spacedBy(Dimen.size8)
     ) {
         itemsIndexed(imagesList) { index, image ->
 
             Box(
                 modifier = Modifier
-                    .size(Dimen.size82)
+                    .size(Dimen.size80)
                     .clickable {
                         onEvent(ItemDetailsEvent.SelectImageByIndex(index))
                     }
@@ -368,7 +362,7 @@ private fun CurrentPageOverlay(
     Box(
         modifier = modifier
             .padding(
-                vertical = Dimen.size10,
+                vertical = Dimen.size8,
                 horizontal = Dimen.size16
             )
             .clip(VoltechRadius.radius12)
@@ -384,7 +378,7 @@ private fun CurrentPageOverlay(
         ) {
             Text(
                 text = currentPosition.toString(),
-                style = VoltechTextStyle.body14Bold,
+                style = VoltechTextStyle.body,
                 color = VoltechFixedColor.black,
                 modifier = Modifier
                     .clip(VoltechRadius.radius24)
@@ -394,7 +388,7 @@ private fun CurrentPageOverlay(
 
             Text(
                 text = stringResource(R.string.of),
-                style = VoltechTextStyle.body14Bold,
+                style = VoltechTextStyle.body,
                 color = VoltechFixedColor.black,
                 modifier = Modifier
                     .clip(VoltechRadius.radius24)
@@ -404,7 +398,7 @@ private fun CurrentPageOverlay(
 
             Text(
                 text = listSize.toString(),
-                style = VoltechTextStyle.body14Bold,
+                style = VoltechTextStyle.body,
                 color = VoltechFixedColor.black,
                 modifier = Modifier
                     .clip(VoltechRadius.radius24)
@@ -417,6 +411,8 @@ private fun CurrentPageOverlay(
 private fun ImagePager(
     imagesList: List<String>,
     selectedImage: Int,
+    isFavoriteSelected: Boolean,
+    onFavoriteButtonIconClick: () -> Unit,
     onEvent: (ItemDetailsEvent) -> Unit,
 ) {
     val pagerState = rememberPagerState(
@@ -470,9 +466,10 @@ private fun ImagePager(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(Dimen.size24),
-            isSelected = false,
-            onFavoriteIconClick = { },
-            iconSize = Dimen.size24
+            isSelected = isFavoriteSelected,
+            onFavoriteIconClick = { onFavoriteButtonIconClick() },
+            iconSize = Dimen.size24,
+            iconContainerSize = Dimen.size48
         )
     }
 }
@@ -489,7 +486,7 @@ private fun SetupTopBar(
             TopBarState(
                 title = title,
                 navigationIcon = TopBarAction(
-                    icon = Icons.AutoMirrored.Default.ArrowBack,
+                    icon = R.drawable.ic_arrow_back,
                     onClick = { onEvent(ItemDetailsEvent.NavigateBackToFeed) }
                 )
             )
@@ -502,9 +499,6 @@ private fun SetupTopBar(
 fun FeedItemWrapperPreview() {
     VoltechTheme() {
         FeedItemCard(
-            isFavoriteIconSelected = true,
-            onFavoriteIconClick = { },
-
             onRootClick = {},
             imageUrl = "",
             title = "RTX 4060 super duper magari umagresi video barati",

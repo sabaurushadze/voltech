@@ -37,8 +37,8 @@ fun SortBottomSheet(
     ) {
         Text(
             modifier = Modifier.padding(start = Dimen.size16),
-            text = "Sort",
-            style = VoltechTextStyle.body22Bold,
+            text = stringResource(R.string.sort),
+            style = VoltechTextStyle.title1,
             color = VoltechColor.foregroundPrimary
         )
 
@@ -80,7 +80,7 @@ fun SortItem(
         Row(modifier = Modifier.fillMaxWidth()) {
             Text(
                 text = stringResource(titleRes),
-                style = VoltechTextStyle.body16Normal,
+                style = VoltechTextStyle.body,
                 color = VoltechColor.foregroundPrimary
             )
         }

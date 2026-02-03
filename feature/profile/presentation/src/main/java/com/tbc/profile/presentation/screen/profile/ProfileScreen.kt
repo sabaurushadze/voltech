@@ -128,7 +128,7 @@ private fun IconTextSectionItem(
                 modifier = Modifier.size(Dimen.size24),
                 imageVector = ImageVector.vectorResource(icon),
                 contentDescription = null,
-                tint = VoltechColor.foregroundSecondary
+                tint = VoltechColor.foregroundPrimary
             )
         }
 
@@ -140,13 +140,13 @@ private fun IconTextSectionItem(
             Text(
                 text = title,
                 color = VoltechColor.foregroundPrimary,
-                style = VoltechTextStyle.body16Medium
+                style = VoltechTextStyle.body
             )
 
             Text(
                 text = subTitle,
                 color = VoltechColor.foregroundSecondary,
-                style = VoltechTextStyle.body12Medium
+                style = VoltechTextStyle.caption
             )
         }
     }
@@ -168,7 +168,7 @@ private fun TextSectionItem(
         Text(
             text = text,
             color = VoltechColor.foregroundPrimary,
-            style = VoltechTextStyle.body16Normal
+            style = VoltechTextStyle.body
         )
     }
 }
@@ -196,7 +196,7 @@ private fun UserProfileSection(
                 Text(
                     text = userName.first().toString().uppercase(),
                     color = VoltechColor.foregroundOnAccent,
-                    style = VoltechTextStyle.body22Bold
+                    style = VoltechTextStyle.title2
                 )
             } else {
                 BaseAsyncImage(
@@ -208,7 +208,7 @@ private fun UserProfileSection(
         Spacer(modifier = Modifier.width(Dimen.size16))
 
         Text(
-            text = userName, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.body16Bold
+            text = userName, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.body
         )
     }
 }
@@ -228,7 +228,7 @@ private fun SectionHeader(
             .fillMaxWidth()
     ) {
         Text(
-            text = title, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.body22Bold
+            text = title, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.title2
         )
     }
 }

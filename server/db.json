@@ -19,7 +19,7 @@
     },
     {
       "id": 2,
-      "title": "GPU Item 1",
+      "title": "ggg",
       "category": "CASE_COOLER",
       "condition": "PARTS",
       "price": 397.02,
@@ -36,7 +36,7 @@
     },
     {
       "id": 3,
-      "title": "GPU Item 1",
+      "title": "aaa",
       "category": "PSU",
       "condition": "NEW",
       "price": 191.1,
@@ -1699,6 +1699,13 @@
       "userDescription": "Description for CASE_COOLER Item 100, condition used.",
       "sellerAvatar": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
       "sellerUserName": "ComponentKing"
+    }
+  ],
+  "favorites": [
+    {
+      "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
+      "itemId": 1,
+      "id": 1
     }
   ]
 }

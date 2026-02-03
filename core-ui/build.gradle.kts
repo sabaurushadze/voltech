@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.tbc.core_ui"
 }
+
+dependencies {
+    implementation(projects.resource)
+}

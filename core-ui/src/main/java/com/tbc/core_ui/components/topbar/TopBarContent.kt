@@ -6,6 +6,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechTextStyle
 
@@ -18,20 +20,28 @@ fun TopBarContent(topBarState: TopBarState) {
             Text(
                 text = topBarState.title,
                 color = VoltechColor.foregroundPrimary,
-                style = VoltechTextStyle.body22Bold
+                style = VoltechTextStyle.title2
             )
         },
         navigationIcon = {
             topBarState.navigationIcon?.let { action ->
                 IconButton(onClick = action.onClick) {
-                    Icon(imageVector = action.icon, contentDescription = null)
+                    Icon(
+                        imageVector = ImageVector.vectorResource(action.icon),
+                        tint = VoltechColor.foregroundPrimary,
+                        contentDescription = null
+                    )
                 }
             }
         },
         actions = {
             topBarState.actions.forEach { action ->
                 IconButton(onClick = action.onClick) {
-                    Icon(imageVector = action.icon, contentDescription = null)
+                    Icon(
+                        imageVector = ImageVector.vectorResource(action.icon),
+                        tint = VoltechColor.foregroundPrimary,
+                        contentDescription = null
+                    )
                 }
             }
         }

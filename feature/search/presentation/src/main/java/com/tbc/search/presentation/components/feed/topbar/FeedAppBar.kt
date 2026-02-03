@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import com.tbc.core_ui.components.button.IconTextButton
+import com.tbc.core_ui.components.button.BorderlessIconButton
 import com.tbc.core_ui.components.textfield.TextInputFieldDummy
 import com.tbc.core_ui.components.topbar.VoltechTopAppBarDefaults
 import com.tbc.core_ui.theme.Dimen
@@ -67,27 +67,39 @@ fun FeedAppBar(
                     if (!isContentReady) {
                         Text(
                             text = stringResource(R.string.loading_searching),
-                            style = VoltechTextStyle.body16Bold,
+                            style = VoltechTextStyle.bodyBold,
                             color = VoltechColor.foregroundPrimary,
                             modifier = Modifier.weight(1f)
                         )
                     } else {
                         Spacer(modifier = Modifier.weight(1f))
                     }
-                    IconTextButton(
-                        icon = ImageVector.vectorResource(R.drawable.ic_filter),
-                        textRes = R.string.sort,
-                        loading = isLoading,
+                    BorderlessIconButton(
+                        icon = R.drawable.ic_filter,
+                        text = stringResource(R.string.sort),
                         enabled = !isLoading,
                         onClick = onSortClick,
                     )
-                    IconTextButton(
-                        icon = ImageVector.vectorResource(R.drawable.ic_sort),
-                        textRes = R.string.filter,
-                        loading = isLoading,
+                    BorderlessIconButton(
+                        icon = R.drawable.ic_sort,
+                        text = stringResource(R.string.filter),
                         enabled = !isLoading,
                         onClick = onFilterClick,
                     )
+//                    IconTextButton(
+//                        icon = ImageVector.vectorResource(R.drawable.ic_filter),
+//                        textRes = R.string.sort,
+//                        loading = isLoading,
+//                        enabled = !isLoading,
+//                        onClick = onSortClick,
+//                    )
+//                    IconTextButton(
+//                        icon = ImageVector.vectorResource(R.drawable.ic_sort),
+//                        textRes = R.string.filter,
+//                        loading = isLoading,
+//                        enabled = !isLoading,
+//                        onClick = onFilterClick,
+//                    )
                 }
             }
         },

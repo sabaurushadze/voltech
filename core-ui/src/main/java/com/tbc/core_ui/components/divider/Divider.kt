@@ -31,7 +31,7 @@ fun Divider(
             Text(
                 modifier = Modifier.padding(horizontal = Dimen.size24),
                 text = it,
-                style = VoltechTextStyle.body16Normal,
+                style = VoltechTextStyle.body,
                 color = textColor
             )
 

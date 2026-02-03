@@ -1,13 +1,12 @@
 package com.tbc.home.presentation.screen
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import com.tbc.core_ui.components.topbar.TopBarAction
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.resource.R
 
 @Composable
 fun HomeScreen(
@@ -16,7 +15,7 @@ fun HomeScreen(
     SetupTopBar(onSetupTopBar)
 
 
-    Text(text = "Home Screen!", style = VoltechTextStyle.title18Bold)
+    Text(text = "Home Screen!", style = VoltechTextStyle.title2)
 }
 
 @Composable
@@ -30,7 +29,7 @@ private fun SetupTopBar(
             TopBarState(
                 title = title,
                 navigationIcon = TopBarAction(
-                    icon = Icons.AutoMirrored.Default.ArrowBack,
+                    icon = R.drawable.ic_arrow_back,
                     onClick = { }
                 )
             )

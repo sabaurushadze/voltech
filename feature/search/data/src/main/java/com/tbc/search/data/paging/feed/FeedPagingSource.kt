@@ -6,6 +6,7 @@ import com.tbc.search.data.mapper.feed.toDomain
 import com.tbc.search.data.service.feed.FeedService
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.FeedQuery
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class FeedPagingSource @Inject constructor(

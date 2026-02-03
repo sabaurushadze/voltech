@@ -1,7 +1,9 @@
 package com.tbc.search.data.di
 
+import com.tbc.search.data.repository.favorite.FavoriteRepositoryImpl
 import com.tbc.search.data.repository.feed.FeedRepositoryImpl
 import com.tbc.search.data.repository.search.SearchItemRepositoryImpl
+import com.tbc.search.domain.repository.favorite.FavoriteRepository
 import com.tbc.search.domain.repository.feed.FeedRepository
 import com.tbc.search.domain.repository.search.SearchItemRepository
 import dagger.Binds
@@ -22,5 +24,9 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindFeedRepository(impl: FeedRepositoryImpl): FeedRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindFavoriteRepository(impl: FavoriteRepositoryImpl): FavoriteRepository
 
 }

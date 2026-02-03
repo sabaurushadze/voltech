@@ -32,6 +32,7 @@ import com.tbc.core_ui.components.divider.Divider
 import com.tbc.core_ui.components.textfield.PasswordTextField
 import com.tbc.core_ui.components.textfield.TextInputField
 import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
@@ -100,7 +101,7 @@ fun LogInContent(
                     .padding(bottom = Dimen.size48),
                 text = stringResource(R.string.log_in),
                 color = VoltechColor.foregroundPrimary,
-                style = VoltechTextStyle.title32Bold
+                style = VoltechTextStyle.display1
             )
             if (state.isLoading) {
                 CircularProgressIndicator(
@@ -144,11 +145,10 @@ fun LogInContent(
 
             PrimaryButton(
                 modifier = Modifier
-                    .height(Dimen.buttonLarge)
                     .fillMaxWidth(),
                 text = stringResource(R.string.log_in),
                 enabled = state.isLoginEnabled,
-                shape = VoltechRadius.radius16,
+//                sha/pe = VoltechRadius.radius16,
                 onClick = {
                     onEvent(LogInEvent.LogIn)
                 },
@@ -157,19 +157,16 @@ fun LogInContent(
             Spacer(modifier = Modifier.height(Dimen.size16))
 
             Divider(
-                text = stringResource(R.string.or)
+                text = stringResource(R.string.or),
+                 dividerColor = VoltechColor.borderMedium
             )
 
             Spacer(modifier = Modifier.height(Dimen.size16))
 
             SecondaryButton(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(Dimen.buttonLarge),
+                    .fillMaxWidth(),
                 text = stringResource(R.string.register),
-                border = BorderStroke(
-                    Dimen.size1, VoltechColor.foregroundPrimary
-                ),
                 onClick = {
                     onEvent(LogInEvent.NavigateToRegister)
                 }
