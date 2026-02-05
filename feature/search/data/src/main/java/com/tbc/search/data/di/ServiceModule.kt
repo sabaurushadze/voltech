@@ -15,7 +15,7 @@ import javax.inject.Singleton
 object ServiceModule {
     @Provides
     @Singleton
-    fun provideCategoryService(retrofit: Retrofit): SearchService {
+    fun provideSearchService(retrofit: Retrofit): SearchService {
         return retrofit.create(SearchService::class.java)
     }
 

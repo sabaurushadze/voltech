@@ -8,20 +8,27 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults.iconButtonColors
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
@@ -234,6 +241,31 @@ fun BorderlessButton(
 }
 
 @Composable
+fun CircleIconButton(
+    onClick : () -> Unit,
+    size: Dp,
+    iconColor: Color,
+    backgroundColor: Color,
+){
+    IconButton(
+        onClick = onClick,
+        modifier = Modifier
+            .padding(Dimen.size6)
+            .clip(RoundedCornerShape(50)),
+        colors = iconButtonColors(
+            containerColor = backgroundColor
+        )
+    ) {
+        Icon(
+            painter = painterResource(R.drawable.ic_shopping_cart),
+            contentDescription = null,
+            modifier = Modifier.size(size),
+            tint = iconColor,
+        )
+    }
+}
+
+@Composable
 private fun BaseFilledButton(
     modifier: Modifier = Modifier,
     colors: ButtonColors,
@@ -274,6 +306,7 @@ private fun BaseOutlinedButton(
         content()
     }
 }
+
 
 @Composable
 @Preview(showSystemUi = true)

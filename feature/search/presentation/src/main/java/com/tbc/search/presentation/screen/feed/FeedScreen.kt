@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ModalBottomSheet
@@ -19,8 +18,10 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
@@ -30,6 +31,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.tbc.core.domain.model.category.Category
 import com.tbc.search.presentation.components.feed.topbar.FeedAppBar
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
@@ -42,6 +44,7 @@ import com.tbc.search.presentation.components.feed.sheet.FilterBottomSheet
 import com.tbc.search.presentation.components.feed.sheet.SortBottomSheet
 import com.tbc.search.presentation.enums.feed.SortType
 import com.tbc.search.presentation.model.feed.UiFeedItem
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,7 +52,8 @@ fun FeedScreen(
     viewModel: FeedViewModel = hiltViewModel(),
     navigateToSearch: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
-    query: String,
+    query: String?,
+    categoryQuery: String?,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -69,15 +73,23 @@ fun FeedScreen(
     val listState = rememberLazyListState()
 
     LaunchedEffect(query) {
-        viewModel.onEvent(FeedEvent.SaveSearchQuery(query))
+        query?.let {
+            if (query.isNotEmpty()) {
+                viewModel.onEvent(FeedEvent.SaveSearchQuery(query))
+            }
+        }
     }
 
-    LaunchedEffect(state.selectedSortType) {
-        listState.scrollToItem(0)
+    LaunchedEffect(categoryQuery) {
+        categoryQuery?.let { category->
+            viewModel.onEvent(FeedEvent.SaveCategoryQuery(category))
+        }
     }
 
-    LaunchedEffect(state.selectedFilter) {
-        listState.scrollToItem(0)
+    DisposableEffect(Unit) {
+        onDispose {
+            viewModel.onEvent(FeedEvent.ResetQuery)
+        }
     }
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
@@ -103,6 +115,8 @@ fun FeedScreen(
         navigateToSearch = navigateToSearch
     )
 
+    val coroutineScope = rememberCoroutineScope()
+
     if (state.selectedSort) {
         ModalBottomSheet(
             containerColor = VoltechColor.backgroundSecondary,
@@ -114,6 +128,9 @@ fun FeedScreen(
                 selectedSortType = state.selectedSortType,
                 onItemClick = { sortType ->
                     viewModel.onEvent(FeedEvent.SelectSortType(sortType))
+                    coroutineScope.launch {
+                        listState.animateScrollToItem(0)
+                    }
                 },
             )
         }
@@ -125,10 +142,18 @@ fun FeedScreen(
             onDismissRequest = { viewModel.onEvent(FeedEvent.HideFilterSheet) },
             sheetState = filterBottomSheetState
         ) {
-            FilterBottomSheet(
-                state = state,
-                onEvent = viewModel::onEvent
-            )
+            state.query.titleLike?.let {
+                FilterBottomSheet(
+                    state = state,
+                    currentQuery = it,
+                    onEvent = viewModel::onEvent,
+                    onFilterButtonClick = {
+                        coroutineScope.launch {
+                            listState.scrollToItem(0)
+                        }
+                    }
+                )
+            }
         }
     }
 }

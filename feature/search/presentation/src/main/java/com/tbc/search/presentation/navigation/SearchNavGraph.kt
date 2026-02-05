@@ -33,6 +33,7 @@ fun NavGraphBuilder.searchNavGraph(
 
             FeedScreen(
                 query = route.query,
+                categoryQuery = route.categoryQuery,
                 navigateToSearch = navigateToSearch,
                 navigateToItemDetails = navigateToItemDetails,
             )
@@ -59,7 +60,10 @@ data object SearchNavGraphRoute
 data object SearchScreenRoute
 
 @Serializable
-data class FeedScreenRoute(val query: String)
+data class FeedScreenRoute(
+    val query: String? = null,
+    val categoryQuery: String? = null
+)
 
 @Serializable
 data class ItemDetailsRoute(val id: Int)

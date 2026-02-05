@@ -1,6 +1,5 @@
 package com.tbc.search.presentation.components.feed.sheet
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -21,6 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import com.tbc.core.domain.model.category.Category
+import com.tbc.core.presentation.mapper.category.toStringRes
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.checkbox.VoltechCheckBoxDefaults
 import com.tbc.core_ui.components.textfield.TextInputField
@@ -28,7 +29,6 @@ import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
-import com.tbc.search.domain.model.feed.Category
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.Location
 import com.tbc.resource.R
@@ -39,7 +39,9 @@ import com.tbc.search.presentation.screen.feed.FeedState
 @Composable
 fun FilterBottomSheet(
     state: FeedState,
+    currentQuery: String,
     onEvent: (FeedEvent) -> Unit,
+    onFilterButtonClick: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -158,7 +160,8 @@ fun FilterBottomSheet(
                 .fillMaxWidth(),
             text = stringResource(R.string.filter),
             onClick = {
-                onEvent(FeedEvent.FilterItems)
+                onEvent(FeedEvent.FilterItems(currentQuery))
+                onFilterButtonClick()
             },
         )
 

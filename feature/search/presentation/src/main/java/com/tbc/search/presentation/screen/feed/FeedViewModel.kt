@@ -4,9 +4,10 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
+import com.tbc.core.domain.model.category.Category
 import com.tbc.core.presentation.base.BaseViewModel
-import com.tbc.search.domain.model.feed.Category
 import com.tbc.search.domain.model.feed.Condition
+import com.tbc.search.domain.model.feed.FeedQuery
 import com.tbc.search.domain.model.feed.Location
 import com.tbc.search.domain.usecase.feed.GetFeedItemsPagingUseCase
 import com.tbc.search.presentation.enums.feed.SortType
@@ -29,6 +30,7 @@ class FeedViewModel @Inject constructor(
         when (event) {
 
             is FeedEvent.SaveSearchQuery -> saveSearchQuery(event.query)
+            is FeedEvent.SaveCategoryQuery -> saveCategoryQuery(event.category)
             FeedEvent.HideSortSheet -> hideSortBottomSheet()
             FeedEvent.ShowSortSheet -> showSortBottomSheet()
             is FeedEvent.SelectSortType -> selectSortType(event.sortType)
@@ -38,7 +40,7 @@ class FeedViewModel @Inject constructor(
 
             is FeedEvent.UpdateMinPrice -> updateMinPrice(event.value)
             is FeedEvent.UpdateMaxPrice -> updateMaxPrice(event.value)
-            FeedEvent.FilterItems -> applyFilters()
+            is FeedEvent.FilterItems -> applyFilters(event.currentQuery)
             is FeedEvent.ToggleCategory -> {
                 toggleCategory(
                     category = event.category,
@@ -61,7 +63,7 @@ class FeedViewModel @Inject constructor(
             }
 
             is FeedEvent.FeedItemClick -> navigateToDetails(event.id)
-
+            FeedEvent.ResetQuery -> resetQuery()
         }
     }
 
@@ -101,11 +103,11 @@ class FeedViewModel @Inject constructor(
         updateState { copy(filterState = filterState.copy(maxPrice = value)) }
     }
 
-    private fun applyFilters() {
+    private fun applyFilters(currentQuery: String) {
         val filter = state.value.filterState
         updateState {
             val updatedQuery = query.copy(
-                titleLike = null,
+                titleLike = currentQuery,
                 category = filter.selectedCategories.takeIf { it.isNotEmpty() }?.map { it.name },
                 condition = filter.selectedConditions.takeIf { it.isNotEmpty() }?.map { it.name },
                 location = filter.selectedLocations.takeIf { it.isNotEmpty() }?.map { it.name },
@@ -117,6 +119,12 @@ class FeedViewModel @Inject constructor(
                 query = updatedQuery,
                 selectedFilter = false
             )
+        }
+    }
+
+    private fun resetQuery() {
+        updateState {
+            copy(query = FeedQuery(titleLike = ""))
         }
     }
 
@@ -133,6 +141,19 @@ class FeedViewModel @Inject constructor(
             )
         }
     }
+
+    private fun saveCategoryQuery(category: String) {
+        val category = Category.fromString(category)
+
+        updateState {
+            val updatedQuery = query.copy(
+                titleLike = null,
+                category = listOf(category.name)
+            )
+            copy(query = updatedQuery)
+        }
+    }
+
 
     private fun showSortBottomSheet() {
         updateState { copy(selectedSort = true) }
@@ -180,6 +201,7 @@ class FeedViewModel @Inject constructor(
                     }
                     .cachedIn(viewModelScope)
             }
+
 
     companion object {
         private const val PAGE_SIZE = 10

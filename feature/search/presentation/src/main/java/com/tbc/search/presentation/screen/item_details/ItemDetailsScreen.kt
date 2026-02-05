@@ -437,7 +437,6 @@ private fun ImagePager(
             snapshotFlow { pagerState.currentPage }
                 .distinctUntilChanged()
                 .collect { page ->
-                    println(page)
                     onEvent(ItemDetailsEvent.SelectImageByIndex(page))
                 }
         }

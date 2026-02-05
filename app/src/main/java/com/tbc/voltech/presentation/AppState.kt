@@ -2,11 +2,9 @@ package com.tbc.voltech.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -82,7 +80,6 @@ data class AppState(
                 RegisterScreenRoute::class,
                 SearchScreenRoute::class,
                 FeedScreenRoute::class,
-                HomeScreenRoute::class,
             )
 
             return hiddenRoutes.none { route ->

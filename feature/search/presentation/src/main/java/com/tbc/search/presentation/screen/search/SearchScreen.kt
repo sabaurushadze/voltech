@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,6 +35,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
@@ -105,10 +107,14 @@ private fun SearchContent(
             value = state.query,
             onTextChanged = { onEvent(SearchEvent.QueryChanged(it)) },
             label = stringResource(R.string.search_on_voltech),
-            imeAction = ImeAction.Next,
+            imeAction = ImeAction.Search,
             shape = VoltechRadius.radius24,
             keyboardType = KeyboardType.Email,
-            startIcon = ImageVector.vectorResource(R.drawable.ic_search)
+            startIcon = ImageVector.vectorResource(R.drawable.ic_search),
+            keyboardActions = KeyboardActions {
+                onEvent(SearchEvent.NavigateToFeedWithQuery(state.query))
+                onEvent(SearchEvent.SaveRecentSearch(state.query))
+            }
         )
 
         Spacer(modifier = Modifier.height(Dimen.size16))
@@ -189,7 +195,10 @@ private fun RecentSearchItem(
         Text(
             text = title,
             style = VoltechTextStyle.body,
-            color = VoltechColor.foregroundPrimary
+            color = VoltechColor.foregroundPrimary,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.fillMaxWidth(0.9f)
         )
 
         IconButton(

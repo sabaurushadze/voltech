@@ -4,6 +4,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardActions.Companion
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -35,6 +37,7 @@ fun TextInputField(
     shape: RoundedCornerShape = VoltechRadius.radius16,
     keyboardType: KeyboardType = KeyboardType.Unspecified,
     startIcon: ImageVector? = null,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
 ) {
     OutlinedTextField(
         modifier = modifier,
@@ -81,7 +84,8 @@ fun TextInputField(
                     tint = VoltechColor.foregroundPrimary
                 )
             }
-        }
+        },
+        keyboardActions =  keyboardActions
     )
 }
 
