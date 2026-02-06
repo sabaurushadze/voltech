@@ -3,6 +3,7 @@ package com.tbc.profile.presentation.screen.profile
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -40,6 +41,7 @@ import com.tbc.resource.R
 fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel(),
     navigateToSettings: () -> Unit,
+    navigateToUserDetails: () -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
@@ -56,6 +58,9 @@ fun ProfileScreen(
             }
 
             ProfileSideEffect.NavigateToSettings -> { navigateToSettings() }
+            ProfileSideEffect.NavigateToUserDetails -> {
+                navigateToUserDetails()
+            }
         }
     }
 
@@ -76,7 +81,9 @@ private fun ProfileContent(
             .background(VoltechColor.backgroundPrimary)
             .fillMaxSize()
     ) {
-        UserProfileSection(imageUrl = "", userName = "luka")
+        UserProfileSection(imageUrl = "", userName = "luka") {
+            onEvent(ProfileEvent.NavigateToUserDetails)
+        }
 
         SectionHeader(title = "Shopping")
 
@@ -177,9 +184,11 @@ private fun TextSectionItem(
 private fun UserProfileSection(
     imageUrl: String,
     userName: String,
+    onUserProfileClick: () -> Unit,
 ) {
     Row(
         modifier = Modifier
+            .clickable { onUserProfileClick() }
             .padding(start = Dimen.size16, end = Dimen.size16, top = Dimen.size4)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
@@ -207,9 +216,24 @@ private fun UserProfileSection(
 
         Spacer(modifier = Modifier.width(Dimen.size16))
 
-        Text(
-            text = userName, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.body
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = userName, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.body
+            )
+
+            Icon(
+                modifier = Modifier.size(Dimen.size32),
+                imageVector = ImageVector.vectorResource(R.drawable.ic_arrow_right),
+                contentDescription = null,
+                tint = VoltechColor.foregroundPrimary
+            )
+        }
+
     }
 }
 

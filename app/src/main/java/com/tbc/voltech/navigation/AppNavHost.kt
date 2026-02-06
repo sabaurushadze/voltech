@@ -9,6 +9,7 @@ import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.auth.presentation.navigation.authNavGraph
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.home.presentation.navigation.homeNavGraph
+import com.tbc.profile.presentation.navigation.EditProfileScreenRoute
 import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
 import com.tbc.search.presentation.navigation.FeedScreenRoute
@@ -66,7 +67,8 @@ fun AppNavHost(
         profileNavGraph(
             navigateToSettings = { navController.navigate(SettingsScreenRoute) },
             navigateBack = { navController.navigateUp() },
-            onSetupTopBar = onSetupAppBar
+            onSetupTopBar = onSetupAppBar,
+            navigateToEditProfile = { navController.navigate(EditProfileScreenRoute) }
         )
 
 

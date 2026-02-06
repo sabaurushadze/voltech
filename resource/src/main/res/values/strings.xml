@@ -80,7 +80,6 @@
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
     <string name="theme_system">System Default</string>
-    <string name="cancel">Cancel</string>
     <string name="theme">Theme</string>
     <string name="general">General</string>
     <string name="account">Account</string>
@@ -96,6 +95,13 @@
     <string name="empty_password_field">Password field cannot be empty</string>
     <string name="or">or</string>
     <string name="password_format_error">Password must be at least 8 characters and include 1 number or special character</string>
+    <string name="user_details">User Details</string>
+    <string name="choose_existing_photo">Choose Existing Photo</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="remove_photo">Remove Photo</string>
+
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 
 
 </resources>

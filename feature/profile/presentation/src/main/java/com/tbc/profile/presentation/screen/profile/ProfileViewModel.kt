@@ -13,11 +13,16 @@ class ProfileViewModel @Inject constructor(
         when (event) {
             ProfileEvent.GetUserInfo -> {}
             ProfileEvent.NavigateToSettings -> navigateToSettings()
+            ProfileEvent.NavigateToUserDetails -> navigateToUserDetails()
         }
     }
 
     private fun navigateToSettings() {
         emitSideEffect(ProfileSideEffect.NavigateToSettings)
+    }
+
+    private fun navigateToUserDetails() {
+        emitSideEffect(ProfileSideEffect.NavigateToUserDetails)
     }
 
 //    private fun searchByQuery(query: String) = viewModelScope.launch {
