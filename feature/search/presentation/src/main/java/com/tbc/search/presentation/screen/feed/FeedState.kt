@@ -1,6 +1,6 @@
 package com.tbc.search.presentation.screen.feed
 
-import com.tbc.search.domain.model.feed.Category
+import com.tbc.core.domain.model.category.Category
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.FeedQuery
 import com.tbc.search.domain.model.feed.Location
@@ -13,6 +13,7 @@ data class FeedState(
     val selectedFilter: Boolean = false,
     val selectedSortType: SortType = SortType.PRICE_LOWEST,
     val filterState: FilterSheetState = FilterSheetState(),
+    val initialCategoryConsumed: Boolean = false
 )
 
 data class FilterSheetState(

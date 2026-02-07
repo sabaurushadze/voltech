@@ -1,7 +1,7 @@
 package com.tbc.search.data.mapper.feed
 
+import com.tbc.core.domain.model.category.Category
 import com.tbc.search.data.dto.feed.FeedItemResponseDto
-import com.tbc.search.domain.model.feed.Category
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.Location

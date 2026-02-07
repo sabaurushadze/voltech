@@ -17,11 +17,18 @@ fun TopBarContent(topBarState: TopBarState) {
     TopAppBar(
         colors = VoltechTopAppBarDefaults.secondaryColors,
         title = {
-            Text(
-                text = topBarState.title,
-                color = VoltechColor.foregroundPrimary,
-                style = VoltechTextStyle.title2
-            )
+            when {
+                topBarState.titleContent != null -> {
+                    topBarState.titleContent.invoke()
+                }
+                topBarState.title != null -> {
+                    Text(
+                        text = topBarState.title,
+                        color = VoltechColor.foregroundPrimary,
+                        style = VoltechTextStyle.title2
+                    )
+                }
+            }
         },
         navigationIcon = {
             topBarState.navigationIcon?.let { action ->

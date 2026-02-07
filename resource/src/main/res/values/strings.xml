@@ -110,5 +110,7 @@
     <string name="username_updated">Username updated</string>
     <string name="error_username_length">Username must be at least 2 letters and no more than 16 letters</string>
 
+    <!--Home screen-->
+    <string name="categories">Categories</string>
 
 </resources>
