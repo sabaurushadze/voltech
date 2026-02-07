@@ -13,9 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
@@ -37,7 +35,6 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.base.BaseAsyncImage
 import com.tbc.core.presentation.extension.capitalizeFirst
-import com.tbc.core.presentation.mapper.category.toStringRes
 import com.tbc.core_ui.components.button.CircleIconButton
 import com.tbc.core_ui.components.textfield.TextInputFieldDummy
 import com.tbc.core_ui.components.topbar.TopBarState

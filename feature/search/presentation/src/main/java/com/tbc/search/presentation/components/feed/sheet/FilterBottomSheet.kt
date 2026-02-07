@@ -24,15 +24,14 @@ import com.tbc.core.domain.model.category.Category
 import com.tbc.core.presentation.mapper.category.toStringRes
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.checkbox.VoltechCheckBoxDefaults
-import com.tbc.core_ui.components.textfield.OutlinedTextInputField
 import com.tbc.core_ui.components.textfield.TextInputField
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.resource.R
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.Location
-import com.tbc.resource.R
 import com.tbc.search.presentation.mapper.feed.toStringRes
 import com.tbc.search.presentation.screen.feed.FeedEvent
 import com.tbc.search.presentation.screen.feed.FeedState

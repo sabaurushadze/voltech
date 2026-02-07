@@ -7,7 +7,6 @@ import androidx.paging.map
 import com.tbc.core.domain.model.category.Category
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.search.domain.model.feed.Condition
-import com.tbc.search.domain.model.feed.FeedQuery
 import com.tbc.search.domain.model.feed.Location
 import com.tbc.search.domain.usecase.feed.GetFeedItemsPagingUseCase
 import com.tbc.search.presentation.enums.feed.SortType

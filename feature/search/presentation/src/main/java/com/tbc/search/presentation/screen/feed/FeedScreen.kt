@@ -18,10 +18,8 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
@@ -31,20 +29,18 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.tbc.core.domain.model.category.Category
-import com.tbc.search.presentation.components.feed.topbar.FeedAppBar
-import com.tbc.core_ui.theme.Dimen
-import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
+import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechBorder
+import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.search.presentation.components.feed.items.FeedItemCard
 import com.tbc.search.presentation.components.feed.items.FeedItemPlaceholderCard
 import com.tbc.search.presentation.components.feed.sheet.FilterBottomSheet
 import com.tbc.search.presentation.components.feed.sheet.SortBottomSheet
+import com.tbc.search.presentation.components.feed.topbar.FeedAppBar
 import com.tbc.search.presentation.enums.feed.SortType
 import com.tbc.search.presentation.model.feed.UiFeedItem
-import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
