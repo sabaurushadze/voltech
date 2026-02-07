@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -30,14 +31,18 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.base.BaseAsyncImage
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
+import com.tbc.core.presentation.util.rememberCameraLauncher
 import com.tbc.core.presentation.util.rememberGalleryLauncher
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
+import com.tbc.core_ui.components.textfield.TextInputField
 import com.tbc.core_ui.components.topbar.TopBarAction
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
@@ -67,6 +72,10 @@ fun EditProfileScreen(
         }
     )
 
+    val launchCamera = rememberCameraLauncher { uri ->
+        viewModel.onEvent(EditProfileEvent.OnPhotoSelected(uri))
+    }
+
     SetupTopBar(onSetupTopBar, viewModel::onEvent)
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
@@ -89,10 +98,6 @@ fun EditProfileScreen(
         onEvent = viewModel::onEvent,
     )
 
-    LaunchedEffect(Unit) {
-        d("asdd", "IMAGE URL: ${state.profileImageUrl}")
-        d("asdd", "URI: ${state.selectedImageUri}")
-    }
     if (state.selectedProfileEdit) {
         ModalBottomSheet(
             containerColor = VoltechColor.backgroundSecondary,
@@ -100,12 +105,19 @@ fun EditProfileScreen(
             sheetState = profilePictureBottomSheetState
         ) {
             ProfilePictureSheet(
+                url = state.user?.photoUrl,
                 onChooseExistingPhotoClick = {
                     viewModel.onEvent(EditProfileEvent.OnLaunchGallery)
                     viewModel.onEvent(EditProfileEvent.HideProfileEditSheet)
                 },
-                onTakePhotoClick = {},
-                onRemovePhotoClick = {}
+                onTakePhotoClick = {
+                    launchCamera()
+                    viewModel.onEvent(EditProfileEvent.HideProfileEditSheet)
+                },
+                onRemovePhotoClick = {
+                    viewModel.onEvent(EditProfileEvent.DeletePhotoFromStorage(state.user?.photoUrl))
+                    viewModel.onEvent(EditProfileEvent.HideProfileEditSheet)
+                }
             )
         }
     }
@@ -117,27 +129,57 @@ private fun EditProfileContent(
     state: EditProfileState,
     onEvent: (EditProfileEvent) -> Unit,
 ) {
+    val usernameError = if (state.showUsernameError) stringResource(R.string.error_username_length) else null
+
     Column(
         modifier = Modifier
             .background(VoltechColor.backgroundPrimary)
             .fillMaxSize()
     ) {
+        val saveButtonEnabled = state.selectedImageUri != null || state.userName != state.user?.name
+
         state.user?.let { user ->
             UserProfileSection(
                 imageUrl = user.photoUrl,
-                userName = "luka",
+                userName = user.name,
                 onProfileEditClick = { onEvent(EditProfileEvent.ShowProfileEditSheet) },
                 selectedImageUri = state.selectedImageUri
             )
         }
+
+        Spacer(modifier = Modifier.height(Dimen.size32))
+
+        TextInputField(
+            value = state.userName.orEmpty(),
+            onTextChanged = { onEvent(EditProfileEvent.UserNameChanged(it)) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = Dimen.size16),
+            label = stringResource(R.string.username),
+            enabled = !state.isLoading,
+            errorText = usernameError,
+            imeAction = ImeAction.Done,
+            keyboardType = KeyboardType.Text,
+        )
+
+        Spacer(modifier = Modifier.height(Dimen.size32))
+
 
         PrimaryButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = Dimen.size16),
             text = stringResource(R.string.save),
-            onClick = { onEvent(EditProfileEvent.SavePhotoInStorage(state.selectedImageUri)) }
+            enabled = saveButtonEnabled,
+            onClick = {
+                onEvent(EditProfileEvent.SavePhotoInStorage(state.selectedImageUri))
+                if (state.userName != state.user?.name) {
+                    onEvent(EditProfileEvent.SaveUsername(state.userName.orEmpty()))
+                }
+            }
         )
+
+        Spacer(modifier = Modifier.height(Dimen.size16))
 
         SecondaryButton(
             modifier = Modifier
@@ -153,8 +195,8 @@ private fun EditProfileContent(
 
 @Composable
 private fun UserProfileSection(
-    imageUrl: String,
-    userName: String,
+    imageUrl: String?,
+    userName: String?,
     selectedImageUri: Uri?,
     onProfileEditClick: () -> Unit,
 ) {
@@ -179,9 +221,19 @@ private fun UserProfileSection(
             ) {
                 val imageToShow = selectedImageUri?.toString() ?: imageUrl
 
-                BaseAsyncImage(
-                    url = imageToShow, modifier = Modifier.clip(VoltechRadius.radius64)
-                )
+                if (imageToShow != null) {
+                    BaseAsyncImage(
+                        url = imageToShow, modifier = Modifier.clip(VoltechRadius.radius64)
+                    )
+                } else {
+                    userName?.let {
+                        Text(
+                            text = userName.first().uppercase(),
+                            color = VoltechColor.foregroundOnAccent,
+                            style = VoltechTextStyle.title1
+                        )
+                    }
+                }
 
             }
 
@@ -213,11 +265,14 @@ private fun UserProfileSection(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = userName,
-                color = VoltechColor.foregroundPrimary,
-                style = VoltechTextStyle.body
-            )
+            userName?.let {
+                Text(
+                    text = userName,
+                    color = VoltechColor.foregroundPrimary,
+                    style = VoltechTextStyle.title3
+                )
+            }
+
 
         }
 
@@ -225,25 +280,6 @@ private fun UserProfileSection(
     }
 }
 
-@Composable
-private fun SectionHeader(
-    title: String,
-) {
-    Row(
-        modifier = Modifier
-            .padding(
-                start = Dimen.size16,
-                end = Dimen.size16,
-                top = Dimen.size16,
-                bottom = Dimen.size8
-            )
-            .fillMaxWidth()
-    ) {
-        Text(
-            text = title, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.title2
-        )
-    }
-}
 
 @Composable
 private fun SetupTopBar(

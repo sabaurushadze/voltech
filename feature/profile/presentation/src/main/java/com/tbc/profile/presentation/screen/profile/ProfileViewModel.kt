@@ -1,13 +1,22 @@
 package com.tbc.profile.presentation.screen.profile
 
+import androidx.lifecycle.viewModelScope
+import com.tbc.core.domain.usecase.GetCurrentUserUseCase
 import com.tbc.core.presentation.base.BaseViewModel
+import com.tbc.profile.presentation.mapper.edit_profile.toPresentation
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
+    private val getCurrentUserUseCase: GetCurrentUserUseCase,
 ) : BaseViewModel<ProfileState, ProfileSideEffect, ProfileEvent>(ProfileState()) {
+
+    init {
+        getCurrentUser()
+    }
 
     override fun onEvent(event: ProfileEvent) {
         when (event) {
@@ -25,17 +34,10 @@ class ProfileViewModel @Inject constructor(
         emitSideEffect(ProfileSideEffect.NavigateToUserDetails)
     }
 
-//    private fun searchByQuery(query: String) = viewModelScope.launch {
-//        updateState { copy(isLoading = true) }
-//
-//        searchItemByQueryUseCase(query)
-//            .onSuccess { titlesDomain ->
-//                updateState { copy(titles = titlesDomain.map { it.toPresentation() }) }
-//                updateState { copy(isLoading = false) }
-//            }
-//            .onFailure {
-//                emitSideEffect(SearchSideEffect.ShowSnackBar(errorRes = it.toStringResId()))
-//                updateState { copy(isLoading = false) }
-//            }
-//    }
+    private fun getCurrentUser() {
+        viewModelScope.launch {
+            val currentUser = getCurrentUserUseCase()?.toPresentation()
+            updateState { copy(user = currentUser) }
+        }
+    }
 }

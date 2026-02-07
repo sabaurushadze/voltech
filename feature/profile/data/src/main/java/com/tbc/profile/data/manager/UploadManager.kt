@@ -1,6 +1,7 @@
 package com.tbc.profile.data.manager
 
 import android.content.Context
+import android.util.Log.d
 import androidx.work.Constraints
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
@@ -17,6 +18,7 @@ import com.tbc.profile.domain.repository.FileUploadManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 object FileUploadManagerKeys {
@@ -53,8 +55,17 @@ class UploadManager @Inject constructor(
         return handleUploadUpdates(finishedWorkInfo)
     }
 
-    override fun deleteFile(url: String) {
-        storage.getReferenceFromUrl(url).delete()
+    override suspend fun deleteFile(url: String): Resource<Unit, DataError.Firestore> {
+        return try {
+            storage
+                .getReferenceFromUrl(url)
+                .delete()
+                .await()
+
+            Resource.Success(Unit)
+        } catch (e: Exception) {
+            Resource.Failure(DataError.Firestore.Unknown)
+        }
     }
 
     private fun handleUploadUpdates(workInfo: WorkInfo): Resource<String, DataError.Firestore> {

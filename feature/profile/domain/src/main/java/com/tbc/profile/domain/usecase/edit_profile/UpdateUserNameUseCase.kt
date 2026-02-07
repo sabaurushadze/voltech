@@ -5,10 +5,10 @@ import com.tbc.core.domain.util.Resource
 import com.tbc.profile.domain.repository.ProfileRepository
 import javax.inject.Inject
 
-class UpdateProfilePictureUseCase @Inject constructor(
+class UpdateUserNameUseCase @Inject constructor(
     private val profileRepository: ProfileRepository,
 ) {
-    suspend operator fun invoke(uri: String?): Resource<Unit, DataError.Firestore> {
-        return profileRepository.updateProfilePhoto(uri)
+    suspend operator fun invoke(username: String): Resource<Unit, DataError.Firestore> {
+        return profileRepository.updateUsername(username)
     }
 }

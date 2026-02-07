@@ -5,5 +5,5 @@ import com.tbc.core.domain.util.Resource
 
 interface FileUploadManager {
     suspend fun enqueueFileUpload(uri: String): Resource<String, DataError.Firestore>
-    fun deleteFile(url: String)
+    suspend fun deleteFile(url: String): Resource<Unit, DataError.Firestore>
 }

@@ -5,6 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {
     fun getCurrentUser(): User?
-    fun getCurrentUserStream(): Flow<User?>
     fun signOut()
 }

@@ -14,14 +14,30 @@ class ProfileRepositoryImpl @Inject constructor(
 ) : ProfileRepository {
 
     override suspend fun updateProfilePhoto(
-        photoUrl: String,
+        photoUrl: String?,
     ): Resource<Unit, DataError.Firestore> {
 
         val user = firebaseAuth.currentUser
             ?: return Resource.Failure(DataError.Firestore.Unauthenticated)
 
         val request = UserProfileChangeRequest.Builder()
-            .setPhotoUri(photoUrl.toUri())
+            .setPhotoUri(photoUrl?.toUri())
+            .build()
+
+        return try {
+            user.updateProfile(request).await()
+            Resource.Success(Unit)
+        } catch (e: Exception) {
+            Resource.Failure(DataError.Firestore.Unknown)
+        }
+    }
+
+    override suspend fun updateUsername(username: String): Resource<Unit, DataError.Firestore> {
+        val user = firebaseAuth.currentUser
+            ?: return Resource.Failure(DataError.Firestore.Unauthenticated)
+
+        val request = UserProfileChangeRequest.Builder()
+            .setDisplayName(username)
             .build()
 
         return try {

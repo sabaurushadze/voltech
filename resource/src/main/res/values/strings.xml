@@ -102,6 +102,13 @@
 
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="delete_failed">Deletion failed</string>
+    <string name="profile_picture_deleted">Profile picture deleted</string>
+    <string name="profile_picture_updated_successfully">Profile picture updated successfully</string>
+    <string name="username">Username</string>
+    <string name="username_update_failed">Username could not be updated</string>
+    <string name="username_updated">Username updated</string>
+    <string name="error_username_length">Username must be at least 2 letters and no more than 16 letters</string>
 
 
 </resources>

@@ -14,7 +14,7 @@ import com.tbc.resource.R
 
 @Composable
 fun ProfilePictureSheet(
-    url: String = "",
+    url: String? = null,
     onChooseExistingPhotoClick: () -> Unit,
     onTakePhotoClick: () -> Unit,
     onRemovePhotoClick: () -> Unit,
@@ -24,7 +24,7 @@ fun ProfilePictureSheet(
             .fillMaxWidth()
             .padding(horizontal = Dimen.size16)
     ) {
-        if (url.isNotEmpty()) {
+        url?.let {
             SecondaryButton(
                 modifier = Modifier
                     .fillMaxWidth(),

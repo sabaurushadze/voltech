@@ -7,7 +7,9 @@ data class EditProfileState(
     val user: UiUser? = null,
 
     val isLoading: Boolean = false,
+    val userName: String? = "",
+    val showUsernameError: Boolean = false,
+
     val selectedProfileEdit: Boolean = false,
     val selectedImageUri: Uri? = null,
-    val profileImageUrl: String = "",
     )

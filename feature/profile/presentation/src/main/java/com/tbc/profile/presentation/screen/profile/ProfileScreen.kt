@@ -57,7 +57,10 @@ fun ProfileScreen(
                 snackbarHostState.showSnackbar(message = error)
             }
 
-            ProfileSideEffect.NavigateToSettings -> { navigateToSettings() }
+            ProfileSideEffect.NavigateToSettings -> {
+                navigateToSettings()
+            }
+
             ProfileSideEffect.NavigateToUserDetails -> {
                 navigateToUserDetails()
             }
@@ -81,9 +84,11 @@ private fun ProfileContent(
             .background(VoltechColor.backgroundPrimary)
             .fillMaxSize()
     ) {
-        UserProfileSection(imageUrl = "", userName = "luka") {
-            onEvent(ProfileEvent.NavigateToUserDetails)
-        }
+        UserProfileSection(
+            imageUrl = state.user?.photoUrl,
+            userName = state.user?.name,
+            onUserProfileClick = { onEvent(ProfileEvent.NavigateToUserDetails) }
+        )
 
         SectionHeader(title = "Shopping")
 
@@ -109,6 +114,7 @@ private fun ProfileContent(
         )
     }
 }
+
 
 @Composable
 private fun IconTextSectionItem(
@@ -182,8 +188,8 @@ private fun TextSectionItem(
 
 @Composable
 private fun UserProfileSection(
-    imageUrl: String,
-    userName: String,
+    imageUrl: String?,
+    userName: String?,
     onUserProfileClick: () -> Unit,
 ) {
     Row(
@@ -193,7 +199,7 @@ private fun UserProfileSection(
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
 
-    ) {
+        ) {
         Box(
             modifier = Modifier
                 .size(Dimen.size64)
@@ -201,16 +207,18 @@ private fun UserProfileSection(
                 .background(VoltechColor.foregroundAccent),
             contentAlignment = Alignment.Center
         ) {
-            if (imageUrl.isEmpty()) {
-                Text(
-                    text = userName.first().toString().uppercase(),
-                    color = VoltechColor.foregroundOnAccent,
-                    style = VoltechTextStyle.title2
-                )
-            } else {
+            if (imageUrl != null) {
                 BaseAsyncImage(
                     url = imageUrl, modifier = Modifier.clip(VoltechRadius.radius64)
                 )
+            } else {
+                userName?.let {
+                    Text(
+                        text = userName.first().uppercase(),
+                        color = VoltechColor.foregroundOnAccent,
+                        style = VoltechTextStyle.title1
+                    )
+                }
             }
         }
 
@@ -222,9 +230,14 @@ private fun UserProfileSection(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = userName, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.body
-            )
+            userName?.let {
+                Text(
+                    text = userName,
+                    color = VoltechColor.foregroundPrimary,
+                    style = VoltechTextStyle.title3
+                )
+            }
+
 
             Icon(
                 modifier = Modifier.size(Dimen.size32),
