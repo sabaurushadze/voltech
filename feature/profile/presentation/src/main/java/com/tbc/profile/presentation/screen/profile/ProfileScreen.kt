@@ -1,5 +1,6 @@
 package com.tbc.profile.presentation.screen.profile
 
+import android.util.Log.d
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -214,7 +215,7 @@ private fun UserProfileSection(
             } else {
                 userName?.let {
                     Text(
-                        text = userName.first().uppercase(),
+                        text = if (userName.isNotEmpty()) userName.first().uppercase() else "",
                         color = VoltechColor.foregroundOnAccent,
                         style = VoltechTextStyle.title1
                     )

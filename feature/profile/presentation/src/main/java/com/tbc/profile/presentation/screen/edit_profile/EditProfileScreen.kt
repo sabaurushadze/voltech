@@ -228,7 +228,7 @@ private fun UserProfileSection(
                 } else {
                     userName?.let {
                         Text(
-                            text = userName.first().uppercase(),
+                            text = if (userName.isNotEmpty()) userName.first().uppercase() else "",
                             color = VoltechColor.foregroundOnAccent,
                             style = VoltechTextStyle.title1
                         )
