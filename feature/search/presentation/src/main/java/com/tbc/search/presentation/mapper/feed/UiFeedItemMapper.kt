@@ -1,6 +1,6 @@
 package com.tbc.search.presentation.mapper.feed
 
-import com.tbc.search.domain.model.feed.Category
+import com.tbc.core.presentation.mapper.category.toStringRes
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.Location
@@ -38,23 +38,6 @@ fun Condition.toStringRes(): Int {
         Condition.NEW -> R.string.condition_new
         Condition.USED -> R.string.condition_used
         Condition.PARTS -> R.string.condition_parts
-    }
-}
-
-fun Category.toStringRes(): Int {
-    return when (this) {
-        Category.GPU -> R.string.category_gpu
-        Category.CPU -> R.string.category_cpu
-        Category.MOTHERBOARD -> R.string.category_motherboard
-        Category.RAM -> R.string.category_ram
-        Category.SSD -> R.string.category_ssd
-        Category.HDD -> R.string.category_hdd
-        Category.CPU_COOLER -> R.string.category_cpu_cooler
-        Category.PSU -> R.string.category_psu
-        Category.CASE_COOLER -> R.string.category_case_cooler
-        Category.CASE -> R.string.category_case
-        Category.MONITOR -> R.string.category_monitor
-        Category.CABEL -> R.string.category_cabel
     }
 }
 

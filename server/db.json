@@ -1701,6 +1701,68 @@
       "sellerUserName": "ComponentKing"
     }
   ],
+  "categories": [
+    {
+      "id": 1,
+      "category": "GPU",
+      "image": "https://i.ibb.co/yFfWv9Bc/Adobe-Express-file-3.png"
+    },
+    {
+      "id": 2,
+      "category": "CPU",
+      "image": "https://i.ibb.co/yntcM4c7/Adobe-Express-file-5.png"
+    },
+    {
+      "id": 3,
+      "category": "MOTHERBOARD",
+      "image": "https://i.ibb.co/hR433JxZ/Adobe-Express-file-4.png"
+    },
+    {
+      "id": 4,
+      "category": "RAM",
+      "image": "https://i.ibb.co/Hfq4rTmS/Adobe-Express-file-6.png"
+    },
+    {
+      "id": 5,
+      "category": "SSD",
+      "image": "https://i.ibb.co/yBXW9BM3/Adobe-Express-file-7.png"
+    },
+    {
+      "id": 6,
+      "category": "HDD",
+      "image": "https://i.ibb.co/GQRSwWQb/Adobe-Express-file-8.png"
+    },
+    {
+      "id": 7,
+      "category": "CPU_COOLER",
+      "image": "https://i.ibb.co/5xWdY0q1/Adobe-Express-file-9.png"
+    },
+    {
+      "id": 8,
+      "category": "PSU",
+      "image": "https://i.ibb.co/LdtKGbSv/Adobe-Express-file-10.png"
+    },
+    {
+      "id": 9,
+      "category": "CASE_COOLER",
+      "image": "https://i.ibb.co/QtXCk05/Adobe-Express-file-11.png"
+    },
+    {
+      "id": 10,
+      "category": "CASE",
+      "image": "https://i.ibb.co/0j8rtMBh/a-black-and-white-computer-case.png"
+    },
+    {
+      "id": 11,
+      "category": "MONITOR",
+      "image": "https://i.ibb.co/9mtxRQFW/Adobe-Express-file-12.png"
+    },
+    {
+      "id": 12,
+      "category": "CABEL",
+      "image": "https://i.ibb.co/8Dqx7nFF/Purple-Custom-Extension-Sleeve-Cable.png"
+    }
+  ],
   "favorites": [
     {
       "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",

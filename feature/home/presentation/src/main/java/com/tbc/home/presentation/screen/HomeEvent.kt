@@ -1,4 +1,5 @@
 package com.tbc.home.presentation.screen
 
-class HomeEvent {
+sealed class HomeEvent {
+    data object GetCategories: HomeEvent()
 }

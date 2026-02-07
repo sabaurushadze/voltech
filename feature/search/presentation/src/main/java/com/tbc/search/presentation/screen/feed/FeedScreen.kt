@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ModalBottomSheet
@@ -30,16 +29,16 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.tbc.search.presentation.components.feed.topbar.FeedAppBar
-import com.tbc.core_ui.theme.Dimen
-import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
+import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechBorder
+import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.search.presentation.components.feed.items.FeedItemCard
 import com.tbc.search.presentation.components.feed.items.FeedItemPlaceholderCard
 import com.tbc.search.presentation.components.feed.sheet.FilterBottomSheet
 import com.tbc.search.presentation.components.feed.sheet.SortBottomSheet
+import com.tbc.search.presentation.components.feed.topbar.FeedAppBar
 import com.tbc.search.presentation.enums.feed.SortType
 import com.tbc.search.presentation.model.feed.UiFeedItem
 
@@ -49,7 +48,8 @@ fun FeedScreen(
     viewModel: FeedViewModel = hiltViewModel(),
     navigateToSearch: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
-    query: String,
+    query: String?,
+    categoryQuery: String?,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -69,15 +69,25 @@ fun FeedScreen(
     val listState = rememberLazyListState()
 
     LaunchedEffect(query) {
-        viewModel.onEvent(FeedEvent.SaveSearchQuery(query))
+        query?.let {
+            if (query.isNotEmpty()) {
+                viewModel.onEvent(FeedEvent.SaveSearchQuery(query))
+            }
+        }
     }
 
-    LaunchedEffect(state.selectedSortType) {
-        listState.scrollToItem(0)
+    LaunchedEffect(categoryQuery) {
+        if (state.query.category == null){
+            categoryQuery?.let { category->
+                viewModel.onEvent(FeedEvent.SaveCategoryQuery(category))
+            }
+        }
     }
 
-    LaunchedEffect(state.selectedFilter) {
-        listState.scrollToItem(0)
+    LaunchedEffect(pagingItems.loadState.refresh) {
+        if (pagingItems.loadState.refresh is LoadState.Loading) {
+            listState.scrollToItem(0)
+        }
     }
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
@@ -125,9 +135,11 @@ fun FeedScreen(
             onDismissRequest = { viewModel.onEvent(FeedEvent.HideFilterSheet) },
             sheetState = filterBottomSheetState
         ) {
+
             FilterBottomSheet(
                 state = state,
-                onEvent = viewModel::onEvent
+                currentQuery = state.query.titleLike.orEmpty(),
+                onEvent = viewModel::onEvent,
             )
         }
     }

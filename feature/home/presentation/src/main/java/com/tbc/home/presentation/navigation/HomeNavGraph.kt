@@ -7,12 +7,16 @@ import com.tbc.home.presentation.screen.HomeScreen
 import kotlinx.serialization.Serializable
 
 fun NavGraphBuilder.homeNavGraph(
+    navigateToSearch: () -> Unit,
+    navigateToFeed: (String) -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ) {
 
     composable<HomeScreenRoute> {
         HomeScreen(
-            onSetupTopBar = onSetupTopBar
+            onSetupTopBar = onSetupTopBar,
+            navigateToSearch = navigateToSearch,
+            navigateToFeed = navigateToFeed
         )
     }
 

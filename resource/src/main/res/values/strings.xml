@@ -97,5 +97,7 @@
     <string name="or">or</string>
     <string name="password_format_error">Password must be at least 8 characters and include 1 number or special character</string>
 
+    <!--Home screen-->
+    <string name="categories">Categories</string>
 
 </resources>
