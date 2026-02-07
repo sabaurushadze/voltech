@@ -3,8 +3,10 @@ package com.tbc.home.presentation.screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -74,7 +76,6 @@ private fun HomeContent(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .safeContentPadding()
             .padding(top = Dimen.size24)
     ) {
         item {
@@ -82,6 +83,7 @@ private fun HomeContent(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
+                    modifier = Modifier.padding(start = Dimen.size16),
                     text = stringResource(R.string.categories),
                     style = VoltechTextStyle.title1,
                     color = VoltechColor.foregroundPrimary
@@ -94,8 +96,9 @@ private fun HomeContent(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(Dimen.size350),
-                    horizontalArrangement = Arrangement.spacedBy(Dimen.size16),
+                    horizontalArrangement = Arrangement.spacedBy(Dimen.size12),
                     verticalArrangement = Arrangement.spacedBy(Dimen.size12),
+                    contentPadding = PaddingValues(horizontal = Dimen.size16)
                 ) {
                     items(state.categoryList) { category ->
                         CategoryItem(
@@ -120,25 +123,30 @@ private fun CategoryItem(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.clickable{ navigateToFeed(category.name) }
     ) {
-        image?.let {
-            BaseAsyncImage(
-                url = image,
-                modifier = Modifier
-                    .size(Dimen.size100)
-                    .clip(CircleShape)
-                    .background(VoltechFixedColor.lightGray)
-            )
-
-            Spacer(Modifier.height(Dimen.size12))
-
-            Text(
-                text = stringResource(categoryNameRes).capitalizeFirst(),
-                style = VoltechTextStyle.title3,
-                color = VoltechColor.foregroundPrimary,
-                modifier = Modifier.widthIn(max = Dimen.size90),
-                textAlign = TextAlign.Center
-            )
+        Box(
+            modifier = Modifier
+                .size(Dimen.size100)
+                .clip(CircleShape)
+                .background(VoltechFixedColor.lightGray),
+        ){
+            image?.let {
+                BaseAsyncImage(
+                    url = image,
+                    modifier = Modifier
+                        .size(Dimen.size80)
+                        .align(Alignment.Center)
+                )
+            }
         }
+
+        Spacer(Modifier.height(Dimen.size12))
+
+        Text(
+            text = stringResource(categoryNameRes).capitalizeFirst(),
+            style = VoltechTextStyle.title3,
+            color = VoltechColor.foregroundPrimary,
+            textAlign = TextAlign.Center
+        )
     }
 }
 
@@ -155,11 +163,12 @@ private fun SetupTopBar(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(IntrinsicSize.Min)
-                            .padding(horizontal = Dimen.size16),
+                            .padding(end = Dimen.size16),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         TextInputFieldDummy(
+                            modifier = Modifier.weight(1f),
                             value = "",
                             onTextChanged = {  },
                             label = stringResource(R.string.search_on_voltech),
@@ -169,6 +178,7 @@ private fun SetupTopBar(
                         )
 
                         CircleIconButton(
+                            modifier = Modifier.padding(top = Dimen.size6),
                             onClick = {  },
                             size = Dimen.size24,
                             iconColor = VoltechColor.backgroundInverse,

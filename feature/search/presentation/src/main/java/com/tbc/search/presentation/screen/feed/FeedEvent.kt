@@ -23,5 +23,4 @@ sealed class FeedEvent {
     data object ShowFilterSheet : FeedEvent()
     data object HideFilterSheet : FeedEvent()
     data class FilterItems(val currentQuery: String): FeedEvent()
-    data object ResetQuery : FeedEvent()
 }

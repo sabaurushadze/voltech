@@ -5,12 +5,12 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardActions.Companion
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -25,7 +25,7 @@ import com.tbc.core_ui.theme.VoltechTextStyle
 
 
 @Composable
-fun TextInputField(
+fun OutlinedTextInputField(
     value: String,
     onTextChanged: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -85,7 +85,64 @@ fun TextInputField(
                 )
             }
         },
-        keyboardActions =  keyboardActions
+    )
+}
+
+
+@Composable
+fun TextInputField(
+    value: String,
+    onTextChanged: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    label: String? = null,
+    enabled: Boolean = true,
+    errorText: String? = null,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    imeAction: ImeAction = ImeAction.None,
+    shape: RoundedCornerShape = VoltechRadius.radius16,
+    keyboardType: KeyboardType = KeyboardType.Unspecified,
+    startIcon: ImageVector? = null,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+) {
+    TextField(
+        modifier = modifier,
+        value = value,
+        enabled = enabled,
+        colors = VoltechTextFieldDefaults.primaryColors,
+        label = label?.let {
+            {
+                Text(
+                    text = it,
+                    style = VoltechTextStyle.body,
+                    color = VoltechColor.foregroundPrimary
+                )
+            }
+        },
+        textStyle = VoltechTextStyle.body,
+        onValueChange = { onTextChanged(it) },
+        supportingText = errorText?.let {
+            {
+                Text(
+                    text = it,
+                    style = VoltechTextStyle.body,
+                    color = VoltechColor.foregroundAttention
+                )
+            }
+        },
+        visualTransformation = visualTransformation,
+        singleLine = true,
+        isError = errorText != null,
+        shape = shape,
+        keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction),
+        leadingIcon = startIcon?.let { icon ->
+            {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    tint = VoltechColor.foregroundPrimary
+                )
+            }
+        },
     )
 }
 

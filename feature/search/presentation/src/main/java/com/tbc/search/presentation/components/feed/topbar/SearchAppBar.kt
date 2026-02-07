@@ -15,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import com.tbc.core_ui.components.textfield.TextInputField
+import com.tbc.core_ui.components.textfield.OutlinedTextInputField
 import com.tbc.core_ui.components.topbar.VoltechTopAppBarDefaults
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechRadius
@@ -35,7 +35,7 @@ fun SearchAppBar(
             Column(
                 modifier = Modifier.fillMaxWidth()
             ) {
-                TextInputField(
+                OutlinedTextInputField(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(end = Dimen.size16, bottom = Dimen.size16)

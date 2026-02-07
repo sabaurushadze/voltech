@@ -63,7 +63,6 @@ class FeedViewModel @Inject constructor(
             }
 
             is FeedEvent.FeedItemClick -> navigateToDetails(event.id)
-            FeedEvent.ResetQuery -> resetQuery()
         }
     }
 
@@ -107,7 +106,7 @@ class FeedViewModel @Inject constructor(
         val filter = state.value.filterState
         updateState {
             val updatedQuery = query.copy(
-                titleLike = currentQuery,
+                titleLike = currentQuery.ifBlank { null },
                 category = filter.selectedCategories.takeIf { it.isNotEmpty() }?.map { it.name },
                 condition = filter.selectedConditions.takeIf { it.isNotEmpty() }?.map { it.name },
                 location = filter.selectedLocations.takeIf { it.isNotEmpty() }?.map { it.name },
@@ -119,12 +118,6 @@ class FeedViewModel @Inject constructor(
                 query = updatedQuery,
                 selectedFilter = false
             )
-        }
-    }
-
-    private fun resetQuery() {
-        updateState {
-            copy(query = FeedQuery(titleLike = ""))
         }
     }
 
@@ -143,16 +136,26 @@ class FeedViewModel @Inject constructor(
     }
 
     private fun saveCategoryQuery(category: String) {
-        val category = Category.fromString(category)
+        val categoryEnum = Category.fromString(category)
 
         updateState {
+            if (initialCategoryConsumed) return@updateState this
+
             val updatedQuery = query.copy(
                 titleLike = null,
-                category = listOf(category.name)
+                category = listOf(categoryEnum.name)
             )
-            copy(query = updatedQuery)
+
+            copy(
+                query = updatedQuery,
+                filterState = filterState.copy(
+                    selectedCategories = setOf(categoryEnum)
+                ),
+                initialCategoryConsumed = true
+            )
         }
     }
+
 
 
     private fun showSortBottomSheet() {
@@ -199,8 +202,9 @@ class FeedViewModel @Inject constructor(
                             domainFeedItem.toPresentation()
                         }
                     }
-                    .cachedIn(viewModelScope)
+
             }
+            .cachedIn(viewModelScope)
 
 
     companion object {

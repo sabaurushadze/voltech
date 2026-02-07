@@ -24,6 +24,7 @@ import com.tbc.core.domain.model.category.Category
 import com.tbc.core.presentation.mapper.category.toStringRes
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.checkbox.VoltechCheckBoxDefaults
+import com.tbc.core_ui.components.textfield.OutlinedTextInputField
 import com.tbc.core_ui.components.textfield.TextInputField
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
@@ -41,7 +42,6 @@ fun FilterBottomSheet(
     state: FeedState,
     currentQuery: String,
     onEvent: (FeedEvent) -> Unit,
-    onFilterButtonClick: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -161,7 +161,6 @@ fun FilterBottomSheet(
             text = stringResource(R.string.filter),
             onClick = {
                 onEvent(FeedEvent.FilterItems(currentQuery))
-                onFilterButtonClick()
             },
         )
 
@@ -189,7 +188,7 @@ private fun PriceItem(
             label = stringResource(R.string.minimum_price),
             imeAction = ImeAction.Next,
             shape = VoltechRadius.radius12,
-            keyboardType = KeyboardType.Text,
+            keyboardType = KeyboardType.Number,
         )
 
         Spacer(modifier = Modifier.width(Dimen.size8))
@@ -201,7 +200,7 @@ private fun PriceItem(
             label = stringResource(R.string.maximum_price),
             imeAction = ImeAction.Done,
             shape = VoltechRadius.radius12,
-            keyboardType = KeyboardType.Text,
+            keyboardType = KeyboardType.Number,
         )
     }
 }

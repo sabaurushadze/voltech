@@ -14,6 +14,7 @@ import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
 import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.ItemDetailsRoute
+import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.search.presentation.navigation.searchNavGraph
 import com.tbc.voltech.presentation.AppState
 import kotlin.reflect.KClass
@@ -65,7 +66,7 @@ fun AppNavHost(
                 navController.navigate(FeedScreenRoute(query = query))
             },
             navigateToSearch = {
-                navController.navigateUp()
+                navController.navigate(SearchScreenRoute)
             },
             navigateToItemDetails = { id ->
                 navController.navigate(ItemDetailsRoute(id))

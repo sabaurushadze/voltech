@@ -40,7 +40,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
-import com.tbc.core_ui.components.textfield.TextInputField
+import com.tbc.core_ui.components.textfield.OutlinedTextInputField
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
@@ -99,7 +99,7 @@ private fun SearchContent(
             .background(VoltechColor.backgroundPrimary)
             .systemBarsPadding()
     ) {
-        TextInputField(
+        OutlinedTextInputField(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = Dimen.size16)

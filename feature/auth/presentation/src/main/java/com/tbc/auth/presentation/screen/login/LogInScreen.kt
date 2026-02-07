@@ -1,6 +1,5 @@
 package com.tbc.auth.presentation.screen.login
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -30,11 +29,9 @@ import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
 import com.tbc.core_ui.components.divider.Divider
 import com.tbc.core_ui.components.textfield.PasswordTextField
-import com.tbc.core_ui.components.textfield.TextInputField
+import com.tbc.core_ui.components.textfield.OutlinedTextInputField
 import com.tbc.core_ui.theme.Dimen
-import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
-import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.core_ui.theme.VoltechTheme
 
@@ -115,7 +112,7 @@ fun LogInContent(
 
 
 
-            TextInputField(
+            OutlinedTextInputField(
                 value = state.email,
                 onTextChanged = { onEvent(LogInEvent.EmailChanged(it)) },
                 modifier = Modifier.fillMaxWidth(),

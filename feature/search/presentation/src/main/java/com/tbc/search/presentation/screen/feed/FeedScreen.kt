@@ -81,14 +81,16 @@ fun FeedScreen(
     }
 
     LaunchedEffect(categoryQuery) {
-        categoryQuery?.let { category->
-            viewModel.onEvent(FeedEvent.SaveCategoryQuery(category))
+        if (state.query.category == null){
+            categoryQuery?.let { category->
+                viewModel.onEvent(FeedEvent.SaveCategoryQuery(category))
+            }
         }
     }
 
-    DisposableEffect(Unit) {
-        onDispose {
-            viewModel.onEvent(FeedEvent.ResetQuery)
+    LaunchedEffect(pagingItems.loadState.refresh) {
+        if (pagingItems.loadState.refresh is LoadState.Loading) {
+            listState.scrollToItem(0)
         }
     }
 
@@ -115,8 +117,6 @@ fun FeedScreen(
         navigateToSearch = navigateToSearch
     )
 
-    val coroutineScope = rememberCoroutineScope()
-
     if (state.selectedSort) {
         ModalBottomSheet(
             containerColor = VoltechColor.backgroundSecondary,
@@ -128,9 +128,6 @@ fun FeedScreen(
                 selectedSortType = state.selectedSortType,
                 onItemClick = { sortType ->
                     viewModel.onEvent(FeedEvent.SelectSortType(sortType))
-                    coroutineScope.launch {
-                        listState.animateScrollToItem(0)
-                    }
                 },
             )
         }
@@ -142,18 +139,12 @@ fun FeedScreen(
             onDismissRequest = { viewModel.onEvent(FeedEvent.HideFilterSheet) },
             sheetState = filterBottomSheetState
         ) {
-            state.query.titleLike?.let {
-                FilterBottomSheet(
-                    state = state,
-                    currentQuery = it,
-                    onEvent = viewModel::onEvent,
-                    onFilterButtonClick = {
-                        coroutineScope.launch {
-                            listState.scrollToItem(0)
-                        }
-                    }
-                )
-            }
+
+            FilterBottomSheet(
+                state = state,
+                currentQuery = state.query.titleLike.orEmpty(),
+                onEvent = viewModel::onEvent,
+            )
         }
     }
 }

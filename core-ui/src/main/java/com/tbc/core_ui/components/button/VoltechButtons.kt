@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
@@ -242,6 +243,7 @@ fun BorderlessButton(
 
 @Composable
 fun CircleIconButton(
+    modifier: Modifier,
     onClick : () -> Unit,
     size: Dp,
     iconColor: Color,
@@ -249,9 +251,9 @@ fun CircleIconButton(
 ){
     IconButton(
         onClick = onClick,
-        modifier = Modifier
+        modifier = modifier
             .padding(Dimen.size6)
-            .clip(RoundedCornerShape(50)),
+            .clip(CircleShape),
         colors = iconButtonColors(
             containerColor = backgroundColor
         )

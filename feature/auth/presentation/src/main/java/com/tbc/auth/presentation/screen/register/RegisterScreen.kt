@@ -11,8 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -35,7 +33,7 @@ import com.tbc.resource.R
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.textfield.PasswordTextField
-import com.tbc.core_ui.components.textfield.TextInputField
+import com.tbc.core_ui.components.textfield.OutlinedTextInputField
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechTextStyle
@@ -138,7 +136,7 @@ fun RegisterContent(
 
             Spacer(modifier = Modifier.height(Dimen.size16))
 
-            TextInputField(
+            OutlinedTextInputField(
                 value = state.email,
                 onTextChanged = { onEvent(RegisterEvent.EmailChanged(it)) },
                 modifier = Modifier.fillMaxWidth(),
