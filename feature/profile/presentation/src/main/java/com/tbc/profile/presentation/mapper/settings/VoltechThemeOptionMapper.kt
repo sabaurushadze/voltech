@@ -1,4 +1,4 @@
-package com.tbc.profile.presentation.mapper
+package com.tbc.profile.presentation.mapper.settings
 
 import com.tbc.profile.domain.model.settings.VoltechThemeOption
 import com.tbc.resource.R

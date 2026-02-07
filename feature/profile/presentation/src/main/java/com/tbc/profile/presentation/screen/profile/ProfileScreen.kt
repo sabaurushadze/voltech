@@ -1,8 +1,10 @@
 package com.tbc.profile.presentation.screen.profile
 
+import android.util.Log.d
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -40,6 +42,7 @@ import com.tbc.resource.R
 fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel(),
     navigateToSettings: () -> Unit,
+    navigateToUserDetails: () -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
@@ -55,7 +58,13 @@ fun ProfileScreen(
                 snackbarHostState.showSnackbar(message = error)
             }
 
-            ProfileSideEffect.NavigateToSettings -> { navigateToSettings() }
+            ProfileSideEffect.NavigateToSettings -> {
+                navigateToSettings()
+            }
+
+            ProfileSideEffect.NavigateToUserDetails -> {
+                navigateToUserDetails()
+            }
         }
     }
 
@@ -76,7 +85,11 @@ private fun ProfileContent(
             .background(VoltechColor.backgroundPrimary)
             .fillMaxSize()
     ) {
-        UserProfileSection(imageUrl = "", userName = "luka")
+        UserProfileSection(
+            imageUrl = state.user?.photoUrl,
+            userName = state.user?.name,
+            onUserProfileClick = { onEvent(ProfileEvent.NavigateToUserDetails) }
+        )
 
         SectionHeader(title = "Shopping")
 
@@ -102,6 +115,7 @@ private fun ProfileContent(
         )
     }
 }
+
 
 @Composable
 private fun IconTextSectionItem(
@@ -175,16 +189,18 @@ private fun TextSectionItem(
 
 @Composable
 private fun UserProfileSection(
-    imageUrl: String,
-    userName: String,
+    imageUrl: String?,
+    userName: String?,
+    onUserProfileClick: () -> Unit,
 ) {
     Row(
         modifier = Modifier
+            .clickable { onUserProfileClick() }
             .padding(start = Dimen.size16, end = Dimen.size16, top = Dimen.size4)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
 
-    ) {
+        ) {
         Box(
             modifier = Modifier
                 .size(Dimen.size64)
@@ -192,24 +208,46 @@ private fun UserProfileSection(
                 .background(VoltechColor.foregroundAccent),
             contentAlignment = Alignment.Center
         ) {
-            if (imageUrl.isEmpty()) {
-                Text(
-                    text = userName.first().toString().uppercase(),
-                    color = VoltechColor.foregroundOnAccent,
-                    style = VoltechTextStyle.title2
-                )
-            } else {
+            if (imageUrl != null) {
                 BaseAsyncImage(
                     url = imageUrl, modifier = Modifier.clip(VoltechRadius.radius64)
                 )
+            } else {
+                userName?.let {
+                    Text(
+                        text = if (userName.isNotEmpty()) userName.first().uppercase() else "",
+                        color = VoltechColor.foregroundOnAccent,
+                        style = VoltechTextStyle.title1
+                    )
+                }
             }
         }
 
         Spacer(modifier = Modifier.width(Dimen.size16))
 
-        Text(
-            text = userName, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.body
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            userName?.let {
+                Text(
+                    text = userName,
+                    color = VoltechColor.foregroundPrimary,
+                    style = VoltechTextStyle.title3
+                )
+            }
+
+
+            Icon(
+                modifier = Modifier.size(Dimen.size32),
+                imageVector = ImageVector.vectorResource(R.drawable.ic_arrow_right),
+                contentDescription = null,
+                tint = VoltechColor.foregroundPrimary
+            )
+        }
+
     }
 }
 
