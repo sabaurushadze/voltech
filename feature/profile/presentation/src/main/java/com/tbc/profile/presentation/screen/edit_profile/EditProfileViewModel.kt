@@ -1,7 +1,6 @@
 package com.tbc.profile.presentation.screen.edit_profile
 
 import android.net.Uri
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.GetCurrentUserUseCase
 import com.tbc.core.domain.util.onFailure

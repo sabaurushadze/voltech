@@ -2,14 +2,11 @@ package com.tbc.search.presentation.mapper.feed
 
 import com.tbc.core.presentation.mapper.category.toStringRes
 import com.tbc.core.presentation.util.toPriceUsStyle
+import com.tbc.resource.R
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.Location
-import com.tbc.resource.R
 import com.tbc.search.presentation.model.feed.UiFeedItem
-import java.text.NumberFormat
-import java.util.Currency
-import java.util.Locale
 
 fun FeedItem.toPresentation(): UiFeedItem {
     return UiFeedItem(

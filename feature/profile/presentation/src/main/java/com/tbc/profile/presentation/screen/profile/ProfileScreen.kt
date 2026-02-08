@@ -114,7 +114,7 @@ private fun ProfileContent(
         SectionHeader(title = "Account")
 
         TextSectionItem(
-            text = "Settings",
+            text = stringResource(R.string.settings),
             onItemClick = { onEvent(ProfileEvent.NavigateToSettings) }
         )
     }
