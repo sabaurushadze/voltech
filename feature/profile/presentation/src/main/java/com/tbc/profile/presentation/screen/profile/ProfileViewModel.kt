@@ -3,9 +3,8 @@ package com.tbc.profile.presentation.screen.profile
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.GetCurrentUserUseCase
 import com.tbc.core.presentation.base.BaseViewModel
-import com.tbc.profile.presentation.mapper.edit_profile.toPresentation
+import com.tbc.core.presentation.mapper.user.toPresentation
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,7 +22,12 @@ class ProfileViewModel @Inject constructor(
             ProfileEvent.GetUserInfo -> {}
             ProfileEvent.NavigateToSettings -> navigateToSettings()
             ProfileEvent.NavigateToUserDetails -> navigateToUserDetails()
+            ProfileEvent.NavigateToWatchlist -> navigateToWatchlist()
         }
+    }
+
+    private fun navigateToWatchlist() {
+        emitSideEffect(ProfileSideEffect.NavigateToWatchlist)
     }
 
     private fun navigateToSettings() {

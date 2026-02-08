@@ -26,6 +26,11 @@ interface FeedService {
         @Path("id") id: Int,
     ): Response<FeedItemResponseDto>
 
+    @GET("items")
+    suspend fun getItemsByIds(
+        @Query("id") ids: List<Int>
+    ): Response<List<FeedItemResponseDto>>
+
     companion object {
         private const val TITLE_LIKE = "title_like"
         private const val CATEGORY = "category"

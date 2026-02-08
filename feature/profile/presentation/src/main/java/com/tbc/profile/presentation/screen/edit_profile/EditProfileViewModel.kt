@@ -7,12 +7,12 @@ import com.tbc.core.domain.usecase.GetCurrentUserUseCase
 import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
+import com.tbc.core.presentation.mapper.user.toPresentation
 import com.tbc.profile.domain.usecase.edit_profile.DeleteFileUseCase
 import com.tbc.profile.domain.usecase.edit_profile.EnqueueFileUploadUseCase
 import com.tbc.profile.domain.usecase.edit_profile.UpdateProfilePictureUseCase
 import com.tbc.profile.domain.usecase.edit_profile.UpdateUserNameUseCase
 import com.tbc.profile.domain.usecase.edit_profile.ValidateUserNameUseCase
-import com.tbc.profile.presentation.mapper.edit_profile.toPresentation
 import com.tbc.resource.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

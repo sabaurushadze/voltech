@@ -31,11 +31,11 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
+import com.tbc.core_ui.components.item.FeedItemCard
+import com.tbc.core_ui.components.item.FeedItemPlaceholderCard
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
-import com.tbc.search.presentation.components.feed.items.FeedItemCard
-import com.tbc.search.presentation.components.feed.items.FeedItemPlaceholderCard
 import com.tbc.search.presentation.components.feed.sheet.FilterBottomSheet
 import com.tbc.search.presentation.components.feed.sheet.SortBottomSheet
 import com.tbc.search.presentation.components.feed.topbar.FeedAppBar

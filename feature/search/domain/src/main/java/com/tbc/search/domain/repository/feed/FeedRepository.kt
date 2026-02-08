@@ -15,4 +15,5 @@ interface FeedRepository {
     ): Flow<PagingData<FeedItem>>
 
     suspend fun getItemDetails(id: Int) : Resource<FeedItem, DataError.Network>
+    suspend fun getItemsByIds(ids: List<Int>): Resource<List<FeedItem>, DataError.Network>
 }

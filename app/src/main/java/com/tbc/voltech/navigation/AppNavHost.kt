@@ -12,6 +12,7 @@ import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.home.presentation.navigation.homeNavGraph
 import com.tbc.profile.presentation.navigation.EditProfileScreenRoute
 import com.tbc.profile.presentation.navigation.SettingsScreenRoute
+import com.tbc.profile.presentation.navigation.WatchlistScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
 import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.ItemDetailsRoute
@@ -78,9 +79,13 @@ fun AppNavHost(
 
         profileNavGraph(
             navigateToSettings = { navController.navigate(SettingsScreenRoute) },
+            navigateToWatchlist = { navController.navigate(WatchlistScreenRoute) },
             navigateBack = { navController.navigateUp() },
             onSetupTopBar = onSetupAppBar,
-            navigateToEditProfile = { navController.navigate(EditProfileScreenRoute) }
+            navigateToEditProfile = { navController.navigate(EditProfileScreenRoute) },
+            navigateToItemDetails = { id ->
+                navController.navigate(ItemDetailsRoute(id))
+            }
         )
 
 

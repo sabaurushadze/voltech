@@ -1,6 +1,5 @@
 package com.tbc.profile.presentation.screen.profile
 
-import android.util.Log.d
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -43,6 +42,7 @@ fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel(),
     navigateToSettings: () -> Unit,
     navigateToUserDetails: () -> Unit,
+    navigateToWatchlist: () -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
@@ -64,6 +64,10 @@ fun ProfileScreen(
 
             ProfileSideEffect.NavigateToUserDetails -> {
                 navigateToUserDetails()
+            }
+
+            ProfileSideEffect.NavigateToWatchlist -> {
+                navigateToWatchlist()
             }
         }
     }
@@ -97,7 +101,7 @@ private fun ProfileContent(
             title = "Saved",
             subTitle = "Searches",
             icon = R.drawable.ic_outlined_heart,
-            onItemClick = { /* aq daamate favoritebis scrini (profile screenes nestedshive iqneba route) */ }
+            onItemClick = { onEvent(ProfileEvent.NavigateToWatchlist) }
         )
 
         IconTextSectionItem(

@@ -31,164 +31,164 @@ import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.core_ui.theme.VoltechTheme
 import com.tbc.resource.R
 
-@Composable
-fun FeedItemCard(
-    imageUrl: String,
-    title: String,
-    condition: String,
-    price: String,
-    location: String,
-    onRootClick: () -> Unit = {},
-) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable { onRootClick() }
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(Dimen.size8)
-        ) {
-            Box(
-                modifier = Modifier
-                    .height(Dimen.size132)
-                    .width(Dimen.size132)
-                    .clip(VoltechRadius.radius16)
-            ) {
-                BaseAsyncImage(
-                    url = imageUrl,
-                    modifier = Modifier
-                        .matchParentSize()
-                        .clip(VoltechRadius.radius16),
-                )
-            }
-
-            Spacer(modifier = Modifier.width(Dimen.size16))
-
-            Column(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Spacer(modifier = Modifier.height(Dimen.size4))
-
-                FeedItemContent(
-                    title = title,
-                    price = price,
-                    condition = condition,
-                    location = location
-                )
-            }
-        }
-
-
-    }
-}
-
-@Composable
-private fun FeedItemContent(
-    title: String,
-    price: String,
-    condition: String,
-    location: String,
-) {
-    Text(
-        modifier = Modifier.fillMaxWidth(),
-        text = title,
-        color = VoltechColor.foregroundPrimary,
-        style = VoltechTextStyle.body,
-        maxLines = 3
-    )
-
-    Spacer(modifier = Modifier.height(Dimen.size4))
-
-    Text(
-        modifier = Modifier.fillMaxWidth(),
-        text = condition,
-        color = VoltechColor.foregroundSecondary,
-        style = VoltechTextStyle.body,
-        maxLines = 1
-    )
-
-    Spacer(modifier = Modifier.height(Dimen.size8))
-
-    Text(
-        modifier = Modifier.fillMaxWidth(),
-        text = price,
-        color = VoltechColor.foregroundPrimary,
-        style = VoltechTextStyle.title2,
-        maxLines = 1
-    )
-
-    Spacer(modifier = Modifier.height(Dimen.size4))
-
-    Text(
-        modifier = Modifier.fillMaxWidth(),
-        text = location,
-        color = VoltechColor.foregroundSecondary,
-        style = VoltechTextStyle.body,
-        maxLines = 1
-    )
-}
-
-@Composable
-fun FeedItemPlaceholderCard() {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(Dimen.size8)
-        ) {
-            Box(
-                modifier = Modifier
-                    .height(Dimen.size132)
-                    .width(Dimen.size132)
-                    .clip(VoltechRadius.radius16)
-            ) {
-                BaseAsyncImage(
-                    url = "",
-                    modifier = Modifier
-                        .matchParentSize()
-                        .clip(VoltechRadius.radius16),
-                )
-            }
-
-            Spacer(modifier = Modifier.width(Dimen.size16))
-
-            Column(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Spacer(modifier = Modifier.height(Dimen.size4))
-
-                FeedItemPlaceholderContent()
-            }
-        }
-
-
-    }
-}
-
-
-@Composable
-private fun FeedItemPlaceholderContent() {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth(0.8f)
-            .height(Dimen.size16)
-            .background(VoltechColor.backgroundTertiary)
-    )
-
-    Spacer(modifier = Modifier.height(Dimen.size4))
-
-    Box(
-        modifier = Modifier
-            .fillMaxWidth(0.6f)
-            .height(Dimen.size16)
-            .background(VoltechColor.backgroundTertiary)
-    )
-}
+//@Composable
+//fun FeedItemCard(
+//    imageUrl: String,
+//    title: String,
+//    condition: String,
+//    price: String,
+//    location: String,
+//    onRootClick: () -> Unit = {},
+//) {
+//    Row(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .clickable { onRootClick() }
+//    ) {
+//        Row(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(Dimen.size8)
+//        ) {
+//            Box(
+//                modifier = Modifier
+//                    .height(Dimen.size132)
+//                    .width(Dimen.size132)
+//                    .clip(VoltechRadius.radius16)
+//            ) {
+//                BaseAsyncImage(
+//                    url = imageUrl,
+//                    modifier = Modifier
+//                        .matchParentSize()
+//                        .clip(VoltechRadius.radius16),
+//                )
+//            }
+//
+//            Spacer(modifier = Modifier.width(Dimen.size16))
+//
+//            Column(
+//                modifier = Modifier.fillMaxWidth()
+//            ) {
+//                Spacer(modifier = Modifier.height(Dimen.size4))
+//
+//                FeedItemContent(
+//                    title = title,
+//                    price = price,
+//                    condition = condition,
+//                    location = location
+//                )
+//            }
+//        }
+//
+//
+//    }
+//}
+//
+//@Composable
+//private fun FeedItemContent(
+//    title: String,
+//    price: String,
+//    condition: String,
+//    location: String,
+//) {
+//    Text(
+//        modifier = Modifier.fillMaxWidth(),
+//        text = title,
+//        color = VoltechColor.foregroundPrimary,
+//        style = VoltechTextStyle.body,
+//        maxLines = 3
+//    )
+//
+//    Spacer(modifier = Modifier.height(Dimen.size4))
+//
+//    Text(
+//        modifier = Modifier.fillMaxWidth(),
+//        text = condition,
+//        color = VoltechColor.foregroundSecondary,
+//        style = VoltechTextStyle.body,
+//        maxLines = 1
+//    )
+//
+//    Spacer(modifier = Modifier.height(Dimen.size8))
+//
+//    Text(
+//        modifier = Modifier.fillMaxWidth(),
+//        text = price,
+//        color = VoltechColor.foregroundPrimary,
+//        style = VoltechTextStyle.title2,
+//        maxLines = 1
+//    )
+//
+//    Spacer(modifier = Modifier.height(Dimen.size4))
+//
+//    Text(
+//        modifier = Modifier.fillMaxWidth(),
+//        text = location,
+//        color = VoltechColor.foregroundSecondary,
+//        style = VoltechTextStyle.body,
+//        maxLines = 1
+//    )
+//}
+//
+//@Composable
+//fun FeedItemPlaceholderCard() {
+//    Row(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//    ) {
+//        Row(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(Dimen.size8)
+//        ) {
+//            Box(
+//                modifier = Modifier
+//                    .height(Dimen.size132)
+//                    .width(Dimen.size132)
+//                    .clip(VoltechRadius.radius16)
+//            ) {
+//                BaseAsyncImage(
+//                    url = "",
+//                    modifier = Modifier
+//                        .matchParentSize()
+//                        .clip(VoltechRadius.radius16),
+//                )
+//            }
+//
+//            Spacer(modifier = Modifier.width(Dimen.size16))
+//
+//            Column(
+//                modifier = Modifier.fillMaxWidth()
+//            ) {
+//                Spacer(modifier = Modifier.height(Dimen.size4))
+//
+//                FeedItemPlaceholderContent()
+//            }
+//        }
+//
+//
+//    }
+//}
+//
+//
+//@Composable
+//private fun FeedItemPlaceholderContent() {
+//    Box(
+//        modifier = Modifier
+//            .fillMaxWidth(0.8f)
+//            .height(Dimen.size16)
+//            .background(VoltechColor.backgroundTertiary)
+//    )
+//
+//    Spacer(modifier = Modifier.height(Dimen.size4))
+//
+//    Box(
+//        modifier = Modifier
+//            .fillMaxWidth(0.6f)
+//            .height(Dimen.size16)
+//            .background(VoltechColor.backgroundTertiary)
+//    )
+//}
 
 
 

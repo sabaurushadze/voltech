@@ -1,6 +1,7 @@
 package com.tbc.search.presentation.mapper.feed
 
 import com.tbc.core.presentation.mapper.category.toStringRes
+import com.tbc.core.presentation.util.toPriceUsStyle
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.Location
@@ -39,10 +40,4 @@ fun Condition.toStringRes(): Int {
         Condition.USED -> R.string.condition_used
         Condition.PARTS -> R.string.condition_parts
     }
-}
-
-fun Double.toPriceUsStyle(): String {
-    val formatter = NumberFormat.getCurrencyInstance(Locale.US)
-    formatter.currency = Currency.getInstance("USD")
-    return formatter.format(this)
 }

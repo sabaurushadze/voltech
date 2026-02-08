@@ -9,4 +9,6 @@ android {
 dependencies {
     implementation(projects.feature.profile.domain)
     implementation(projects.core.domain)
+
+    implementation(projects.feature.search.domain)
 }

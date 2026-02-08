@@ -21,6 +21,12 @@ class FavoriteRepositoryImpl @Inject constructor(
         }.mapList { it.toDomain() }
     }
 
+    override suspend fun deleteFavoriteById(id: Int): Resource<Unit, DataError.Network> {
+        return apiResponseHandler.safeApiCall {
+            favoriteService.deleteFavorite(id)
+        }
+    }
+
     override suspend fun toggleFavorite(
         uid: String,
         itemId: Int,
