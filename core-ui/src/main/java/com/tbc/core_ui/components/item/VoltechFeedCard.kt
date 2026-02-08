@@ -1,4 +1,4 @@
-package com.tbc.search.presentation.components.feed.items
+package com.tbc.core_ui.components.item
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -6,45 +6,48 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.Icon
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
-import com.tbc.core.presentation.base.BaseAsyncImage
+import com.tbc.core_ui.components.checkbox.VoltechCheckBoxDefaults
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
-import com.tbc.core_ui.theme.VoltechTheme
-import com.tbc.resource.R
+import com.tbc.core_ui.components.image.BaseAsyncImage
 
 @Composable
 fun FeedItemCard(
     imageUrl: String,
     title: String,
-    condition: String,
     price: String,
-    location: String,
+    checked: Boolean = false,
+    editModeOn: Boolean = false,
+    condition: String? = null,
+    location: String? = null,
     onRootClick: () -> Unit = {},
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onRootClick() }
+            .clickable { onRootClick() },
+        verticalAlignment = Alignment.CenterVertically
     ) {
+        if (editModeOn) {
+            Checkbox(
+                modifier = Modifier.padding(horizontal = Dimen.size16),
+                checked = checked,
+                onCheckedChange = null,
+                colors = VoltechCheckBoxDefaults.primaryColors
+            )
+        }
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -88,8 +91,8 @@ fun FeedItemCard(
 private fun FeedItemContent(
     title: String,
     price: String,
-    condition: String,
-    location: String,
+    condition: String?,
+    location: String?,
 ) {
     Text(
         modifier = Modifier.fillMaxWidth(),
@@ -101,15 +104,18 @@ private fun FeedItemContent(
 
     Spacer(modifier = Modifier.height(Dimen.size4))
 
-    Text(
-        modifier = Modifier.fillMaxWidth(),
-        text = condition,
-        color = VoltechColor.foregroundSecondary,
-        style = VoltechTextStyle.body,
-        maxLines = 1
-    )
+    condition?.let {
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = condition,
+            color = VoltechColor.foregroundSecondary,
+            style = VoltechTextStyle.body,
+            maxLines = 1
+        )
 
-    Spacer(modifier = Modifier.height(Dimen.size8))
+        Spacer(modifier = Modifier.height(Dimen.size8))
+    }
+
 
     Text(
         modifier = Modifier.fillMaxWidth(),
@@ -121,13 +127,15 @@ private fun FeedItemContent(
 
     Spacer(modifier = Modifier.height(Dimen.size4))
 
-    Text(
-        modifier = Modifier.fillMaxWidth(),
-        text = location,
-        color = VoltechColor.foregroundSecondary,
-        style = VoltechTextStyle.body,
-        maxLines = 1
-    )
+    location?.let {
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = location,
+            color = VoltechColor.foregroundSecondary,
+            style = VoltechTextStyle.body,
+            maxLines = 1
+        )
+    }
 }
 
 @Composable
@@ -189,22 +197,3 @@ private fun FeedItemPlaceholderContent() {
             .background(VoltechColor.backgroundTertiary)
     )
 }
-
-
-
-//@Preview(showBackground = true)
-//@Composable
-//fun FeedItemWrapperPreview() {
-//    VoltechTheme() {
-//        FeedItemCard(
-//            isFavoriteIconSelected = true,
-//            onFavoriteIconClick = { },
-//            onRootClick = {},
-//            imageUrl = "",
-//            title = "RTX 4060 super duper magari umagresi video barati",
-//            condition = "New",
-//            price = "$1,780.00",
-//            location = "Located in Didi Dighomi"
-//        )
-//    }
-//}

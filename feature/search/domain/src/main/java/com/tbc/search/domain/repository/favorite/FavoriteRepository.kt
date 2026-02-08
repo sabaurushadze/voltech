@@ -11,4 +11,6 @@ interface FavoriteRepository {
         itemId: Int,
         favorites: List<Favorite>
     ) : Resource<Unit, DataError.Network>
+
+    suspend fun deleteFavoriteById(id: Int) : Resource<Unit, DataError.Network>
 }

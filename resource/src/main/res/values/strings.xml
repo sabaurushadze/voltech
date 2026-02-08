@@ -101,7 +101,6 @@
     <string name="remove_photo">Remove Photo</string>
 
     <string name="save">Save</string>
-    <string name="cancel">Cancel</string>
     <string name="delete_failed">Deletion failed</string>
     <string name="profile_picture_deleted">Profile picture deleted</string>
     <string name="profile_picture_updated_successfully">Profile picture updated successfully</string>
@@ -112,5 +111,13 @@
 
     <!--Home screen-->
     <string name="categories">Categories</string>
+    <string name="watchlist">Watchlist</string>
 
+    <!--Watchlist-->
+    <string name="delete">Delete</string>
+    <string name="selected_item">%1$d Selected</string>
+    <string name="select_all">Select All</string>
+    <string name="cancel">Cancel</string>
+    <string name="there_s_nothing_here">There is nothing here</string>
+    <string name="favorite_empty_state">Keep an eye on your favorite things by tapping the heart on any item.</string>
 </resources>
