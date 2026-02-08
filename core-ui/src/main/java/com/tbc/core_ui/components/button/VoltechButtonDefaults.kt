@@ -24,6 +24,7 @@ object VoltechButtonDefaults {
     val tertiaryColors: ButtonColors
         @Composable
         get() = ButtonDefaults.outlinedButtonColors(
+            disabledContainerColor = VoltechColor.backgroundTertiary,
         )
 
     val borderlessColors: ButtonColors

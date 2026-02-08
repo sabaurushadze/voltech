@@ -199,6 +199,7 @@ fun TertiaryButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
+    border: BorderStroke = BorderStroke(VoltechBorder.medium, VoltechColor.foregroundPrimary),
     onClick: () -> Unit
 ) {
     BaseOutlinedButton(
@@ -207,11 +208,11 @@ fun TertiaryButton(
         enabled = enabled,
         shape = VoltechRadius.radius24,
         onClick = onClick,
-        border = BorderStroke(VoltechBorder.medium, VoltechColor.foregroundPrimary)
+        border = border
     ) {
         Text(
             text = text,
-            color = VoltechColor.foregroundPrimary,
+            color = if (enabled) VoltechColor.foregroundPrimary else VoltechColor.foregroundDisabled,
             style = VoltechTextStyle.bodyBold
         )
     }
@@ -241,7 +242,7 @@ fun BorderlessButton(
 
 @Composable
 fun CircleIconButton(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     onClick : () -> Unit,
     size: Dp,
     iconColor: Color,
@@ -258,6 +259,35 @@ fun CircleIconButton(
     ) {
         Icon(
             painter = painterResource(R.drawable.ic_shopping_cart),
+            contentDescription = null,
+            modifier = Modifier.size(size),
+            tint = iconColor,
+        )
+    }
+}
+
+@Composable
+fun TertiaryCircleIconButton(
+    modifier: Modifier = Modifier,
+    onClick : () -> Unit,
+    @DrawableRes icon: Int,
+    enabled: Boolean = true,
+    size: Dp,
+    iconColor: Color,
+    backgroundColor: Color,
+){
+    IconButton(
+        onClick = onClick,
+        enabled = enabled,
+        modifier = modifier
+            .padding(Dimen.size6)
+            .clip(CircleShape),
+        colors = iconButtonColors(
+            containerColor = backgroundColor
+        )
+    ) {
+        Icon(
+            painter = painterResource(icon),
             contentDescription = null,
             modifier = Modifier.size(size),
             tint = iconColor,

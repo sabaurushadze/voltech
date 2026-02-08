@@ -1,7 +1,7 @@
 package com.tbc.profile.presentation.screen.edit_profile
 
 import android.net.Uri
-import com.tbc.profile.presentation.model.edit_profile.UiUser
+import com.tbc.core.presentation.model.UiUser
 
 data class EditProfileState(
     val user: UiUser? = null,

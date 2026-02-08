@@ -9,7 +9,8 @@ import javax.inject.Inject
 class GetItemsByIdsUseCase @Inject constructor(
     private val repository: FeedRepository
 ) {
-    suspend operator fun invoke(ids: List<Int>): Resource<List<FeedItem>, DataError.Network>{
+
+    suspend operator fun invoke(ids: List<Int>): Resource<List<FeedItem>, DataError.Network> {
         return repository.getItemsByIds(ids)
     }
 }

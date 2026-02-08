@@ -1,6 +1,6 @@
 package com.tbc.profile.presentation.screen.profile
 
-import com.tbc.profile.presentation.model.edit_profile.UiUser
+import com.tbc.core.presentation.model.UiUser
 
 
 data class ProfileState(

@@ -8,14 +8,17 @@ import com.tbc.profile.presentation.screen.edit_profile.EditProfileScreen
 import com.tbc.profile.presentation.screen.profile.ProfileScreen
 import com.tbc.profile.presentation.screen.recently_viewed.RecentlyViewedScreen
 import com.tbc.profile.presentation.screen.settings.SettingsScreen
+import com.tbc.profile.presentation.screen.watchlist.WatchlistScreen
 import kotlinx.serialization.Serializable
 
 fun NavGraphBuilder.profileNavGraph(
+    navigateToWatchlist: () -> Unit,
     navigateToSettings: () -> Unit,
     navigateBack: () -> Unit,
     navigateToEditProfile: () -> Unit,
     navigateToRecentlyViewed: () -> Unit,
     navigateToProfile: () -> Unit,
+    navigateToItemDetails: (Int) -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ) {
 
@@ -31,6 +34,7 @@ fun NavGraphBuilder.profileNavGraph(
         composable<ProfileScreenRoute> {
             ProfileScreen(
                 navigateToSettings = navigateToSettings,
+                navigateToWatchlist = navigateToWatchlist,
                 onSetupTopBar = onSetupTopBar,
                 navigateToUserDetails = navigateToEditProfile,
                 navigateToRecentlyViewed = navigateToRecentlyViewed,
@@ -54,6 +58,15 @@ fun NavGraphBuilder.profileNavGraph(
 
         }
 
+        composable<WatchlistScreenRoute> {
+            WatchlistScreen(
+                navigateBack = navigateBack,
+                onSetupTopBar = onSetupTopBar,
+                navigateToItemDetails = navigateToItemDetails
+            )
+
+        }
+
     }
 }
 
@@ -71,3 +84,6 @@ data object EditProfileScreenRoute
 
 @Serializable
 data object SettingsScreenRoute
+
+@Serializable
+data object WatchlistScreenRoute

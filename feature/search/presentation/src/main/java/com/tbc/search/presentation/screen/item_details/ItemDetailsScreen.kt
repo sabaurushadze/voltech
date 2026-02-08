@@ -44,6 +44,7 @@ import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
 import com.tbc.core_ui.components.button.SecondaryIconButton
+import com.tbc.core_ui.components.item.FeedItemCard
 import com.tbc.core_ui.components.topbar.TopBarAction
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
@@ -54,7 +55,6 @@ import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.core_ui.theme.VoltechTheme
 import com.tbc.resource.R
 import com.tbc.search.presentation.components.feed.items.FavoriteButton
-import com.tbc.search.presentation.components.feed.items.FeedItemCard
 import kotlinx.coroutines.flow.distinctUntilChanged
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -43,6 +43,7 @@ fun ProfileScreen(
     navigateToSettings: () -> Unit,
     navigateToUserDetails: () -> Unit,
     navigateToRecentlyViewed: () -> Unit,
+    navigateToWatchlist: () -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
@@ -64,6 +65,10 @@ fun ProfileScreen(
 
             ProfileSideEffect.NavigateToUserDetails -> {
                 navigateToUserDetails()
+            }
+
+            ProfileSideEffect.NavigateToWatchlist -> {
+                navigateToWatchlist()
             }
         }
     }
@@ -99,7 +104,7 @@ private fun ProfileContent(
             title = "Saved",
             subTitle = "Searches",
             icon = R.drawable.ic_outlined_heart,
-            onItemClick = { /* aq daamate favoritebis scrini (profile screenes nestedshive iqneba route) */ }
+            onItemClick = { onEvent(ProfileEvent.NavigateToWatchlist) }
         )
 
         IconTextSectionItem(
@@ -112,7 +117,7 @@ private fun ProfileContent(
         SectionHeader(title = "Account")
 
         TextSectionItem(
-            text = "Settings",
+            text = stringResource(R.string.settings),
             onItemClick = { onEvent(ProfileEvent.NavigateToSettings) }
         )
     }
