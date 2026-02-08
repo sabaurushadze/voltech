@@ -7,6 +7,8 @@ data class ItemDetailsState(
     val isLoading: Boolean = false,
     val itemDetails: UiFeedItem? = null,
     val uid: String = "",
+    val itemId: Int = 0,
+    val recentlyItemsId: List<Int> = emptyList(),
     val favoriteItem: List<UiFavorite> = emptyList(),
     val selectedImage: Int = 0
 )

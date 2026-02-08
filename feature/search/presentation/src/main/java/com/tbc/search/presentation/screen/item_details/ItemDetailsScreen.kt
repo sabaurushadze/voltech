@@ -73,10 +73,15 @@ fun ItemDetailsScreen(
 
     LaunchedEffect(Unit) {
         viewModel.onEvent(ItemDetailsEvent.GetItemDetails(id))
+        viewModel.onEvent(ItemDetailsEvent.GetItemId(id))
     }
 
     LaunchedEffect(Unit) {
         viewModel.onEvent(ItemDetailsEvent.GetUserUid)
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.onEvent(ItemDetailsEvent.AddRecentlyItem)
     }
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->

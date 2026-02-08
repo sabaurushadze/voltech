@@ -1,4 +1,4 @@
-package com.tbc.home.presentation.screen
+package com.tbc.home.presentation.screen.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,10 +14,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,6 +33,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -43,7 +47,8 @@ import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
-import com.tbc.home.presentation.screen.model.UiCategoryItem
+import com.tbc.home.presentation.model.category.UiCategoryItem
+import com.tbc.home.presentation.model.recently_viewed.UiRecentlyItem
 import com.tbc.resource.R
 
 @Composable
@@ -52,6 +57,7 @@ fun HomeScreen(
     onSetupTopBar: (TopBarState) -> Unit,
     navigateToSearch: () -> Unit,
     navigateToFeed: (String) -> Unit,
+    navigateToItemDetails: (Int) -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val onEvent = viewModel::onEvent
@@ -61,13 +67,22 @@ fun HomeScreen(
         onEvent(HomeEvent.GetCategories)
     }
 
-    HomeContent(state, navigateToFeed)
+    LaunchedEffect(Unit) {
+        onEvent(HomeEvent.GetRecentlyViewedItems)
+    }
+
+    HomeContent(
+        state = state,
+        navigateToFeed = navigateToFeed,
+        navigateToItemDetails = navigateToItemDetails,
+    )
 }
 
 @Composable
 private fun HomeContent(
     state: HomeState,
     navigateToFeed: (String) -> Unit,
+    navigateToItemDetails: (Int) -> Unit,
 ){
 
     LazyColumn(
@@ -104,8 +119,75 @@ private fun HomeContent(
                         )
                     }
                 }
+
+                Spacer(Modifier.height(Dimen.size24))
+
+                Text(
+                    modifier = Modifier.padding(start = Dimen.size16),
+                    text = stringResource(R.string.your_recently_viewed),
+                    style = VoltechTextStyle.title2,
+                    color = VoltechColor.foregroundPrimary
+                )
+
+                Spacer(Modifier.height(Dimen.size32))
+
+                LazyRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentPadding = PaddingValues(horizontal = Dimen.size16),
+                    horizontalArrangement = Arrangement.spacedBy(Dimen.size12)
+                ) {
+                    items(state.recentlyViewedItems){ item ->
+                        RecentlyViewedItem(
+                            recentlyViewedItems = item,
+                            navigateToItemDetails = navigateToItemDetails
+                        )
+                    }
+                }
             }
         }
+    }
+}
+
+@Composable
+private fun RecentlyViewedItem(
+    recentlyViewedItems: UiRecentlyItem,
+    navigateToItemDetails: (Int) -> Unit,
+) = with(recentlyViewedItems){
+    Column(
+        modifier = Modifier
+            .width(Dimen.size150)
+            .clickable{ navigateToItemDetails(id) }
+    ) {
+        Box(
+            modifier = Modifier
+                .size(Dimen.size150)
+                .clip(VoltechRadius.radius24)
+                .background(VoltechFixedColor.lightGray)
+        ){
+            BaseAsyncImage(
+                url = images.first(),
+            )
+        }
+
+        Spacer(Modifier.height(Dimen.size24))
+
+        Text(
+            modifier = Modifier
+                .fillMaxWidth(),
+            text = title,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+            style = VoltechTextStyle.body,
+            color = VoltechColor.foregroundPrimary
+        )
+
+        Spacer(Modifier.height(Dimen.size4))
+
+        Text(
+            text = price,
+            style = VoltechTextStyle.title3,
+            color = VoltechColor.foregroundPrimary
+        )
     }
 }
 
@@ -193,6 +275,7 @@ private fun SetupTopBar(
 private fun HomeContentPreview(){
     HomeContent(
         state = HomeState(),
-        navigateToFeed = {}
+        navigateToFeed = {},
+        navigateToItemDetails = {},
     )
 }

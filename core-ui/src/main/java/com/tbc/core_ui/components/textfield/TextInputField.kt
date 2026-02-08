@@ -85,6 +85,7 @@ fun OutlinedTextInputField(
                 )
             }
         },
+        keyboardActions = keyboardActions
     )
 }
 

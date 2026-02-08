@@ -1,6 +1,5 @@
 package com.tbc.profile.presentation.screen.profile
 
-import android.util.Log.d
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -43,6 +42,7 @@ fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel(),
     navigateToSettings: () -> Unit,
     navigateToUserDetails: () -> Unit,
+    navigateToRecentlyViewed: () -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
@@ -71,6 +71,7 @@ fun ProfileScreen(
     ProfileContent(
         state = state,
         onEvent = viewModel::onEvent,
+        navigateToRecentlyViewed = navigateToRecentlyViewed
     )
 
 }
@@ -79,6 +80,7 @@ fun ProfileScreen(
 private fun ProfileContent(
     state: ProfileState,
     onEvent: (ProfileEvent) -> Unit,
+    navigateToRecentlyViewed: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -104,7 +106,7 @@ private fun ProfileContent(
             title = "Recently viewed",
             subTitle = "Listings you recently viewed",
             icon = R.drawable.ic_history,
-            onItemClick = { /* aq daamate recently viewed items scrini (profile screenes nestedshive iqneba route) */ }
+            onItemClick = { navigateToRecentlyViewed() }
         )
 
         SectionHeader(title = "Account")
