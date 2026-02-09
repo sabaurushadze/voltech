@@ -35,13 +35,13 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.core.presentation.base.BaseAsyncImage
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core.presentation.util.rememberCameraLauncher
 import com.tbc.core.presentation.util.rememberGalleryLauncher
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
+import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.textfield.TextInputField
 import com.tbc.core_ui.components.topbar.TopBarAction
 import com.tbc.core_ui.components.topbar.TopBarState

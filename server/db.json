@@ -7,8 +7,8 @@
       "condition": "USED",
       "price": 3000,
       "images": [
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/3YFv9Jx6/s-l1600.png",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
       ],
       "quantity": 17,
@@ -1685,7 +1685,7 @@
     },
     {
       "id": 100,
-      "title": "CASE_COOLER Item 100",
+      "title": "CASE_COOLER Item 100 CASE_COOLER Item 100 CASE_COOLER Item 100",
       "category": "CASE_COOLER",
       "condition": "USED",
       "price": 335.78,
@@ -1763,5 +1763,38 @@
       "image": "https://i.ibb.co/8Dqx7nFF/Purple-Custom-Extension-Sleeve-Cable.png"
     }
   ],
-  "favorites": []
+  "favorites": [
+    {
+      "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
+      "itemId": 1,
+      "id": 1
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 18,
+      "id": 2
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 1,
+      "id": 3
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 2,
+      "id": 4
+    }
+  ],
+  "recently": [
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 1,
+      "id": 2
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 75,
+      "id": 5
+    }
+  ]
 }

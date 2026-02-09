@@ -1,7 +1,7 @@
 package com.tbc.profile.presentation.screen.profile
 
 import androidx.lifecycle.viewModelScope
-import com.tbc.core.domain.usecase.GetCurrentUserUseCase
+import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.core.presentation.mapper.user.toPresentation
 import dagger.hilt.android.lifecycle.HiltViewModel

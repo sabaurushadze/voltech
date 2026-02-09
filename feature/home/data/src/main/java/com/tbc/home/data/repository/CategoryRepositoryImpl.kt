@@ -5,7 +5,7 @@ import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
 import com.tbc.core.domain.util.mapList
 import com.tbc.home.data.remote.mapper.toDomain
-import com.tbc.home.data.remote.service.CategoryService
+import com.tbc.home.data.remote.service.category.CategoryService
 import com.tbc.home.domain.model.CategoryItem
 import com.tbc.home.domain.repository.CategoryRepository
 import javax.inject.Inject

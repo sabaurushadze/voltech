@@ -1,9 +1,8 @@
-package com.tbc.home.data.remote.service
+package com.tbc.home.data.remote.service.category
 
 import com.tbc.home.data.remote.dto.CategoryItemResponseDto
 import retrofit2.Response
 import retrofit2.http.GET
-
 
 interface CategoryService {
     @GET(CATEGORIES)

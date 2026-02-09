@@ -6,6 +6,7 @@ import androidx.navigation.navigation
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.profile.presentation.screen.edit_profile.EditProfileScreen
 import com.tbc.profile.presentation.screen.profile.ProfileScreen
+import com.tbc.profile.presentation.screen.recently_viewed.RecentlyViewedScreen
 import com.tbc.profile.presentation.screen.settings.SettingsScreen
 import com.tbc.profile.presentation.screen.watchlist.WatchlistScreen
 import kotlinx.serialization.Serializable
@@ -15,12 +16,21 @@ fun NavGraphBuilder.profileNavGraph(
     navigateToSettings: () -> Unit,
     navigateBack: () -> Unit,
     navigateToEditProfile: () -> Unit,
+    navigateToRecentlyViewed: () -> Unit,
+    navigateToProfile: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
-
-    ) {
+) {
 
     navigation<ProfileNavGraphRoute>(startDestination = ProfileScreenRoute) {
+
+        composable<RecentlyViewedScreenRoute>{
+            RecentlyViewedScreen(
+                onSetupTopBar = onSetupTopBar,
+                navigateToProfile = navigateToProfile,
+                navigateToItemDetails = navigateToItemDetails
+            )
+        }
 
         composable<ProfileScreenRoute> {
             ProfileScreen(
@@ -28,6 +38,7 @@ fun NavGraphBuilder.profileNavGraph(
                 navigateToWatchlist = navigateToWatchlist,
                 onSetupTopBar = onSetupTopBar,
                 navigateToUserDetails = navigateToEditProfile,
+                navigateToRecentlyViewed = navigateToRecentlyViewed,
             )
 
         }
@@ -59,6 +70,9 @@ fun NavGraphBuilder.profileNavGraph(
 
     }
 }
+
+@Serializable
+data object RecentlyViewedScreenRoute
 
 @Serializable
 data object ProfileNavGraphRoute
