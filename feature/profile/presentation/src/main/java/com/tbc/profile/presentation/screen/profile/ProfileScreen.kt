@@ -27,9 +27,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.core.presentation.base.BaseAsyncImage
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
+import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
@@ -42,6 +42,7 @@ fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel(),
     navigateToSettings: () -> Unit,
     navigateToUserDetails: () -> Unit,
+    navigateToRecentlyViewed: () -> Unit,
     navigateToWatchlist: () -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ) {
@@ -75,6 +76,7 @@ fun ProfileScreen(
     ProfileContent(
         state = state,
         onEvent = viewModel::onEvent,
+        navigateToRecentlyViewed = navigateToRecentlyViewed
     )
 
 }
@@ -83,6 +85,7 @@ fun ProfileScreen(
 private fun ProfileContent(
     state: ProfileState,
     onEvent: (ProfileEvent) -> Unit,
+    navigateToRecentlyViewed: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -108,7 +111,7 @@ private fun ProfileContent(
             title = "Recently viewed",
             subTitle = "Listings you recently viewed",
             icon = R.drawable.ic_history,
-            onItemClick = { /* aq daamate recently viewed items scrini (profile screenes nestedshive iqneba route) */ }
+            onItemClick = { navigateToRecentlyViewed() }
         )
 
         SectionHeader(title = "Account")

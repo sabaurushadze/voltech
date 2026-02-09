@@ -1,6 +1,6 @@
 package com.tbc.home.data.remote.di
 
-import com.tbc.home.data.remote.service.CategoryService
+import com.tbc.home.data.remote.service.category.CategoryService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

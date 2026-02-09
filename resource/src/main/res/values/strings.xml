@@ -111,6 +111,10 @@
 
     <!--Home screen-->
     <string name="categories">Categories</string>
+    <string name="your_recently_viewed">Your recently viewed items</string>
+
+    <!--Recently viewed screen-->
+    <string name="recently_viewed">Recently viewed</string>
     <string name="watchlist">Watchlist</string>
 
     <!--Watchlist-->
@@ -120,4 +124,5 @@
     <string name="cancel">Cancel</string>
     <string name="there_s_nothing_here">There is nothing here</string>
     <string name="favorite_empty_state">Keep an eye on your favorite things by tapping the heart on any item.</string>
+    <string name="recently_empty_state">Once you view some items, they\'ll show up here</string>
 </resources>

@@ -112,8 +112,10 @@ private fun SearchContent(
             keyboardType = KeyboardType.Email,
             startIcon = ImageVector.vectorResource(R.drawable.ic_search),
             keyboardActions = KeyboardActions {
-                onEvent(SearchEvent.NavigateToFeedWithQuery(state.query))
-                onEvent(SearchEvent.SaveRecentSearch(state.query))
+                if (state.query.isNotEmpty()){
+                    onEvent(SearchEvent.SaveRecentSearch(state.query))
+                    onEvent(SearchEvent.NavigateToFeedWithQuery(state.query))
+                }
             }
         )
 

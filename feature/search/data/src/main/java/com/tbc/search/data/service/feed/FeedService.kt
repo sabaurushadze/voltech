@@ -26,7 +26,7 @@ interface FeedService {
         @Path("id") id: Int,
     ): Response<FeedItemResponseDto>
 
-    @GET("items")
+    @GET(ITEMS)
     suspend fun getItemsByIds(
         @Query("id") ids: List<Int>
     ): Response<List<FeedItemResponseDto>>

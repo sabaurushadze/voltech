@@ -1,8 +1,8 @@
-package com.tbc.home.presentation.screen.mapper
+package com.tbc.home.presentation.mapper.category
 
 import com.tbc.core.presentation.mapper.category.toStringRes
 import com.tbc.home.domain.model.CategoryItem
-import com.tbc.home.presentation.screen.model.UiCategoryItem
+import com.tbc.home.presentation.model.category.UiCategoryItem
 
 fun CategoryItem.toPresentation() =
     UiCategoryItem(

@@ -1,8 +1,7 @@
-package com.tbc.home.presentation.screen.model
+package com.tbc.home.presentation.model.category
 
 import androidx.annotation.StringRes
 import com.tbc.core.domain.model.category.Category
-
 
 data class UiCategoryItem (
     val id: Int,

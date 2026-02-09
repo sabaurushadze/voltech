@@ -1,6 +1,6 @@
 package com.tbc.core.data.remote.di
 
-import com.tbc.core.data.remote.repository.UserRepositoryImpl
+import com.tbc.core.data.remote.repository.user.UserRepositoryImpl
 import com.tbc.core.domain.repository.user.UserRepository
 import dagger.Binds
 import dagger.Module
