@@ -11,10 +11,11 @@ import com.tbc.auth.presentation.navigation.authNavGraph
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.home.presentation.navigation.homeNavGraph
 import com.tbc.profile.presentation.navigation.EditProfileScreenRoute
+import com.tbc.profile.presentation.navigation.ProfileScreenRoute
+import com.tbc.profile.presentation.navigation.RecentlyViewedScreenRoute
 import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.WatchlistScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
-import com.tbc.profile.presentation.screen.recently_viewed.RecentlyViewedState
 import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.ItemDetailsRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
@@ -95,7 +96,6 @@ fun AppNavHost(
             navigateToEditProfile = { navController.navigate(EditProfileScreenRoute) },
             navigateToRecentlyViewed = { navController.navigate(RecentlyViewedScreenRoute) },
             navigateToProfile = { navController.navigate(ProfileScreenRoute) },
-            navigateToEditProfile = { navController.navigate(EditProfileScreenRoute) },
             navigateToItemDetails = { id ->
                 navController.navigate(ItemDetailsRoute(id))
             }

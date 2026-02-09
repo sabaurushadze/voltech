@@ -27,7 +27,8 @@ fun NavGraphBuilder.profileNavGraph(
         composable<RecentlyViewedScreenRoute>{
             RecentlyViewedScreen(
                 onSetupTopBar = onSetupTopBar,
-                navigateToProfile = navigateToProfile
+                navigateToProfile = navigateToProfile,
+                navigateToItemDetails = navigateToItemDetails
             )
         }
 

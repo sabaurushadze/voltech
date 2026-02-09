@@ -37,9 +37,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.tbc.core.presentation.base.BaseAsyncImage
 import com.tbc.core.presentation.extension.capitalizeFirst
 import com.tbc.core_ui.components.button.CircleIconButton
+import com.tbc.core_ui.components.image.BaseAsyncImage
+import com.tbc.core_ui.components.loading.LoadingScreen
 import com.tbc.core_ui.components.textfield.TextInputFieldDummy
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
@@ -71,11 +72,15 @@ fun HomeScreen(
         onEvent(HomeEvent.GetRecentlyViewedItems)
     }
 
-    HomeContent(
-        state = state,
-        navigateToFeed = navigateToFeed,
-        navigateToItemDetails = navigateToItemDetails,
-    )
+    if (state.recentlyViewedItems.isEmpty() && state.categoryList.isEmpty()) {
+        LoadingScreen()
+    }else{
+        HomeContent(
+            state = state,
+            navigateToFeed = navigateToFeed,
+            navigateToItemDetails = navigateToItemDetails,
+        )
+    }
 }
 
 @Composable

@@ -22,6 +22,7 @@ import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.core_ui.components.image.BaseAsyncImage
+import com.tbc.core_ui.theme.VoltechFixedColor
 
 @Composable
 fun FeedItemCard(
@@ -58,6 +59,7 @@ fun FeedItemCard(
                     .height(Dimen.size132)
                     .width(Dimen.size132)
                     .clip(VoltechRadius.radius16)
+                    .background(VoltechFixedColor.lightGray)
             ) {
                 BaseAsyncImage(
                     url = imageUrl,
