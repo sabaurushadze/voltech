@@ -1,6 +1,5 @@
 package com.tbc.auth.data.repository.register
 
-import android.util.Log.d
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.tbc.auth.data.mapper.mapExceptionToSignInError

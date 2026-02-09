@@ -3,6 +3,10 @@ package com.tbc.core.domain.util
 interface Error
 interface Retryable
 
+sealed interface SessionError : Error {
+    data object Unauthenticated : SessionError
+}
+
 sealed interface DataError : Error {
     enum class Network : DataError {
         NO_CONNECTION, TIMEOUT, BAD_REQUEST, UNAUTHORIZED, FORBIDDEN, NOT_FOUND, INTERNAL_SERVER_ERROR, SERVICE_UNAVAILABLE, UNKNOWN

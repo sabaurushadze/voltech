@@ -9,4 +9,5 @@ android {
 dependencies {
     implementation(projects.feature.auth.domain)
     implementation(projects.core.domain)
+    implementation(projects.feature.profile.domain)
 }

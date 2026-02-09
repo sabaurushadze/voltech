@@ -80,6 +80,7 @@ fun RegisterContent(
     onBackClick: () -> Unit,
 ) {
     val emailError = if (state.showEmailError) stringResource(R.string.enter_valid_email) else null
+    val usernameError = if (state.showUsernameError) stringResource(R.string.error_username_length) else null
     val passwordError =
         if (state.showPasswordError) stringResource(R.string.password_format_error) else null
 
@@ -156,12 +157,25 @@ fun RegisterContent(
                 label = stringResource(R.string.password),
                 isPasswordVisible = state.isPasswordVisible,
                 errorText = passwordError,
-                imeAction = ImeAction.Done,
+                imeAction = ImeAction.Next,
                 onTextChanged = { onEvent(RegisterEvent.PasswordChanged(it)) },
                 onToggleTextVisibility = { onEvent(RegisterEvent.PasswordVisibilityChanged) }
             )
 
             Spacer(modifier = Modifier.height(Dimen.size24))
+
+            OutlinedTextInputField(
+                value = state.username,
+                onTextChanged = { onEvent(RegisterEvent.UsernameChanged(it)) },
+                modifier = Modifier.fillMaxWidth(),
+                label = stringResource(R.string.username),
+                enabled = !state.isLoading,
+                errorText = usernameError,
+                imeAction = ImeAction.Done,
+                keyboardType = KeyboardType.Text,
+            )
+
+            Spacer(modifier = Modifier.height(Dimen.size16))
 
             PrimaryButton(
                 modifier = Modifier
@@ -187,7 +201,8 @@ fun SimpleComposablePreview() {
             state = RegisterState(
                 isLoading = true,
                 email = "123",
-                password = "123"
+                password = "123",
+                username = "Vaniko"
             ),
             onEvent = {},
             onBackClick = {}
