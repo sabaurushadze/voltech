@@ -7,7 +7,7 @@ data class MainState(
     val topBarState: TopBarState = TopBarState(),
     val themeOption: VoltechThemeOption = VoltechThemeOption.SYSTEM,
     val isAuthorized: Boolean? = null,
-){
-    val isLoading:Boolean
+) {
+    val isLoading: Boolean
         get() = isAuthorized == null
 }

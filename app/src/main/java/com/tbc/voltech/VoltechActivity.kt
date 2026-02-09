@@ -10,8 +10,10 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.toArgb
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
+import com.tbc.core_ui.theme.VoltechNeutral
 import com.tbc.core_ui.theme.VoltechTheme
 import com.tbc.home.presentation.navigation.HomeScreenRoute
 import com.tbc.profile.domain.model.settings.VoltechThemeOption
@@ -44,8 +46,8 @@ class VoltechActivity : ComponentActivity() {
                     darkScrim = Color.TRANSPARENT,
                 ) { showDarkTheme },
                 navigationBarStyle = SystemBarStyle.auto(
-                    lightScrim = lightScrim,
-                    darkScrim = darkScrim,
+                    lightScrim = VoltechNeutral.N100.toArgb(),
+                    darkScrim = VoltechNeutral.N800.toArgb(),
                 ) { showDarkTheme },
             )
 
@@ -63,12 +65,8 @@ class VoltechActivity : ComponentActivity() {
                         mainState = state,
                         onEvent = viewModel::onEvent
                     )
-
                 }
             }
         }
     }
 }
-
-private val lightScrim = Color.argb(0xe6, 0xFF, 0xFF, 0xFF)
-private val darkScrim = Color.argb(0x80, 0x1b, 0x1b, 0x1b)

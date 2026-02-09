@@ -17,7 +17,6 @@ fun NavGraphBuilder.profileNavGraph(
     navigateToEditProfile: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
-
     ) {
 
     navigation<ProfileNavGraphRoute>(startDestination = ProfileScreenRoute) {
@@ -43,7 +42,7 @@ fun NavGraphBuilder.profileNavGraph(
         composable<SettingsScreenRoute> {
             SettingsScreen(
                 navigateBack = navigateBack,
-                onSetupTopBar = onSetupTopBar
+                onSetupTopBar = onSetupTopBar,
             )
 
         }

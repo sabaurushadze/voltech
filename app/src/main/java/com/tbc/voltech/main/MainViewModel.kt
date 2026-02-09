@@ -14,7 +14,7 @@ class MainViewModel @Inject constructor(
     private val getSavedThemeUseCase: GetSavedThemeUseCase,
     private val isUserAuthenticatedUseCase: IsUserAuthenticatedUseCase,
     private val getUserAuthStateUseCase: GetUserAuthStateUseCase
-) : BaseViewModel<MainState, MainSideEffect, MainEvent>(MainState()) {
+) : BaseViewModel<MainState, Unit, MainEvent>(MainState()) {
 
     init {
         observeTheme()
