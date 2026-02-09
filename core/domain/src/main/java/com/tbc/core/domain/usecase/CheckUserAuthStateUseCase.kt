@@ -1,5 +1,6 @@
 package com.tbc.core.domain.usecase
 
+import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.Resource
 import com.tbc.core.domain.util.SessionError
 import com.tbc.core.domain.util.asFailure
