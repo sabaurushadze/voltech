@@ -1,6 +1,5 @@
 package com.tbc.profile.presentation.screen.recently_viewed
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.recently_viewed.DeleteRecentlyViewedByIdUseCase
 import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyUseCase
@@ -83,11 +82,9 @@ class RecentlyViewedViewModel @Inject constructor(
 
     private fun getRecentlyViewedItems() = viewModelScope.launch {
         val user = state.value.user ?: return@launch
-        d("CurUser", "${user.uid}")
 
         getRecentlyUseCase(user.uid)
             .onSuccess { recently ->
-                d("recently", "Suce $recently")
 
                 if (recently.isEmpty()) {
                     updateState { copy(recentlyViewedItems = emptyList(), isLoading = false) }
@@ -99,8 +96,9 @@ class RecentlyViewedViewModel @Inject constructor(
                 getItemsByIdsUseCase(itemIds)
                     .onSuccess { items ->
 
-                        val uiRecently = items.map { item ->
-                            val recently = recently.first { it.itemId == item.id }
+                        val uiRecently = itemIds.reversed().mapNotNull { id ->
+                            val item = items.firstOrNull { it.id == id } ?: return@mapNotNull null
+                            val recently = recently.first { it.itemId == id }
 
                             item.toPresentation(
                                 favoriteId = recently.id
@@ -116,7 +114,6 @@ class RecentlyViewedViewModel @Inject constructor(
             }
             .onFailure {
                 updateState { copy(isLoading = false) }
-                d("recently", "error $it")
             }
     }
 

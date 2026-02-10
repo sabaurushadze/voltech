@@ -16,13 +16,18 @@ class RecentlyRepositoryImpl @Inject constructor(
     private val recentlyService: RecentlyService,
     private val apiResponseHandler: ApiResponseHandler
 ): RecentlyRepository{
+
     override suspend fun getRecentlyViewed(uid: String): Resource<List<Recently>, DataError.Network> {
         return apiResponseHandler.safeApiCall {
             recentlyService.getRecentlyViewed(uid)
         }.mapList { it.toDomain() }
     }
 
-
+    override suspend fun getRecentlyViewedByQuantity(uid: String): Resource<List<Recently>, DataError.Network> {
+        return apiResponseHandler.safeApiCall {
+            recentlyService.getRecentlyViewedByQuantity(uid)
+        }.mapList { it.toDomain() }
+    }
 
     override suspend fun addRecentlyViewed(recently: RecentlyRequest): Resource<Unit, DataError.Network> {
         return apiResponseHandler.safeApiCall {

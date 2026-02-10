@@ -1,7 +1,7 @@
 package com.tbc.home.presentation.screen.home
 
 import androidx.lifecycle.viewModelScope
-import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyUseCase
+import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyViewedByQuantityUseCase
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getCategoriesUseCase: GetCategoriesUseCase,
-    private val getRecentlyUseCase: GetRecentlyUseCase,
+    private val getRecentlyViewedByQuantityUseCase: GetRecentlyViewedByQuantityUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val getItemsByIdsUseCase: GetItemsByIdsUseCase,
 ) : BaseViewModel<HomeState, HomeSideEffect, HomeEvent>(HomeState()){
@@ -42,7 +42,7 @@ class HomeViewModel @Inject constructor(
         val user = getCurrentUserUseCase()
         user?.let { user ->
             viewModelScope.launch {
-                getRecentlyUseCase(user.uid)
+                getRecentlyViewedByQuantityUseCase(user.uid)
                     .onSuccess { recentlyViewedDomain ->
                         updateState { copy(recentlyItemsId = recentlyViewedDomain.map { it.itemId }) }
                         getRecentlyViewedByIds(state.value.recentlyItemsId)

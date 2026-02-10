@@ -44,7 +44,7 @@ import kotlin.Unit
 @Composable
 fun RecentlyViewedScreen(
     viewModel: RecentlyViewedViewModel = hiltViewModel(),
-    navigateToProfile: () -> Unit,
+    navigateToBack: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ){
@@ -64,7 +64,7 @@ fun RecentlyViewedScreen(
             }
 
             RecentlyViewedSideEffect.NavigateBackToProfile -> {
-                navigateToProfile()
+                navigateToBack()
             }
 
             is RecentlyViewedSideEffect.NavigateToItemDetails -> navigateToItemDetails(sideEffect.itemId)
@@ -89,7 +89,7 @@ fun RecentlyViewedScreen(
 
     SetupTopBar(
         onSetupTopBar = onSetupTopBar,
-        navigateToProfile = navigateToProfile
+        navigateToBack = navigateToBack
     )
 
 
@@ -238,7 +238,7 @@ private fun ItemDeletionSection(
 @Composable
 private fun SetupTopBar(
     onSetupTopBar: (TopBarState) -> Unit,
-    navigateToProfile: () -> Unit,
+    navigateToBack: () -> Unit,
 ) {
     val title = stringResource(id = R.string.recently_viewed)
 
@@ -248,7 +248,7 @@ private fun SetupTopBar(
                 title = title,
                 navigationIcon = TopBarAction(
                     icon = R.drawable.ic_arrow_back,
-                    onClick = { navigateToProfile() }
+                    onClick = { navigateToBack() }
                 )
             )
         )

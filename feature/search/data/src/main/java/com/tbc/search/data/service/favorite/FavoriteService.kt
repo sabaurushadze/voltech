@@ -13,7 +13,9 @@ import retrofit2.http.Query
 interface FavoriteService {
     @GET(FAVORITES)
     suspend fun getFavoritesByUser(
-        @Query("uid") uid: String,
+        @Query(UID) uid: String,
+        @Query(SORT) sort: String = VIEWED_AT,
+        @Query(ORDER) order: String = DESC,
     ): Response<List<FavoriteResponseDto>>
 
     @POST(FAVORITES)
@@ -28,5 +30,10 @@ interface FavoriteService {
 
     companion object {
         private const val FAVORITES = "favorites"
+        private const val UID = "uid"
+        private const val SORT = "_sort"
+        private const val ORDER = "_order"
+        private const val VIEWED_AT = "favoriteAt"
+        private const val DESC = "desc"
     }
 }

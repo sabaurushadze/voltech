@@ -11,6 +11,7 @@ fun NavGraphBuilder.homeNavGraph(
     onSetupTopBar: (TopBarState) -> Unit,
     navigateToFeed: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
+    navigateToRecentlyViewed: () -> Unit
 ) {
 
     composable<HomeScreenRoute> {
@@ -18,7 +19,8 @@ fun NavGraphBuilder.homeNavGraph(
             onSetupTopBar = onSetupTopBar,
             navigateToSearch = navigateToSearch,
             navigateToFeed = navigateToFeed,
-            navigateToItemDetails = navigateToItemDetails
+            navigateToItemDetails = navigateToItemDetails,
+            navigateToRecentlyViewed = navigateToRecentlyViewed,
         )
     }
 

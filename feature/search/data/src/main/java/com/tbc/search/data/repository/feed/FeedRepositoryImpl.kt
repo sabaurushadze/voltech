@@ -7,7 +7,6 @@ import com.tbc.core.data.remote.util.ApiResponseHandler
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
 import com.tbc.core.domain.util.map
-import com.tbc.core.domain.util.mapList
 import com.tbc.search.data.mapper.feed.toDomain
 import com.tbc.search.data.paging.feed.FeedPagingSource
 import com.tbc.search.data.service.feed.FeedService
@@ -42,6 +41,10 @@ class FeedRepositoryImpl @Inject constructor(
     override suspend fun getItemsByIds(ids: List<Int>): Resource<List<FeedItem>, DataError.Network> {
         return responseHandler.safeApiCall {
             feedService.getItemsByIds(ids)
-        }.mapList { it.toDomain() }
+        }.map { dto ->
+            val domainItems = dto.map { it.toDomain() }
+            val itemsMap = domainItems.associateBy { it.id }
+            ids.mapNotNull { id -> itemsMap[id] }
+        }
     }
 }
