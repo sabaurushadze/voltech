@@ -6,4 +6,5 @@ import kotlinx.serialization.Serializable
 data class RecentlyRequestDto (
     val uid: String,
     val itemId: Int,
+    val viewedAt: String
 )

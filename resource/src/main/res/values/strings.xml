@@ -112,6 +112,7 @@
     <!--Home screen-->
     <string name="categories">Categories</string>
     <string name="your_recently_viewed">Your recently viewed items</string>
+    <string name="see_all">See all</string>
 
     <!--Recently viewed screen-->
     <string name="recently_viewed">Recently viewed</string>

@@ -6,5 +6,6 @@ import com.tbc.search.presentation.model.recently_viewed.UiRecentlyRequest
 fun UiRecentlyRequest.toDomain() =
     RecentlyRequest(
         uid = uid,
-        itemId = itemId
+        itemId = itemId,
+        viewedAt = viewedAt,
     )

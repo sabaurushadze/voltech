@@ -34,10 +34,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.extension.capitalizeFirst
+import com.tbc.core_ui.components.button.BorderlessIconButton
 import com.tbc.core_ui.components.button.CircleIconButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.loading.LoadingScreen
@@ -59,6 +59,7 @@ fun HomeScreen(
     navigateToSearch: () -> Unit,
     navigateToFeed: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
+    navigateToRecentlyViewed: () -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val onEvent = viewModel::onEvent
@@ -79,6 +80,7 @@ fun HomeScreen(
             state = state,
             navigateToFeed = navigateToFeed,
             navigateToItemDetails = navigateToItemDetails,
+            navigateToRecentlyViewed = navigateToRecentlyViewed,
         )
     }
 }
@@ -88,6 +90,7 @@ private fun HomeContent(
     state: HomeState,
     navigateToFeed: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
+    navigateToRecentlyViewed: () -> Unit
 ){
 
     LazyColumn(
@@ -127,12 +130,9 @@ private fun HomeContent(
 
                 Spacer(Modifier.height(Dimen.size24))
 
-                Text(
-                    modifier = Modifier.padding(start = Dimen.size16),
-                    text = stringResource(R.string.your_recently_viewed),
-                    style = VoltechTextStyle.title2,
-                    color = VoltechColor.foregroundPrimary
-                )
+                if (state.recentlyViewedItems.isNotEmpty()){
+                    RecentlyViewedHeader(navigateToRecentlyViewed)
+                }
 
                 Spacer(Modifier.height(Dimen.size32))
 
@@ -150,6 +150,30 @@ private fun HomeContent(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun RecentlyViewedHeader(
+    navigateToRecentlyViewed: () -> Unit
+){
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            modifier = Modifier.padding(start = Dimen.size16),
+            text = stringResource(R.string.your_recently_viewed),
+            style = VoltechTextStyle.title2,
+            color = VoltechColor.foregroundPrimary
+        )
+
+        BorderlessIconButton(
+            text = stringResource(R.string.see_all),
+            icon = R.drawable.ic_arrow_right,
+            onClick = { navigateToRecentlyViewed() }
+        )
     }
 }
 
@@ -275,12 +299,12 @@ private fun SetupTopBar(
     }
 }
 
-@Composable
-@Preview(showBackground = true)
-private fun HomeContentPreview(){
-    HomeContent(
-        state = HomeState(),
-        navigateToFeed = {},
-        navigateToItemDetails = {},
-    )
-}
+//@Composable
+//@Preview(showBackground = true)
+//private fun HomeContentPreview(){
+//    HomeContent(
+//        state = HomeState(),
+//        navigateToFeed = {},
+//        navigateToItemDetails = {},
+//    )
+//}
