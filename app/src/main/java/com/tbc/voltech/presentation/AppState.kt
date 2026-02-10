@@ -18,6 +18,7 @@ import com.tbc.home.presentation.navigation.HomeScreenRoute
 import com.tbc.profile.presentation.navigation.ProfileScreenRoute
 import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
+import com.tbc.selling.presentation.navigation.MyItemsScreenRoute
 import com.tbc.voltech.navigation.TopLevelDestination
 import kotlinx.coroutines.CoroutineScope
 
@@ -105,6 +106,10 @@ data class AppState(
 
             TopLevelDestination.PROFILE -> navController.navigate(
                 ProfileScreenRoute, topLevelNavOptions
+            )
+
+            TopLevelDestination.SELLING -> navController.navigate(
+                MyItemsScreenRoute, topLevelNavOptions
             )
         }
 

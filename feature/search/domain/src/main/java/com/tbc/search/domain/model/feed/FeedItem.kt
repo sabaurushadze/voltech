@@ -4,6 +4,7 @@ import com.tbc.core.domain.model.category.Category
 
 data class FeedItem(
     val id: Int,
+    val uid: String?,
     val title: String,
     val category: Category,
     val condition: Condition,
@@ -29,6 +30,14 @@ enum class Condition {
                 else -> NEW
             }
         }
+
+        fun toServerString(condition: Condition): String {
+            return when (condition) {
+                NEW -> "NEW"
+                USED -> "USED"
+                PARTS -> "PARTS"
+            }
+        }
     }
 
 }
@@ -42,6 +51,13 @@ enum class Location {
                 "DIDI_DIGHOMI" -> DIDI_DIGHOMI
                 "GLDANI" -> GLDANI
                 else -> DIDI_DIGHOMI
+            }
+        }
+
+        fun toServerString(location: Location): String {
+            return when (location) {
+                DIDI_DIGHOMI -> "DIDI_DIGHOMI"
+                GLDANI -> "GLDANI"
             }
         }
     }

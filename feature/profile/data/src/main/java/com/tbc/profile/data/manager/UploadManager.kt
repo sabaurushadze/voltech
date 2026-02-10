@@ -12,10 +12,13 @@ import androidx.work.workDataOf
 import com.google.firebase.storage.FirebaseStorage
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
+import com.tbc.core.domain.util.getOrElse
 import com.tbc.profile.data.manager.FileUploadManagerKeys.RESULT_URL
 import com.tbc.profile.data.manager.FileUploadManagerKeys.URI_KEY
 import com.tbc.profile.domain.repository.FileUploadManager
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.tasks.await
@@ -53,6 +56,26 @@ class UploadManager @Inject constructor(
             .first { it.state.isFinished }
 
         return handleUploadUpdates(finishedWorkInfo)
+    }
+
+    override suspend fun enqueueMultipleFileUpload(
+        uris: List<String>
+    ): Resource<List<String>, DataError.Firestore> = try {
+        val uploadedUrls = kotlinx.coroutines.coroutineScope {
+            val deferredUploads = uris.map { uri ->
+                async {
+                    enqueueFileUpload(uri).getOrElse { error ->
+                        throw Exception("Upload failed for $uri: $error")
+                    }
+                }
+            }
+            deferredUploads.awaitAll()
+        }
+
+        Resource.Success(uploadedUrls)
+    } catch (e: Exception) {
+        Resource.Failure(DataError.Firestore.Unknown)
+
     }
 
     override suspend fun deleteFile(url: String): Resource<Unit, DataError.Firestore> {

@@ -14,3 +14,15 @@ fun rememberGalleryLauncher(onImageSelected: (Uri) -> Unit): () -> Unit {
 
     return { galleryLauncher.launch("image/*") }
 }
+
+@Composable
+fun rememberMultiGalleryLauncher(onImagesSelected: (List<Uri>) -> Unit): () -> Unit {
+    val galleryLauncher =
+        rememberLauncherForActivityResult(ActivityResultContracts.GetMultipleContents()) { uris ->
+            if (uris.isNotEmpty()) {
+                onImagesSelected(uris)
+            }
+        }
+
+    return { galleryLauncher.launch("image/*") }
+}

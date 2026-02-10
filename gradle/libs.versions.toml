@@ -40,6 +40,7 @@ firebaseMessaging = "25.0.1"
 firebaseCrashlyticsPlugin = "3.0.6"
 accompanist = "0.37.3"
 paging = "3.3.6"
+foundationLayout = "1.10.2"
 
 
 [libraries]
@@ -109,6 +110,7 @@ room-gradlePlugin = { group = "androidx.room", name = "room-gradle-plugin", vers
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
+androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "foundationLayout" }
 
 
 [plugins]

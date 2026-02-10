@@ -59,6 +59,10 @@ dependencies {
     implementation(projects.feature.profile.domain)
     implementation(projects.feature.profile.presentation)
 
+    implementation(projects.feature.selling.data)
+    implementation(projects.feature.selling.domain)
+    implementation(projects.feature.selling.presentation)
+
     implementation(projects.core.presentation)
     implementation(projects.core.data)
     implementation(projects.core.domain)

@@ -1,8 +1,11 @@
 package com.tbc.search.data.service.feed
 
-import com.tbc.search.data.dto.feed.FeedItemResponseDto
+import com.tbc.search.data.dto.feed.request.ItemRequestDto
+import com.tbc.search.data.dto.feed.response.FeedItemResponseDto
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -28,8 +31,18 @@ interface FeedService {
 
     @GET(ITEMS)
     suspend fun getItemsByIds(
-        @Query("id") ids: List<Int>
+        @Query("id") ids: List<Int>,
     ): Response<List<FeedItemResponseDto>>
+
+    @GET(ITEMS)
+    suspend fun getItemsByUid(
+        @Query(UID) uid: String,
+    ): Response<List<FeedItemResponseDto>>
+
+    @POST(ITEMS)
+    suspend fun addItem(
+        @Body body: ItemRequestDto,
+    ): Response<Unit>
 
     companion object {
         private const val TITLE_LIKE = "title_like"
@@ -43,5 +56,6 @@ interface FeedService {
         private const val ITEMS = "items"
         private const val PAGE = "_page"
         private const val PER_PAGE = "_per_page"
+        private const val UID = "uid"
     }
 }

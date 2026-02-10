@@ -3,14 +3,18 @@ package com.tbc.voltech.navigation
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Sell
 import androidx.compose.material.icons.outlined.AccountCircle
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Sell
 import androidx.compose.material.icons.rounded.Search
+import androidx.compose.material.icons.rounded.Sell
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.tbc.home.presentation.navigation.HomeScreenRoute
 import com.tbc.profile.presentation.navigation.ProfileNavGraphRoute
 import com.tbc.resource.R
 import com.tbc.search.presentation.navigation.SearchNavGraphRoute
+import com.tbc.selling.presentation.navigation.SellingNavGraphRoute
 import kotlin.reflect.KClass
 
 enum class TopLevelDestination(
@@ -32,9 +36,15 @@ enum class TopLevelDestination(
         route = ProfileNavGraphRoute::class
     ),
     SEARCH(
-        selectedIcon = Icons.Rounded.Search,
+        selectedIcon = Icons.Filled.Search,
         unselectedIcon = Icons.Filled.Search,
         iconTextId = R.string.search,
         route = SearchNavGraphRoute::class
+    ),
+    SELLING(
+        selectedIcon = Icons.Outlined.Sell,
+        unselectedIcon = Icons.Outlined.Sell,
+        iconTextId = R.string.selling,
+        route = SellingNavGraphRoute::class
     ),
 }

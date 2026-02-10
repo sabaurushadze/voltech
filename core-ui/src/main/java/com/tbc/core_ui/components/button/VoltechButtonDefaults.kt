@@ -18,7 +18,8 @@ object VoltechButtonDefaults {
     val secondaryColors: ButtonColors
         @Composable
         get() = ButtonDefaults.outlinedButtonColors(
-            disabledContentColor = VoltechColor.backgroundPrimary.copy(alpha = 0.18f)
+            disabledContentColor = VoltechColor.backgroundPrimary.copy(alpha = 0.18f),
+
         )
 
     val tertiaryColors: ButtonColors
