@@ -86,20 +86,6 @@ fun FeedAppBar(
                         enabled = !isLoading,
                         onClick = onFilterClick,
                     )
-//                    IconTextButton(
-//                        icon = ImageVector.vectorResource(R.drawable.ic_filter),
-//                        textRes = R.string.sort,
-//                        loading = isLoading,
-//                        enabled = !isLoading,
-//                        onClick = onSortClick,
-//                    )
-//                    IconTextButton(
-//                        icon = ImageVector.vectorResource(R.drawable.ic_sort),
-//                        textRes = R.string.filter,
-//                        loading = isLoading,
-//                        enabled = !isLoading,
-//                        onClick = onFilterClick,
-//                    )
                 }
             }
         },

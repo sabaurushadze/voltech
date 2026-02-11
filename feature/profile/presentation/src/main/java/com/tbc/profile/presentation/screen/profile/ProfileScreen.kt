@@ -50,6 +50,10 @@ fun ProfileScreen(
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    LaunchedEffect(Unit) {
+        viewModel.onEvent(ProfileEvent.GetUserInfo)
+    }
+
     SetupTopBar(onSetupTopBar)
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->

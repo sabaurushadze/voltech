@@ -1,10 +1,10 @@
-package com.tbc.selling.domain.usecase.selling
+package com.tbc.selling.domain.usecase.selling.add_item
 
 import javax.inject.Inject
 
 class ValidateDescriptionUseCase @Inject constructor() {
     operator fun invoke(description: String): Boolean {
-        return description.length in MIN_DESCRIPTION_LENGTH..MAX_DESCRIPTION_LENGTH
+        return description.length in MIN_DESCRIPTION_LENGTH..MAX_DESCRIPTION_LENGTH && description.isNotBlank()
     }
 
     companion object {

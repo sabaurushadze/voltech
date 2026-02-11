@@ -5,8 +5,6 @@ import com.tbc.core.domain.model.category.Category
 import com.tbc.core.presentation.model.UiUser
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.Location
-import com.tbc.selling.presentation.model.add_item.UiItem
-import com.tbc.selling.presentation.model.my_items.UiMyItem
 
 
 data class AddItemState(
@@ -19,8 +17,6 @@ data class AddItemState(
     val selectedLocation: Location? = null,
 
     val selectedImageUris: List<Uri> = emptyList(),
-    val isUploading: Boolean = false,
-    val uploadedUrls: List<String> = emptyList(),
 
     val title: String = "",
     val description: String = "",

@@ -10,4 +10,13 @@ data class RecentlyViewedState (
 
     val recentlyViewedItems: List<UiFavorite> = emptyList(),
     val editModeOn: Boolean = false,
-)
+) {
+    val allSelected: Boolean
+        get() = recentlyViewedItems.isNotEmpty() && recentlyViewedItems.all { it.isSelected }
+
+    val anySelected: Boolean
+        get() = recentlyViewedItems.any { it.isSelected }
+
+    val selectedCount: Int
+        get() = recentlyViewedItems.count { it.isSelected }
+}

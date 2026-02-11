@@ -1,14 +1,14 @@
 package com.tbc.search.presentation.screen.item_details
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.recently_viewed.AddRecentlyItemUseCase
 import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyUseCase
+import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.core.presentation.mapper.toStringResId
-import com.tbc.search.domain.usecase.favorite.GetCurrentUserUidUseCase
+import com.tbc.core.presentation.mapper.user.toPresentation
 import com.tbc.search.domain.usecase.favorite.GetFavoriteItemsUseCase
 import com.tbc.search.domain.usecase.favorite.ToggleFavoriteItemUseCase
 import com.tbc.search.domain.usecase.feed.GetItemDetailsUseCase
@@ -25,12 +25,18 @@ import javax.inject.Inject
 @HiltViewModel
 class ItemDetailsViewModel @Inject constructor(
     private val getItemDetailsUseCase: GetItemDetailsUseCase,
-    private val getCurrentUserUseCase: GetCurrentUserUidUseCase,
+    private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val getFavoriteItemsUseCase: GetFavoriteItemsUseCase,
     private val toggleFavoriteItemUseCase: ToggleFavoriteItemUseCase,
     private val addRecentlyItemUseCase: AddRecentlyItemUseCase,
     private val getRecentlyUseCase: GetRecentlyUseCase,
-) : BaseViewModel<ItemDetailsState, ItemDetailsSideEffect, ItemDetailsEvent>(ItemDetailsState()) {
+
+    ) :
+    BaseViewModel<ItemDetailsState, ItemDetailsSideEffect, ItemDetailsEvent>(ItemDetailsState()) {
+
+    init {
+        getCurrentUser()
+    }
 
     override fun onEvent(event: ItemDetailsEvent) {
         when (event) {
@@ -38,13 +44,14 @@ class ItemDetailsViewModel @Inject constructor(
             is ItemDetailsEvent.GetItemId -> updateState { copy(itemId = event.id) }
             is ItemDetailsEvent.SelectImageByIndex -> updateState { copy(selectedImage = event.index) }
             ItemDetailsEvent.NavigateBackToFeed -> navigateBackToFeed()
-            ItemDetailsEvent.GetUserUid -> getUserUid()
             is ItemDetailsEvent.GetFavorites -> getFavorites(event.uid)
             is ItemDetailsEvent.OnFavoriteToggle ->
                 toggleFavorite(uid = event.uid, itemId = event.itemId)
+
             ItemDetailsEvent.AddRecentlyItem -> addRecentlyItem()
         }
     }
+
 
     private fun toggleFavorite(uid: String, itemId: Int) {
         viewModelScope.launch {
@@ -63,6 +70,7 @@ class ItemDetailsViewModel @Inject constructor(
                 }
         }
     }
+
     private fun getFavorites(uid: String) {
         viewModelScope.launch {
             getFavoriteItemsUseCase(uid)
@@ -72,26 +80,26 @@ class ItemDetailsViewModel @Inject constructor(
         }
     }
 
-    private fun addRecentlyItem(){
-        val recentlyItem = getRecentlyItem()
-        viewModelScope.launch {
-            getRecentlyUseCase(state.value.uid)
-                .onSuccess { recentlyViewedDomain ->
-                    updateState { copy(recentlyItemsId = recentlyViewedDomain.map { it.itemId }) }
-                    if (!state.value.recentlyItemsId.contains(recentlyItem.itemId)){
-                        addRecentlyItemUseCase(recentlyItem.toDomain())
-                            .onSuccess { d("SUCCESS", "added") }
-                            .onFailure { d("SUCCESS", "$it") }
-                    }
-                }
-        }
-    }
+    private fun addRecentlyItem() = viewModelScope.launch {
+        with(state.value) {
+            user?.let { user ->
+                val recentlyItem = UiRecentlyRequest(
+                    uid = user.uid,
+                    itemId = itemId
+                )
 
-    private fun getUserUid() {
-        val uid = getCurrentUserUseCase()
-        uid?.let {
-            updateState { copy(uid = it) }
-            getFavorites(it)
+                viewModelScope.launch {
+
+                    getRecentlyUseCase(user.uid)
+                        .onSuccess { recentlyViewedDomain ->
+                            updateState { copy(recentlyItemsId = recentlyViewedDomain.map { it.itemId }) }
+                            if (!recentlyItemsId.contains(recentlyItem.itemId)) {
+                                addRecentlyItemUseCase(recentlyItem.toDomain())
+                            }
+                        }
+
+                }
+            }
         }
     }
 
@@ -113,11 +121,12 @@ class ItemDetailsViewModel @Inject constructor(
             }
     }
 
-    private fun getRecentlyItem(): UiRecentlyRequest {
-        return UiRecentlyRequest(
-            uid = state.value.uid,
-            itemId = state.value.itemId
-        )
+
+    private fun getCurrentUser() {
+        viewModelScope.launch {
+            val currentUser = getCurrentUserUseCase()?.toPresentation()
+            updateState { copy(user = currentUser) }
+        }
     }
 
 }

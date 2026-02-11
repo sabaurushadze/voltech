@@ -1,7 +1,6 @@
 package com.tbc.profile.data.manager
 
 import android.content.Context
-import android.util.Log.d
 import androidx.work.Constraints
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
@@ -12,25 +11,25 @@ import androidx.work.workDataOf
 import com.google.firebase.storage.FirebaseStorage
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
-import com.tbc.core.domain.util.getOrElse
 import com.tbc.profile.data.manager.FileUploadManagerKeys.RESULT_URL
 import com.tbc.profile.data.manager.FileUploadManagerKeys.URI_KEY
 import com.tbc.profile.domain.repository.FileUploadManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-object FileUploadManagerKeys {
+internal object FileUploadManagerKeys {
     const val URI_KEY = "content_uri"
     const val RESULT_URL = "result_url"
 }
 
 class UploadManager @Inject constructor(
-    @param:ApplicationContext private val appContext: Context
+    @param:ApplicationContext private val appContext: Context,
 ) : FileUploadManager {
 
     private val storage = FirebaseStorage.getInstance()
@@ -59,23 +58,24 @@ class UploadManager @Inject constructor(
     }
 
     override suspend fun enqueueMultipleFileUpload(
-        uris: List<String>
-    ): Resource<List<String>, DataError.Firestore> = try {
-        val uploadedUrls = kotlinx.coroutines.coroutineScope {
-            val deferredUploads = uris.map { uri ->
-                async {
-                    enqueueFileUpload(uri).getOrElse { error ->
-                        throw Exception("Upload failed for $uri: $error")
-                    }
-                }
+        uris: List<String>,
+    ): Resource<List<String>, DataError.Firestore> = coroutineScope {
+        val deferredResults = uris.map { uri ->
+            async {
+                enqueueFileUpload(uri)
             }
-            deferredUploads.awaitAll()
         }
 
-        Resource.Success(uploadedUrls)
-    } catch (e: Exception) {
-        Resource.Failure(DataError.Firestore.Unknown)
+        val results = deferredResults.awaitAll()
 
+        val successes = results.mapNotNull { (it as? Resource.Success)?.data }
+        val failures = results.mapNotNull { (it as? Resource.Failure)?.error }
+
+        if (failures.isNotEmpty()) {
+            Resource.Failure(failures.first())
+        } else {
+            Resource.Success(successes)
+        }
     }
 
     override suspend fun deleteFile(url: String): Resource<Unit, DataError.Firestore> {

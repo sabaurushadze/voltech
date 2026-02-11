@@ -1,10 +1,10 @@
-package com.tbc.selling.domain.usecase.selling
+package com.tbc.selling.domain.usecase.selling.add_item
 
 import javax.inject.Inject
 
 class ValidateTitleUseCase @Inject constructor() {
     operator fun invoke(title: String): Boolean {
-        return title.length in MIN_TITLE_LENGTH..MAX_TITLE_LENGTH
+        return title.length in MIN_TITLE_LENGTH..MAX_TITLE_LENGTH && title.isNotBlank()
     }
 
     companion object {

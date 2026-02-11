@@ -3,6 +3,8 @@ package com.tbc.profile.data.manager
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Matrix
+import androidx.exifinterface.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.util.Log.d
@@ -25,6 +27,7 @@ import java.io.ByteArrayOutputStream
 import java.util.UUID
 import kotlin.math.roundToInt
 import androidx.core.net.toUri
+import java.io.InputStream
 
 @HiltWorker
 class UploadWorker @AssistedInject constructor(
@@ -37,6 +40,7 @@ class UploadWorker @AssistedInject constructor(
     companion object {
         private const val MAX_RETRY_ATTEMPTS = 3
         private const val DEFAULT_THRESHOLD = 200 * 1024L
+        private const val QUALITY = 80
     }
 
     override suspend fun doWork(): Result {
@@ -81,8 +85,10 @@ class UploadWorker @AssistedInject constructor(
             ensureActive()
 
             withContext(Dispatchers.Default) {
-                val bitmap = BitmapFactory.decodeByteArray(inputBytes, 0, inputBytes.size)
+                var bitmap = BitmapFactory.decodeByteArray(inputBytes, 0, inputBytes.size)
                     ?: return@withContext null
+
+                bitmap = rotateBitmapIfRequired(bitmap, contentUri)
 
                 ensureActive()
 
@@ -94,7 +100,7 @@ class UploadWorker @AssistedInject constructor(
                 }
 
                 var outputBytes: ByteArray
-                var quality = 90
+                var quality = QUALITY
 
                 do {
                     ByteArrayOutputStream().use { outputStream ->
@@ -107,5 +113,26 @@ class UploadWorker @AssistedInject constructor(
                 outputBytes
             }
         }
+    }
+
+    private fun rotateBitmapIfRequired(bitmap: Bitmap, contentUri: Uri): Bitmap {
+        val inputStream: InputStream? = applicationContext.contentResolver.openInputStream(contentUri)
+        inputStream?.use {
+            val exif = ExifInterface(it)
+            val orientation = exif.getAttributeInt(
+                ExifInterface.TAG_ORIENTATION,
+                ExifInterface.ORIENTATION_NORMAL
+            )
+
+            val matrix = Matrix()
+            when (orientation) {
+                ExifInterface.ORIENTATION_ROTATE_90 -> matrix.postRotate(90f)
+                ExifInterface.ORIENTATION_ROTATE_180 -> matrix.postRotate(180f)
+                ExifInterface.ORIENTATION_ROTATE_270 -> matrix.postRotate(270f)
+                else -> return bitmap
+            }
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+        }
+        return bitmap
     }
 }

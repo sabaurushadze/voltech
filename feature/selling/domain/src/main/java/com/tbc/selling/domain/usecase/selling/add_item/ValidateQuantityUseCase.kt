@@ -1,10 +1,11 @@
-package com.tbc.selling.domain.usecase.selling
+package com.tbc.selling.domain.usecase.selling.add_item
 
 import javax.inject.Inject
 
 class ValidateQuantityUseCase @Inject constructor() {
     operator fun invoke(quantity: String): Boolean {
-        return quantity.toIntOrNull() in MIN_QUANTITY..MAX_QUANTITY
+        val value = quantity.toIntOrNull() ?: return false
+        return value in MIN_QUANTITY..MAX_QUANTITY
     }
 
     companion object {

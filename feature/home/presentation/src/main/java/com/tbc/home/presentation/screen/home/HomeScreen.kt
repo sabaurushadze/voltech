@@ -169,9 +169,11 @@ private fun RecentlyViewedItem(
                 .clip(VoltechRadius.radius24)
                 .background(VoltechFixedColor.lightGray)
         ){
-            BaseAsyncImage(
-                url = images.first(),
-            )
+            images.firstOrNull()?.let { firstImageUrl ->
+                BaseAsyncImage(
+                    url = firstImageUrl,
+                )
+            }
         }
 
         Spacer(Modifier.height(Dimen.size24))

@@ -196,13 +196,11 @@ private fun FeedContent(
 
                 item?.let {
                     FeedItemCard(
-                        imageUrl = it.images.first(),
+                        imageUrl = it.images.firstOrNull(),
                         title = it.title,
                         condition = stringResource(it.conditionRes),
                         price = it.price,
                         location = stringResource(it.locationRes),
-//                        isFavoriteIconSelected = false,
-//                        onFavoriteIconClick = { },
                         onRootClick = { onEvent(FeedEvent.FeedItemClick(item.id)) }
                     )
                 }

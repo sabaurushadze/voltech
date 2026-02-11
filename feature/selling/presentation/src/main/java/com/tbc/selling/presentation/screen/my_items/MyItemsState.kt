@@ -9,7 +9,17 @@ data class MyItemsState(
     val user: UiUser? = null,
 
     val myItems: List<UiMyItem> = emptyList(),
-    val isLoading: Boolean = false,
+    val editModeOn: Boolean = false,
+    val isLoading: Boolean = true,
 
+    val userCanAddItem: Boolean = false,
+) {
+    val allSelected: Boolean
+        get() = myItems.isNotEmpty() && myItems.all { it.isSelected }
 
-)
+    val anySelected: Boolean
+        get() = myItems.any { it.isSelected }
+
+    val selectedCount: Int
+        get() = myItems.count { it.isSelected }
+}

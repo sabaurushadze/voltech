@@ -106,7 +106,10 @@ fun AppNavHost(
         sellingNavGraph(
             onSetupTopBar = onSetupAppBar,
             navigateToAddItem = { navController.navigate(AddItemScreenRoute) },
-            navigateBack = { navController.navigateUp() }
+            navigateBack = { navController.navigateUp() },
+            navigateToItemDetails = { id ->
+                navController.navigate(ItemDetailsRoute(id))
+            }
         )
 
 

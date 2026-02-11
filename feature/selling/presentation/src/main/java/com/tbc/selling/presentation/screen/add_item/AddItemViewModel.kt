@@ -11,13 +11,11 @@ import com.tbc.profile.domain.usecase.edit_profile.EnqueueMultipleFileUploadUseC
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.Location
 import com.tbc.search.domain.usecase.feed.AddItemUseCase
-import com.tbc.search.domain.usecase.feed.GetItemsByUidUseCase
-import com.tbc.selling.domain.usecase.selling.ValidateDescriptionUseCase
-import com.tbc.selling.domain.usecase.selling.ValidatePriceUseCase
-import com.tbc.selling.domain.usecase.selling.ValidateQuantityUseCase
-import com.tbc.selling.domain.usecase.selling.ValidateTitleUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.ValidateDescriptionUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.ValidatePriceUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.ValidateQuantityUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.ValidateTitleUseCase
 import com.tbc.selling.presentation.mapper.my_items.toDomain
-import com.tbc.selling.presentation.mapper.my_items.toPresentation
 import com.tbc.selling.presentation.model.add_item.UiItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -49,7 +47,6 @@ class AddItemViewModel @Inject constructor(
                 copy(selectedImageUris = selectedImageUris + event.uris)
             }
 
-            AddItemEvent.UploadImages -> uploadImages()
             AddItemEvent.LaunchGallery -> emitSideEffect(AddItemSideEffect.LaunchGallery)
             AddItemEvent.ResetImageError -> updateState { copy(showImageError = false) }
             is AddItemEvent.DeleteImageFromPreview -> updateState {
@@ -67,74 +64,91 @@ class AddItemViewModel @Inject constructor(
         }
     }
 
-    private fun addItem() = viewModelScope.launch {
-        updateState {
-            copy(
-                isLoading = true,
-                showTitleError = false,
-                showDescriptionError = false,
-                showCategoryError = false
-            )
-        }
+    private fun addItem() = with(state.value) {
+        viewModelScope.launch {
 
-        val isTitleValid = validateTitleUseCase(state.value.title)
-        val isDescriptionValid = validateDescriptionUseCase(state.value.description)
-        val isCategorySelected = state.value.selectedCategory != null
-        val isConditionSelected = state.value.selectedCondition != null
-        val isLocationSelected = state.value.selectedLocation != null
-        val isQuantityValid = validateQuantityUseCase(state.value.quantity)
-        val isPriceValid = validatePriceUseCase(state.value.price)
-        val isImageUploaded = state.value.selectedImageUris.isNotEmpty()
-
-        if (isTitleValid && isDescriptionValid && isCategorySelected && isImageUploaded
-            && isConditionSelected && isLocationSelected && isQuantityValid && isPriceValid
-        ) {
-
-        val quantity = state.value.quantity.toIntOrNull()
-        val price = state.value.price.toDoubleOrNull()
-
-        enqueueMultipleFileUploadUseCase(state.value.selectedImageUris.map { it.toString() })
-            .onSuccess { urls ->
-                updateState { copy(uploadedUrls = urls) }
-
-                with(state.value) {
-                    if (
-                        user != null && selectedLocation != null && selectedCondition != null &&
-                        quantity != null && selectedCategory != null && price != null
-                    ) {
-                        val item = UiItem(
-                            uid = user.uid,
-                            title = title,
-                            category = selectedCategory,
-                            condition = selectedCondition,
-                            price = price,
-                            images = uploadedUrls,
-                            quantity = quantity,
-                            location = selectedLocation,
-                            userDescription = description,
-                            sellerAvatar = user.photoUrl,
-                            sellerUserName = user.name
-                        ).toDomain()
-
-                        addItemUseCase(item)
-                    }
-
-                }
-            }
-        } else {
             updateState {
                 copy(
-                    showTitleError = !isTitleValid,
-                    showDescriptionError = !isDescriptionValid,
-                    showCategoryError = !isCategorySelected,
-                    showImageError = !isImageUploaded,
-                    showConditionError = !isConditionSelected,
-                    showLocationError = !isLocationSelected,
-                    showQuantityError = !isQuantityValid,
-                    showPriceError = !isPriceValid,
-                    isLoading = false
+                    isLoading = true,
+                    showTitleError = false,
+                    showDescriptionError = false,
+                    showPriceError = false,
+                    showCategoryError = false,
+                    showConditionError = false,
+                    showLocationError = false,
+                    showQuantityError = false,
+                    showImageError = false,
                 )
             }
+
+            val isTitleValid = validateTitleUseCase(title)
+            val isDescriptionValid = validateDescriptionUseCase(description)
+            val isQuantityValid = validateQuantityUseCase(quantity)
+            val isPriceValid = validatePriceUseCase(price)
+            val isImageUploaded = selectedImageUris.isNotEmpty()
+
+            val currentUser = user
+            val category = selectedCategory
+            val condition = selectedCondition
+            val location = selectedLocation
+
+            val isFormValid =
+                isTitleValid &&
+                isDescriptionValid &&
+                isQuantityValid &&
+                isPriceValid &&
+                isImageUploaded &&
+                currentUser != null &&
+                category != null &&
+                condition != null &&
+                location != null
+
+            if (!isFormValid) {
+                updateState {
+                    copy(
+                        showTitleError = !isTitleValid,
+                        showDescriptionError = !isDescriptionValid,
+                        showCategoryError = selectedCategory == null,
+                        showImageError = !isImageUploaded,
+                        showConditionError = selectedCondition == null,
+                        showLocationError = selectedLocation == null,
+                        showQuantityError = !isQuantityValid,
+                        showPriceError = !isPriceValid,
+                        isLoading = false
+                    )
+                }
+                return@launch
+            }
+
+            enqueueMultipleFileUploadUseCase(selectedImageUris.map { it.toString() })
+                .onSuccess { urls ->
+
+                    val item = UiItem(
+                        uid = currentUser.uid,
+                        title = title,
+                        category = category,
+                        condition = condition,
+                        price = price,
+                        images = urls,
+                        quantity = quantity,
+                        location = location,
+                        userDescription = description,
+                        sellerAvatar = currentUser.photoUrl,
+                        sellerUserName = currentUser.name
+                    ).toDomain()
+
+                    addItemUseCase(item)
+                        .onSuccess {
+                            updateState { copy(isLoading = false,) }
+                            emitSideEffect(AddItemSideEffect.NavigateBackToMyItems)
+                        }
+                        .onFailure {
+                            updateState { copy(isLoading = false) }
+                        }
+                }
+                .onFailure {
+                    updateState { copy(isLoading = false) }
+                }
         }
     }
 
@@ -152,19 +166,6 @@ class AddItemViewModel @Inject constructor(
 
     private fun updateQuantity(quantity: String) {
         updateState { copy(quantity = quantity) }
-    }
-
-    private fun uploadImages() = viewModelScope.launch {
-        val uris = state.value.selectedImageUris
-        if (uris.isEmpty()) return@launch
-
-        updateState { copy(isUploading = true) }
-
-        enqueueMultipleFileUploadUseCase(uris.map { it.toString() })
-            .onSuccess { result ->
-                updateState { copy(uploadedUrls = result, isUploading = false) }
-            }
-            .onFailure { updateState { copy(isUploading = false) } }
     }
 
     private fun selectCategory(category: Category) {

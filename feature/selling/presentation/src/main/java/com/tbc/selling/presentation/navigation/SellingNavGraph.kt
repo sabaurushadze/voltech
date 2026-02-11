@@ -13,7 +13,8 @@ import kotlinx.serialization.Serializable
 fun NavGraphBuilder.sellingNavGraph(
     onSetupTopBar: (TopBarState) -> Unit,
     navigateToAddItem: () -> Unit,
-    navigateBack: () -> Unit
+    navigateBack: () -> Unit,
+    navigateToItemDetails: (Int) -> Unit
 ) {
 
     navigation<SellingNavGraphRoute>(startDestination = MyItemsScreenRoute) {
@@ -22,6 +23,7 @@ fun NavGraphBuilder.sellingNavGraph(
             MyItemsScreen(
                 onSetupTopBar = onSetupTopBar,
                 navigateToAddItem = navigateToAddItem,
+                navigateToItemDetails = navigateToItemDetails
             )
         }
 

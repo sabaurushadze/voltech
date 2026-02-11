@@ -143,4 +143,5 @@
     <string name="select_condition">Please select item condition</string>
     <string name="select_location">Please select a location</string>
     <string name="select_valid_quantity_amount">Quantity must be between 1 and 10,000</string>
+    <string name="enter_valid_price">Price must be at least 1 and no more than 100,000,000</string>
 </resources>

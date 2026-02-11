@@ -17,7 +17,6 @@ sealed class AddItemEvent {
 //    Images
     data class OnImagesSelected(val uris: List<Uri>) : AddItemEvent()
     data class DeleteImageFromPreview(val uri: Uri) : AddItemEvent()
-    data object UploadImages : AddItemEvent()
     data object LaunchGallery : AddItemEvent()
     data object ResetImageError : AddItemEvent()
 

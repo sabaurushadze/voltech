@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.imeNestedScroll
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -50,11 +49,11 @@ import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.TertiaryIconButton
 import com.tbc.core_ui.components.dropdown.DropDownMenu
 import com.tbc.core_ui.components.image.BaseAsyncImage
+import com.tbc.core_ui.components.loading.LoadingIcon
 import com.tbc.core_ui.components.textfield.OutlinedTextInputField
 import com.tbc.core_ui.components.topbar.TopBarAction
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
-import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
 import com.tbc.core_ui.theme.VoltechRadius
@@ -112,13 +111,19 @@ private fun AddItemContent(
     onEvent: (AddItemEvent) -> Unit,
 ) {
     val titleError = if (state.showTitleError) stringResource(R.string.enter_valid_title) else null
-    val descriptionError = if (state.showDescriptionError) stringResource(R.string.enter_valid_description) else null
-    val priceError = if (state.showPriceError) stringResource(R.string.enter_valid_description) else null
-    val categoryError = if (state.showCategoryError) stringResource(R.string.select_a_category) else ""
-    val conditionError = if (state.showConditionError) stringResource(R.string.select_condition) else ""
-    val locationError = if (state.showLocationError) stringResource(R.string.select_location) else ""
-    val quantityError = if (state.showQuantityError) stringResource(R.string.select_valid_quantity_amount) else null
-    val imageError = if (state.showImageError) stringResource(R.string.please_select_at_least_one_image) else ""
+    val descriptionError =
+        if (state.showDescriptionError) stringResource(R.string.enter_valid_description) else null
+    val priceError = if (state.showPriceError) stringResource(R.string.enter_valid_price) else null
+    val categoryError =
+        if (state.showCategoryError) stringResource(R.string.select_a_category) else ""
+    val conditionError =
+        if (state.showConditionError) stringResource(R.string.select_condition) else ""
+    val locationError =
+        if (state.showLocationError) stringResource(R.string.select_location) else ""
+    val quantityError =
+        if (state.showQuantityError) stringResource(R.string.select_valid_quantity_amount) else null
+    val imageError =
+        if (state.showImageError) stringResource(R.string.please_select_at_least_one_image) else ""
 
     LazyColumn(
         modifier = Modifier
@@ -303,21 +308,28 @@ private fun AddItemContent(
         }
 
         item {
+            if (state.isLoading) {
+                LoadingIcon()
+            }
+            Spacer(modifier = Modifier.height(Dimen.size16))
+        }
+
+
+        item {
             PrimaryButton(
-                text = "Upload Images",
+                modifier = Modifier
+                    .fillMaxWidth(),
+                enabled = !state.isLoading,
+                text = stringResource(R.string.add_item),
                 onClick = {
                     onEvent(AddItemEvent.AddItem)
                 }
             )
         }
+
         item {
-            PrimaryButton(
-                text = "Upload Images",
-                onClick = { onEvent(AddItemEvent.UploadImages) }
-            )
+            Spacer(modifier = Modifier.height(Dimen.size16))
         }
-
-
     }
 }
 
@@ -326,7 +338,7 @@ fun ImagesGrid(
     uris: List<Uri>,
     onAddImagesClick: () -> Unit,
     deleteImage: (Uri) -> Unit,
-    errorText: String
+    errorText: String,
 ) {
     Box(
         modifier = Modifier

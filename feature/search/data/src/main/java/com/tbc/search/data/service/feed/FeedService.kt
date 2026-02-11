@@ -4,6 +4,7 @@ import com.tbc.search.data.dto.feed.request.ItemRequestDto
 import com.tbc.search.data.dto.feed.response.FeedItemResponseDto
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -42,6 +43,11 @@ interface FeedService {
     @POST(ITEMS)
     suspend fun addItem(
         @Body body: ItemRequestDto,
+    ): Response<Unit>
+
+    @DELETE("items/{id}")
+    suspend fun deleteItem(
+        @Path("id") id: Int
     ): Response<Unit>
 
     companion object {
