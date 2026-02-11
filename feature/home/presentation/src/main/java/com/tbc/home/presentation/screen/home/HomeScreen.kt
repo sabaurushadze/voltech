@@ -59,11 +59,16 @@ fun HomeScreen(
     navigateToSearch: () -> Unit,
     navigateToFeed: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
+    navigateToAddToCart: () -> Unit,
     navigateToRecentlyViewed: () -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val onEvent = viewModel::onEvent
-    SetupTopBar(onSetupTopBar, navigateToSearch)
+    SetupTopBar(
+        onSetupTopBar = onSetupTopBar,
+        navigateToSearch = navigateToSearch,
+        navigateToAddToCart = navigateToAddToCart
+    )
 
     LaunchedEffect(Unit) {
         onEvent(HomeEvent.GetCategories)
@@ -262,6 +267,7 @@ private fun CategoryItem(
 private fun SetupTopBar(
     onSetupTopBar: (TopBarState) -> Unit,
     navigateToSearch: () -> Unit,
+    navigateToAddToCart: () -> Unit,
 ) {
     LaunchedEffect(Unit) {
         onSetupTopBar(
@@ -287,8 +293,9 @@ private fun SetupTopBar(
 
                         CircleIconButton(
                             modifier = Modifier.padding(top = Dimen.size6),
-                            onClick = {  },
+                            onClick = { navigateToAddToCart() },
                             size = Dimen.size24,
+                            icon = ImageVector.vectorResource(R.drawable.ic_shopping_cart),
                             iconColor = VoltechColor.backgroundInverse,
                             backgroundColor = VoltechColor.backgroundTertiary,
                         )

@@ -1772,155 +1772,79 @@
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 34,
-      "favoriteAt": "2026-02-10T18:04:27Z",
+      "itemId": 45,
+      "favoriteAt": "2026-02-11T20:06:33Z",
       "id": 2
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 35,
-      "favoriteAt": "2026-02-10T18:04:32Z",
+      "itemId": 19,
+      "favoriteAt": "2026-02-11T20:06:38Z",
       "id": 3
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 12,
-      "favoriteAt": "2026-02-10T18:04:41Z",
+      "itemId": 18,
+      "favoriteAt": "2026-02-11T20:06:42Z",
       "id": 4
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 1,
-      "favoriteAt": "2026-02-10T18:04:54Z",
-      "id": 5
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 13,
-      "favoriteAt": "2026-02-10T18:05:04Z",
-      "id": 6
     }
   ],
   "recently": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 24,
-      "viewedAt": "2026-02-10T17:30:19Z",
-      "id": 1
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 2,
-      "viewedAt": "2026-02-10T17:30:28Z",
+      "itemId": 8,
+      "viewedAt": "2026-02-10T23:49:37Z",
       "id": 2
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 61,
-      "viewedAt": "2026-02-10T17:30:37Z",
+      "itemId": 1,
+      "viewedAt": "2026-02-10T23:49:46Z",
       "id": 3
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 86,
-      "viewedAt": "2026-02-10T17:31:41Z",
+      "itemId": 18,
+      "viewedAt": "2026-02-10T23:49:51Z",
+      "id": 1
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 19,
+      "viewedAt": "2026-02-11T19:32:18Z",
       "id": 4
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 18,
-      "viewedAt": "2026-02-10T17:44:52Z",
+      "itemId": 45,
+      "viewedAt": "2026-02-11T19:32:51Z",
       "id": 5
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 58,
-      "viewedAt": "2026-02-10T17:44:58Z",
+      "itemId": 20,
+      "viewedAt": "2026-02-11T19:39:31Z",
       "id": 6
+    }
+  ],
+  "cart": [
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 73,
+      "addedAt": "2026-02-10T22:02:33Z",
+      "id": 1
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 99,
-      "viewedAt": "2026-02-10T17:45:02Z",
-      "id": 7
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 10,
-      "viewedAt": "2026-02-10T17:45:05Z",
-      "id": 8
+      "itemId": 13,
+      "addedAt": "2026-02-10T22:02:33Z",
+      "id": 2
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 23,
-      "viewedAt": "2026-02-10T17:46:14Z",
-      "id": 9
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 28,
-      "viewedAt": "2026-02-10T17:46:19Z",
-      "id": 10
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 50,
-      "viewedAt": "2026-02-10T17:46:21Z",
-      "id": 11
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 53,
-      "viewedAt": "2026-02-10T17:46:24Z",
-      "id": 12
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 62,
-      "viewedAt": "2026-02-10T17:46:30Z",
-      "id": 13
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 80,
-      "viewedAt": "2026-02-10T17:46:34Z",
-      "id": 14
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 84,
-      "viewedAt": "2026-02-10T17:46:39Z",
-      "id": 15
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 5,
-      "viewedAt": "2026-02-10T17:46:48Z",
-      "id": 16
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 7,
-      "viewedAt": "2026-02-10T17:46:51Z",
-      "id": 17
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 12,
-      "viewedAt": "2026-02-10T17:46:56Z",
-      "id": 18
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 34,
-      "viewedAt": "2026-02-10T17:47:03Z",
-      "id": 19
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 35,
-      "viewedAt": "2026-02-10T17:47:11Z",
-      "id": 20
+      "addedAt": "2026-02-10T22:02:33Z",
+      "id": 3
     }
   ]
 }

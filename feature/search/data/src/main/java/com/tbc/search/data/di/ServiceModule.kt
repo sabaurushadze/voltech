@@ -1,5 +1,6 @@
 package com.tbc.search.data.di
 
+import com.tbc.search.data.service.cart.CartService
 import com.tbc.search.data.service.favorite.FavoriteService
 import com.tbc.search.data.service.feed.FeedService
 import com.tbc.search.data.service.search.SearchService
@@ -29,5 +30,11 @@ object ServiceModule {
     @Singleton
     fun provideFavoriteService(retrofit: Retrofit): FavoriteService {
         return retrofit.create(FavoriteService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCartService(retrofit: Retrofit): CartService {
+        return retrofit.create(CartService::class.java)
     }
 }

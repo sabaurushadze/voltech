@@ -33,7 +33,7 @@ interface FavoriteService {
         private const val UID = "uid"
         private const val SORT = "_sort"
         private const val ORDER = "_order"
-        private const val VIEWED_AT = "favoriteAt"
+        private const val VIEWED_AT = "addedAt"
         private const val DESC = "desc"
     }
 }

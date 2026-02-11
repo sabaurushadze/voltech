@@ -20,7 +20,7 @@ import com.tbc.core_ui.components.topbar.TopBarContent
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.voltech.main.MainEvent
 import com.tbc.voltech.main.MainState
-import com.tbc.voltech.navigation.AppNavHost
+import com.tbc.voltech.navigation.VoltechNavHost
 import kotlin.reflect.KClass
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -69,7 +69,7 @@ fun VoltechApplication(
                     .consumeWindowInsets(innerPadding)
                     .imePadding()
             ) {
-                AppNavHost(
+                VoltechNavHost(
                     appState = appState,
                     startDestination = startDestination,
                     onSuccessfulAuth = onSuccessfulAuth,

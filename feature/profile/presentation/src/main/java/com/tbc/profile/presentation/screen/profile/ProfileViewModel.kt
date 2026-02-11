@@ -23,6 +23,7 @@ class ProfileViewModel @Inject constructor(
             ProfileEvent.NavigateToSettings -> navigateToSettings()
             ProfileEvent.NavigateToUserDetails -> navigateToUserDetails()
             ProfileEvent.NavigateToWatchlist -> navigateToWatchlist()
+            ProfileEvent.NavigateToAddToCart -> navigateToAddToCart()
         }
     }
 
@@ -37,6 +38,11 @@ class ProfileViewModel @Inject constructor(
     private fun navigateToUserDetails() {
         emitSideEffect(ProfileSideEffect.NavigateToUserDetails)
     }
+
+    private fun navigateToAddToCart() {
+        emitSideEffect(ProfileSideEffect.NavigateToAddToCart)
+    }
+
 
     private fun getCurrentUser() {
         viewModelScope.launch {

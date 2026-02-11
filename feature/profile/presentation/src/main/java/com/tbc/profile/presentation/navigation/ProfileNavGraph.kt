@@ -19,6 +19,7 @@ fun NavGraphBuilder.profileNavGraph(
     navigateToRecentlyViewed: () -> Unit,
     navigateToBack: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
+    navigateToAddToCart: () -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ) {
 
@@ -39,6 +40,7 @@ fun NavGraphBuilder.profileNavGraph(
                 onSetupTopBar = onSetupTopBar,
                 navigateToUserDetails = navigateToEditProfile,
                 navigateToRecentlyViewed = navigateToRecentlyViewed,
+                navigateToAddToCart = navigateToAddToCart
             )
 
         }
