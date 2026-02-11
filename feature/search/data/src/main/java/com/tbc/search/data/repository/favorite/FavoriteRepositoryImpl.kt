@@ -31,6 +31,7 @@ class FavoriteRepositoryImpl @Inject constructor(
         uid: String,
         itemId: Int,
         favorites: List<Favorite>,
+        favoriteAt: String
     ): Resource<Unit, DataError.Network> {
         val existing = favorites.firstOrNull {
             it.uid == uid && it.itemId == itemId
@@ -39,7 +40,11 @@ class FavoriteRepositoryImpl @Inject constructor(
         return if (existing == null) {
             apiResponseHandler.safeApiCall {
                 favoriteService.addFavorite(
-                    FavoriteRequestDto(uid, itemId)
+                    FavoriteRequestDto(
+                        uid = uid,
+                        itemId = itemId,
+                        favoriteAt = favoriteAt
+                    )
                 )
             }
         } else {

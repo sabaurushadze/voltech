@@ -8,5 +8,5 @@ fun RecentlyResponseDto.toDomain() =
     Recently(
         id = id,
         uid = uid,
-        itemId = itemId
+        itemId = itemId,
     )

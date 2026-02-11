@@ -9,7 +9,8 @@ interface FavoriteRepository {
     suspend fun toggleFavorite(
         uid: String,
         itemId: Int,
-        favorites: List<Favorite>
+        favorites: List<Favorite>,
+        favoriteAt: String
     ) : Resource<Unit, DataError.Network>
 
     suspend fun deleteFavoriteById(id: Int) : Resource<Unit, DataError.Network>

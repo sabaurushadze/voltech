@@ -11,7 +11,6 @@ import com.tbc.auth.presentation.navigation.authNavGraph
 import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.home.presentation.navigation.homeNavGraph
 import com.tbc.profile.presentation.navigation.EditProfileScreenRoute
-import com.tbc.profile.presentation.navigation.ProfileScreenRoute
 import com.tbc.profile.presentation.navigation.RecentlyViewedScreenRoute
 import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.WatchlistScreenRoute
@@ -67,13 +66,22 @@ fun AppNavHost(
             },
             navigateToItemDetails = { recentlyItemId ->
                 navController.navigate(ItemDetailsRoute(id = recentlyItemId)) {
+                    popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
+                    }
+                    launchSingleTop = true
+                    restoreState = true
+                }
+            },
+            navigateToRecentlyViewed = {
+                navController.navigate(RecentlyViewedScreenRoute){
                     popUpTo(navController.graph.findStartDestination().id){
                         saveState = true
                     }
                     launchSingleTop = true
                     restoreState = true
                 }
-            }
+            },
         )
 
         searchNavGraph(
@@ -97,7 +105,7 @@ fun AppNavHost(
             onSetupTopBar = onSetupAppBar,
             navigateToEditProfile = { navController.navigate(EditProfileScreenRoute) },
             navigateToRecentlyViewed = { navController.navigate(RecentlyViewedScreenRoute) },
-            navigateToProfile = { navController.navigate(ProfileScreenRoute) },
+            navigateToBack = { navController.navigateUp() },
             navigateToItemDetails = { id ->
                 navController.navigate(ItemDetailsRoute(id))
             }

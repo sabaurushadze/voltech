@@ -16,7 +16,7 @@ fun BaseAsyncImage(
     contentDescription: String = "",
     contentScale: ContentScale = ContentScale.Crop,
     placeholderRes: Int = R.drawable.placeholder,
-    errorRes: Int = R.drawable.placeholder,
+    errorRes: Int = R.drawable.ic_not_loaded_image,
 ) {
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)

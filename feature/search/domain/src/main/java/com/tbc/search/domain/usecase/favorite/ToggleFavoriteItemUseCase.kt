@@ -12,12 +12,14 @@ class ToggleFavoriteItemUseCase @Inject constructor(
     suspend operator fun invoke(
         uid: String,
         itemId: Int,
-        favorites: List<Favorite>
+        favorites: List<Favorite>,
+        favoriteAt: String
     ): Resource<Unit, DataError.Network> {
         return favoriteRepository.toggleFavorite(
             uid = uid,
             itemId = itemId,
             favorites = favorites,
+            favoriteAt = favoriteAt,
         )
     }
 }

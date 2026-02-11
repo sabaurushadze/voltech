@@ -6,4 +6,5 @@ import kotlinx.serialization.Serializable
 data class FavoriteRequestDto(
     val uid: String,
     val itemId: Int,
+    val favoriteAt: String
 )

@@ -6,5 +6,6 @@ import com.tbc.core.domain.model.recently_viewed.RecentlyRequest
 fun RecentlyRequest.toData() =
     RecentlyRequestDto(
         uid = uid,
-        itemId = itemId
+        itemId = itemId,
+        viewedAt = viewedAt,
     )

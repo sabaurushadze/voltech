@@ -43,7 +43,6 @@ import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
-import com.tbc.core_ui.components.button.SecondaryIconButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.item.FeedItemCard
 import com.tbc.core_ui.components.topbar.TopBarAction
@@ -188,16 +187,6 @@ private fun ItemDetailsContent(
                                 .fillMaxWidth(),
                             onClick = {},
                             text = stringResource(R.string.add_to_cart),
-                        )
-
-                        Spacer(Modifier.height(Dimen.size8))
-
-                        SecondaryIconButton(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            icon = R.drawable.ic_outlined_heart,
-                            onClick = {},
-                            text = stringResource(R.string.add_to_watchlist),
                         )
 
                         Spacer(Modifier.height(Dimen.size24))
