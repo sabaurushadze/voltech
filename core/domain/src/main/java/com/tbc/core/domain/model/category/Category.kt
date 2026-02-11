@@ -21,5 +21,22 @@ enum class Category {
                 else -> GPU
             }
         }
+
+        fun toServerString(category: Category): String {
+            return when (category) {
+                GPU -> "GPU"
+                CPU -> "CPU"
+                MOTHERBOARD -> "MOTHERBOARD"
+                RAM -> "RAM"
+                SSD -> "SSD"
+                HDD -> "HDD"
+                CPU_COOLER -> "CPU_COOLER"
+                PSU -> "PSU"
+                CASE_COOLER -> "CASE_COOLER"
+                CASE -> "CASE"
+                MONITOR -> "MONITOR"
+                CABEL -> "CABEL"
+            }
+        }
     }
 }

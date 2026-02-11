@@ -2,7 +2,6 @@ package com.tbc.search.presentation.mapper.feed
 
 import com.tbc.core.presentation.mapper.category.toStringRes
 import com.tbc.core.presentation.util.toPriceUsStyle
-import com.tbc.core.presentation.util.toPriceUsStyle
 import com.tbc.resource.R
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.FeedItem
@@ -12,6 +11,7 @@ import com.tbc.search.presentation.model.feed.UiFeedItem
 fun FeedItem.toPresentation(): UiFeedItem {
     return UiFeedItem(
         id = id,
+        uid = uid,
         title = title,
         categoryRes = category.toStringRes(),
         conditionRes = condition.toStringRes(),
@@ -20,8 +20,8 @@ fun FeedItem.toPresentation(): UiFeedItem {
         quantity = quantity.toString(),
         locationRes = location.toStringRes(),
         userDescription = userDescription,
-        sellerAvatar = sellerAvatar,
-        sellerUserName = sellerUserName,
+        sellerName = sellerName,
+        sellerPhotoUrl = sellerPhotoUrl
     )
 }
 

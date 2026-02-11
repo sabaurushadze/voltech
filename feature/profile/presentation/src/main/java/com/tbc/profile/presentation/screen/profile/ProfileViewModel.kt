@@ -13,13 +13,9 @@ class ProfileViewModel @Inject constructor(
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
 ) : BaseViewModel<ProfileState, ProfileSideEffect, ProfileEvent>(ProfileState()) {
 
-    init {
-        getCurrentUser()
-    }
-
     override fun onEvent(event: ProfileEvent) {
         when (event) {
-            ProfileEvent.GetUserInfo -> {}
+            ProfileEvent.GetUserInfo -> getCurrentUser()
             ProfileEvent.NavigateToSettings -> navigateToSettings()
             ProfileEvent.NavigateToUserDetails -> navigateToUserDetails()
             ProfileEvent.NavigateToWatchlist -> navigateToWatchlist()

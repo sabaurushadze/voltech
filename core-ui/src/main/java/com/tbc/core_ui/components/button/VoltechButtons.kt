@@ -111,6 +111,59 @@ fun SecondaryIconButton(
     }
 }
 
+@Composable
+fun TertiaryIconButton(
+    modifier: Modifier = Modifier,
+    text: String,
+    @DrawableRes icon: Int,
+    enabled: Boolean = true,
+    iconSize: Dp = Dimen.size16,
+    borderThickness: Dp = VoltechBorder.medium,
+    borderColor: Color = VoltechColor.foregroundPrimary,
+    errorText: String = "",
+    onClick: () -> Unit
+) {
+    Column {
+        BaseOutlinedButton(
+            modifier = modifier,
+            colors = VoltechButtonDefaults.secondaryColors,
+            enabled = enabled,
+            shape = VoltechRadius.radius24,
+            onClick = onClick,
+            border = BorderStroke(borderThickness, borderColor)
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    modifier = Modifier.size(iconSize),
+                    imageVector = ImageVector.vectorResource(icon),
+                    tint = VoltechColor.foregroundPrimary,
+                    contentDescription = null,
+                )
+
+                Spacer(modifier = Modifier.width(Dimen.size4))
+
+                Text(
+                    text = text,
+                    color = VoltechColor.foregroundPrimary,
+                    style = VoltechTextStyle.bodyBold
+                )
+            }
+        }
+        if (errorText.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(Dimen.size4))
+            Text(
+                text = errorText,
+                color = VoltechColor.foregroundAttention,
+                style = VoltechTextStyle.body
+            )
+        }
+    }
+
+
+}
+
 
 @Composable
 fun BorderlessIconButton(
@@ -380,6 +433,13 @@ fun PrimaryButtonPreview() {
                 text = "Buy it now",
                 enabled = true,
                 icon = R.drawable.ic_outlined_heart,
+                onClick = {}
+            )
+            TertiaryIconButton(
+                text = "Buy it now",
+                enabled = true,
+                icon = R.drawable.ic_outlined_heart,
+                errorText = "Please select at least one image",
                 onClick = {}
             )
         }

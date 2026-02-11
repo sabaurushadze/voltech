@@ -16,15 +16,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
+import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechTextStyle
 
 @Composable
 fun EmptyState(
-    title: String,
-    subtitle: String,
-    @DrawableRes icon: Int,
+    title: String? = null,
+    subtitle: String? = null,
+    buttonText: String? = null,
+    onButtonClick: () -> Unit = {},
+    @DrawableRes icon: Int? = null,
 ) {
     Column(
         modifier = Modifier
@@ -33,29 +36,47 @@ fun EmptyState(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            modifier = Modifier.size(Dimen.size80),
-            imageVector = ImageVector.vectorResource(icon),
-            tint = VoltechColor.backgroundTertiary,
-            contentDescription = null,
-        )
+        icon?.let {
+            Icon(
+                modifier = Modifier.size(Dimen.size80),
+                imageVector = ImageVector.vectorResource(icon),
+                tint = VoltechColor.backgroundTertiary,
+                contentDescription = null,
+            )
 
-        Spacer(modifier = Modifier.height(Dimen.size16))
+            Spacer(modifier = Modifier.height(Dimen.size16))
+        }
 
-        Text(
-            text = title,
-            style = VoltechTextStyle.title2,
-            color = VoltechColor.foregroundPrimary,
-            textAlign = TextAlign.Center
-        )
+        title?.let {
+            Text(
+                text = title,
+                style = VoltechTextStyle.title2,
+                color = VoltechColor.foregroundPrimary,
+                textAlign = TextAlign.Center
+            )
 
-        Spacer(modifier = Modifier.height(Dimen.size8))
+            Spacer(modifier = Modifier.height(Dimen.size8))
+        }
 
-        Text(
-            text = subtitle,
-            style = VoltechTextStyle.body,
-            color = VoltechColor.foregroundSecondary,
-            textAlign = TextAlign.Center
-        )
+        subtitle?.let {
+            Text(
+                text = subtitle,
+                style = VoltechTextStyle.body,
+                color = VoltechColor.foregroundSecondary,
+                textAlign = TextAlign.Center
+            )
+
+            Spacer(modifier = Modifier.height(Dimen.size16))
+        }
+
+        buttonText?.let {
+            Spacer(modifier = Modifier.height(Dimen.size16))
+
+            PrimaryButton(
+                text = buttonText,
+                onClick = { onButtonClick() }
+            )
+        }
+
     }
 }

@@ -10,5 +10,14 @@ data class WatchlistState(
 
     val favoriteItems: List<UiFavorite> = emptyList(),
     val editModeOn: Boolean = false,
-)
+) {
+    val allSelected: Boolean
+        get() = favoriteItems.isNotEmpty() && favoriteItems.all { it.isSelected }
+
+    val anySelected: Boolean
+        get() = favoriteItems.any { it.isSelected }
+
+    val selectedCount: Int
+        get() = favoriteItems.count { it.isSelected }
+}
 

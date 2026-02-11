@@ -47,6 +47,10 @@
             <option value="$PROJECT_DIR$/feature/search/data" />
             <option value="$PROJECT_DIR$/feature/search/domain" />
             <option value="$PROJECT_DIR$/feature/search/presentation" />
+            <option value="$PROJECT_DIR$/feature/selling" />
+            <option value="$PROJECT_DIR$/feature/selling/data" />
+            <option value="$PROJECT_DIR$/feature/selling/domain" />
+            <option value="$PROJECT_DIR$/feature/selling/presentation" />
             <option value="$PROJECT_DIR$/resource" />
           </set>
         </option>

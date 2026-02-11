@@ -26,7 +26,7 @@ import com.tbc.core_ui.theme.VoltechFixedColor
 
 @Composable
 fun FeedItemCard(
-    imageUrl: String,
+    imageUrl: String?,
     title: String,
     price: String,
     checked: Boolean = false,
@@ -61,12 +61,14 @@ fun FeedItemCard(
                     .clip(VoltechRadius.radius16)
                     .background(VoltechFixedColor.lightGray)
             ) {
-                BaseAsyncImage(
-                    url = imageUrl,
-                    modifier = Modifier
-                        .matchParentSize()
-                        .clip(VoltechRadius.radius16),
-                )
+                imageUrl?.let {
+                    BaseAsyncImage(
+                        url = imageUrl,
+                        modifier = Modifier
+                            .matchParentSize()
+                            .clip(VoltechRadius.radius16),
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.width(Dimen.size16))

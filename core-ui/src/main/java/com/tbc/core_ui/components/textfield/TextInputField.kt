@@ -1,8 +1,13 @@
 package com.tbc.core_ui.components.textfield
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -13,15 +18,20 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechFixedColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.resource.R
 
 
 @Composable
@@ -37,26 +47,21 @@ fun OutlinedTextInputField(
     shape: RoundedCornerShape = VoltechRadius.radius16,
     keyboardType: KeyboardType = KeyboardType.Unspecified,
     startIcon: ImageVector? = null,
+    endIcon: (@Composable (() -> Unit))? = null,
+    singleLine: Boolean = true,
+    maxLines: Int = 1,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
 ) {
     OutlinedTextField(
         modifier = modifier,
         value = value,
         enabled = enabled,
-        colors = OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = VoltechColor.foregroundPrimary,
-            unfocusedBorderColor = VoltechColor.foregroundPrimary,
-            focusedLabelColor = VoltechColor.foregroundAccent,
-            unfocusedLabelColor = VoltechColor.foregroundPrimary,
-            focusedTextColor = VoltechColor.foregroundPrimary,
-            unfocusedTextColor = VoltechColor.foregroundPrimary
-        ),
+        colors = VoltechOutlinedTextFieldDefaults.primaryColors,
         label = label?.let {
             {
                 Text(
                     text = it,
                     style = VoltechTextStyle.body,
-                    color = VoltechColor.foregroundPrimary
                 )
             }
         },
@@ -72,7 +77,8 @@ fun OutlinedTextInputField(
             }
         },
         visualTransformation = visualTransformation,
-        singleLine = true,
+        singleLine = singleLine,
+        maxLines = maxLines,
         isError = errorText != null,
         shape = shape,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction),
@@ -85,6 +91,7 @@ fun OutlinedTextInputField(
                 )
             }
         },
+        trailingIcon = endIcon,
         keyboardActions = keyboardActions
     )
 }

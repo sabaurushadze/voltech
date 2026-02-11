@@ -20,6 +20,8 @@ import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.ItemDetailsRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.search.presentation.navigation.searchNavGraph
+import com.tbc.selling.presentation.navigation.AddItemScreenRoute
+import com.tbc.selling.presentation.navigation.sellingNavGraph
 import com.tbc.voltech.presentation.AppState
 import kotlin.reflect.KClass
 
@@ -110,6 +112,15 @@ fun VoltechNavHost(
                 navController.navigate(ItemDetailsRoute(id))
             },
             navigateToAddToCart = { navController.navigate(AddToCartScreenRoute) }
+        )
+
+        sellingNavGraph(
+            onSetupTopBar = onSetupAppBar,
+            navigateToAddItem = { navController.navigate(AddItemScreenRoute) },
+            navigateBack = { navController.navigateUp() },
+            navigateToItemDetails = { id ->
+                navController.navigate(ItemDetailsRoute(id))
+            }
         )
 
 

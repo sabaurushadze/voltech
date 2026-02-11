@@ -136,7 +136,6 @@ private fun EditProfileContent(
             .background(VoltechColor.backgroundPrimary)
             .fillMaxSize()
     ) {
-        val saveButtonEnabled = state.selectedImageUri != null || state.userName != state.user?.name
 
         state.user?.let { user ->
             UserProfileSection(
@@ -170,7 +169,7 @@ private fun EditProfileContent(
                 .fillMaxWidth()
                 .padding(horizontal = Dimen.size16),
             text = stringResource(R.string.save),
-            enabled = saveButtonEnabled,
+            enabled = state.saveButtonEnabled,
             onClick = {
                 onEvent(EditProfileEvent.SavePhotoInStorage(state.selectedImageUri))
                 if (state.userName != state.user?.name) {

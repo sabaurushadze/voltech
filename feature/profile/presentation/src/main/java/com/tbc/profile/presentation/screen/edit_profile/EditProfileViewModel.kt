@@ -61,7 +61,7 @@ class EditProfileViewModel @Inject constructor(
     }
 
     private fun saveUsername(username: String) = viewModelScope.launch {
-        updateState { copy(showUsernameError = false) }
+        updateState { copy(showUsernameError = false, isLoading = true) }
 
         val showUserNameError = validateUserNameUseCase(username)
 
@@ -72,15 +72,16 @@ class EditProfileViewModel @Inject constructor(
                     emitSideEffect(
                         EditProfileSideEffect.ShowSnackBar(R.string.username_updated)
                     )
+                    updateState { copy(isLoading = false) }
                 }
                 .onFailure {
                     emitSideEffect(
                         EditProfileSideEffect.ShowSnackBar(R.string.username_update_failed)
                     )
+                    updateState { copy(isLoading = false) }
                 }
         } else {
-            updateState { copy(showUsernameError = !showUserNameError) }
-
+            updateState { copy(showUsernameError = !showUserNameError, isLoading = false) }
         }
 
 
@@ -110,25 +111,25 @@ class EditProfileViewModel @Inject constructor(
         }
     }
 
-    private fun updateProfileImage(uri: Uri?) {
-        viewModelScope.launch {
-            state.value.selectedImageUri?.let {
-                enqueueFileUploadUseCase(uri.toString())
-                    .onSuccess { newUrl ->
-                        updateState { copy(selectedImageUri = null) }
+    private fun updateProfileImage(uri: Uri?) = viewModelScope.launch {
+        updateState { copy(isLoading = true) }
 
-                        updateProfilePictureUseCase(newUrl)
-                            .onSuccess {
-                                emitSideEffect(
-                                    EditProfileSideEffect.ShowSnackBar(
-                                        R.string.profile_picture_updated_successfully
-                                    )
+        state.value.selectedImageUri?.let {
+            enqueueFileUploadUseCase(uri.toString())
+                .onSuccess { newUrl ->
+                    updateState { copy(selectedImageUri = null) }
+
+                    updateProfilePictureUseCase(newUrl)
+                        .onSuccess {
+                            emitSideEffect(
+                                EditProfileSideEffect.ShowSnackBar(
+                                    R.string.profile_picture_updated_successfully
                                 )
-                                getCurrentUser()
-                            }
-                    }
-            }
-
+                            )
+                            updateState { copy(isLoading = false) }
+                            getCurrentUser()
+                        }
+                }
         }
     }
 

@@ -1,5 +1,6 @@
 package com.tbc.search.presentation.screen.item_details
 
+import android.util.Log.d
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -32,6 +33,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -73,10 +75,6 @@ fun ItemDetailsScreen(
     LaunchedEffect(Unit) {
         viewModel.onEvent(ItemDetailsEvent.GetItemDetails(id))
         viewModel.onEvent(ItemDetailsEvent.GetItemId(id))
-    }
-
-    LaunchedEffect(Unit) {
-        viewModel.onEvent(ItemDetailsEvent.GetUserUid)
     }
 
     LaunchedEffect(Unit) {
@@ -128,7 +126,7 @@ private fun ItemDetailsContent(
                         onEvent = onEvent,
                         isFavoriteSelected = isFavoriteItem,
                         onFavoriteButtonIconClick = {
-                            onEvent(ItemDetailsEvent.OnFavoriteToggle(uid = state.uid, itemId = itemDetails.id))
+                            onEvent(ItemDetailsEvent.OnFavoriteToggle(uid = state.user.uid, itemId = itemDetails.id))
                         }
                     )
                 }
@@ -158,10 +156,11 @@ private fun ItemDetailsContent(
                         Spacer(Modifier.height(Dimen.size16))
 
                         SellerItem(
-                            sellerAvatar = sellerAvatar,
-                            sellerUerName = sellerUserName
+                            sellerAvatar = state.itemDetails.sellerPhotoUrl,
+                            sellerUserName = state.itemDetails.sellerName
                         )
 
+                        d("asdd", "ITEM DETAILS STATE ${state.itemDetails}")
                         Spacer(Modifier.height(Dimen.size16))
 
                         Text(
@@ -272,7 +271,7 @@ private fun AboutItem(
 @Composable
 private fun SellerItem(
     sellerAvatar: String?,
-    sellerUerName: String,
+    sellerUserName: String?,
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -289,11 +288,13 @@ private fun SellerItem(
 
         Spacer(Modifier.width(Dimen.size8))
 
-        Text(
-            text = sellerUerName,
-            style = VoltechTextStyle.body,
-            color = VoltechColor.foregroundPrimary
-        )
+        sellerUserName?.let {
+            Text(
+                text = sellerUserName,
+                style = VoltechTextStyle.body,
+                color = VoltechColor.foregroundPrimary
+            )
+        }
     }
 }
 
@@ -440,9 +441,10 @@ private fun ImagePager(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(Dimen.size300)
-                    .background(VoltechFixedColor.white),
+                    .background(VoltechColor.backgroundPrimary),
             ) {
                 BaseAsyncImage(
+                    contentScale = ContentScale.Fit,
                     modifier = Modifier.fillMaxSize(),
                     url = imagesList[page]
                 )

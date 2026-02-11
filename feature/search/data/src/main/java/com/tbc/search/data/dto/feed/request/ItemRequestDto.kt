@@ -1,10 +1,10 @@
-package com.tbc.search.data.dto.feed
+package com.tbc.search.data.dto.feed.request
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class FeedItemResponseDto(
-    val id: Int,
+data class ItemRequestDto(
+    val uid: String,
     val title: String,
     val category: String,
     val condition: String,
@@ -13,6 +13,6 @@ data class FeedItemResponseDto(
     val quantity: Int,
     val location: String,
     val userDescription: String,
-    val sellerAvatar: String?,
-    val sellerUserName: String,
+    val sellerName: String?,
+    val sellerPhotoUrl: String?,
 )

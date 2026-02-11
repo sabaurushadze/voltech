@@ -11,5 +11,8 @@ data class EditProfileState(
     val showUsernameError: Boolean = false,
 
     val selectedProfileEdit: Boolean = false,
-    val selectedImageUri: Uri? = null,
-    )
+    val selectedImageUri: Uri? = null
+) {
+    val saveButtonEnabled
+        get() = !isLoading && (selectedImageUri != null || userName != user?.name)
+}

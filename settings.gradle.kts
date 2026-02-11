@@ -43,10 +43,14 @@ include(":feature:search:data")
 include(":feature:search:domain")
 include(":feature:search:presentation")
 
-include(":feature:profile")
-
 include(":feature:profile:data")
 include(":feature:profile:presentation")
 include(":feature:profile:domain")
+
+include(":feature:selling:data")
+include(":feature:selling:presentation")
+include(":feature:selling:domain")
+
+
 include(":core-ui")
 include(":resource")
