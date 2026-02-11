@@ -5,11 +5,14 @@ import com.tbc.search.presentation.model.favorite.UiFavorite
 import com.tbc.search.presentation.model.feed.UiFeedItem
 
 data class ItemDetailsState(
-    val user: UiUser? = null,
+    val user: UiUser = UiUser(
+        uid = "",
+        name = "",
+        photoUrl = ""
+    ),
 
     val isLoading: Boolean = false,
     val itemDetails: UiFeedItem? = null,
-//    val uid: String = "",
     val itemId: Int = 0,
     val recentlyItemsId: List<Int> = emptyList(),
     val favoriteItem: List<UiFavorite> = emptyList(),

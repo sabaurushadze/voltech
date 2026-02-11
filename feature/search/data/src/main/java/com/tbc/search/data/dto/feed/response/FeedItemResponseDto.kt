@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class FeedItemResponseDto(
     val id: Int,
-    val uid: String?,
+    val uid: String,
     val title: String,
     val category: String,
     val condition: String,
@@ -14,4 +14,6 @@ data class FeedItemResponseDto(
     val quantity: Int,
     val location: String,
     val userDescription: String,
+    val sellerName: String?,
+    val sellerPhotoUrl: String?
 )

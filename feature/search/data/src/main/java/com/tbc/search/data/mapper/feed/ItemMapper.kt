@@ -14,6 +14,6 @@ fun Item.toDto() =
         quantity = quantity,
         location = location,
         userDescription = userDescription,
-        sellerAvatar = sellerAvatar,
-        sellerUserName = sellerUserName
+        sellerName = sellerName,
+        sellerPhotoUrl = sellerPhotoUrl
     )

@@ -133,8 +133,8 @@ class AddItemViewModel @Inject constructor(
                         quantity = quantity,
                         location = location,
                         userDescription = description,
-                        sellerAvatar = currentUser.photoUrl,
-                        sellerUserName = currentUser.name
+                        sellerName = currentUser.name,
+                        sellerPhotoUrl = currentUser.photoUrl
                     ).toDomain()
 
                     addItemUseCase(item)

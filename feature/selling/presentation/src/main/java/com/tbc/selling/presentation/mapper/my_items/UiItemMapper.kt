@@ -17,6 +17,6 @@ fun UiItem.toDomain() =
         quantity = quantity.toInt(),
         location = Location.toServerString(location),
         userDescription = userDescription,
-        sellerAvatar = sellerAvatar,
-        sellerUserName = sellerUserName
+        sellerName = sellerName,
+        sellerPhotoUrl = sellerPhotoUrl
     )

@@ -1,7 +1,9 @@
 package com.tbc.selling.presentation.screen.my_items
 
+import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
+import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.core.presentation.mapper.user.toPresentation
@@ -105,6 +107,9 @@ class MyItemsViewModel @Inject constructor(
         getItemsByUidUseCase(uid)
             .onSuccess { itemsDomain ->
                 updateState { copy(myItems = itemsDomain.map { it.toPresentation() }, isLoading = false) }
+            }
+            .onFailure {
+                d("asdd", "$it")
             }
     }
 

@@ -18,5 +18,7 @@ fun FeedItemResponseDto.toDomain(): FeedItem {
         quantity = quantity,
         location = Location.fromString(location),
         userDescription = userDescription,
+        sellerName = sellerName,
+        sellerPhotoUrl = sellerPhotoUrl,
     )
 }

@@ -4,7 +4,7 @@ import com.tbc.core.domain.model.category.Category
 
 data class FeedItem(
     val id: Int,
-    val uid: String?,
+    val uid: String,
     val title: String,
     val category: Category,
     val condition: Condition,
@@ -13,6 +13,8 @@ data class FeedItem(
     val quantity: Int,
     val location: Location,
     val userDescription: String,
+    val sellerName: String?,
+    val sellerPhotoUrl: String?
 )
 
 

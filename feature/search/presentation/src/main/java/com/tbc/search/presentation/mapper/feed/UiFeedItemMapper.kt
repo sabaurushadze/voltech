@@ -11,6 +11,7 @@ import com.tbc.search.presentation.model.feed.UiFeedItem
 fun FeedItem.toPresentation(): UiFeedItem {
     return UiFeedItem(
         id = id,
+        uid = uid,
         title = title,
         categoryRes = category.toStringRes(),
         conditionRes = condition.toStringRes(),
@@ -19,6 +20,8 @@ fun FeedItem.toPresentation(): UiFeedItem {
         quantity = quantity.toString(),
         locationRes = location.toStringRes(),
         userDescription = userDescription,
+        sellerName = sellerName,
+        sellerPhotoUrl = sellerPhotoUrl
     )
 }
 

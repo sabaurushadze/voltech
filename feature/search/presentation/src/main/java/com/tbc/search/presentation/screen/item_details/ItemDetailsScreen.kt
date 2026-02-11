@@ -1,5 +1,6 @@
 package com.tbc.search.presentation.screen.item_details
 
+import android.util.Log.d
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -119,17 +120,15 @@ private fun ItemDetailsContent(
 
             with(itemDetails) {
                 item {
-                    state.user?.let { user ->
-                        ImagePager(
-                            imagesList = images,
-                            selectedImage = state.selectedImage,
-                            onEvent = onEvent,
-                            isFavoriteSelected = isFavoriteItem,
-                            onFavoriteButtonIconClick = {
-                                onEvent(ItemDetailsEvent.OnFavoriteToggle(uid = user.uid, itemId = itemDetails.id))
-                            }
-                        )
-                    }
+                    ImagePager(
+                        imagesList = images,
+                        selectedImage = state.selectedImage,
+                        onEvent = onEvent,
+                        isFavoriteSelected = isFavoriteItem,
+                        onFavoriteButtonIconClick = {
+                            onEvent(ItemDetailsEvent.OnFavoriteToggle(uid = state.user.uid, itemId = itemDetails.id))
+                        }
+                    )
                 }
 
                 item {
@@ -156,13 +155,12 @@ private fun ItemDetailsContent(
 
                         Spacer(Modifier.height(Dimen.size16))
 
-                        state.user?.let { user ->
-                            SellerItem(
-                                sellerAvatar = user.photoUrl,
-                                sellerUserName = user.name
-                            )
-                        }
+                        SellerItem(
+                            sellerAvatar = state.itemDetails.sellerPhotoUrl,
+                            sellerUserName = state.itemDetails.sellerName
+                        )
 
+                        d("asdd", "ITEM DETAILS STATE ${state.itemDetails}")
                         Spacer(Modifier.height(Dimen.size16))
 
                         Text(

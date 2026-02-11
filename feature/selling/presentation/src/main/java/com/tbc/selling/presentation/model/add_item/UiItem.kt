@@ -14,6 +14,6 @@ data class UiItem(
     val quantity: String,
     val location: Location,
     val userDescription: String,
-    val sellerAvatar: String?,
-    val sellerUserName: String?,
+    val sellerName: String?,
+    val sellerPhotoUrl: String?,
 )

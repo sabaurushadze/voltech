@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 
 data class UiFeedItem(
     val id: Int,
+    val uid: String,
     val title: String,
     @param:StringRes val categoryRes: Int,
     @param:StringRes val conditionRes: Int,
@@ -12,6 +13,6 @@ data class UiFeedItem(
     val quantity: String,
     @param:StringRes val locationRes: Int,
     val userDescription: String,
-//    val sellerAvatar: String?,
-//    val sellerUserName: String,
+    val sellerName: String?,
+    val sellerPhotoUrl: String?
 )

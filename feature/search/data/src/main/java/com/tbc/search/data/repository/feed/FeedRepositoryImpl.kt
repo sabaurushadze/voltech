@@ -7,6 +7,7 @@ import com.tbc.core.data.remote.util.ApiResponseHandler
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
 import com.tbc.core.domain.util.map
+import com.tbc.core.domain.util.mapList
 import com.tbc.search.data.mapper.feed.toDomain
 import com.tbc.search.data.mapper.feed.toDto
 import com.tbc.search.data.paging.feed.FeedPagingSource
