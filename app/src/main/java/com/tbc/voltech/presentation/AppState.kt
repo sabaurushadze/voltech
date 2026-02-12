@@ -12,11 +12,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
-import com.tbc.auth.presentation.navigation.LoginScreenRoute
-import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.home.presentation.navigation.HomeScreenRoute
 import com.tbc.profile.presentation.navigation.ProfileScreenRoute
-import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.selling.presentation.navigation.MyItemsScreenRoute
 import com.tbc.voltech.navigation.TopLevelDestination
@@ -61,22 +58,6 @@ data class AppState(
             return hiddenRoutes.none { route ->
                 destination.hasRoute(route)
             } && currentTopLevelDestination != null
-        }
-
-    val shouldShowTopBar: Boolean
-        @Composable get() {
-            val destination = currentDestination ?: return false
-
-            val hiddenRoutes = listOf(
-                LoginScreenRoute::class,
-                RegisterScreenRoute::class,
-                SearchScreenRoute::class,
-                FeedScreenRoute::class,
-            )
-
-            return hiddenRoutes.none { route ->
-                destination.hasRoute(route)
-            }
         }
 
     fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {

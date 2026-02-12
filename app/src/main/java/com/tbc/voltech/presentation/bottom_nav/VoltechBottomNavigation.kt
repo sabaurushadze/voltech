@@ -1,4 +1,4 @@
-package com.tbc.voltech.presentation
+package com.tbc.voltech.presentation.bottom_nav
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExitTransition
@@ -21,6 +21,7 @@ import androidx.navigation.NavDestination
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.voltech.navigation.TopLevelDestination
+import com.tbc.voltech.presentation.isRouteInHierarchy
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

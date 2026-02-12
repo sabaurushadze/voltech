@@ -3,7 +3,6 @@ package com.tbc.profile.presentation.navigation
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.profile.presentation.screen.edit_profile.EditProfileScreen
 import com.tbc.profile.presentation.screen.profile.ProfileScreen
 import com.tbc.profile.presentation.screen.recently_viewed.RecentlyViewedScreen
@@ -19,14 +18,12 @@ fun NavGraphBuilder.profileNavGraph(
     navigateToRecentlyViewed: () -> Unit,
     navigateToBack: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
-    onSetupTopBar: (TopBarState) -> Unit,
 ) {
 
     navigation<ProfileNavGraphRoute>(startDestination = ProfileScreenRoute) {
 
         composable<RecentlyViewedScreenRoute>{
             RecentlyViewedScreen(
-                onSetupTopBar = onSetupTopBar,
                 navigateToBack = navigateToBack,
                 navigateToItemDetails = navigateToItemDetails
             )
@@ -36,7 +33,6 @@ fun NavGraphBuilder.profileNavGraph(
             ProfileScreen(
                 navigateToSettings = navigateToSettings,
                 navigateToWatchlist = navigateToWatchlist,
-                onSetupTopBar = onSetupTopBar,
                 navigateToUserDetails = navigateToEditProfile,
                 navigateToRecentlyViewed = navigateToRecentlyViewed,
             )
@@ -45,7 +41,6 @@ fun NavGraphBuilder.profileNavGraph(
 
         composable<EditProfileScreenRoute> {
             EditProfileScreen(
-                onSetupTopBar = onSetupTopBar,
                 navigateBackToProfile = navigateBack
             )
 
@@ -54,7 +49,6 @@ fun NavGraphBuilder.profileNavGraph(
         composable<SettingsScreenRoute> {
             SettingsScreen(
                 navigateBack = navigateBack,
-                onSetupTopBar = onSetupTopBar
             )
 
         }
@@ -62,7 +56,6 @@ fun NavGraphBuilder.profileNavGraph(
         composable<WatchlistScreenRoute> {
             WatchlistScreen(
                 navigateBack = navigateBack,
-                onSetupTopBar = onSetupTopBar,
                 navigateToItemDetails = navigateToItemDetails
             )
 

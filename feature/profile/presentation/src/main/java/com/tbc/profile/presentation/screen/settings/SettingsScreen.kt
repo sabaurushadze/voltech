@@ -14,7 +14,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -27,26 +26,21 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core_ui.components.radiobutton.VoltechRadioButtonDefaults
-import com.tbc.core_ui.components.topbar.TopBarAction
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.profile.domain.model.settings.VoltechThemeOption
-import com.tbc.resource.R
 import com.tbc.profile.presentation.mapper.settings.toStringRes
+import com.tbc.resource.R
 
 @Composable
 fun SettingsScreen(
     viewModel: SettingsViewModel = hiltViewModel(),
     navigateBack: () -> Unit,
-    onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
-
-    SetupTopBar(onSetupTopBar, viewModel::onEvent)
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
@@ -197,26 +191,6 @@ private fun SettingsItem(
             text = text,
             color = VoltechColor.foregroundPrimary,
             style = VoltechTextStyle.body
-        )
-    }
-}
-
-@Composable
-private fun SetupTopBar(
-    onSetupTopBar: (TopBarState) -> Unit,
-    onEvent: (SettingsEvent) -> Unit,
-) {
-    val title = stringResource(id = R.string.settings)
-
-    LaunchedEffect(Unit) {
-        onSetupTopBar(
-            TopBarState(
-                title = title,
-                navigationIcon = TopBarAction(
-                    icon = R.drawable.ic_arrow_back,
-                    onClick = { onEvent(SettingsEvent.NavigateBackToProfile) }
-                )
-            )
         )
     }
 }

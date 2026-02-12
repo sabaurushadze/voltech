@@ -5,7 +5,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,20 +28,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.extension.capitalizeFirst
 import com.tbc.core_ui.components.button.BorderlessIconButton
-import com.tbc.core_ui.components.button.CircleIconButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.loading.LoadingScreen
-import com.tbc.core_ui.components.textfield.TextInputFieldDummy
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
@@ -55,15 +49,12 @@ import com.tbc.resource.R
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
-    onSetupTopBar: (TopBarState) -> Unit,
-    navigateToSearch: () -> Unit,
     navigateToFeed: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
     navigateToRecentlyViewed: () -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val onEvent = viewModel::onEvent
-    SetupTopBar(onSetupTopBar, navigateToSearch)
 
     LaunchedEffect(Unit) {
         onEvent(HomeEvent.GetCategories)
@@ -259,54 +250,3 @@ private fun CategoryItem(
         )
     }
 }
-
-@Composable
-private fun SetupTopBar(
-    onSetupTopBar: (TopBarState) -> Unit,
-    navigateToSearch: () -> Unit,
-) {
-    LaunchedEffect(Unit) {
-        onSetupTopBar(
-            TopBarState(
-                titleContent = {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(IntrinsicSize.Min)
-                            .padding(end = Dimen.size16),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        TextInputFieldDummy(
-                            modifier = Modifier.weight(1f),
-                            value = "",
-                            onTextChanged = {  },
-                            label = stringResource(R.string.search_on_voltech),
-                            shape = VoltechRadius.radius24,
-                            startIcon = ImageVector.vectorResource(R.drawable.ic_search),
-                            onClick = { navigateToSearch() }
-                        )
-
-                        CircleIconButton(
-                            modifier = Modifier.padding(top = Dimen.size6),
-                            onClick = {  },
-                            size = Dimen.size24,
-                            iconColor = VoltechColor.backgroundInverse,
-                            backgroundColor = VoltechColor.backgroundTertiary,
-                        )
-                    }
-                }
-            )
-        )
-    }
-}
-
-//@Composable
-//@Preview(showBackground = true)
-//private fun HomeContentPreview(){
-//    HomeContent(
-//        state = HomeState(),
-//        navigateToFeed = {},
-//        navigateToItemDetails = {},
-//    )
-//}
