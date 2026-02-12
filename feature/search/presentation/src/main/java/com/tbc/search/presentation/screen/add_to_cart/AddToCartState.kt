@@ -4,7 +4,8 @@ import com.tbc.search.presentation.model.cart.UiCartItem
 
 
 data class AddToCartState (
-    val isLoading: Boolean = false,
+    val isLoading: Boolean = true,
     val cartItemIds: List<Int> = emptyList(),
-    val cartItems: List<UiCartItem> = emptyList()
+    val cartItems: List<UiCartItem> = emptyList(),
+    val subtotal: Double = 0.0
 )

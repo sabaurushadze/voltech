@@ -2,6 +2,7 @@ package com.tbc.search.presentation.screen.add_to_cart
 
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
+import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.search.domain.usecase.cart.GetCartItemsUseCase
@@ -41,8 +42,19 @@ class AddToCartViewModel @Inject constructor(
         viewModelScope.launch {
             getItemsByIdsUseCase(state.value.cartItemIds)
                 .onSuccess { cartItems ->
-                    updateState { copy( cartItems = cartItems.toPresentation()) }
+                    updateState { copy(cartItems = cartItems.toPresentation(), isLoading = false) }
+                    calculateSubTotal(cartItems.map { it.price })
                 }
+                .onFailure {
+                    updateState { copy(isLoading = false) }
+                }
+        }
+    }
+
+    private fun calculateSubTotal(priceList: List<Double>) {
+        val subtotal = priceList.sum()
+        updateState {
+            copy(subtotal = subtotal)
         }
     }
 }

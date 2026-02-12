@@ -14,7 +14,7 @@ interface FavoriteService {
     @GET(FAVORITES)
     suspend fun getFavoritesByUser(
         @Query(UID) uid: String,
-        @Query(SORT) sort: String = VIEWED_AT,
+        @Query(SORT) sort: String = FAVORITE_AT,
         @Query(ORDER) order: String = DESC,
     ): Response<List<FavoriteResponseDto>>
 
@@ -33,7 +33,7 @@ interface FavoriteService {
         private const val UID = "uid"
         private const val SORT = "_sort"
         private const val ORDER = "_order"
-        private const val VIEWED_AT = "addedAt"
+        private const val FAVORITE_AT = "favoriteAt"
         private const val DESC = "desc"
     }
 }

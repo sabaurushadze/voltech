@@ -16,5 +16,7 @@ data class ItemDetailsState(
     val itemId: Int = 0,
     val recentlyItemsId: List<Int> = emptyList(),
     val favoriteItem: List<UiFavorite> = emptyList(),
-    val selectedImage: Int = 0
-)
+    val selectedImage: Int = 0,
+    val cartItemIds: List<Int> = emptyList(),
+    val isInCart: Boolean = false,
+    )

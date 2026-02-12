@@ -74,7 +74,7 @@
     <string name="available">available</string>
     <string name="item_available">%1$s available</string>
     <string name="item">Item</string>
-    <string name="shopping_cart">Shopping cart</string>
+    <string name="voltech_shopping_cart">Voltech shopping cart</string>
 
 
     <string name="select_app_theme">Select App Theme</string>
@@ -100,6 +100,7 @@
     <string name="choose_existing_photo">Choose Existing Photo</string>
     <string name="take_photo">Take Photo</string>
     <string name="remove_photo">Remove Photo</string>
+    <string name="see_in_cart">See in a cart</string>
 
     <string name="save">Save</string>
     <string name="delete_failed">Deletion failed</string>
@@ -146,4 +147,11 @@
     <string name="select_location">Please select a location</string>
     <string name="select_valid_quantity_amount">Quantity must be between 1 and 10,000</string>
     <string name="enter_valid_price">Price must be at least 1 and no more than 100,000,000</string>
+
+    <!-- Add to cart -->
+    <string name="save_for_later">Save for later</string>
+    <string name="remove">Remove</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="go_to_checkout">Go to checkout</string>
+    <string name="shopping_cart_empty_state">You don\'t have any items in your cart. Let\'s get shopping!</string>
 </resources>

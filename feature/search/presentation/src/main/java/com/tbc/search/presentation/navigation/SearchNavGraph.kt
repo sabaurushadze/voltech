@@ -18,6 +18,7 @@ fun NavGraphBuilder.searchNavGraph(
     navigateToItemDetails: (Int) -> Unit,
     navigateToSearch: () -> Unit,
     navigateBack: () -> Unit,
+    navigateToAddToCart: () -> Unit,
     onSetupTopBar: (TopBarState) -> Unit,
 ) {
 
@@ -54,6 +55,7 @@ fun NavGraphBuilder.searchNavGraph(
                 id = route.id,
                 navigateBack = navigateBack,
                 onSetupTopBar = onSetupTopBar,
+                navigateToAddToCart = navigateToAddToCart,
             )
         }
     }

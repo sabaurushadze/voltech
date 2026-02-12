@@ -65,6 +65,7 @@ fun ItemDetailsScreen(
     viewModel: ItemDetailsViewModel = hiltViewModel(),
     onSetupTopBar: (TopBarState) -> Unit,
     navigateBack: () -> Unit,
+    navigateToAddToCart: () -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -97,6 +98,7 @@ fun ItemDetailsScreen(
     ItemDetailsContent(
         state = state,
         onEvent = viewModel::onEvent,
+        navigateToAddToCart = navigateToAddToCart
     )
 }
 
@@ -106,6 +108,7 @@ fun ItemDetailsScreen(
 private fun ItemDetailsContent(
     state: ItemDetailsState,
     onEvent: (ItemDetailsEvent) -> Unit,
+    navigateToAddToCart: () -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier
@@ -126,7 +129,7 @@ private fun ItemDetailsContent(
                         onEvent = onEvent,
                         isFavoriteSelected = isFavoriteItem,
                         onFavoriteButtonIconClick = {
-                            onEvent(ItemDetailsEvent.OnFavoriteToggle(uid = state.user.uid, itemId = itemDetails.id))
+                            onEvent(ItemDetailsEvent.OnFavoriteToggle(uid = state.user.uid))
                         }
                     )
                 }
@@ -183,8 +186,18 @@ private fun ItemDetailsContent(
                         SecondaryButton(
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            onClick = {},
-                            text = stringResource(R.string.add_to_cart),
+                            onClick = {
+                                if (!state.isInCart){
+                                    onEvent(ItemDetailsEvent.AddItemToCart)
+                                }else{
+                                    navigateToAddToCart()
+                                }
+                            },
+                            text = if (state.isInCart) {
+                                stringResource(R.string.see_in_cart)
+                            } else {
+                                stringResource(R.string.add_to_cart)
+                            }
                         )
 
                         Spacer(Modifier.height(Dimen.size24))

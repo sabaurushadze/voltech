@@ -97,7 +97,8 @@ fun VoltechNavHost(
                 navController.navigate(ItemDetailsRoute(id))
             },
             navigateBack = { navController.navigateUp() },
-            onSetupTopBar = onSetupAppBar
+            onSetupTopBar = onSetupAppBar,
+            navigateToAddToCart = { navController.navigate(AddToCartScreenRoute) }
         )
 
         profileNavGraph(
