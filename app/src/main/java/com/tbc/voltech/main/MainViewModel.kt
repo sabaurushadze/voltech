@@ -27,8 +27,6 @@ class MainViewModel @Inject constructor(
             MainEvent.OnSuccessfulAuth -> {
                 updateState { copy(isAuthorized = true) }
             }
-            is MainEvent.OnUpdateTopBarState -> updateState { copy(topBarState = event.value) }
-
         }
     }
 

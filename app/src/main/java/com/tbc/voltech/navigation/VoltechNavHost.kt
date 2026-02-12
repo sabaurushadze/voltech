@@ -8,7 +8,6 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.auth.presentation.navigation.authNavGraph
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.home.presentation.navigation.homeNavGraph
 import com.tbc.profile.presentation.navigation.EditProfileScreenRoute
 import com.tbc.profile.presentation.navigation.RecentlyViewedScreenRoute
@@ -17,7 +16,7 @@ import com.tbc.profile.presentation.navigation.WatchlistScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
 import com.tbc.search.presentation.navigation.AddToCartScreenRoute
 import com.tbc.search.presentation.navigation.FeedScreenRoute
-import com.tbc.search.presentation.navigation.ItemDetailsRoute
+import com.tbc.search.presentation.navigation.ItemDetailsScreenRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.search.presentation.navigation.searchNavGraph
 import com.tbc.selling.presentation.navigation.AddItemScreenRoute
@@ -29,7 +28,6 @@ import kotlin.reflect.KClass
 @Composable
 fun VoltechNavHost(
     appState: AppState,
-    onSetupAppBar: (TopBarState) -> Unit,
     startDestination: KClass<*>,
     onSuccessfulAuth: () -> Unit,
 ) {
@@ -54,8 +52,6 @@ fun VoltechNavHost(
         )
 
         homeNavGraph(
-            onSetupTopBar = onSetupAppBar,
-            navigateToSearch = { appState.navigateToTopLevelDestination(TopLevelDestination.SEARCH) },
             navigateToFeed = { categoryQuery ->
                 navController.navigate(FeedScreenRoute(categoryQuery = categoryQuery)) {
                     popUpTo(navController.graph.findStartDestination().id) {
@@ -66,7 +62,7 @@ fun VoltechNavHost(
                 }
             },
             navigateToItemDetails = { recentlyItemId ->
-                navController.navigate(ItemDetailsRoute(id = recentlyItemId)) {
+                navController.navigate(ItemDetailsScreenRoute(id = recentlyItemId)) {
                     popUpTo(navController.graph.findStartDestination().id) {
                         saveState = true
                     }
@@ -94,10 +90,9 @@ fun VoltechNavHost(
                 navController.navigate(SearchScreenRoute)
             },
             navigateToItemDetails = { id ->
-                navController.navigate(ItemDetailsRoute(id))
+                navController.navigate(ItemDetailsScreenRoute(id))
             },
             navigateBack = { navController.navigateUp() },
-            onSetupTopBar = onSetupAppBar,
             navigateToAddToCart = { navController.navigate(AddToCartScreenRoute) }
         )
 
@@ -105,25 +100,22 @@ fun VoltechNavHost(
             navigateToSettings = { navController.navigate(SettingsScreenRoute) },
             navigateToWatchlist = { navController.navigate(WatchlistScreenRoute) },
             navigateBack = { navController.navigateUp() },
-            onSetupTopBar = onSetupAppBar,
             navigateToEditProfile = { navController.navigate(EditProfileScreenRoute) },
             navigateToRecentlyViewed = { navController.navigate(RecentlyViewedScreenRoute) },
             navigateToBack = { navController.navigateUp() },
             navigateToItemDetails = { id ->
-                navController.navigate(ItemDetailsRoute(id))
+                navController.navigate(ItemDetailsScreenRoute(id))
             },
             navigateToAddToCart = { navController.navigate(AddToCartScreenRoute) }
+
         )
 
         sellingNavGraph(
-            onSetupTopBar = onSetupAppBar,
             navigateToAddItem = { navController.navigate(AddItemScreenRoute) },
             navigateBack = { navController.navigateUp() },
             navigateToItemDetails = { id ->
-                navController.navigate(ItemDetailsRoute(id))
+                navController.navigate(ItemDetailsScreenRoute(id))
             }
         )
-
-
     }
 }

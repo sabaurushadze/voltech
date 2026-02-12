@@ -22,8 +22,6 @@ import com.tbc.core_ui.components.empty_state.EmptyState
 import com.tbc.core_ui.components.item.FeedItemCard
 import com.tbc.core_ui.components.item_deletion.ItemDeletion
 import com.tbc.core_ui.components.loading.LoadingScreen
-import com.tbc.core_ui.components.topbar.TopBarAction
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.resource.R
@@ -32,14 +30,11 @@ import com.tbc.resource.R
 fun WatchlistScreen(
     viewModel: WatchlistViewModel = hiltViewModel(),
     navigateBack: () -> Unit,
-    onSetupTopBar: (TopBarState) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
-
-    SetupTopBar(onSetupTopBar, viewModel::onEvent)
 
     LaunchedEffect(Unit) {
         viewModel.onEvent(WatchlistEvent.GetFavoriteItems)
@@ -122,25 +117,5 @@ private fun WatchlistContent(
                 )
             }
         }
-    }
-}
-
-@Composable
-private fun SetupTopBar(
-    onSetupTopBar: (TopBarState) -> Unit,
-    onEvent: (WatchlistEvent) -> Unit,
-) {
-    val title = stringResource(id = R.string.watchlist)
-
-    LaunchedEffect(Unit) {
-        onSetupTopBar(
-            TopBarState(
-                title = title,
-                navigationIcon = TopBarAction(
-                    icon = R.drawable.ic_arrow_back,
-                    onClick = { onEvent(WatchlistEvent.NavigateBackToProfile) }
-                )
-            )
-        )
     }
 }

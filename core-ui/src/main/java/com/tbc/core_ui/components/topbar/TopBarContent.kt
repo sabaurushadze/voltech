@@ -9,36 +9,37 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import com.tbc.core_ui.components.button.CircleIconButton
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechTextStyle
+import com.tbc.resource.R
 
 @Composable
 @ExperimentalMaterial3Api
-fun TopBarContent(topBarState: TopBarState) {
+fun TopBarContent(config: TopBarConfig) {
     TopAppBar(
         colors = VoltechTopAppBarDefaults.secondaryColors,
         title = {
-            when {
-                topBarState.titleContent != null -> {
-                    topBarState.titleContent.invoke()
-                }
-                topBarState.title != null -> {
+            config.searchContent?.let {
+                config.searchContent.invoke()
+            } ?: run {
+                config.title?.let {
                     Text(
-                        text = topBarState.title,
-                        color = VoltechColor.foregroundPrimary,
-                        style = VoltechTextStyle.title2
+                        text = stringResource(it),
+                        style = VoltechTextStyle.title2,
+                        color = VoltechColor.foregroundPrimary
                     )
                 }
             }
         },
         navigationIcon = {
-            topBarState.navigationIcon?.let { action ->
-                IconButton(onClick = action.onClick) {
+            if (config.showBackButton && config.backButtonAction != null) {
+                IconButton(onClick = config.backButtonAction) {
                     Icon(
-                        imageVector = ImageVector.vectorResource(action.icon),
+                        imageVector = ImageVector.vectorResource(R.drawable.ic_arrow_back),
                         tint = VoltechColor.foregroundPrimary,
                         contentDescription = null
                     )
@@ -46,19 +47,11 @@ fun TopBarContent(topBarState: TopBarState) {
             }
         },
         actions = {
-            topBarState.actions.forEach { action ->
-//                IconButton(onClick = action.onClick) {
-//                    Icon(
-//                        imageVector = ImageVector.vectorResource(action.icon),
-//                        tint = VoltechColor.foregroundPrimary,
-//                        contentDescription = null
-//                    )
-//                }
+            config.actions.forEach { action ->
                 CircleIconButton(
-                    modifier = Modifier.padding(top = Dimen.size6),
-                    onClick = action.onClick,
+                    onClick = { action.onClick() },
+                    iconRes = action.iconRes,
                     size = Dimen.size24,
-                    icon = ImageVector.vectorResource(action.icon),
                     iconColor = VoltechColor.backgroundInverse,
                     backgroundColor = VoltechColor.backgroundTertiary,
                 )
@@ -66,3 +59,4 @@ fun TopBarContent(topBarState: TopBarState) {
         }
     )
 }
+

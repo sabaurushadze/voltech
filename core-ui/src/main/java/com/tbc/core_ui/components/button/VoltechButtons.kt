@@ -321,6 +321,33 @@ fun CircleIconButton(
 }
 
 @Composable
+fun CircleIconButton(
+    modifier: Modifier = Modifier,
+    onClick : () -> Unit,
+    @DrawableRes iconRes: Int,
+    size: Dp,
+    iconColor: Color,
+    backgroundColor: Color,
+){
+    IconButton(
+        onClick = onClick,
+        modifier = modifier
+            .padding(Dimen.size6)
+            .clip(CircleShape),
+        colors = iconButtonColors(
+            containerColor = backgroundColor
+        )
+    ) {
+        Icon(
+            imageVector = ImageVector.vectorResource(iconRes),
+            contentDescription = null,
+            modifier = Modifier.size(size),
+            tint = iconColor,
+        )
+    }
+}
+
+@Composable
 fun TertiaryCircleIconButton(
     modifier: Modifier = Modifier,
     onClick : () -> Unit,

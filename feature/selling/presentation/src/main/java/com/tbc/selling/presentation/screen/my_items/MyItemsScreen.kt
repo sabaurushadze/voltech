@@ -25,7 +25,6 @@ import com.tbc.core_ui.components.empty_state.EmptyState
 import com.tbc.core_ui.components.item.FeedItemCard
 import com.tbc.core_ui.components.item_deletion.ItemDeletion
 import com.tbc.core_ui.components.loading.LoadingScreen
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.resource.R
@@ -33,15 +32,12 @@ import com.tbc.resource.R
 @Composable
 fun MyItemsScreen(
     viewModel: MyItemsViewModel = hiltViewModel(),
-    onSetupTopBar: (TopBarState) -> Unit,
     navigateToAddItem: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
-
-    SetupTopBar(onSetupTopBar)
 
     LaunchedEffect(Unit) {
         state.user?.let { user ->
@@ -150,21 +146,5 @@ private fun MyItemsContent(
 
 
         }
-    }
-}
-
-
-@Composable
-private fun SetupTopBar(
-    onSetupTopBar: (TopBarState) -> Unit,
-) {
-    val title = stringResource(id = R.string.my_items)
-
-    LaunchedEffect(Unit) {
-        onSetupTopBar(
-            TopBarState(
-                title = title,
-            )
-        )
     }
 }

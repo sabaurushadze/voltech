@@ -30,8 +30,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core_ui.components.image.BaseAsyncImage
-import com.tbc.core_ui.components.topbar.TopBarAction
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
@@ -46,7 +44,6 @@ fun ProfileScreen(
     navigateToRecentlyViewed: () -> Unit,
     navigateToWatchlist: () -> Unit,
     navigateToAddToCart: () -> Unit,
-    onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -55,8 +52,6 @@ fun ProfileScreen(
     LaunchedEffect(Unit) {
         viewModel.onEvent(ProfileEvent.GetUserInfo)
     }
-
-    SetupTopBar(onSetupTopBar, viewModel::onEvent)
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
@@ -283,28 +278,6 @@ private fun SectionHeader(
     ) {
         Text(
             text = title, color = VoltechColor.foregroundPrimary, style = VoltechTextStyle.title2
-        )
-    }
-}
-
-@Composable
-private fun SetupTopBar(
-    onSetupTopBar: (TopBarState) -> Unit,
-    onEvent: (ProfileEvent) -> Unit,
-) {
-    val title = stringResource(R.string.profile)
-
-    LaunchedEffect(Unit) {
-        onSetupTopBar(
-            TopBarState(
-                title = title,
-                actions = listOf(
-                    TopBarAction(
-                        icon = R.drawable.ic_shopping_cart,
-                        onClick = { onEvent(ProfileEvent.NavigateToAddToCart) }
-                    )
-                )
-            )
         )
     }
 }
