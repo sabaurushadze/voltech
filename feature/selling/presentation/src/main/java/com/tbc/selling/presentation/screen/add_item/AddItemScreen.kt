@@ -26,7 +26,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -51,8 +50,6 @@ import com.tbc.core_ui.components.dropdown.DropDownMenu
 import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.loading.LoadingIcon
 import com.tbc.core_ui.components.textfield.OutlinedTextInputField
-import com.tbc.core_ui.components.topbar.TopBarAction
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
@@ -66,7 +63,6 @@ import com.tbc.selling.presentation.mapper.my_items.toStringRes
 @Composable
 fun AddItemScreen(
     viewModel: AddItemViewModel = hiltViewModel(),
-    onSetupTopBar: (TopBarState) -> Unit,
     navigateBackToMyItems: () -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
@@ -78,7 +74,6 @@ fun AddItemScreen(
             viewModel.onEvent(AddItemEvent.OnImagesSelected(selectedUris))
         }
     )
-    SetupTopBar(onSetupTopBar, viewModel::onEvent)
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
@@ -458,27 +453,6 @@ private fun LiveTextSizeViewer(
             text = maxAmount,
             color = VoltechColor.foregroundSecondary,
             style = VoltechTextStyle.caption
-        )
-    }
-}
-
-@Composable
-private fun SetupTopBar(
-    onSetupTopBar: (TopBarState) -> Unit,
-    onEvent: (AddItemEvent) -> Unit,
-
-    ) {
-    val title = stringResource(id = R.string.add_item)
-
-    LaunchedEffect(Unit) {
-        onSetupTopBar(
-            TopBarState(
-                title = title,
-                navigationIcon = TopBarAction(
-                    icon = R.drawable.ic_arrow_back,
-                    onClick = { onEvent(AddItemEvent.NavigateBackToMyItems) }
-                )
-            )
         )
     }
 }

@@ -17,6 +17,23 @@
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/24496861-4696-4605-a18b-db1fccd0521ajpg?alt=media&token=05fc7cd0-a3e5-4176-9dd5-2da0e3656335",
       "sellerName": "joker",
       "id": 1
+    },
+    {
+      "uid": "fDKmWhPn8CYvG7h5EqOvCrHoAtH3",
+      "title": "alexa",
+      "category": "GPU",
+      "condition": "NEW",
+      "price": 123,
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/49ef9388-d81e-4990-b5d0-008ad2984473jpg?alt=media&token=4d976c49-5097-4391-9ec8-6cc72d739497",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/3323c6b9-d847-49b7-8dd6-4f0657b18941webp?alt=media&token=395e92f1-5e41-4b12-ac05-8150874e6fc5"
+      ],
+      "quantity": 12,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "delete game",
+      "sellerName": "supaname",
+      "sellerPhotoUrl": null,
+      "id": 2
     }
   ],
   "categories": [
@@ -81,7 +98,26 @@
       "image": "https://i.ibb.co/8Dqx7nFF/Purple-Custom-Extension-Sleeve-Cable.png"
     }
   ],
-  "favorites": [],
+  "favorites": [
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 1,
+      "favoriteAt": "2026-02-12T17:18:28Z",
+      "id": 1
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 2,
+      "favoriteAt": "2026-02-12T17:18:31Z",
+      "id": 2
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 1,
+      "favoriteAt": "2026-02-12T17:19:01Z",
+      "id": 3
+    }
+  ],
   "recently": [
     {
       "uid": "pfpC6MeT6RUEk2o0gm8tIR6gkCG2",
@@ -94,6 +130,18 @@
       "itemId": 1,
       "viewedAt": "2026-02-11T20:38:58Z",
       "id": 2
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 2,
+      "viewedAt": "2026-02-12T16:21:32Z",
+      "id": 3
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 1,
+      "viewedAt": "2026-02-12T16:33:13Z",
+      "id": 4
     }
   ]
 }

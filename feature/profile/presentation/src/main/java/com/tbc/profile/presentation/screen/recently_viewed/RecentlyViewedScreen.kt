@@ -22,8 +22,6 @@ import com.tbc.core_ui.components.empty_state.EmptyState
 import com.tbc.core_ui.components.item.FeedItemCard
 import com.tbc.core_ui.components.item_deletion.ItemDeletion
 import com.tbc.core_ui.components.loading.LoadingScreen
-import com.tbc.core_ui.components.topbar.TopBarAction
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.resource.R
@@ -33,7 +31,6 @@ fun RecentlyViewedScreen(
     viewModel: RecentlyViewedViewModel = hiltViewModel(),
     navigateToBack: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
-    onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -72,13 +69,6 @@ fun RecentlyViewedScreen(
             onEvent = viewModel::onEvent
         )
     }
-
-
-    SetupTopBar(
-        onSetupTopBar = onSetupTopBar,
-        navigateToBack = navigateToBack
-    )
-
 
 }
 
@@ -130,22 +120,3 @@ private fun RecentlyViewedContent(
     }
 }
 
-@Composable
-private fun SetupTopBar(
-    onSetupTopBar: (TopBarState) -> Unit,
-    navigateToBack: () -> Unit,
-) {
-    val title = stringResource(id = R.string.recently_viewed)
-
-    LaunchedEffect(Unit) {
-        onSetupTopBar(
-            TopBarState(
-                title = title,
-                navigationIcon = TopBarAction(
-                    icon = R.drawable.ic_arrow_back,
-                    onClick = { navigateToBack() }
-                )
-            )
-        )
-    }
-}

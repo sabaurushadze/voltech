@@ -22,7 +22,6 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,8 +42,6 @@ import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.textfield.TextInputField
-import com.tbc.core_ui.components.topbar.TopBarAction
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
@@ -57,7 +54,6 @@ import com.tbc.resource.R
 fun EditProfileScreen(
     viewModel: EditProfileViewModel = hiltViewModel(),
     navigateBackToProfile: () -> Unit,
-    onSetupTopBar: (TopBarState) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -75,8 +71,6 @@ fun EditProfileScreen(
     val launchCamera = rememberCameraLauncher { uri ->
         viewModel.onEvent(EditProfileEvent.OnPhotoSelected(uri))
     }
-
-    SetupTopBar(onSetupTopBar, viewModel::onEvent)
 
     viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
@@ -276,26 +270,5 @@ private fun UserProfileSection(
         }
 
 
-    }
-}
-
-
-@Composable
-private fun SetupTopBar(
-    onSetupTopBar: (TopBarState) -> Unit,
-    onEvent: (EditProfileEvent) -> Unit,
-) {
-    val title = stringResource(id = R.string.user_details)
-
-    LaunchedEffect(Unit) {
-        onSetupTopBar(
-            TopBarState(
-                title = title,
-                navigationIcon = TopBarAction(
-                    icon = R.drawable.ic_arrow_back,
-                    onClick = { onEvent(EditProfileEvent.NavigateBackToProfile) }
-                )
-            )
-        )
     }
 }

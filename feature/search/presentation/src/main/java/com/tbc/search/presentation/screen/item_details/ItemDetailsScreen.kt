@@ -46,8 +46,6 @@ import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.item.FeedItemCard
-import com.tbc.core_ui.components.topbar.TopBarAction
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
@@ -63,14 +61,11 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 fun ItemDetailsScreen(
     id: Int,
     viewModel: ItemDetailsViewModel = hiltViewModel(),
-    onSetupTopBar: (TopBarState) -> Unit,
     navigateBack: () -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
-
-    SetupTopBar(onSetupTopBar, viewModel::onEvent)
 
     LaunchedEffect(Unit) {
         viewModel.onEvent(ItemDetailsEvent.GetItemDetails(id))
@@ -465,26 +460,6 @@ private fun ImagePager(
             onFavoriteIconClick = { onFavoriteButtonIconClick() },
             iconSize = Dimen.size24,
             iconContainerSize = Dimen.size48
-        )
-    }
-}
-
-@Composable
-private fun SetupTopBar(
-    onSetupTopBar: (TopBarState) -> Unit,
-    onEvent: (ItemDetailsEvent) -> Unit,
-) {
-    val title = stringResource(id = R.string.item)
-
-    LaunchedEffect(Unit) {
-        onSetupTopBar(
-            TopBarState(
-                title = title,
-                navigationIcon = TopBarAction(
-                    icon = R.drawable.ic_arrow_back,
-                    onClick = { onEvent(ItemDetailsEvent.NavigateBackToFeed) }
-                )
-            )
         )
     }
 }

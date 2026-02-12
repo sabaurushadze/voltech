@@ -8,7 +8,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.auth.presentation.navigation.authNavGraph
-import com.tbc.core_ui.components.topbar.TopBarState
+//import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.home.presentation.navigation.homeNavGraph
 import com.tbc.profile.presentation.navigation.EditProfileScreenRoute
 import com.tbc.profile.presentation.navigation.RecentlyViewedScreenRoute
@@ -16,7 +16,7 @@ import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.WatchlistScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
 import com.tbc.search.presentation.navigation.FeedScreenRoute
-import com.tbc.search.presentation.navigation.ItemDetailsRoute
+import com.tbc.search.presentation.navigation.ItemDetailsScreenRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.search.presentation.navigation.searchNavGraph
 import com.tbc.selling.presentation.navigation.AddItemScreenRoute
@@ -28,7 +28,6 @@ import kotlin.reflect.KClass
 @Composable
 fun AppNavHost(
     appState: AppState,
-    onSetupAppBar: (TopBarState) -> Unit,
     startDestination: KClass<*>,
     onSuccessfulAuth: () -> Unit,
 ) {
@@ -53,8 +52,6 @@ fun AppNavHost(
         )
 
         homeNavGraph(
-            onSetupTopBar = onSetupAppBar,
-            navigateToSearch = { appState.navigateToTopLevelDestination(TopLevelDestination.SEARCH) },
             navigateToFeed = { categoryQuery ->
                 navController.navigate(FeedScreenRoute(categoryQuery = categoryQuery)) {
                     popUpTo(navController.graph.findStartDestination().id) {
@@ -65,7 +62,7 @@ fun AppNavHost(
                 }
             },
             navigateToItemDetails = { recentlyItemId ->
-                navController.navigate(ItemDetailsRoute(id = recentlyItemId)) {
+                navController.navigate(ItemDetailsScreenRoute(id = recentlyItemId)) {
                     popUpTo(navController.graph.findStartDestination().id) {
                         saveState = true
                     }
@@ -92,34 +89,29 @@ fun AppNavHost(
                 navController.navigate(SearchScreenRoute)
             },
             navigateToItemDetails = { id ->
-                navController.navigate(ItemDetailsRoute(id))
+                navController.navigate(ItemDetailsScreenRoute(id))
             },
             navigateBack = { navController.navigateUp() },
-            onSetupTopBar = onSetupAppBar
         )
 
         profileNavGraph(
             navigateToSettings = { navController.navigate(SettingsScreenRoute) },
             navigateToWatchlist = { navController.navigate(WatchlistScreenRoute) },
             navigateBack = { navController.navigateUp() },
-            onSetupTopBar = onSetupAppBar,
             navigateToEditProfile = { navController.navigate(EditProfileScreenRoute) },
             navigateToRecentlyViewed = { navController.navigate(RecentlyViewedScreenRoute) },
             navigateToBack = { navController.navigateUp() },
             navigateToItemDetails = { id ->
-                navController.navigate(ItemDetailsRoute(id))
+                navController.navigate(ItemDetailsScreenRoute(id))
             }
         )
 
         sellingNavGraph(
-            onSetupTopBar = onSetupAppBar,
             navigateToAddItem = { navController.navigate(AddItemScreenRoute) },
             navigateBack = { navController.navigateUp() },
             navigateToItemDetails = { id ->
-                navController.navigate(ItemDetailsRoute(id))
+                navController.navigate(ItemDetailsScreenRoute(id))
             }
         )
-
-
     }
 }
