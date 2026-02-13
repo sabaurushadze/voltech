@@ -43,6 +43,7 @@ fun ProfileScreen(
     navigateToUserDetails: () -> Unit,
     navigateToRecentlyViewed: () -> Unit,
     navigateToWatchlist: () -> Unit,
+    navigateToAddToCart: () -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -69,6 +70,9 @@ fun ProfileScreen(
 
             ProfileSideEffect.NavigateToWatchlist -> {
                 navigateToWatchlist()
+            }
+            ProfileSideEffect.NavigateToAddToCart -> {
+                navigateToAddToCart()
             }
         }
     }

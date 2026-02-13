@@ -2,6 +2,7 @@ package com.tbc.search.presentation.mapper.favorite
 
 import com.tbc.search.domain.model.favorite.Favorite
 import com.tbc.search.presentation.model.favorite.UiFavorite
+import com.tbc.search.presentation.model.favorite.UiFavoriteItemRequest
 
 fun Favorite.toPresentation(): UiFavorite {
     return UiFavorite(

@@ -51,6 +51,7 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
     navigateToFeed: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
+    navigateToAddToCart: () -> Unit,
     navigateToRecentlyViewed: () -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()

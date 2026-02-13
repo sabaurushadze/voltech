@@ -4,10 +4,11 @@ import com.tbc.core.data.remote.util.ApiResponseHandler
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
 import com.tbc.core.domain.util.mapList
-import com.tbc.search.data.dto.favorite.request.FavoriteRequestDto
+import com.tbc.search.data.mapper.favorite.toData
 import com.tbc.search.data.mapper.favorite.toDomain
 import com.tbc.search.data.service.favorite.FavoriteService
 import com.tbc.search.domain.model.favorite.Favorite
+import com.tbc.search.domain.model.favorite.FavoriteRequestItem
 import com.tbc.search.domain.repository.favorite.FavoriteRepository
 import javax.inject.Inject
 
@@ -21,33 +22,23 @@ class FavoriteRepositoryImpl @Inject constructor(
         }.mapList { it.toDomain() }
     }
 
+
     override suspend fun deleteFavoriteById(id: Int): Resource<Unit, DataError.Network> {
         return apiResponseHandler.safeApiCall {
             favoriteService.deleteFavorite(id)
         }
     }
 
-    override suspend fun toggleFavorite(
-        uid: String,
-        itemId: Int,
-        favorites: List<Favorite>,
-        favoriteAt: String
-    ): Resource<Unit, DataError.Network> {
-        val existing = favorites.firstOrNull {
-            it.uid == uid && it.itemId == itemId
+    override suspend fun toggleFavorite(favoriteItem: FavoriteRequestItem): Resource<Unit, DataError.Network> {
+        val existing = favoriteItem.favorites.firstOrNull {
+            it.uid == favoriteItem.uid && it.itemId == favoriteItem.itemId
         }
 
-        return if (existing == null) {
+        return if(existing == null){
             apiResponseHandler.safeApiCall {
-                favoriteService.addFavorite(
-                    FavoriteRequestDto(
-                        uid = uid,
-                        itemId = itemId,
-                        favoriteAt = favoriteAt
-                    )
-                )
+                favoriteService.addFavorite(favoriteItem.toData())
             }
-        } else {
+        }else {
             apiResponseHandler.safeApiCall {
                 favoriteService.deleteFavorite(existing.id)
             }

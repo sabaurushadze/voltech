@@ -1,6 +1,5 @@
 package com.tbc.core.data.remote.util
 
-import android.util.Log.d
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
 import retrofit2.HttpException
@@ -24,7 +23,6 @@ class ApiResponseHandler @Inject constructor() {
                 Resource.Failure(error = error)
             }
         } catch (e: Exception) {
-            d("asdd", "ApiResponseHandler: $e")
             Resource.Failure(error = mapExceptionToNetworkError(e))
         }
     }

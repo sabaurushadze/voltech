@@ -8,7 +8,8 @@ import kotlinx.serialization.Serializable
 fun NavGraphBuilder.homeNavGraph(
     navigateToFeed: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
-    navigateToRecentlyViewed: () -> Unit
+    navigateToRecentlyViewed: () -> Unit,
+    navigateToAddToCart: () -> Unit,
 ) {
 
     composable<HomeScreenRoute> {
@@ -16,6 +17,7 @@ fun NavGraphBuilder.homeNavGraph(
             navigateToFeed = navigateToFeed,
             navigateToItemDetails = navigateToItemDetails,
             navigateToRecentlyViewed = navigateToRecentlyViewed,
+            navigateToAddToCart = navigateToAddToCart
         )
     }
 

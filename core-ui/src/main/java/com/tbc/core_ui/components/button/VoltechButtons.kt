@@ -298,6 +298,7 @@ fun CircleIconButton(
     modifier: Modifier = Modifier,
     onClick : () -> Unit,
     size: Dp,
+    icon: ImageVector,
     iconColor: Color,
     backgroundColor: Color,
 ){
@@ -311,7 +312,7 @@ fun CircleIconButton(
         )
     ) {
         Icon(
-            painter = painterResource(R.drawable.ic_shopping_cart),
+            imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(size),
             tint = iconColor,

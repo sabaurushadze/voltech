@@ -1,8 +1,10 @@
 package com.tbc.search.data.di
 
+import com.tbc.search.data.repository.cart.CartRepositoryImpl
 import com.tbc.search.data.repository.favorite.FavoriteRepositoryImpl
 import com.tbc.search.data.repository.feed.FeedRepositoryImpl
 import com.tbc.search.data.repository.search.SearchItemRepositoryImpl
+import com.tbc.search.domain.repository.cart.CartRepository
 import com.tbc.search.domain.repository.favorite.FavoriteRepository
 import com.tbc.search.domain.repository.feed.FeedRepository
 import com.tbc.search.domain.repository.search.SearchItemRepository
@@ -29,4 +31,7 @@ abstract class RepositoryModule {
     @Singleton
     abstract fun bindFavoriteRepository(impl: FavoriteRepositoryImpl): FavoriteRepository
 
+    @Binds
+    @Singleton
+    abstract fun bindCartRepository(impl: CartRepositoryImpl): CartRepository
 }

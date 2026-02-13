@@ -7,4 +7,5 @@ sealed interface ProfileSideEffect {
     data object NavigateToSettings : ProfileSideEffect
     data object NavigateToWatchlist : ProfileSideEffect
     data object NavigateToUserDetails : ProfileSideEffect
+    data object NavigateToAddToCart : ProfileSideEffect
 }

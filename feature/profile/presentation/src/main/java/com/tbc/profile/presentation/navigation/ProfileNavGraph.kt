@@ -18,6 +18,7 @@ fun NavGraphBuilder.profileNavGraph(
     navigateToRecentlyViewed: () -> Unit,
     navigateToBack: () -> Unit,
     navigateToItemDetails: (Int) -> Unit,
+    navigateToAddToCart: () -> Unit,
 ) {
 
     navigation<ProfileNavGraphRoute>(startDestination = ProfileScreenRoute) {
@@ -35,6 +36,7 @@ fun NavGraphBuilder.profileNavGraph(
                 navigateToWatchlist = navigateToWatchlist,
                 navigateToUserDetails = navigateToEditProfile,
                 navigateToRecentlyViewed = navigateToRecentlyViewed,
+                navigateToAddToCart = navigateToAddToCart
             )
 
         }

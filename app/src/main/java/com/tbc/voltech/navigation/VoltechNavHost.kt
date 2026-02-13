@@ -8,13 +8,13 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import com.tbc.auth.presentation.navigation.RegisterScreenRoute
 import com.tbc.auth.presentation.navigation.authNavGraph
-//import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.home.presentation.navigation.homeNavGraph
 import com.tbc.profile.presentation.navigation.EditProfileScreenRoute
 import com.tbc.profile.presentation.navigation.RecentlyViewedScreenRoute
 import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.WatchlistScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
+import com.tbc.search.presentation.navigation.AddToCartScreenRoute
 import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.ItemDetailsScreenRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
@@ -26,7 +26,7 @@ import kotlin.reflect.KClass
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppNavHost(
+fun VoltechNavHost(
     appState: AppState,
     startDestination: KClass<*>,
     onSuccessfulAuth: () -> Unit,
@@ -71,14 +71,15 @@ fun AppNavHost(
                 }
             },
             navigateToRecentlyViewed = {
-                navController.navigate(RecentlyViewedScreenRoute){
-                    popUpTo(navController.graph.findStartDestination().id){
+                navController.navigate(RecentlyViewedScreenRoute) {
+                    popUpTo(navController.graph.findStartDestination().id) {
                         saveState = true
                     }
                     launchSingleTop = true
                     restoreState = true
                 }
             },
+            navigateToAddToCart = { navController.navigate(AddToCartScreenRoute) }
         )
 
         searchNavGraph(
@@ -92,6 +93,7 @@ fun AppNavHost(
                 navController.navigate(ItemDetailsScreenRoute(id))
             },
             navigateBack = { navController.navigateUp() },
+            navigateToAddToCart = { navController.navigate(AddToCartScreenRoute) }
         )
 
         profileNavGraph(
@@ -103,7 +105,9 @@ fun AppNavHost(
             navigateToBack = { navController.navigateUp() },
             navigateToItemDetails = { id ->
                 navController.navigate(ItemDetailsScreenRoute(id))
-            }
+            },
+            navigateToAddToCart = { navController.navigate(AddToCartScreenRoute) }
+
         )
 
         sellingNavGraph(

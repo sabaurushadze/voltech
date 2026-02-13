@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardActions
@@ -170,12 +171,20 @@ private fun SearchItem(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onSearchItemClick() }
-            .padding(Dimen.size16)
+            .padding(Dimen.size16),
+        verticalAlignment = Alignment.CenterVertically
     ) {
+        Icon(
+            imageVector = ImageVector.vectorResource(R.drawable.ic_search),
+            contentDescription = null
+        )
+
+        Spacer(Modifier.width(Dimen.size8))
+
         Text(
             text = title,
             style = VoltechTextStyle.bodyBold,
-            color = VoltechColor.foregroundPrimary
+            color = VoltechColor.foregroundPrimary,
         )
     }
 }

@@ -18,7 +18,7 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core_ui.components.topbar.TopBarContent
 import com.tbc.core_ui.theme.VoltechColor
-import com.tbc.voltech.navigation.AppNavHost
+import com.tbc.voltech.navigation.VoltechNavHost
 import com.tbc.voltech.presentation.bottom_nav.VoltechBottomNavigation
 import com.tbc.voltech.presentation.topbar.getTopBarConfig
 import kotlin.reflect.KClass
@@ -68,7 +68,7 @@ fun VoltechApplication(
                     .consumeWindowInsets(innerPadding)
                     .imePadding()
             ) {
-                AppNavHost(
+                VoltechNavHost(
                     appState = appState,
                     startDestination = startDestination,
                     onSuccessfulAuth = onSuccessfulAuth,

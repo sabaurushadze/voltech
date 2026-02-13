@@ -14,6 +14,8 @@ import androidx.navigation.navOptions
 import com.tbc.auth.presentation.navigation.AuthNavGraphRoute
 import com.tbc.home.presentation.navigation.HomeScreenRoute
 import com.tbc.profile.presentation.navigation.ProfileScreenRoute
+import com.tbc.search.presentation.navigation.AddToCartScreenRoute
+import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
 import com.tbc.selling.presentation.navigation.MyItemsScreenRoute
 import com.tbc.voltech.navigation.TopLevelDestination
@@ -53,6 +55,7 @@ data class AppState(
 
             val hiddenRoutes = listOf(
                 AuthNavGraphRoute::class,
+                AddToCartScreenRoute::class
             )
 
             return hiddenRoutes.none { route ->
