@@ -18,6 +18,7 @@ import com.tbc.profile.presentation.navigation.RecentlyViewedScreenRoute
 import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.WatchlistScreenRoute
 import com.tbc.resource.R
+import com.tbc.search.presentation.navigation.AddToCartScreenRoute
 import com.tbc.search.presentation.navigation.ItemDetailsScreenRoute
 import com.tbc.selling.presentation.navigation.AddItemScreenRoute
 import com.tbc.selling.presentation.navigation.MyItemsScreenRoute
@@ -45,14 +46,22 @@ fun getTopBarConfig(
                 actions = listOf(
                     TopBarAction(
                         iconRes = R.drawable.ic_shopping_cart,
-                        onClick = { /* appState.navController.navigate(AQ CHAWERE ScreenRoute) */ }
+                        onClick = { appState.navController.navigate(AddToCartScreenRoute) }
                     )
 
                 )
             )
 
         currentDestination.isRouteInHierarchy(ProfileScreenRoute::class) ->
-            TopBarConfig(title = R.string.profile)
+            TopBarConfig(
+                title = R.string.profile,
+                actions = listOf(
+                    TopBarAction(
+                        iconRes = R.drawable.ic_shopping_cart,
+                        onClick = { appState.navController.navigate(AddToCartScreenRoute) }
+                    )
+                )
+            )
 
         currentDestination.isRouteInHierarchy(EditProfileScreenRoute::class) ->
             TopBarConfig(
@@ -96,6 +105,13 @@ fun getTopBarConfig(
         currentDestination.isRouteInHierarchy(AddItemScreenRoute::class) ->
             TopBarConfig(
                 title = R.string.add_item,
+                showBackButton = true,
+                backButtonAction = { appState.navController.navigateUp() }
+            )
+
+        currentDestination.isRouteInHierarchy(AddToCartScreenRoute::class) ->
+            TopBarConfig(
+                title = R.string.voltech_shopping_cart,
                 showBackButton = true,
                 backButtonAction = { appState.navController.navigateUp() }
             )

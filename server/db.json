@@ -1914,62 +1914,7 @@
       "image": "https://i.ibb.co/8Dqx7nFF/Purple-Custom-Extension-Sleeve-Cable.png"
     }
   ],
-  "favorites": [
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 33,
-      "favoriteAt": "2026-02-12T04:09:32Z",
-      "id": 1
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 1,
-      "favoriteAt": "2026-02-12T04:10:08Z",
-      "id": 2
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 20,
-      "favoriteAt": "2026-02-12T04:10:16Z",
-      "id": 3
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 8,
-      "favoriteAt": "2026-02-12T17:17:52Z",
-      "id": 4
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 20,
-      "favoriteAt": "2026-02-12T17:17:57Z",
-      "id": 5
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 33,
-      "favoriteAt": "2026-02-12T17:20:24Z",
-      "id": 6
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 5,
-      "favoriteAt": "2026-02-12T17:23:23Z",
-      "id": 7
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 8,
-      "favoriteAt": "2026-02-12T17:30:07Z",
-      "id": 8
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 28,
-      "favoriteAt": "2026-02-12T17:38:31Z",
-      "id": 9
-    }
-  ],
+  "favorites": [],
   "recently": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
@@ -2048,26 +1993,62 @@
       "itemId": 23,
       "viewedAt": "2026-02-12T17:38:35Z",
       "id": 13
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 21,
+      "viewedAt": "2026-02-12T18:12:43Z",
+      "id": 14
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 1,
+      "viewedAt": "2026-02-12T18:13:32Z",
+      "id": 15
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 7,
+      "viewedAt": "2026-02-12T20:39:12Z",
+      "id": 16
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 58,
+      "viewedAt": "2026-02-12T22:09:20Z",
+      "id": 17
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 4,
+      "viewedAt": "2026-02-13T10:30:08Z",
+      "id": 18
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 9,
+      "viewedAt": "2026-02-13T10:30:12Z",
+      "id": 19
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 35,
+      "viewedAt": "2026-02-13T11:05:08Z",
+      "id": 20
     }
   ],
   "cart": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 71,
-      "addedAt": "2026-02-12T16:10:16Z",
-      "id": 1
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 14,
-      "addedAt": "2026-02-12T16:10:44Z",
-      "id": 2
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 103,
-      "addedAt": "2026-02-12T17:01:38Z",
+      "itemId": 10,
+      "addedAt": "2026-02-13T11:19:21Z",
       "id": 3
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 18,
+      "addedAt": "2026-02-13T11:20:11Z",
+      "id": 4
     }
   ]
 }

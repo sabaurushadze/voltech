@@ -21,18 +21,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
+import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core.presentation.util.toPriceUsStyle
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.divider.Divider
 import com.tbc.core_ui.components.empty_state.EmptyState
 import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.loading.LoadingScreen
-import com.tbc.core_ui.components.topbar.TopBarAction
-import com.tbc.core_ui.components.topbar.TopBarState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
@@ -44,17 +45,26 @@ import com.tbc.search.presentation.model.cart.UiCartItem
 @Composable
 fun AddToCartScreen (
     viewModel: AddToCartViewModel = hiltViewModel(),
-    onSetupTopBar: (TopBarState) -> Unit,
-    navigateBack: () -> Unit,
 ){
     val onEvent = viewModel::onEvent
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val snackbarHostState = LocalSnackbarHostState.current
+    val context = LocalContext.current
+
+
+    viewModel.sideEffect.collectSideEffect { sideEffect ->
+        when (sideEffect) {
+            is AddToCartSideEffect.ShowSnackBar -> {
+                val error = context.getString(sideEffect.errorRes)
+                snackbarHostState.showSnackbar(message = error)
+            }
+        }
+    }
 
     LaunchedEffect(Unit) {
         onEvent(AddToCartEvent.GetCartItems)
     }
 
-    SetupTopBar(onSetupTopBar, navigateBack)
 
     if (state.isLoading) {
         LoadingScreen()
@@ -67,6 +77,7 @@ fun AddToCartScreen (
     } else {
         AddToCartContent(
             state = state,
+            onEvent = onEvent
         )
     }
 }
@@ -74,7 +85,8 @@ fun AddToCartScreen (
 
 @Composable
 private fun  AddToCartContent(
-    state: AddToCartState
+    state: AddToCartState,
+    onEvent: (AddToCartEvent) -> Unit
 ){
     LazyColumn(
         modifier = Modifier.fillMaxSize()
@@ -88,19 +100,26 @@ private fun  AddToCartContent(
         }
 
         items(state.cartItems){ cartItem ->
-            CartItem(cartItem)
+            CartItem(
+                cartItem = cartItem,
+                onEvent = onEvent
+            )
         }
 
         item {
-            SubtotalAndCheckout(state.subtotal)
+            SubtotalAndCheckout(
+                subtotal = state.subtotal,
+                onEvent = onEvent
+            )
         }
     }
 }
 
 @Composable
 private fun CartItem(
-    cartItem: UiCartItem
-) = with(cartItem){
+    cartItem: UiCartItem,
+    onEvent: (AddToCartEvent) -> Unit
+){
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -115,9 +134,8 @@ private fun CartItem(
             horizontalArrangement = Arrangement.SpaceAround
         ) {
             Text(
-                modifier = Modifier.clickable{
-
-                },
+                modifier = Modifier
+                    .clickable{ onEvent(AddToCartEvent.BuyItem) },
                 text = stringResource(R.string.buy_it_now),
                 style = VoltechTextStyle.bodyBold,
                 color = VoltechColor.foregroundAccent
@@ -125,7 +143,7 @@ private fun CartItem(
 
             Text(
                 modifier = Modifier
-                    .clickable{ },
+                    .clickable{ onEvent(AddToCartEvent.DeleteCartItems(cartItem.cartId)) },
                 text = stringResource(R.string.remove),
                 style = VoltechTextStyle.bodyBold,
                 color = VoltechColor.foregroundAccent
@@ -191,7 +209,8 @@ private fun ItemDetails(
 
 @Composable
 private fun SubtotalAndCheckout(
-    subtotal: Double
+    subtotal: Double,
+    onEvent: (AddToCartEvent) -> Unit
 ){
     Column(
         modifier = Modifier
@@ -221,7 +240,7 @@ private fun SubtotalAndCheckout(
         PrimaryButton(
             modifier = Modifier.fillMaxWidth(),
             text = stringResource(R.string.go_to_checkout),
-            onClick = { }
+            onClick = { onEvent(AddToCartEvent.BuyItem) }
         )
     }
 }
@@ -250,26 +269,5 @@ private fun SellerItem(
                 color = VoltechColor.foregroundPrimary
             )
         }
-    }
-}
-
-
-@Composable
-private fun SetupTopBar(
-    onSetupTopBar: (TopBarState) -> Unit,
-    navigateBack: () -> Unit
-) {
-    val title = stringResource(id = R.string.voltech_shopping_cart)
-
-    LaunchedEffect(Unit) {
-        onSetupTopBar(
-            TopBarState(
-                title = title,
-                navigationIcon = TopBarAction(
-                    icon = R.drawable.ic_arrow_back,
-                    onClick = navigateBack
-                )
-            )
-        )
     }
 }

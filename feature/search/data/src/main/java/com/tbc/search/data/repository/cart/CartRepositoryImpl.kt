@@ -27,4 +27,10 @@ class CartRepositoryImpl @Inject constructor(
             cartService.addItemToCart(cartItem.toData())
         }
     }
+
+    override suspend fun deleteCartItem(id: Int): Resource<Unit, DataError.Network> {
+        return apiResponseHandler.safeApiCall {
+            cartService.deleteCartItem(id)
+        }
+    }
 }

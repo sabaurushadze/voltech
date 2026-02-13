@@ -4,8 +4,10 @@ import com.tbc.search.data.dto.cart.CartItemRequestDto
 import com.tbc.search.data.dto.cart.CartResponseDto
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface CartService {
@@ -19,6 +21,11 @@ interface CartService {
     @POST(CART)
     suspend fun addItemToCart(
         @Body request: CartItemRequestDto
+    ): Response<Unit>
+
+    @DELETE("cart/{id}")
+    suspend fun deleteCartItem(
+        @Path("id") id: Int
     ): Response<Unit>
 
     companion object{

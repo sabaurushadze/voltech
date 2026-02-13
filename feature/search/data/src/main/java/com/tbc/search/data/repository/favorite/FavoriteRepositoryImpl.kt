@@ -4,7 +4,6 @@ import com.tbc.core.data.remote.util.ApiResponseHandler
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
 import com.tbc.core.domain.util.mapList
-import com.tbc.search.data.dto.favorite.request.FavoriteRequestDto
 import com.tbc.search.data.mapper.favorite.toData
 import com.tbc.search.data.mapper.favorite.toDomain
 import com.tbc.search.data.service.favorite.FavoriteService
@@ -29,33 +28,6 @@ class FavoriteRepositoryImpl @Inject constructor(
             favoriteService.deleteFavorite(id)
         }
     }
-
-//    override suspend fun toggleFavorite(
-//        uid: String,
-//        itemId: Int,
-//        favorites: List<Favorite>,
-//        favoriteAt: String
-//    ): Resource<Unit, DataError.Network> {
-//        val existing = favorites.firstOrNull {
-//            it.uid == uid && it.itemId == itemId
-//        }
-//
-//        return if (existing == null) {
-//            apiResponseHandler.safeApiCall {
-//                favoriteService.addFavorite(
-//                    FavoriteRequestDto(
-//                        uid = uid,
-//                        itemId = itemId,
-//                        favoriteAt = favoriteAt
-//                    )
-//                )
-//            }
-//        } else {
-//            apiResponseHandler.safeApiCall {
-//                favoriteService.deleteFavorite(existing.id)
-//            }
-//        }
-//    }
 
     override suspend fun toggleFavorite(favoriteItem: FavoriteRequestItem): Resource<Unit, DataError.Network> {
         val existing = favoriteItem.favorites.firstOrNull {

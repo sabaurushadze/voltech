@@ -154,4 +154,5 @@
     <string name="subtotal">Subtotal</string>
     <string name="go_to_checkout">Go to checkout</string>
     <string name="shopping_cart_empty_state">You don\'t have any items in your cart. Let\'s get shopping!</string>
+    <string name="this_service_not_work">This service does not work right now, try again later</string>
 </resources>

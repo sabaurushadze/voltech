@@ -5,6 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import androidx.navigation.toRoute
+import com.tbc.search.presentation.screen.add_to_cart.AddToCartScreen
 import com.tbc.search.presentation.screen.feed.FeedScreen
 import com.tbc.search.presentation.screen.item_details.ItemDetailsScreen
 import com.tbc.search.presentation.screen.search.SearchScreen
@@ -39,14 +40,11 @@ fun NavGraphBuilder.searchNavGraph(
         }
 
         composable<AddToCartScreenRoute> {
-            AddToCartScreen(
-                onSetupTopBar = onSetupTopBar,
-                navigateBack = navigateBack
-            )
+            AddToCartScreen()
         }
 
         composable<ItemDetailsScreenRoute> { backStackEntry ->
-            val route = backStackEntry.toRoute<ItemDetailsRoute>()
+            val route = backStackEntry.toRoute<ItemDetailsScreenRoute>()
 
             ItemDetailsScreen(
                 id = route.id,

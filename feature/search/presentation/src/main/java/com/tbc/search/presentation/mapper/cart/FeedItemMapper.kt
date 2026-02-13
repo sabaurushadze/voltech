@@ -4,9 +4,10 @@ import com.tbc.core.presentation.util.toPriceUsStyle
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.presentation.model.cart.UiCartItem
 
-fun FeedItem.toPresentation() =
+fun FeedItem.toPresentation(cartId: Int) =
     UiCartItem(
         id = id,
+        cartId = cartId,
         title = title,
         price = price.toPriceUsStyle(),
         images = images,
@@ -14,4 +15,4 @@ fun FeedItem.toPresentation() =
         sellerUserName = sellerName
     )
 
-fun List<FeedItem>.toPresentation() = this.map { it.toPresentation() }
+//fun List<FeedItem>.toPresentation() = this.map { it.toPresentation(favoriteId: Int) }

@@ -9,4 +9,6 @@ interface CartRepository {
     suspend fun getCartItems(uid: String): Resource<List<Cart>, DataError.Network>
 
     suspend fun addItemToCart(cartItem: CartItemRequest): Resource<Unit, DataError.Network>
+
+    suspend fun deleteCartItem(id: Int): Resource<Unit, DataError.Network>
 }
