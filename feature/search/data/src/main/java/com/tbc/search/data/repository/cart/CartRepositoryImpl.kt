@@ -12,7 +12,7 @@ import com.tbc.search.domain.model.cart.CartItemRequest
 import com.tbc.search.domain.repository.cart.CartRepository
 import javax.inject.Inject
 
-class CartRepositoryImpl @Inject constructor(
+internal class CartRepositoryImpl @Inject constructor(
     private val cartService: CartService,
     private val apiResponseHandler: ApiResponseHandler
 ): CartRepository {

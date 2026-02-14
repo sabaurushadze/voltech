@@ -104,13 +104,13 @@ fun FeedScreen(
     }
 
     FeedContent(
-        state = state,
         pagingItems = pagingItems,
         onEvent = viewModel::onEvent,
         listState = listState,
         isContentReady = isContentReady,
         topAppBarScrollBehavior = topAppBarScrollBehavior,
-        navigateToSearch = navigateToSearch
+        navigateToSearch = navigateToSearch,
+        searchQuery = query
     )
 
     if (state.selectedSort) {
@@ -149,8 +149,8 @@ fun FeedScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun FeedContent(
+    searchQuery: String?,
     modifier: Modifier = Modifier,
-    state: FeedState,
     pagingItems: LazyPagingItems<UiFeedItem>,
     onEvent: (FeedEvent) -> Unit,
     navigateToSearch: () -> Unit,
@@ -171,6 +171,7 @@ private fun FeedContent(
             isLoading = !isContentReady,
             scrollBehavior = topAppBarScrollBehavior,
             isContentReady = isContentReady,
+            searchQuery = searchQuery.orEmpty()
         )
 
         LazyColumn(

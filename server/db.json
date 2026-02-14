@@ -1729,127 +1729,20 @@
       "uid": "R6DB3GC8EA4Ho7YI0MK2PQ9SN1TV"
     },
     {
-      "id": 97,
-      "title": "MOTHERBOARD Item 97",
-      "category": "MOTHERBOARD",
-      "condition": "PARTS",
-      "price": 296.79,
-      "images": [
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
-      ],
-      "quantity": 11,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for MOTHERBOARD Item 97, condition parts.",
-      "sellerPhotoUrl": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-      "sellerName": "GamingParts_TBS",
-      "uid": "S7EC4HD9FB5Ip8ZJ1NL3QR0TO2UW"
-    },
-    {
-      "id": 98,
-      "title": "MOTHERBOARD Item 98",
-      "category": "MOTHERBOARD",
-      "condition": "PARTS",
-      "price": 133.97,
-      "images": [
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
-      ],
-      "quantity": 8,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for MOTHERBOARD Item 98, condition parts.",
-      "sellerPhotoUrl": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-      "sellerName": "EliteHardware",
-      "uid": "T8FD5IE0GC6Jq9AK2OM4RS1UP3VX"
-    },
-    {
-      "id": 99,
-      "title": "HDD Item 99",
-      "category": "HDD",
-      "condition": "NEW",
-      "price": 322.49,
-      "images": [
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
-      ],
-      "quantity": 17,
-      "location": "GLDANI",
-      "userDescription": "Description for HDD Item 99, condition new.",
-      "sellerPhotoUrl": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-      "sellerName": "TechSeller99",
-      "uid": "U9GE6JF1HD7Kr0BL3PN5ST2VQ4WY"
-    },
-    {
-      "id": 100,
-      "title": "CASE_COOLER Item 100 CASE_COOLER Item 100 CASE_COOLER Item 100",
-      "category": "CASE_COOLER",
-      "condition": "USED",
-      "price": 335.78,
-      "images": [
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
-      ],
-      "quantity": 10,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "Description for CASE_COOLER Item 100, condition used.",
-      "sellerPhotoUrl": "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-      "sellerName": "ComponentKing",
-      "uid": "V0HF7KG2IE8Ls1CM4QO6TU3WR5XZ"
-    },
-    {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "title": "item101",
-      "category": "GPU",
-      "condition": "NEW",
-      "price": 560,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/aa570453-3728-44ae-819f-a79563c4ab7cjpg?alt=media&token=5b6c9231-2f6d-4486-b4c4-91274c1d5cd5",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/80298966-128d-4449-bba6-8a5723f3ca5ajpg?alt=media&token=84081035-427c-4d20-9648-565a3b4e2cae"
-      ],
-      "quantity": 23,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "adsad",
-      "sellerName": "vaniko",
-      "sellerPhotoUrl": null,
-      "id": 101
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "title": "TeamGroup T-FORCE VULCAN 16GB DDR5 6000MHz Desktop RAM FLBD516G6000HC38GBKT TeamGroup T-FORCE",
-      "category": "CPU",
+      "title": "Random-access memory  is a form of electronic computer mem",
+      "category": "CPU_COOLER",
       "condition": "USED",
-      "price": 100,
+      "price": 45,
       "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/1d1d8efc-bd2f-4bb7-a0bd-b4d53b80ae99jpg?alt=media&token=d7671ad0-7541-4c9a-9f35-bc41b33f2b39",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/cd7743af-7093-48de-b8fd-b2f721f518cejpg?alt=media&token=94a4e94d-70cc-407e-a81b-ca59aea7ffc5"
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/b4ded78c-c4c7-4c4f-8551-853a2bd48085jpg?alt=media&token=206a3904-0a7b-4702-9f15-3d73b36b23c3"
       ],
-      "quantity": 56,
+      "quantity": 45,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "good",
-      "sellerName": "vaniko",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/4bfa5253-ded7-48c8-a00c-5fad11a430f1jpg?alt=media&token=db4e2567-4734-4023-b0f0-def66e64f2f7",
-      "id": 102
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "title": "qer qer dsahasgh dagshdg dgd adg dgadgadg gdg dagadgdahd dgadgadgj dadadghd ajhd",
-      "category": "CPU",
-      "condition": "USED",
-      "price": 233,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/6a7dd8a3-d624-44a5-a4f1-a8605b00ce50jpg?alt=media&token=321d8823-52a0-48a8-97d8-3c7047cac020",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/fca4b313-8553-4667-a745-eadf03459272jpg?alt=media&token=85252254-0efa-4225-8153-9e7bc4d16e6b"
-      ],
-      "quantity": 36,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "fdgdfgdf",
+      "userDescription": "Random-access memory (RAM; /ræm/) is a form of electronic computer memory that can be read and changed in any order, typically used to store working Random-access memory (RAM; /ræm/) is a form of electronic computer memory that can be read and changed in any order, typically used to store working Random-access memory (RAM; /ræm/) is a form of electronic computer memory that can be read and changed in any order, typically used to store working",
       "sellerName": "vaniko",
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/166f5adc-7d2a-4d94-be12-4c03c5fb9f6bjpg?alt=media&token=12ac6b6e-2b15-4719-bfb6-56b3a90de356",
-      "id": 103
+      "id": 97
     }
   ],
   "categories": [
@@ -1914,140 +1807,57 @@
       "image": "https://i.ibb.co/8Dqx7nFF/Purple-Custom-Extension-Sleeve-Cable.png"
     }
   ],
-  "favorites": [],
-  "recently": [
+  "favorites": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 19,
-      "viewedAt": "2026-02-12T15:52:08Z",
-      "id": 1
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 20,
-      "viewedAt": "2026-02-12T15:52:10Z",
+      "itemId": 13,
+      "favoriteAt": "2026-02-14T15:18:02.983471Z",
       "id": 2
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 22,
-      "viewedAt": "2026-02-12T15:52:12Z",
+      "itemId": 16,
+      "favoriteAt": "2026-02-14T15:18:09.344806Z",
       "id": 3
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 45,
-      "viewedAt": "2026-02-12T15:52:23Z",
+      "itemId": 25,
+      "favoriteAt": "2026-02-14T15:18:14.696116Z",
       "id": 4
-    },
+    }
+  ],
+  "recently": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 71,
-      "viewedAt": "2026-02-12T15:52:28Z",
-      "id": 5
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 24,
-      "viewedAt": "2026-02-12T16:00:17Z",
-      "id": 6
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 14,
-      "viewedAt": "2026-02-12T16:10:41Z",
-      "id": 7
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 103,
-      "viewedAt": "2026-02-12T17:01:34Z",
-      "id": 8
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 8,
-      "viewedAt": "2026-02-12T17:17:50Z",
-      "id": 9
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 33,
-      "viewedAt": "2026-02-12T17:18:26Z",
-      "id": 10
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 5,
-      "viewedAt": "2026-02-12T17:23:18Z",
-      "id": 11
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 28,
-      "viewedAt": "2026-02-12T17:38:29Z",
-      "id": 12
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 23,
-      "viewedAt": "2026-02-12T17:38:35Z",
-      "id": 13
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 21,
-      "viewedAt": "2026-02-12T18:12:43Z",
-      "id": 14
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 1,
-      "viewedAt": "2026-02-12T18:13:32Z",
-      "id": 15
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 7,
-      "viewedAt": "2026-02-12T20:39:12Z",
-      "id": 16
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 58,
-      "viewedAt": "2026-02-12T22:09:20Z",
-      "id": 17
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 4,
-      "viewedAt": "2026-02-13T10:30:08Z",
-      "id": 18
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 9,
-      "viewedAt": "2026-02-13T10:30:12Z",
-      "id": 19
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 35,
-      "viewedAt": "2026-02-13T11:05:08Z",
-      "id": 20
+      "itemId": 3,
+      "viewedAt": "2026-02-14T15:21:21.023025Z",
+      "id": 1
     }
   ],
   "cart": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 10,
-      "addedAt": "2026-02-13T11:19:21Z",
+      "itemId": 3,
+      "addedAt": "2026-02-14T15:17:59.688626Z",
+      "id": 1
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 13,
+      "addedAt": "2026-02-14T15:18:04.351217Z",
+      "id": 2
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 16,
+      "addedAt": "2026-02-14T15:18:08.463823Z",
       "id": 3
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 18,
-      "addedAt": "2026-02-13T11:20:11Z",
+      "itemId": 25,
+      "addedAt": "2026-02-14T15:18:13.696616Z",
       "id": 4
     }
   ]

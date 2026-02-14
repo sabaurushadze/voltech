@@ -10,7 +10,7 @@ import com.tbc.home.domain.model.CategoryItem
 import com.tbc.home.domain.repository.CategoryRepository
 import javax.inject.Inject
 
-class CategoryRepositoryImpl @Inject constructor(
+internal class CategoryRepositoryImpl @Inject constructor(
     private val categoryService: CategoryService,
     private val responseHandler: ApiResponseHandler
 ) : CategoryRepository{

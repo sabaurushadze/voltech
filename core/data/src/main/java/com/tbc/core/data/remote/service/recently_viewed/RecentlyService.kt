@@ -14,6 +14,8 @@ interface RecentlyService {
     @GET(RECENTLY)
     suspend fun getRecentlyViewed(
         @Query(UID) uid: String,
+        @Query(SORT) sort: String = VIEWED_AT,
+        @Query(ORDER) order: String = DESC,
     ): Response<List<RecentlyResponseDto>>
 
     @GET(RECENTLY)

@@ -90,10 +90,16 @@ fun VoltechNavHost(
                 navController.navigate(SearchScreenRoute)
             },
             navigateToItemDetails = { id ->
-                navController.navigate(ItemDetailsScreenRoute(id))
+                navController.navigate(ItemDetailsScreenRoute(id)){
+                    popUpTo(ItemDetailsScreenRoute(id)) { inclusive = true }
+                }
             },
             navigateBack = { navController.navigateUp() },
-            navigateToAddToCart = { navController.navigate(AddToCartScreenRoute) }
+            navigateToAddToCart = {
+                navController.navigate(AddToCartScreenRoute){
+                    popUpTo(AddToCartScreenRoute) { inclusive = true }
+                }
+            }
         )
 
         profileNavGraph(

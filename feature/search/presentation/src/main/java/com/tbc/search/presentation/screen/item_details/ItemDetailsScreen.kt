@@ -1,6 +1,5 @@
 package com.tbc.search.presentation.screen.item_details
 
-import android.util.Log.d
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -37,7 +36,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
@@ -45,13 +43,11 @@ import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
-import com.tbc.core_ui.components.item.FeedItemCard
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
-import com.tbc.core_ui.theme.VoltechTheme
 import com.tbc.resource.R
 import com.tbc.search.presentation.components.feed.items.FavoriteButton
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -158,7 +154,6 @@ private fun ItemDetailsContent(
                             sellerUserName = state.itemDetails.sellerName
                         )
 
-                        d("asdd", "ITEM DETAILS STATE ${state.itemDetails}")
                         Spacer(Modifier.height(Dimen.size16))
 
                         Text(
@@ -167,12 +162,16 @@ private fun ItemDetailsContent(
                             color = VoltechColor.foregroundPrimary
                         )
 
+                        Spacer(Modifier.height(Dimen.size24))
+
+                        ItemDescription(description = state.itemDetails.userDescription)
+
                         Spacer(Modifier.height(Dimen.size32))
 
                         PrimaryButton(
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            onClick = {},
+                            onClick = { onEvent(ItemDetailsEvent.BuyItem) },
                             text = stringResource(R.string.buy_it_now),
                         )
 
@@ -208,6 +207,25 @@ private fun ItemDetailsContent(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun ItemDescription(description: String){
+    Column {
+        Text(
+            text = stringResource(R.string.description),
+            style = VoltechTextStyle.title2,
+            color = VoltechColor.foregroundPrimary
+        )
+
+        Spacer(Modifier.height(Dimen.size12))
+
+        Text(
+            text = description,
+            style = VoltechTextStyle.body,
+            color = VoltechColor.foregroundPrimary
+        )
     }
 }
 
@@ -473,21 +491,6 @@ private fun ImagePager(
             onFavoriteIconClick = { onFavoriteButtonIconClick() },
             iconSize = Dimen.size24,
             iconContainerSize = Dimen.size48
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun FeedItemWrapperPreview() {
-    VoltechTheme() {
-        FeedItemCard(
-            onRootClick = {},
-            imageUrl = "",
-            title = "RTX 4060 super duper magari umagresi video barati",
-            condition = "New",
-            price = "$1,780.00",
-            location = "Located in Didi Dighomi"
         )
     }
 }

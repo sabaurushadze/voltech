@@ -45,6 +45,7 @@ import com.tbc.search.presentation.model.cart.UiCartItem
 @Composable
 fun AddToCartScreen (
     viewModel: AddToCartViewModel = hiltViewModel(),
+    navigateToItemDetails: (Int) -> Unit
 ){
     val onEvent = viewModel::onEvent
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -70,14 +71,14 @@ fun AddToCartScreen (
         LoadingScreen()
     } else if (state.cartItems.isEmpty()) {
         EmptyState(
-            title = stringResource(R.string.there_s_nothing_here),
-            subtitle = stringResource(R.string.recently_empty_state),
-            icon = R.drawable.ic_history
+            subtitle = stringResource(R.string.shopping_cart_empty_state),
+            icon = R.drawable.ic_shopping_cart
         )
     } else {
         AddToCartContent(
             state = state,
-            onEvent = onEvent
+            onEvent = onEvent,
+            navigateToItemDetails = navigateToItemDetails
         )
     }
 }
@@ -86,7 +87,8 @@ fun AddToCartScreen (
 @Composable
 private fun  AddToCartContent(
     state: AddToCartState,
-    onEvent: (AddToCartEvent) -> Unit
+    onEvent: (AddToCartEvent) -> Unit,
+    navigateToItemDetails: (Int) -> Unit
 ){
     LazyColumn(
         modifier = Modifier.fillMaxSize()
@@ -102,7 +104,8 @@ private fun  AddToCartContent(
         items(state.cartItems){ cartItem ->
             CartItem(
                 cartItem = cartItem,
-                onEvent = onEvent
+                onEvent = onEvent,
+                navigateToItemDetails = navigateToItemDetails
             )
         }
 
@@ -118,12 +121,14 @@ private fun  AddToCartContent(
 @Composable
 private fun CartItem(
     cartItem: UiCartItem,
-    onEvent: (AddToCartEvent) -> Unit
+    onEvent: (AddToCartEvent) -> Unit,
+    navigateToItemDetails: (Int) -> Unit
 ){
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = Dimen.size16)
+            .clickable{ navigateToItemDetails(cartItem.id) }
     ) {
         ItemDetails(cartItem)
 

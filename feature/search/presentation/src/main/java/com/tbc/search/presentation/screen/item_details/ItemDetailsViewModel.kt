@@ -1,6 +1,5 @@
 package com.tbc.search.presentation.screen.item_details
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.recently_viewed.AddRecentlyItemUseCase
 import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyUseCase
@@ -10,7 +9,6 @@ import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.core.presentation.mapper.toStringResId
 import com.tbc.core.presentation.mapper.user.toPresentation
-import com.tbc.core.presentation.util.toIsoFormat
 import com.tbc.search.domain.usecase.cart.AddItemToCartUseCase
 import com.tbc.search.domain.usecase.cart.GetCartItemsUseCase
 import com.tbc.search.domain.usecase.favorite.GetFavoriteItemsUseCase
@@ -26,7 +24,6 @@ import com.tbc.search.presentation.model.favorite.UiFavoriteItemRequest
 import com.tbc.search.presentation.model.recently_viewed.UiRecentlyRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.util.Date
 import javax.inject.Inject
 
 
@@ -59,6 +56,7 @@ class ItemDetailsViewModel @Inject constructor(
             ItemDetailsEvent.NavigateBackToFeed -> navigateBackToFeed()
             ItemDetailsEvent.AddRecentlyItem -> addRecentlyItem()
             ItemDetailsEvent.AddItemToCart -> addItemToCart()
+            ItemDetailsEvent.BuyItem -> emitSideEffect(ItemDetailsSideEffect.ShowSnackBar(com.tbc.resource.R.string.this_service_not_work))
         }
     }
 

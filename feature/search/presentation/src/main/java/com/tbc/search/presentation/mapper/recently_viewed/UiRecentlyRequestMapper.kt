@@ -1,13 +1,14 @@
 package com.tbc.search.presentation.mapper.recently_viewed
 
 import com.tbc.core.domain.model.recently_viewed.RecentlyRequest
-import com.tbc.core.presentation.util.toIsoFormat
 import com.tbc.search.presentation.model.recently_viewed.UiRecentlyRequest
-import java.util.Date
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 
+@OptIn(ExperimentalTime::class)
 fun UiRecentlyRequest.toDomain() =
     RecentlyRequest(
         uid = uid,
         itemId = itemId,
-        viewedAt = Date().toIsoFormat(),
+        viewedAt = Clock.System.now().toString(),
     )
