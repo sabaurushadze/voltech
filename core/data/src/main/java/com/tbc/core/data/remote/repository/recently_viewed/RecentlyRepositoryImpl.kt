@@ -10,6 +10,7 @@ import com.tbc.core.domain.repository.recently_viewed.RecentlyRepository
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
 import com.tbc.core.domain.util.mapList
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class RecentlyRepositoryImpl @Inject constructor(
@@ -19,12 +20,14 @@ class RecentlyRepositoryImpl @Inject constructor(
 
     override suspend fun getRecentlyViewed(uid: String): Resource<List<Recently>, DataError.Network> {
         return apiResponseHandler.safeApiCall {
+            delay(500)
             recentlyService.getRecentlyViewed(uid)
         }.mapList { it.toDomain() }
     }
 
     override suspend fun getRecentlyViewedByQuantity(uid: String): Resource<List<Recently>, DataError.Network> {
         return apiResponseHandler.safeApiCall {
+            delay(500)
             recentlyService.getRecentlyViewedByQuantity(uid)
         }.mapList { it.toDomain() }
     }

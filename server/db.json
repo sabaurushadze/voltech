@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "GPU Item SUPER",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "USED",
       "price": 3000,
       "images": [
@@ -21,7 +21,7 @@
     {
       "id": 2,
       "title": "ggg",
-      "category": "CASE_COOLER",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 397.02,
       "images": [
@@ -39,7 +39,7 @@
     {
       "id": 3,
       "title": "aaa",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "NEW",
       "price": 191.1,
       "images": [
@@ -57,7 +57,7 @@
     {
       "id": 4,
       "title": "GPU Item 1",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 145.78,
       "images": [
@@ -75,7 +75,7 @@
     {
       "id": 5,
       "title": "GPU Item 1",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 42.45,
       "images": [
@@ -93,7 +93,7 @@
     {
       "id": 6,
       "title": "GPU Item 1",
-      "category": "CASE_COOLER",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 468.52,
       "images": [
@@ -111,7 +111,7 @@
     {
       "id": 7,
       "title": "GPU Item 1",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "USED",
       "price": 279.12,
       "images": [
@@ -129,7 +129,7 @@
     {
       "id": 8,
       "title": "GPU Item 1",
-      "category": "RAM",
+      "category": "GPU",
       "condition": "USED",
       "price": 23.48,
       "images": [
@@ -147,7 +147,7 @@
     {
       "id": 9,
       "title": "GPU Item 1",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "USED",
       "price": 441.53,
       "images": [
@@ -165,7 +165,7 @@
     {
       "id": 10,
       "title": "GPU Item 1",
-      "category": "HDD",
+      "category": "GPU",
       "condition": "NEW",
       "price": 176.55,
       "images": [
@@ -183,7 +183,7 @@
     {
       "id": 11,
       "title": "CASE_COOLER Item 11",
-      "category": "CASE_COOLER",
+      "category": "GPU",
       "condition": "USED",
       "price": 139.29,
       "images": [
@@ -201,7 +201,7 @@
     {
       "id": 12,
       "title": "MOTHERBOARD Item 12",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 473.11,
       "images": [
@@ -219,7 +219,7 @@
     {
       "id": 13,
       "title": "PSU Item 13",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "USED",
       "price": 441.14,
       "images": [
@@ -237,7 +237,7 @@
     {
       "id": 14,
       "title": "SSD Item 14",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 449.13,
       "images": [
@@ -255,7 +255,7 @@
     {
       "id": 15,
       "title": "SSD Item 15",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 80.35,
       "images": [
@@ -273,7 +273,7 @@
     {
       "id": 16,
       "title": "PSU Item 16",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "USED",
       "price": 184.06,
       "images": [
@@ -291,7 +291,7 @@
     {
       "id": 17,
       "title": "SSD Item 17",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "NEW",
       "price": 188.36,
       "images": [
@@ -309,7 +309,7 @@
     {
       "id": 18,
       "title": "HDD Item 18",
-      "category": "HDD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 272.45,
       "images": [
@@ -327,7 +327,7 @@
     {
       "id": 19,
       "title": "RAM Item 19",
-      "category": "RAM",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 351.65,
       "images": [
@@ -345,7 +345,7 @@
     {
       "id": 20,
       "title": "RAM Item 20",
-      "category": "RAM",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 428.9,
       "images": [
@@ -363,7 +363,7 @@
     {
       "id": 21,
       "title": "MOTHERBOARD Item 21",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 303.55,
       "images": [
@@ -381,7 +381,7 @@
     {
       "id": 22,
       "title": "RAM Item 22",
-      "category": "RAM",
+      "category": "GPU",
       "condition": "USED",
       "price": 316.46,
       "images": [
@@ -399,7 +399,7 @@
     {
       "id": 23,
       "title": "CPU Item 23",
-      "category": "CPU",
+      "category": "GPU",
       "condition": "NEW",
       "price": 354.07,
       "images": [
@@ -417,7 +417,7 @@
     {
       "id": 24,
       "title": "CASE Item 24",
-      "category": "CASE",
+      "category": "GPU",
       "condition": "USED",
       "price": 305.81,
       "images": [
@@ -435,7 +435,7 @@
     {
       "id": 25,
       "title": "PSU Item 25",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 127.15,
       "images": [
@@ -453,7 +453,7 @@
     {
       "id": 26,
       "title": "CABEL Item 26",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 207.71,
       "images": [
@@ -471,7 +471,7 @@
     {
       "id": 27,
       "title": "PSU Item 27",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "USED",
       "price": 223.34,
       "images": [
@@ -489,7 +489,7 @@
     {
       "id": 28,
       "title": "CPU Item 28",
-      "category": "CPU",
+      "category": "GPU",
       "condition": "NEW",
       "price": 452.01,
       "images": [
@@ -507,7 +507,7 @@
     {
       "id": 29,
       "title": "CABEL Item 29",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "USED",
       "price": 347.43,
       "images": [
@@ -525,7 +525,7 @@
     {
       "id": 30,
       "title": "CASE_COOLER Item 30",
-      "category": "CASE_COOLER",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 341.28,
       "images": [
@@ -543,7 +543,7 @@
     {
       "id": 31,
       "title": "PSU Item 31",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "NEW",
       "price": 183.13,
       "images": [
@@ -561,7 +561,7 @@
     {
       "id": 32,
       "title": "CABEL Item 32",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 281.53,
       "images": [
@@ -579,7 +579,7 @@
     {
       "id": 33,
       "title": "RAM Item 33",
-      "category": "RAM",
+      "category": "GPU",
       "condition": "NEW",
       "price": 359.33,
       "images": [
@@ -597,7 +597,7 @@
     {
       "id": 34,
       "title": "MOTHERBOARD Item 34",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 142.21,
       "images": [
@@ -615,7 +615,7 @@
     {
       "id": 35,
       "title": "MOTHERBOARD Item 35",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "USED",
       "price": 190.67,
       "images": [
@@ -633,7 +633,7 @@
     {
       "id": 36,
       "title": "MOTHERBOARD Item 36",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "NEW",
       "price": 204.77,
       "images": [
@@ -651,7 +651,7 @@
     {
       "id": 37,
       "title": "CASE_COOLER Item 37",
-      "category": "CASE_COOLER",
+      "category": "GPU",
       "condition": "NEW",
       "price": 384.62,
       "images": [
@@ -669,7 +669,7 @@
     {
       "id": 38,
       "title": "SSD Item 38",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "USED",
       "price": 257.78,
       "images": [
@@ -687,7 +687,7 @@
     {
       "id": 39,
       "title": "CABEL Item 39",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "NEW",
       "price": 447.47,
       "images": [
@@ -705,7 +705,7 @@
     {
       "id": 40,
       "title": "MONITOR Item 40",
-      "category": "MONITOR",
+      "category": "GPU",
       "condition": "NEW",
       "price": 80.38,
       "images": [
@@ -723,7 +723,7 @@
     {
       "id": 41,
       "title": "PSU Item 41",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "NEW",
       "price": 162.7,
       "images": [
@@ -741,7 +741,7 @@
     {
       "id": 42,
       "title": "MOTHERBOARD Item 42",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "NEW",
       "price": 483.21,
       "images": [
@@ -759,7 +759,7 @@
     {
       "id": 43,
       "title": "HDD Item 43",
-      "category": "HDD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 340.21,
       "images": [
@@ -777,7 +777,7 @@
     {
       "id": 44,
       "title": "SSD Item 44",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "USED",
       "price": 73.94,
       "images": [
@@ -813,7 +813,7 @@
     {
       "id": 46,
       "title": "MONITOR Item 46",
-      "category": "MONITOR",
+      "category": "GPU",
       "condition": "NEW",
       "price": 82.98,
       "images": [
@@ -831,7 +831,7 @@
     {
       "id": 47,
       "title": "MOTHERBOARD Item 47",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 121.97,
       "images": [
@@ -849,7 +849,7 @@
     {
       "id": 48,
       "title": "PSU Item 48",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 198.69,
       "images": [
@@ -867,7 +867,7 @@
     {
       "id": 49,
       "title": "CASE Item 49",
-      "category": "CASE",
+      "category": "GPU",
       "condition": "USED",
       "price": 150.79,
       "images": [
@@ -885,7 +885,7 @@
     {
       "id": 50,
       "title": "CPU Item 50",
-      "category": "CPU",
+      "category": "GPU",
       "condition": "USED",
       "price": 359.37,
       "images": [
@@ -903,7 +903,7 @@
     {
       "id": 51,
       "title": "CABEL Item 51",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "USED",
       "price": 303.36,
       "images": [
@@ -921,7 +921,7 @@
     {
       "id": 52,
       "title": "SSD Item 52",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "USED",
       "price": 180.91,
       "images": [
@@ -939,7 +939,7 @@
     {
       "id": 53,
       "title": "CPU Item 53",
-      "category": "CPU",
+      "category": "GPU",
       "condition": "NEW",
       "price": 179.54,
       "images": [
@@ -957,7 +957,7 @@
     {
       "id": 54,
       "title": "SSD Item 54",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "NEW",
       "price": 223.46,
       "images": [
@@ -975,7 +975,7 @@
     {
       "id": 55,
       "title": "SSD Item 55",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 196.16,
       "images": [
@@ -993,7 +993,7 @@
     {
       "id": 56,
       "title": "PSU Item 56",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 354.41,
       "images": [
@@ -1011,7 +1011,7 @@
     {
       "id": 57,
       "title": "CASE Item 57",
-      "category": "CASE",
+      "category": "GPU",
       "condition": "USED",
       "price": 252.2,
       "images": [
@@ -1029,7 +1029,7 @@
     {
       "id": 58,
       "title": "HDD Item 58",
-      "category": "HDD",
+      "category": "GPU",
       "condition": "USED",
       "price": 385.12,
       "images": [
@@ -1047,7 +1047,7 @@
     {
       "id": 59,
       "title": "CASE_COOLER Item 59",
-      "category": "CASE_COOLER",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 180.26,
       "images": [
@@ -1065,7 +1065,7 @@
     {
       "id": 60,
       "title": "CASE_COOLER Item 60",
-      "category": "CASE_COOLER",
+      "category": "GPU",
       "condition": "USED",
       "price": 62.97,
       "images": [
@@ -1083,7 +1083,7 @@
     {
       "id": 61,
       "title": "MONITOR Item 61",
-      "category": "MONITOR",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 313.3,
       "images": [
@@ -1101,7 +1101,7 @@
     {
       "id": 62,
       "title": "CPU Item 62",
-      "category": "CPU",
+      "category": "GPU",
       "condition": "NEW",
       "price": 357.65,
       "images": [
@@ -1119,7 +1119,7 @@
     {
       "id": 63,
       "title": "PSU Item 63",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 411.65,
       "images": [
@@ -1137,7 +1137,7 @@
     {
       "id": 64,
       "title": "RAM Item 64",
-      "category": "RAM",
+      "category": "GPU",
       "condition": "NEW",
       "price": 454.29,
       "images": [
@@ -1155,7 +1155,7 @@
     {
       "id": 65,
       "title": "RAM Item 65",
-      "category": "RAM",
+      "category": "GPU",
       "condition": "USED",
       "price": 327.43,
       "images": [
@@ -1173,7 +1173,7 @@
     {
       "id": 66,
       "title": "PSU Item 66",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 262.42,
       "images": [
@@ -1191,7 +1191,7 @@
     {
       "id": 67,
       "title": "CASE Item 67",
-      "category": "CASE",
+      "category": "GPU",
       "condition": "NEW",
       "price": 275.04,
       "images": [
@@ -1245,7 +1245,7 @@
     {
       "id": 70,
       "title": "CASE_COOLER Item 70",
-      "category": "CASE_COOLER",
+      "category": "GPU",
       "condition": "NEW",
       "price": 143.6,
       "images": [
@@ -1281,7 +1281,7 @@
     {
       "id": 72,
       "title": "CASE Item 72",
-      "category": "CASE",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 62.97,
       "images": [
@@ -1317,7 +1317,7 @@
     {
       "id": 74,
       "title": "CASE Item 74",
-      "category": "CASE",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 153.84,
       "images": [
@@ -1335,7 +1335,7 @@
     {
       "id": 75,
       "title": "CABEL Item 75",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 416.2,
       "images": [
@@ -1353,7 +1353,7 @@
     {
       "id": 76,
       "title": "MOTHERBOARD Item 76",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "USED",
       "price": 204.92,
       "images": [
@@ -1371,7 +1371,7 @@
     {
       "id": 77,
       "title": "SSD Item 77",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "USED",
       "price": 164.36,
       "images": [
@@ -1389,7 +1389,7 @@
     {
       "id": 78,
       "title": "MOTHERBOARD Item 78",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "NEW",
       "price": 468.43,
       "images": [
@@ -1407,7 +1407,7 @@
     {
       "id": 79,
       "title": "CASE_COOLER Item 79",
-      "category": "CASE_COOLER",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 378.35,
       "images": [
@@ -1425,7 +1425,7 @@
     {
       "id": 80,
       "title": "CPU Item 80",
-      "category": "CPU",
+      "category": "GPU",
       "condition": "NEW",
       "price": 128.57,
       "images": [
@@ -1443,7 +1443,7 @@
     {
       "id": 81,
       "title": "CPU_COOLER Item 81",
-      "category": "CPU_COOLER",
+      "category": "GPU",
       "condition": "USED",
       "price": 320.68,
       "images": [
@@ -1461,7 +1461,7 @@
     {
       "id": 82,
       "title": "CABEL Item 82",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 67.54,
       "images": [
@@ -1479,7 +1479,7 @@
     {
       "id": 83,
       "title": "HDD Item 83",
-      "category": "HDD",
+      "category": "GPU",
       "condition": "NEW",
       "price": 216.72,
       "images": [
@@ -1497,7 +1497,7 @@
     {
       "id": 84,
       "title": "CPU Item 84",
-      "category": "CPU",
+      "category": "GPU",
       "condition": "USED",
       "price": 123.42,
       "images": [
@@ -1515,7 +1515,7 @@
     {
       "id": 85,
       "title": "SSD Item 85",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 245.37,
       "images": [
@@ -1533,7 +1533,7 @@
     {
       "id": 86,
       "title": "CPU_COOLER Item 86",
-      "category": "CPU_COOLER",
+      "category": "GPU",
       "condition": "NEW",
       "price": 475.8,
       "images": [
@@ -1551,7 +1551,7 @@
     {
       "id": 87,
       "title": "CABEL Item 87",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "NEW",
       "price": 345.16,
       "images": [
@@ -1569,7 +1569,7 @@
     {
       "id": 88,
       "title": "SSD Item 88",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "NEW",
       "price": 467.51,
       "images": [
@@ -1587,7 +1587,7 @@
     {
       "id": 89,
       "title": "MOTHERBOARD Item 89",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "USED",
       "price": 392.89,
       "images": [
@@ -1623,7 +1623,7 @@
     {
       "id": 91,
       "title": "PSU Item 91",
-      "category": "PSU",
+      "category": "GPU",
       "condition": "USED",
       "price": 132.57,
       "images": [
@@ -1641,7 +1641,7 @@
     {
       "id": 92,
       "title": "CABEL Item 92",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "NEW",
       "price": 96.19,
       "images": [
@@ -1659,7 +1659,7 @@
     {
       "id": 93,
       "title": "RAM Item 93",
-      "category": "RAM",
+      "category": "GPU",
       "condition": "USED",
       "price": 360.93,
       "images": [
@@ -1677,7 +1677,7 @@
     {
       "id": 94,
       "title": "CABEL Item 94",
-      "category": "CABEL",
+      "category": "GPU",
       "condition": "USED",
       "price": 465.02,
       "images": [
@@ -1695,7 +1695,7 @@
     {
       "id": 95,
       "title": "MOTHERBOARD Item 95",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "NEW",
       "price": 208.48,
       "images": [
@@ -1713,7 +1713,7 @@
     {
       "id": 96,
       "title": "SSD Item 96",
-      "category": "SSD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 307.07,
       "images": [
@@ -1731,7 +1731,7 @@
     {
       "id": 97,
       "title": "MOTHERBOARD Item 97",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 296.79,
       "images": [
@@ -1749,7 +1749,7 @@
     {
       "id": 98,
       "title": "MOTHERBOARD Item 98",
-      "category": "MOTHERBOARD",
+      "category": "GPU",
       "condition": "PARTS",
       "price": 133.97,
       "images": [
@@ -1767,7 +1767,7 @@
     {
       "id": 99,
       "title": "HDD Item 99",
-      "category": "HDD",
+      "category": "GPU",
       "condition": "NEW",
       "price": 322.49,
       "images": [
@@ -1784,8 +1784,8 @@
     },
     {
       "id": 100,
-      "title": "CASE_COOLER Item 100 CASE_COOLER Item 100 CASE_COOLER Item 100",
-      "category": "CASE_COOLER",
+      "title": "CASE_COOLER Item 100",
+      "category": "GPU",
       "condition": "USED",
       "price": 335.78,
       "images": [
@@ -1914,7 +1914,56 @@
       "image": "https://i.ibb.co/8Dqx7nFF/Purple-Custom-Extension-Sleeve-Cable.png"
     }
   ],
-  "favorites": [],
+  "favorites": [
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 45,
+      "favoriteAt": "2026-02-13T22:29:26Z",
+      "id": 1
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 68,
+      "favoriteAt": "2026-02-13T22:29:28Z",
+      "id": 2
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 69,
+      "favoriteAt": "2026-02-13T22:29:30Z",
+      "id": 3
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 101,
+      "favoriteAt": "2026-02-15T16:56:54Z",
+      "id": 4
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 68,
+      "favoriteAt": "2026-02-15T18:14:23Z",
+      "id": 6
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 69,
+      "favoriteAt": "2026-02-15T18:14:28Z",
+      "id": 7
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 71,
+      "favoriteAt": "2026-02-15T18:14:32Z",
+      "id": 8
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 90,
+      "favoriteAt": "2026-02-15T18:15:03Z",
+      "id": 9
+    }
+  ],
   "recently": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
@@ -2035,6 +2084,84 @@
       "itemId": 35,
       "viewedAt": "2026-02-13T11:05:08Z",
       "id": 20
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 45,
+      "viewedAt": "2026-02-13T22:14:25Z",
+      "id": 21
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 68,
+      "viewedAt": "2026-02-13T22:15:53Z",
+      "id": 22
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 69,
+      "viewedAt": "2026-02-13T22:15:54Z",
+      "id": 23
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 71,
+      "viewedAt": "2026-02-13T22:15:56Z",
+      "id": 24
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 90,
+      "viewedAt": "2026-02-13T22:16:03Z",
+      "id": 25
+    },
+    {
+      "uid": "gXhLf79UiBMaYNiyqLOiBe7kWpb2",
+      "itemId": 101,
+      "viewedAt": "2026-02-13T22:16:06Z",
+      "id": 26
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 45,
+      "viewedAt": "2026-02-15T17:16:49Z",
+      "id": 27
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 68,
+      "viewedAt": "2026-02-15T18:14:18Z",
+      "id": 28
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 69,
+      "viewedAt": "2026-02-15T18:14:26Z",
+      "id": 29
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 71,
+      "viewedAt": "2026-02-15T18:14:30Z",
+      "id": 30
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 90,
+      "viewedAt": "2026-02-15T18:15:03Z",
+      "id": 31
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 8,
+      "viewedAt": "2026-02-15T20:13:20Z",
+      "id": 32
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 1,
+      "viewedAt": "2026-02-15T20:15:54Z",
+      "id": 33
     }
   ],
   "cart": [
@@ -2049,6 +2176,42 @@
       "itemId": 18,
       "addedAt": "2026-02-13T11:20:11Z",
       "id": 4
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 97,
+      "addedAt": "2026-02-15T00:38:06Z",
+      "id": 6
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 78,
+      "addedAt": "2026-02-15T00:38:10Z",
+      "id": 7
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 47,
+      "addedAt": "2026-02-15T00:38:14Z",
+      "id": 8
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 34,
+      "addedAt": "2026-02-15T00:38:18Z",
+      "id": 9
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 98,
+      "addedAt": "2026-02-15T00:48:06Z",
+      "id": 11
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 45,
+      "addedAt": "2026-02-15T17:19:13Z",
+      "id": 12
     }
   ]
 }

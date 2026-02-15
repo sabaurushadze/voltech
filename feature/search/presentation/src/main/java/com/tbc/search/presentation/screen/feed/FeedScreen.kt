@@ -16,6 +16,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -29,10 +30,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import androidx.paging.compose.itemKey
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core_ui.components.item.FeedItemCard
 import com.tbc.core_ui.components.item.FeedItemPlaceholderCard
+import com.tbc.core_ui.components.loading.LoadingIcon
+import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
+import com.tbc.core_ui.screen.internet.NoInternetConnection
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
@@ -57,8 +62,12 @@ fun FeedScreen(
     val topAppBarScrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     val state by viewModel.state.collectAsStateWithLifecycle()
+
     val pagingItems = viewModel.feedPagingFlow.collectAsLazyPagingItems()
-    val isContentReady = pagingItems.loadState.refresh !is LoadState.Loading
+    val loadState = pagingItems.loadState
+    val isRefreshing = loadState.refresh is LoadState.Loading
+
+    val pullToRefreshState = rememberPullToRefreshState()
 
     val sortBottomSheetState = rememberModalBottomSheetState()
     val filterBottomSheetState = rememberModalBottomSheetState(
@@ -77,15 +86,15 @@ fun FeedScreen(
     }
 
     LaunchedEffect(categoryQuery) {
-        if (state.query.category == null){
-            categoryQuery?.let { category->
+        if (state.query.category == null) {
+            categoryQuery?.let { category ->
                 viewModel.onEvent(FeedEvent.SaveCategoryQuery(category))
             }
         }
     }
 
     LaunchedEffect(pagingItems.loadState.refresh) {
-        if (pagingItems.loadState.refresh is LoadState.Loading) {
+        if (isRefreshing) {
             listState.scrollToItem(0)
         }
     }
@@ -103,15 +112,21 @@ fun FeedScreen(
         }
     }
 
-    FeedContent(
-        state = state,
-        pagingItems = pagingItems,
-        onEvent = viewModel::onEvent,
-        listState = listState,
-        isContentReady = isContentReady,
-        topAppBarScrollBehavior = topAppBarScrollBehavior,
-        navigateToSearch = navigateToSearch
-    )
+
+    VoltechPullToRefresh(
+        state = pullToRefreshState,
+        onRefresh = { pagingItems.refresh() },
+    ) {
+
+        FeedContent(
+            pagingItems = pagingItems,
+            onEvent = viewModel::onEvent,
+            listState = listState,
+            isRefreshing = isRefreshing,
+            topAppBarScrollBehavior = topAppBarScrollBehavior,
+            navigateToSearch = navigateToSearch
+        )
+    }
 
     if (state.selectedSort) {
         ModalBottomSheet(
@@ -150,12 +165,11 @@ fun FeedScreen(
 @Composable
 private fun FeedContent(
     modifier: Modifier = Modifier,
-    state: FeedState,
     pagingItems: LazyPagingItems<UiFeedItem>,
     onEvent: (FeedEvent) -> Unit,
     navigateToSearch: () -> Unit,
     listState: LazyListState,
-    isContentReady: Boolean,
+    isRefreshing: Boolean,
     topAppBarScrollBehavior: TopAppBarScrollBehavior,
 ) {
     Column(
@@ -168,19 +182,28 @@ private fun FeedContent(
             onSearchClick = navigateToSearch,
             onSortClick = { onEvent(FeedEvent.ShowSortSheet) },
             onFilterClick = { onEvent(FeedEvent.ShowFilterSheet) },
-            isLoading = !isContentReady,
+            isLoading = isRefreshing,
             scrollBehavior = topAppBarScrollBehavior,
-            isContentReady = isContentReady,
+            isRefreshing = isRefreshing,
         )
 
         LazyColumn(
             modifier = modifier
                 .systemBarsPadding(),
             state = listState,
-            userScrollEnabled = isContentReady,
-            contentPadding = PaddingValues(horizontal = Dimen.size8)
+            userScrollEnabled = !isRefreshing,
+            contentPadding = PaddingValues(horizontal = Dimen.size8),
         ) {
-            if (!isContentReady) {
+            if (pagingItems.loadState.refresh is LoadState.Error && pagingItems.itemCount == 0) {
+                item {
+                    NoInternetConnection {
+                        pagingItems.retry()
+                    }
+                }
+                return@LazyColumn
+            }
+
+            if (isRefreshing) {
                 items(10) {
                     FeedItemPlaceholderCard()
 
@@ -189,11 +212,11 @@ private fun FeedContent(
             }
 
             items(
-                count = pagingItems.itemCount, key = { index ->
-                    pagingItems[index]?.id ?: index
-                }) { index ->
-                val item = pagingItems[index]
+                count = pagingItems.itemCount,
+                key = pagingItems.itemKey { it.id }
 
+            ) { index ->
+                val item = pagingItems[index]
                 item?.let {
                     FeedItemCard(
                         imageUrl = it.images.firstOrNull(),
@@ -215,6 +238,27 @@ private fun FeedContent(
 
                 Spacer(modifier = Modifier.height(Dimen.size4))
 
+            }
+
+            when (pagingItems.loadState.append) {
+                is LoadState.Error -> {
+                    item {
+                        NoInternetConnection {
+                            pagingItems.retry()
+                        }
+                        Spacer(modifier = Modifier.height(Dimen.size48))
+                    }
+                }
+
+                is LoadState.Loading -> {
+                    item {
+                        LoadingIcon()
+                        Spacer(modifier = Modifier.height(Dimen.size48))
+                    }
+                }
+
+                else -> {
+                }
             }
         }
 

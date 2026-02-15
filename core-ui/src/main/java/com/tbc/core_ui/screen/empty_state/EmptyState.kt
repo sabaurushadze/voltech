@@ -1,4 +1,4 @@
-package com.tbc.core_ui.components.empty_state
+package com.tbc.core_ui.screen.empty_state
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement

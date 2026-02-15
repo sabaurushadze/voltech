@@ -1,5 +1,10 @@
 package com.tbc.core_ui.components.item
 
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -13,16 +18,19 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import com.tbc.core_ui.components.checkbox.VoltechCheckBoxDefaults
+import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechFixedColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
-import com.tbc.core_ui.components.image.BaseAsyncImage
-import com.tbc.core_ui.theme.VoltechFixedColor
+import com.tbc.resource.R
 
 @Composable
 fun FeedItemCard(
@@ -35,13 +43,34 @@ fun FeedItemCard(
     location: String? = null,
     onRootClick: () -> Unit = {},
 ) {
+
+    val checkboxWidth by animateDpAsState(
+        targetValue = if (editModeOn) Dimen.size48 else Dimen.size0,
+        animationSpec = spring(
+            stiffness = Spring.StiffnessMediumLow,
+            dampingRatio = Spring.DampingRatioNoBouncy
+        ),
+        label = ""
+    )
+
+    val checkboxAlpha by animateFloatAsState(
+        targetValue = if (editModeOn) 1f else 0f,
+        animationSpec = tween(200),
+        label = ""
+    )
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onRootClick() },
         verticalAlignment = Alignment.CenterVertically
     ) {
-        if (editModeOn) {
+        Box(
+            modifier = Modifier
+                .width(checkboxWidth)
+                .alpha(checkboxAlpha),
+            contentAlignment = Alignment.Center
+        ) {
             Checkbox(
                 modifier = Modifier.padding(horizontal = Dimen.size16),
                 checked = checked,
@@ -49,6 +78,7 @@ fun FeedItemCard(
                 colors = VoltechCheckBoxDefaults.primaryColors
             )
         }
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -86,9 +116,8 @@ fun FeedItemCard(
                 )
             }
         }
-
-
     }
+
 }
 
 @Composable
@@ -160,6 +189,8 @@ fun FeedItemPlaceholderCard() {
                     .clip(VoltechRadius.radius16)
             ) {
                 BaseAsyncImage(
+                    errorRes = R.drawable.placeholder,
+                    placeholderRes = R.drawable.placeholder,
                     url = "",
                     modifier = Modifier
                         .matchParentSize()

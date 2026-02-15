@@ -1,8 +1,8 @@
 package com.tbc.selling.presentation.screen.my_items
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
+import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
@@ -20,15 +20,16 @@ class MyItemsViewModel @Inject constructor(
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val getItemsByUidUseCase: GetItemsByUidUseCase,
     private val checkUserItemAmountUseCase: CheckUserItemAmountUseCase,
-    private val deleteItemByIdUseCase: DeleteItemByIdUseCase
+    private val deleteItemByIdUseCase: DeleteItemByIdUseCase,
 ) : BaseViewModel<MyItemsState, MyItemsSideEffect, MyItemsEvent>(MyItemsState()) {
 
     init {
         getCurrentUser()
     }
+
     override fun onEvent(event: MyItemsEvent) {
         when (event) {
-            is MyItemsEvent.GetMyItems -> getMyItems(event.uid)
+            is MyItemsEvent.GetMyItems -> getMyItems()
             is MyItemsEvent.NavigateToItemDetails -> navigateToItemDetails(event.id)
             MyItemsEvent.NavigateToAddItem -> navigateToAddItem()
             MyItemsEvent.CanUserPostItems -> checkUserItemAmount()
@@ -52,6 +53,7 @@ class MyItemsViewModel @Inject constructor(
             )
         }
     }
+
     private fun deleteFavoriteItemIds() = viewModelScope.launch {
         val selectedFavoriteIds = state.value.myItems
             .filter { it.isSelected }
@@ -61,10 +63,9 @@ class MyItemsViewModel @Inject constructor(
             deleteItemByIdUseCase(id)
         }
 
-        state.value.user?.let { user ->
-            getMyItems(user.uid)
-        }
+        getMyItems()
     }
+
     private fun toggleSelectAll(selectAll: Boolean) {
         updateState {
             copy(
@@ -99,18 +100,39 @@ class MyItemsViewModel @Inject constructor(
                 }
         }
     }
+
     private fun navigateToAddItem() {
         emitSideEffect(MyItemsSideEffect.NavigateToAddItem)
     }
 
-    private fun getMyItems(uid: String) = viewModelScope.launch {
-        getItemsByUidUseCase(uid)
-            .onSuccess { itemsDomain ->
-                updateState { copy(myItems = itemsDomain.map { it.toPresentation() }, isLoading = false) }
-            }
-            .onFailure {
-                d("asdd", "$it")
-            }
+    private fun getMyItems() = viewModelScope.launch {
+        updateState { copy(isLoading = true) }
+
+        state.value.user?.let { user ->
+            getItemsByUidUseCase(user.uid)
+                .onSuccess { itemsDomain ->
+                    updateState {
+                        copy(
+                            myItems = itemsDomain.map { it.toPresentation() },
+                            isLoading = false,
+                            showNoConnectionError = false
+                        )
+                    }
+                }
+                .onFailure { result ->
+                    if (result == DataError.Network.NO_CONNECTION) {
+                        updateState {
+                            copy(
+                                isLoading = false,
+                                showNoConnectionError = true
+                            )
+                        }
+
+                    } else {
+                        updateState { copy(isLoading = false, showNoConnectionError = false) }
+                    }
+                }
+        }
     }
 
     private fun getCurrentUser() = viewModelScope.launch {

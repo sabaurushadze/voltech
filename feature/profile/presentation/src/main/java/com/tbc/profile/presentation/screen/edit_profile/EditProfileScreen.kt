@@ -87,6 +87,7 @@ fun EditProfileScreen(
         }
     }
 
+
     EditProfileContent(
         state = state,
         onEvent = viewModel::onEvent,
@@ -123,7 +124,8 @@ private fun EditProfileContent(
     state: EditProfileState,
     onEvent: (EditProfileEvent) -> Unit,
 ) {
-    val usernameError = if (state.showUsernameError) stringResource(R.string.error_username_length) else null
+    val usernameError =
+        if (state.showUsernameError) stringResource(R.string.error_username_length) else null
 
     Column(
         modifier = Modifier

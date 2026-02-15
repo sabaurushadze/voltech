@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -31,9 +32,10 @@ import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core.presentation.util.toPriceUsStyle
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.divider.Divider
-import com.tbc.core_ui.components.empty_state.EmptyState
 import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.loading.LoadingScreen
+import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
+import com.tbc.core_ui.screen.empty_state.EmptyState
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
@@ -43,12 +45,13 @@ import com.tbc.search.presentation.model.cart.UiCartItem
 
 
 @Composable
-fun AddToCartScreen (
+fun AddToCartScreen(
     viewModel: AddToCartViewModel = hiltViewModel(),
-){
+) {
     val onEvent = viewModel::onEvent
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = LocalSnackbarHostState.current
+    val pullToRefreshState = rememberPullToRefreshState()
     val context = LocalContext.current
 
 
@@ -65,7 +68,6 @@ fun AddToCartScreen (
         onEvent(AddToCartEvent.GetCartItems)
     }
 
-
     if (state.isLoading) {
         LoadingScreen()
     } else if (state.cartItems.isEmpty()) {
@@ -75,19 +77,24 @@ fun AddToCartScreen (
             icon = R.drawable.ic_history
         )
     } else {
-        AddToCartContent(
-            state = state,
-            onEvent = onEvent
-        )
+        VoltechPullToRefresh(
+            state = pullToRefreshState,
+            onRefresh = { viewModel.onEvent(AddToCartEvent.GetCartItems) },
+        ) {
+            AddToCartContent(
+                state = state,
+                onEvent = onEvent
+            )
+        }
     }
 }
 
 
 @Composable
-private fun  AddToCartContent(
+private fun AddToCartContent(
     state: AddToCartState,
-    onEvent: (AddToCartEvent) -> Unit
-){
+    onEvent: (AddToCartEvent) -> Unit,
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -99,7 +106,7 @@ private fun  AddToCartContent(
             Spacer(Modifier.height(Dimen.size16))
         }
 
-        items(state.cartItems){ cartItem ->
+        items(state.cartItems) { cartItem ->
             CartItem(
                 cartItem = cartItem,
                 onEvent = onEvent
@@ -118,8 +125,8 @@ private fun  AddToCartContent(
 @Composable
 private fun CartItem(
     cartItem: UiCartItem,
-    onEvent: (AddToCartEvent) -> Unit
-){
+    onEvent: (AddToCartEvent) -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -135,7 +142,7 @@ private fun CartItem(
         ) {
             Text(
                 modifier = Modifier
-                    .clickable{ onEvent(AddToCartEvent.BuyItem) },
+                    .clickable { onEvent(AddToCartEvent.BuyItem) },
                 text = stringResource(R.string.buy_it_now),
                 style = VoltechTextStyle.bodyBold,
                 color = VoltechColor.foregroundAccent
@@ -143,7 +150,7 @@ private fun CartItem(
 
             Text(
                 modifier = Modifier
-                    .clickable{ onEvent(AddToCartEvent.DeleteCartItems(cartItem.cartId)) },
+                    .clickable { onEvent(AddToCartEvent.DeleteCartItems(cartItem.cartId)) },
                 text = stringResource(R.string.remove),
                 style = VoltechTextStyle.bodyBold,
                 color = VoltechColor.foregroundAccent
@@ -162,8 +169,8 @@ private fun CartItem(
 
 @Composable
 private fun ItemDetails(
-    cartItem: UiCartItem
-) = with(cartItem){
+    cartItem: UiCartItem,
+) = with(cartItem) {
 
     Row(
         modifier = Modifier.fillMaxWidth()
@@ -206,12 +213,11 @@ private fun ItemDetails(
 }
 
 
-
 @Composable
 private fun SubtotalAndCheckout(
     subtotal: Double,
-    onEvent: (AddToCartEvent) -> Unit
-){
+    onEvent: (AddToCartEvent) -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()

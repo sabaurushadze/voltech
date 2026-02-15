@@ -1,14 +1,15 @@
 package com.tbc.profile.presentation.screen.recently_viewed
 
 import com.tbc.core.presentation.model.UiUser
-import com.tbc.profile.presentation.model.watchlist.UiFavorite
+import com.tbc.profile.presentation.model.recently_viewed.UiRecently
 
-data class RecentlyViewedState (
+data class RecentlyViewedState(
+    val showNoConnectionError: Boolean = false,
     val user: UiUser? = null,
-    val isLoading: Boolean = true,
+    val isLoading: Boolean = false,
 
 
-    val recentlyViewedItems: List<UiFavorite> = emptyList(),
+    val recentlyViewedItems: List<UiRecently> = emptyList(),
     val editModeOn: Boolean = false,
 ) {
     val allSelected: Boolean

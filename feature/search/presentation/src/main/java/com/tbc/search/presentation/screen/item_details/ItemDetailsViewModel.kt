@@ -1,6 +1,5 @@
 package com.tbc.search.presentation.screen.item_details
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.recently_viewed.AddRecentlyItemUseCase
 import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyUseCase
@@ -10,7 +9,6 @@ import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.core.presentation.mapper.toStringResId
 import com.tbc.core.presentation.mapper.user.toPresentation
-import com.tbc.core.presentation.util.toIsoFormat
 import com.tbc.search.domain.usecase.cart.AddItemToCartUseCase
 import com.tbc.search.domain.usecase.cart.GetCartItemsUseCase
 import com.tbc.search.domain.usecase.favorite.GetFavoriteItemsUseCase
@@ -26,7 +24,6 @@ import com.tbc.search.presentation.model.favorite.UiFavoriteItemRequest
 import com.tbc.search.presentation.model.recently_viewed.UiRecentlyRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.util.Date
 import javax.inject.Inject
 
 
@@ -39,7 +36,7 @@ class ItemDetailsViewModel @Inject constructor(
     private val getCartItemsUseCase: GetCartItemsUseCase,
     private val toggleFavoriteItemUseCase: ToggleFavoriteItemUseCase,
     private val addRecentlyItemUseCase: AddRecentlyItemUseCase,
-    private val addItemToCartUseCase: AddItemToCartUseCase
+    private val addItemToCartUseCase: AddItemToCartUseCase,
 ) :
     BaseViewModel<ItemDetailsState, ItemDetailsSideEffect, ItemDetailsEvent>(ItemDetailsState()) {
 
@@ -65,7 +62,7 @@ class ItemDetailsViewModel @Inject constructor(
     private fun toggleFavorite(uid: String) {
         val favoriteItemRequest = getFavoriteItemRequest()
         viewModelScope.launch {
-            if(state.value.favoriteItem.size != 20){
+            if (state.value.favoriteItem.size != 20) {
                 toggleFavoriteItemUseCase(favoriteItemRequest.toDomain())
                     .onSuccess {
                         getFavorites(uid)
@@ -106,13 +103,13 @@ class ItemDetailsViewModel @Inject constructor(
         }
     }
 
-    private fun addItemToCart(){
+    private fun addItemToCart() {
         val cartItemRequest = getCartItemRequest()
         viewModelScope.launch {
-            if (state.value.cartItemIds.size != 20){
+            if (state.value.cartItemIds.size != 20) {
                 addItemToCartUseCase(cartItemRequest.toDomain())
                     .onSuccess {
-                        if (!state.value.isInCart){
+                        if (!state.value.isInCart) {
                             updateState { copy(isInCart = true) }
                         }
                     }
@@ -120,7 +117,7 @@ class ItemDetailsViewModel @Inject constructor(
         }
     }
 
-    private fun getCartItemIds(){
+    private fun getCartItemIds() {
         viewModelScope.launch {
             getCartItemsUseCase(state.value.user.uid)
                 .onSuccess { cartItemIds ->
@@ -130,10 +127,10 @@ class ItemDetailsViewModel @Inject constructor(
         }
     }
 
-    private fun checkInCart()  = with(state.value){
-         if (cartItemIds.contains(itemId)){
+    private fun checkInCart() = with(state.value) {
+        if (cartItemIds.contains(itemId)) {
             updateState { copy(isInCart = true) }
-        }else{
+        } else {
             updateState { copy(isInCart = false) }
         }
     }
@@ -170,7 +167,7 @@ class ItemDetailsViewModel @Inject constructor(
         )
     }
 
-    private fun getFavoriteItemRequest(): UiFavoriteItemRequest{
+    private fun getFavoriteItemRequest(): UiFavoriteItemRequest {
         return UiFavoriteItemRequest(
             uid = state.value.user.uid,
             itemId = state.value.itemId,

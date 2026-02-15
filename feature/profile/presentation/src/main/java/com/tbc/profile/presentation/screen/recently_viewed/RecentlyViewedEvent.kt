@@ -8,6 +8,6 @@ sealed class RecentlyViewedEvent {
     data object DeleteRecentlyItemById : RecentlyViewedEvent()
     data object EditModeOn : RecentlyViewedEvent()
     data object EditModeOff : RecentlyViewedEvent()
-    data class ToggleItemForDeletion(val favoriteId: Int) : RecentlyViewedEvent()
+    data class ToggleItemForDeletion(val recentlyId: Int) : RecentlyViewedEvent()
     data class ToggleSelectAll(val selectAll: Boolean) : RecentlyViewedEvent()
 }

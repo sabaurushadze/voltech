@@ -37,7 +37,7 @@ fun FeedAppBar(
     isLoading: Boolean,
     scrollBehavior: TopAppBarScrollBehavior,
     modifier: Modifier = Modifier,
-    isContentReady: Boolean,
+    isRefreshing: Boolean,
 ) {
     TopAppBar(
         title = {
@@ -64,7 +64,7 @@ fun FeedAppBar(
                     horizontalArrangement = Arrangement.End,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    if (!isContentReady) {
+                    if (isRefreshing) {
                         Text(
                             text = stringResource(R.string.loading_searching),
                             style = VoltechTextStyle.bodyBold,

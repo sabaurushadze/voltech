@@ -2,7 +2,7 @@ package com.tbc.selling.presentation.screen.my_items
 
 
 sealed class MyItemsEvent {
-    data class GetMyItems(val uid: String) : MyItemsEvent()
+    data object GetMyItems : MyItemsEvent()
     data class NavigateToItemDetails(val id: Int) : MyItemsEvent()
     data object NavigateToAddItem : MyItemsEvent()
     data object CanUserPostItems : MyItemsEvent()

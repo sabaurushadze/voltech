@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -21,10 +22,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core_ui.components.button.PrimaryButton
-import com.tbc.core_ui.components.empty_state.EmptyState
+import com.tbc.core_ui.screen.empty_state.EmptyState
 import com.tbc.core_ui.components.item.FeedItemCard
 import com.tbc.core_ui.components.item_deletion.ItemDeletion
 import com.tbc.core_ui.components.loading.LoadingScreen
+import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
+import com.tbc.core_ui.screen.internet.NoInternetConnection
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.resource.R
@@ -38,14 +41,10 @@ fun MyItemsScreen(
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val pullToRefreshState = rememberPullToRefreshState()
 
     LaunchedEffect(Unit) {
-        state.user?.let { user ->
-            viewModel.onEvent(MyItemsEvent.GetMyItems(uid = user.uid))
-        }
-    }
-
-    LaunchedEffect(Unit) {
+        viewModel.onEvent(MyItemsEvent.GetMyItems)
         viewModel.onEvent(MyItemsEvent.CanUserPostItems)
     }
 
@@ -64,20 +63,32 @@ fun MyItemsScreen(
         }
     }
 
-
-    if (state.myItems.isEmpty() && !state.isLoading) {
+    if (state.showNoConnectionError) {
+        NoInternetConnection {
+            viewModel.onEvent(MyItemsEvent.GetMyItems)
+            viewModel.onEvent(MyItemsEvent.CanUserPostItems)
+        }
+    } else if (state.myItems.isEmpty() && !state.isLoading) {
         EmptyState(
-            title = "You currently have no listings",
-            buttonText = "Add item",
+            title = stringResource(R.string.no_listings),
+            buttonText = stringResource(R.string.add_item),
             onButtonClick = { viewModel.onEvent(MyItemsEvent.NavigateToAddItem) },
         )
     } else if (state.isLoading) {
         LoadingScreen()
     } else {
-        MyItemsContent(
-            state = state,
-            onEvent = viewModel::onEvent,
-        )
+        VoltechPullToRefresh(
+            state = pullToRefreshState,
+            onRefresh = {
+                viewModel.onEvent(MyItemsEvent.GetMyItems)
+            },
+        ) {
+            MyItemsContent(
+                state = state,
+                onEvent = viewModel::onEvent,
+            )
+        }
+
     }
 
 }
