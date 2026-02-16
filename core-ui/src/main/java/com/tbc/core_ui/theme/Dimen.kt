@@ -41,6 +41,7 @@ data class AppDimens(
     val size200: Dp = 200.dp,
     val size216: Dp = 216.dp,
     val size300: Dp = 300.dp,
-    val size350: Dp = 350.dp
+    val size350: Dp = 350.dp,
+    val size400: Dp = 400.dp
     )
 

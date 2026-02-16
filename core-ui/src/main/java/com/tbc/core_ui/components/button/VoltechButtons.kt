@@ -121,6 +121,7 @@ fun TertiaryIconButton(
     borderThickness: Dp = VoltechBorder.medium,
     borderColor: Color = VoltechColor.foregroundPrimary,
     errorText: String = "",
+    showText: Boolean = true,
     onClick: () -> Unit
 ) {
     Column {
@@ -142,13 +143,15 @@ fun TertiaryIconButton(
                     contentDescription = null,
                 )
 
-                Spacer(modifier = Modifier.width(Dimen.size4))
+                if (showText) {
+                    Spacer(modifier = Modifier.width(Dimen.size4))
 
-                Text(
-                    text = text,
-                    color = VoltechColor.foregroundPrimary,
-                    style = VoltechTextStyle.bodyBold
-                )
+                    Text(
+                        text = text,
+                        color = VoltechColor.foregroundPrimary,
+                        style = VoltechTextStyle.bodyBold
+                    )
+                }
             }
         }
         if (errorText.isNotEmpty()) {

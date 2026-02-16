@@ -19,4 +19,7 @@ data class ItemDetailsState(
     val selectedImage: Int = 0,
     val cartItemIds: List<Int> = emptyList(),
     val isInCart: Boolean = false,
+
+
+    val previewStartIndex: Int? = null
     )

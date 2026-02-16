@@ -184,19 +184,11 @@ fun FeedItemPlaceholderCard() {
         ) {
             Box(
                 modifier = Modifier
+                    .clip(VoltechRadius.radius16)
+                    .background(VoltechColor.backgroundTertiary)
                     .height(Dimen.size132)
                     .width(Dimen.size132)
-                    .clip(VoltechRadius.radius16)
-            ) {
-                BaseAsyncImage(
-                    errorRes = R.drawable.placeholder,
-                    placeholderRes = R.drawable.placeholder,
-                    url = "",
-                    modifier = Modifier
-                        .matchParentSize()
-                        .clip(VoltechRadius.radius16),
-                )
-            }
+            ) {}
 
             Spacer(modifier = Modifier.width(Dimen.size16))
 

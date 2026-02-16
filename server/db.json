@@ -1746,16 +1746,17 @@
     },
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "title": "lol",
-      "category": "CASE",
-      "condition": "NEW",
-      "price": 123,
+      "title": "pp",
+      "category": "CPU",
+      "condition": "USED",
+      "price": 12,
       "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/3eb4b88b-3133-4c2d-b1b3-17e4a258669djpg?alt=media&token=1289c0aa-f894-4767-bb07-6c47c866a311"
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/f487918f-265b-482c-9e3e-0531ae96fc0ejpg?alt=media&token=08ec481d-6cc4-4bd0-954b-c6fa03915788",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/e087658f-1f3a-448c-b4a5-63d6184ba20bjpg?alt=media&token=460f312c-f5b3-4eba-a85d-51f42a3debb6"
       ],
-      "quantity": 123,
+      "quantity": 1,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "hh",
+      "userDescription": "wjwjwjsebe s hs he. ue ",
       "sellerName": "vighac",
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/5a10f53d-e6e3-48ef-81ff-eb6ff6e2351djpg?alt=media&token=dd64e7c3-44d9-49d7-8a0d-4120ad012071",
       "id": 98
@@ -1966,12 +1967,6 @@
     },
     {
       "uid": "",
-      "itemId": 98,
-      "viewedAt": "2026-02-16T15:00:13.755468Z",
-      "id": 17
-    },
-    {
-      "uid": "",
       "itemId": 69,
       "viewedAt": "2026-02-16T15:00:13.995160Z",
       "id": 18
@@ -1981,12 +1976,6 @@
       "itemId": 45,
       "viewedAt": "2026-02-16T15:01:54.150342Z",
       "id": 19
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 98,
-      "viewedAt": "2026-02-16T15:53:26.245863Z",
-      "id": 20
     },
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
@@ -2014,8 +2003,8 @@
     },
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 90,
-      "viewedAt": "2026-02-16T16:21:51.222864Z",
+      "itemId": 98,
+      "viewedAt": "2026-02-16T21:40:06.510405Z",
       "id": 25
     }
   ],

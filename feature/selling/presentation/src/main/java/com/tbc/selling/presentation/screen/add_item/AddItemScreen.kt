@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -21,22 +22,32 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.domain.model.category.Category
@@ -71,7 +82,9 @@ fun AddItemScreen(
 
     val launchGallery = rememberMultiGalleryLauncher(
         onImagesSelected = { selectedUris ->
-            viewModel.onEvent(AddItemEvent.OnImagesSelected(selectedUris))
+            val availableSlots = 7 - state.selectedImageUris.size
+            val newUris = selectedUris.take(availableSlots)
+            viewModel.onEvent(AddItemEvent.OnImagesSelected(newUris))
         }
     )
 
@@ -96,6 +109,58 @@ fun AddItemScreen(
         state = state,
         onEvent = viewModel::onEvent,
     )
+
+    state.previewStartIndex?.let { startIndex ->
+
+        val pagerState = rememberPagerState(
+            initialPage = startIndex,
+            pageCount = { state.selectedImageUris.size }
+        )
+
+        Dialog(
+            onDismissRequest = { viewModel.onEvent(AddItemEvent.DismissPreview) },
+            properties = DialogProperties(
+                usePlatformDefaultWidth = false
+            )
+        ) {
+            Box(
+                modifier = Modifier
+                    .clip(VoltechRadius.radius16)
+                    .fillMaxWidth()
+                    .height(Dimen.size400)
+                    .clickable { viewModel.onEvent(AddItemEvent.DismissPreview) },
+                contentAlignment = Alignment.Center
+            ) {
+
+                HorizontalPager(
+                    modifier = Modifier.fillMaxSize(),
+                    state = pagerState,
+                ) { page ->
+                    BaseAsyncImage(
+                        url = state.selectedImageUris[page].toString(),
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
+                    )
+                }
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .padding(bottom = Dimen.size8)
+                        .background(
+                            color = VoltechFixedColor.black.copy(alpha = 0.5f),
+                            shape = VoltechRadius.radius16
+                        )
+                        .padding(horizontal = Dimen.size12, vertical = Dimen.size4)
+                ) {
+                    Text(
+                        text = "${pagerState.currentPage + 1} / ${state.selectedImageUris.size}",
+                        color = VoltechFixedColor.white,
+                        style = VoltechTextStyle.body
+                    )
+                }
+            }
+        }
+    }
 
 }
 
@@ -298,7 +363,8 @@ private fun AddItemContent(
                 deleteImage = { uri ->
                     onEvent(AddItemEvent.DeleteImageFromPreview(uri))
                 },
-                errorText = imageError
+                errorText = imageError,
+                onPreviewImage = { onEvent(AddItemEvent.OnPreviewImage(it)) },
             )
         }
 
@@ -334,6 +400,7 @@ fun ImagesGrid(
     onAddImagesClick: () -> Unit,
     deleteImage: (Uri) -> Unit,
     errorText: String,
+    onPreviewImage: (Int) -> Unit,
 ) {
     Box(
         modifier = Modifier
@@ -343,8 +410,9 @@ fun ImagesGrid(
     ) {
         if (uris.isEmpty()) {
             AddImagesPlaceholder(
+                modifier = Modifier.height(Dimen.size186),
                 onClick = onAddImagesClick,
-                errorText = errorText
+                errorText = errorText,
             )
         } else {
             LazyVerticalGrid(
@@ -353,10 +421,20 @@ fun ImagesGrid(
                 verticalArrangement = Arrangement.spacedBy(Dimen.size8),
                 modifier = Modifier.fillMaxSize()
             ) {
-                items(uris) { uri ->
+                item {
+                    AddImagesPlaceholder(
+                        modifier = Modifier.size(Dimen.size100),
+                        onClick = onAddImagesClick,
+                        errorText = errorText,
+                        showAsItem = true,
+                        showText = false,
+                    )
+                }
+                itemsIndexed(uris) { index, uri ->
                     ImagePreviewWithDelete(
                         uri = uri,
-                        onDeleteClick = { deleteImage(uri) }
+                        onDeleteClick = { deleteImage(uri) },
+                        onImageClick = { onPreviewImage(index) },
                     )
                 }
             }
@@ -366,18 +444,21 @@ fun ImagesGrid(
 
 @Composable
 private fun AddImagesPlaceholder(
+    modifier: Modifier = Modifier,
     onClick: () -> Unit,
     errorText: String,
+    showAsItem: Boolean = false,
+    showText: Boolean = true,
 ) {
     TertiaryIconButton(
-        text = stringResource(R.string.add_images),
+        text = if (showAsItem) "" else stringResource(R.string.add_images),
+        showText = showText,
         iconSize = Dimen.size32,
         borderColor = if (errorText.isNotEmpty()) VoltechColor.foregroundAttention else VoltechColor.foregroundSecondary,
         errorText = errorText,
         onClick = onClick,
         icon = R.drawable.ic_camera,
-        modifier = Modifier
-            .height(Dimen.size186)
+        modifier = modifier
             .fillMaxWidth()
     )
 }
@@ -386,6 +467,7 @@ private fun AddImagesPlaceholder(
 private fun ImagePreviewWithDelete(
     uri: Uri,
     onDeleteClick: () -> Unit,
+    onImageClick: () -> Unit,
 ) {
     Box(
         modifier = Modifier
@@ -393,9 +475,10 @@ private fun ImagePreviewWithDelete(
             .size(Dimen.size100)
     ) {
         BaseAsyncImage(
-            url = uri.toString(),
             modifier = Modifier
                 .size(Dimen.size100)
+                .clickable { onImageClick() },
+            url = uri.toString(),
         )
         DeleteCircleButton(
             modifier = Modifier.align(Alignment.TopEnd),

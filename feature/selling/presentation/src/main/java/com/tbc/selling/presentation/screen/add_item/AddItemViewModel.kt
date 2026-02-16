@@ -54,7 +54,8 @@ class AddItemViewModel @Inject constructor(
                     selectedImageUris = selectedImageUris.filterNot { it == event.uri }
                 )
             }
-
+            is AddItemEvent.OnPreviewImage -> updateState { copy(previewStartIndex = event.index) }
+            AddItemEvent.DismissPreview -> updateState { copy(previewStartIndex = null) }
             is AddItemEvent.TitleChanged -> updateTitle(event.title)
             is AddItemEvent.DescriptionChanged -> updateDescription(event.description)
             is AddItemEvent.PriceChanged -> updatePrice(event.price)

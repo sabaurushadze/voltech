@@ -17,6 +17,7 @@ data class AddItemState(
     val selectedLocation: Location? = null,
 
     val selectedImageUris: List<Uri> = emptyList(),
+    val previewStartIndex: Int? = null,
 
     val title: String = "",
     val description: String = "",

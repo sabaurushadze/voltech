@@ -60,6 +60,10 @@ class ItemDetailsViewModel @Inject constructor(
             ItemDetailsEvent.BuyItem -> emitSideEffect(ShowSnackBar(R.string.this_service_not_work))
             ItemDetailsEvent.GetCartItemIds -> getCartItemIds()
             ItemDetailsEvent.GetFavoriteItems -> getFavorites(state.value.user.uid)
+
+
+            ItemDetailsEvent.CloseImagePreview -> updateState { copy(previewStartIndex = null) }
+            is ItemDetailsEvent.OpenImagePreview -> updateState { copy(previewStartIndex = event.index) }
         }
     }
 
