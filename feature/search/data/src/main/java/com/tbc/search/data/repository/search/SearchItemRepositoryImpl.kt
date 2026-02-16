@@ -10,7 +10,7 @@ import com.tbc.search.domain.model.search.SearchItem
 import com.tbc.search.domain.repository.search.SearchItemRepository
 import javax.inject.Inject
 
-class SearchItemRepositoryImpl @Inject constructor(
+internal class SearchItemRepositoryImpl @Inject constructor(
     private val apiResponseHandler: ApiResponseHandler,
     private val searchItemService: SearchService,
 ) : SearchItemRepository {

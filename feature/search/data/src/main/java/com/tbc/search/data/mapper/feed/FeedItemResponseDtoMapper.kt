@@ -6,7 +6,7 @@ import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.Location
 
-fun FeedItemResponseDto.toDomain(): FeedItem {
+internal fun FeedItemResponseDto.toDomain(): FeedItem {
     return FeedItem(
         id = id,
         uid = uid,

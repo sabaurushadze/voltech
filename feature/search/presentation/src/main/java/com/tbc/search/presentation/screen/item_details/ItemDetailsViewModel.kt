@@ -1,6 +1,5 @@
 package com.tbc.search.presentation.screen.item_details
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.recently_viewed.AddRecentlyItemUseCase
 import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyUseCase
@@ -10,7 +9,7 @@ import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.core.presentation.mapper.toStringResId
 import com.tbc.core.presentation.mapper.user.toPresentation
-import com.tbc.core.presentation.util.toIsoFormat
+import com.tbc.resource.R
 import com.tbc.search.domain.usecase.cart.AddItemToCartUseCase
 import com.tbc.search.domain.usecase.cart.GetCartItemsUseCase
 import com.tbc.search.domain.usecase.favorite.GetFavoriteItemsUseCase
@@ -24,9 +23,10 @@ import com.tbc.search.presentation.mapper.recently_viewed.toDomain
 import com.tbc.search.presentation.model.cart.UiCartItemRequest
 import com.tbc.search.presentation.model.favorite.UiFavoriteItemRequest
 import com.tbc.search.presentation.model.recently_viewed.UiRecentlyRequest
+import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import java.util.Date
 import javax.inject.Inject
 
 
@@ -45,8 +45,6 @@ class ItemDetailsViewModel @Inject constructor(
 
     init {
         getCurrentUser()
-        getCartItemIds()
-        getFavorites(state.value.user.uid)
     }
 
     override fun onEvent(event: ItemDetailsEvent) {
@@ -59,6 +57,9 @@ class ItemDetailsViewModel @Inject constructor(
             ItemDetailsEvent.NavigateBackToFeed -> navigateBackToFeed()
             ItemDetailsEvent.AddRecentlyItem -> addRecentlyItem()
             ItemDetailsEvent.AddItemToCart -> addItemToCart()
+            ItemDetailsEvent.BuyItem -> emitSideEffect(ShowSnackBar(R.string.this_service_not_work))
+            ItemDetailsEvent.GetCartItemIds -> getCartItemIds()
+            ItemDetailsEvent.GetFavoriteItems -> getFavorites(state.value.user.uid)
         }
     }
 
@@ -72,7 +73,7 @@ class ItemDetailsViewModel @Inject constructor(
                     }
                     .onFailure {
                         emitSideEffect(
-                            ItemDetailsSideEffect.ShowSnackBar(it.toStringResId())
+                            ShowSnackBar(it.toStringResId())
                         )
                     }
             }
@@ -139,7 +140,7 @@ class ItemDetailsViewModel @Inject constructor(
     }
 
     private fun navigateBackToFeed() {
-        emitSideEffect(ItemDetailsSideEffect.NavigateBackToFeed)
+        emitSideEffect(NavigateBackToFeed)
     }
 
     private fun getItemDetails(id: Int) = viewModelScope.launch {
@@ -151,7 +152,7 @@ class ItemDetailsViewModel @Inject constructor(
                 updateState { copy(isLoading = false) }
             }
             .onFailure {
-                emitSideEffect(ItemDetailsSideEffect.ShowSnackBar(errorRes = it.toStringResId()))
+                emitSideEffect(ShowSnackBar(errorRes = it.toStringResId()))
                 updateState { copy(isLoading = false) }
             }
     }

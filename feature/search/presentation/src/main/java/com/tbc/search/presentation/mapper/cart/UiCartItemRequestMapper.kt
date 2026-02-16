@@ -1,14 +1,15 @@
 package com.tbc.search.presentation.mapper.cart
 
-import com.tbc.core.presentation.util.toIsoFormat
 import com.tbc.search.domain.model.cart.CartItemRequest
 import com.tbc.search.presentation.model.cart.UiCartItemRequest
-import java.util.Date
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 
-
+@OptIn(ExperimentalTime::class)
 fun UiCartItemRequest.toDomain() =
     CartItemRequest(
         uid = uid,
         itemId = itemId,
-        addedAt = Date().toIsoFormat()
+        addedAt = Clock.System.now().toString()
     )
+

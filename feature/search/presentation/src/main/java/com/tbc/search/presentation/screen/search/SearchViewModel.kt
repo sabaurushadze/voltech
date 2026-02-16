@@ -76,7 +76,6 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-//    uketesi gza tu arsebobs sanaxavia
     @OptIn(FlowPreview::class)
     private fun observeQuery() {
         viewModelScope.launch {

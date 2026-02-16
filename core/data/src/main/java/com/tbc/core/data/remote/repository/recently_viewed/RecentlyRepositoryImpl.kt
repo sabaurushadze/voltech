@@ -12,7 +12,7 @@ import com.tbc.core.domain.util.Resource
 import com.tbc.core.domain.util.mapList
 import javax.inject.Inject
 
-class RecentlyRepositoryImpl @Inject constructor(
+internal class RecentlyRepositoryImpl @Inject constructor(
     private val recentlyService: RecentlyService,
     private val apiResponseHandler: ApiResponseHandler
 ): RecentlyRepository{

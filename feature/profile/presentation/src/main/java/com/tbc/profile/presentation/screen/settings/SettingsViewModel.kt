@@ -24,8 +24,8 @@ class SettingsViewModel @Inject constructor(
     }
     override fun onEvent(event: SettingsEvent) {
         when (event) {
-            SettingsEvent.NavigateBackToProfile -> navigateBackToProfile()
             is SettingsEvent.ThemeChanged -> saveTheme(event.theme)
+            SettingsEvent.NavigateBackToProfile -> navigateBackToProfile()
             SettingsEvent.SignOut -> signOut()
         }
     }

@@ -40,7 +40,9 @@ fun NavGraphBuilder.searchNavGraph(
         }
 
         composable<AddToCartScreenRoute> {
-            AddToCartScreen()
+            AddToCartScreen(
+                navigateToItemDetails = navigateToItemDetails
+            )
         }
 
         composable<ItemDetailsScreenRoute> { backStackEntry ->

@@ -75,6 +75,7 @@
     <string name="item_available">%1$s available</string>
     <string name="item">Item</string>
     <string name="voltech_shopping_cart">Voltech shopping cart</string>
+    <string name="description">Description</string>
 
 
     <string name="select_app_theme">Select App Theme</string>

@@ -3,7 +3,7 @@ package com.tbc.search.data.mapper.feed
 import com.tbc.search.data.dto.feed.request.ItemRequestDto
 import com.tbc.search.domain.model.feed.Item
 
-fun Item.toDto() =
+internal fun Item.toDto() =
     ItemRequestDto(
         uid = uid,
         title = title,

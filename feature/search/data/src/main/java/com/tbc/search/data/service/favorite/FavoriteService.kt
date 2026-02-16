@@ -10,7 +10,7 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface FavoriteService {
+internal interface FavoriteService {
     @GET(FAVORITES)
     suspend fun getFavoritesByUser(
         @Query(UID) uid: String,
