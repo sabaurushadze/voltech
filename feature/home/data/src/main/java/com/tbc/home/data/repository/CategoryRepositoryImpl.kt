@@ -8,6 +8,7 @@ import com.tbc.home.data.remote.mapper.toDomain
 import com.tbc.home.data.remote.service.category.CategoryService
 import com.tbc.home.domain.model.CategoryItem
 import com.tbc.home.domain.repository.CategoryRepository
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 internal class CategoryRepositoryImpl @Inject constructor(
@@ -16,6 +17,7 @@ internal class CategoryRepositoryImpl @Inject constructor(
 ) : CategoryRepository{
     override suspend fun getCategories(): Resource<List<CategoryItem>, DataError.Network> {
         return responseHandler.safeApiCall {
+            delay(500)
             categoryService.getCategories()
         }.mapList { it.toDomain() }
     }

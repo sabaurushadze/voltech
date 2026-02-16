@@ -34,11 +34,11 @@ internal class FavoriteRepositoryImpl @Inject constructor(
             it.uid == favoriteItem.uid && it.itemId == favoriteItem.itemId
         }
 
-        return if(existing == null){
+        return if (existing == null) {
             apiResponseHandler.safeApiCall {
                 favoriteService.addFavorite(favoriteItem.toData())
             }
-        }else {
+        } else {
             apiResponseHandler.safeApiCall {
                 favoriteService.deleteFavorite(existing.id)
             }

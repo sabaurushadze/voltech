@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -18,10 +19,12 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
-import com.tbc.core_ui.components.empty_state.EmptyState
 import com.tbc.core_ui.components.item.FeedItemCard
 import com.tbc.core_ui.components.item_deletion.ItemDeletion
 import com.tbc.core_ui.components.loading.LoadingScreen
+import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
+import com.tbc.core_ui.screen.empty_state.EmptyState
+import com.tbc.core_ui.screen.internet.NoInternetConnection
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.resource.R
@@ -35,6 +38,8 @@ fun RecentlyViewedScreen(
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val pullToRefreshState = rememberPullToRefreshState()
+
 
     LaunchedEffect(Unit) {
         viewModel.onEvent(RecentlyViewedEvent.GetRecentlyViewedItems)
@@ -55,7 +60,9 @@ fun RecentlyViewedScreen(
         }
     }
 
-    if (state.isLoading) {
+    if (state.showNoConnectionError) {
+        NoInternetConnection { viewModel.onEvent(RecentlyViewedEvent.GetRecentlyViewedItems) }
+    } else if (state.isLoading) {
         LoadingScreen()
     } else if (state.recentlyViewedItems.isEmpty()) {
         EmptyState(
@@ -64,12 +71,16 @@ fun RecentlyViewedScreen(
             icon = R.drawable.ic_history
         )
     } else {
-        RecentlyViewedContent(
-            state = state,
-            onEvent = viewModel::onEvent
-        )
+        VoltechPullToRefresh(
+            state = pullToRefreshState,
+            onRefresh = { viewModel.onEvent(RecentlyViewedEvent.GetRecentlyViewedItems) },
+        ) {
+            RecentlyViewedContent(
+                state = state,
+                onEvent = viewModel::onEvent
+            )
+        }
     }
-
 }
 
 @Composable
@@ -109,7 +120,7 @@ private fun RecentlyViewedContent(
                         if (!state.editModeOn) {
                             onEvent(RecentlyViewedEvent.NavigateToItemDetails(item.id))
                         } else {
-                            onEvent(RecentlyViewedEvent.ToggleItemForDeletion(item.favoriteId))
+                            onEvent(RecentlyViewedEvent.ToggleItemForDeletion(item.recentlyId))
                         }
                     },
                     editModeOn = state.editModeOn

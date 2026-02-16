@@ -156,7 +156,6 @@ class FeedViewModel @Inject constructor(
     }
 
 
-
     private fun showSortBottomSheet() {
         updateState { copy(selectedSort = true) }
     }

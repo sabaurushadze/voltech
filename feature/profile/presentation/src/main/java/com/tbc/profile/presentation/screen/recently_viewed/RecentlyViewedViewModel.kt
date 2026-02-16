@@ -4,11 +4,12 @@ import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.recently_viewed.DeleteRecentlyViewedByIdUseCase
 import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyUseCase
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
+import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.core.presentation.mapper.user.toPresentation
-import com.tbc.profile.presentation.mapper.watchlist.toPresentation
+import com.tbc.profile.presentation.mapper.recently_viewed.toPresentation
 import com.tbc.search.domain.usecase.feed.GetItemsByIdsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -19,22 +20,24 @@ class RecentlyViewedViewModel @Inject constructor(
     private val getRecentlyUseCase: GetRecentlyUseCase,
     private val getItemsByIdsUseCase: GetItemsByIdsUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
-    private val deleteRecentlyViewedByIdUseCase: DeleteRecentlyViewedByIdUseCase
-): BaseViewModel<RecentlyViewedState, RecentlyViewedSideEffect, RecentlyViewedEvent>(RecentlyViewedState()){
+    private val deleteRecentlyViewedByIdUseCase: DeleteRecentlyViewedByIdUseCase,
+) : BaseViewModel<RecentlyViewedState, RecentlyViewedSideEffect, RecentlyViewedEvent>(
+    RecentlyViewedState()
+) {
 
     init {
         getCurrentUser()
     }
 
     override fun onEvent(event: RecentlyViewedEvent) {
-        when(event){
+        when (event) {
             RecentlyViewedEvent.DeleteRecentlyItemById -> deleteRecentlyViewedItemIds()
             RecentlyViewedEvent.EditModeOff -> turnOffEditMode()
             RecentlyViewedEvent.EditModeOn -> turnOnEditMode()
             RecentlyViewedEvent.GetRecentlyViewedItems -> getRecentlyViewedItems()
             RecentlyViewedEvent.NavigateBackToProfile -> navigateBackToProfile()
             is RecentlyViewedEvent.NavigateToItemDetails -> navigateToItemDetails(event.itemId)
-            is RecentlyViewedEvent.ToggleItemForDeletion -> toggleItemSelection(event.favoriteId)
+            is RecentlyViewedEvent.ToggleItemForDeletion -> toggleItemSelection(event.recentlyId)
             is RecentlyViewedEvent.ToggleSelectAll -> toggleSelectAll(event.selectAll)
         }
     }
@@ -64,7 +67,7 @@ class RecentlyViewedViewModel @Inject constructor(
         updateState {
             copy(
                 recentlyViewedItems = recentlyViewedItems.map { item ->
-                    if (item.favoriteId == favoriteId) {
+                    if (item.recentlyId == favoriteId) {
                         item.copy(isSelected = !item.isSelected)
                     } else item
                 }
@@ -81,15 +84,17 @@ class RecentlyViewedViewModel @Inject constructor(
     }
 
     private fun getRecentlyViewedItems() = viewModelScope.launch {
+        updateState { copy(isLoading = true) }
+
         val user = state.value.user ?: return@launch
 
         getRecentlyUseCase(user.uid)
             .onSuccess { recently ->
 
-                if (recently.isEmpty()) {
-                    updateState { copy(recentlyViewedItems = emptyList(), isLoading = false) }
-                    return@onSuccess
-                }
+//                if (recently.isEmpty()) {
+//                    updateState { copy(recentlyViewedItems = emptyList(), isLoading = false) }
+//                    return@onSuccess
+//                }
 
                 val itemIds = recently.map { it.itemId }
 
@@ -101,19 +106,44 @@ class RecentlyViewedViewModel @Inject constructor(
                             val recently = recently.first { it.itemId == id }
 
                             item.toPresentation(
-                                favoriteId = recently.id
+                                recentlyId = recently.id
                             )
                         }
 
-                        updateState { copy(recentlyViewedItems = uiRecently, isLoading = false) }
+                        updateState {
+                            copy(
+                                recentlyViewedItems = uiRecently, isLoading = false,
+                                showNoConnectionError = false
+                            )
+                        }
 
                     }
-                    .onFailure {
-                        updateState { copy(isLoading = false) }
+                    .onFailure { result ->
+                        if (result == DataError.Network.NO_CONNECTION) {
+                            updateState {
+                                copy(
+                                    isLoading = false,
+                                    showNoConnectionError = true
+                                )
+                            }
+
+                        } else {
+                            updateState { copy(isLoading = false, showNoConnectionError = false) }
+                        }
                     }
             }
-            .onFailure {
-                updateState { copy(isLoading = false) }
+            .onFailure { result ->
+                if (result == DataError.Network.NO_CONNECTION) {
+                    updateState {
+                        copy(
+                            isLoading = false,
+                            showNoConnectionError = true
+                        )
+                    }
+
+                } else {
+                    updateState { copy(isLoading = false, showNoConnectionError = false) }
+                }
             }
     }
 
@@ -123,12 +153,12 @@ class RecentlyViewedViewModel @Inject constructor(
     }
 
     private fun deleteRecentlyViewedItemIds() = viewModelScope.launch {
-        val selectedFavoriteIds = state.value.recentlyViewedItems
+        val selectedRecentlyIds = state.value.recentlyViewedItems
             .filter { it.isSelected }
-            .map { it.favoriteId }
+            .map { it.recentlyId }
 
-        selectedFavoriteIds.forEach { favoriteId ->
-            deleteRecentlyViewedByIdUseCase(favoriteId)
+        selectedRecentlyIds.forEach { recentlyId ->
+            deleteRecentlyViewedByIdUseCase(recentlyId)
         }
 
         getRecentlyViewedItems()

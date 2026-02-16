@@ -2,6 +2,8 @@ package com.tbc.core.data.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.tbc.core.data.BuildConfig
+import com.tbc.core.data.remote.network.NetworkConnectionInterceptor
+import com.tbc.core.domain.network.ConnectivityObserver
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,10 +33,20 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideNetworkConnectionInterceptor(
+        connectivityObserver: ConnectivityObserver
+    ): NetworkConnectionInterceptor {
+        return NetworkConnectionInterceptor(connectivityObserver)
+    }
+
+    @Provides
+    @Singleton
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
+        networkConnectionInterceptor: NetworkConnectionInterceptor
     ): OkHttpClient {
         return OkHttpClient.Builder().apply {
+            addInterceptor(networkConnectionInterceptor)
             if (BuildConfig.DEBUG) addInterceptor(loggingInterceptor)
         }.build()
     }

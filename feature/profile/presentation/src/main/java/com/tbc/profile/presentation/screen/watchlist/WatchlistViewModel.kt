@@ -2,6 +2,7 @@ package com.tbc.profile.presentation.screen.watchlist
 
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
+import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
@@ -20,8 +21,7 @@ class WatchlistViewModel @Inject constructor(
     private val deleteFavoriteItemByIdUseCase: DeleteFavoriteItemByIdUseCase,
     private val getItemsByIdsUseCase: GetItemsByIdsUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
-
-    ) : BaseViewModel<WatchlistState, WatchlistSideEffect, WatchlistEvent>(WatchlistState()) {
+) : BaseViewModel<WatchlistState, WatchlistSideEffect, WatchlistEvent>(WatchlistState()) {
 
     init {
         getCurrentUser()
@@ -82,13 +82,20 @@ class WatchlistViewModel @Inject constructor(
     }
 
     private fun getFavoriteItems() = viewModelScope.launch {
+        updateState { copy(isLoading = true) }
         val user = state.value.user ?: return@launch
 
         getFavoriteItemsUseCase(user.uid)
             .onSuccess { favorites ->
 
                 if (favorites.isEmpty()) {
-                    updateState { copy(favoriteItems = emptyList(), isLoading = false) }
+                    updateState {
+                        copy(
+                            favoriteItems = emptyList(),
+                            isLoading = false,
+                            showNoConnectionError = false
+                        )
+                    }
                     return@onSuccess
                 }
 
@@ -105,15 +112,41 @@ class WatchlistViewModel @Inject constructor(
                             )
                         }
 
-                        updateState { copy(favoriteItems = uiFavorites, isLoading = false) }
+                        updateState {
+                            copy(
+                                favoriteItems = uiFavorites,
+                                isLoading = false,
+                                showNoConnectionError = false
+                            )
+                        }
 
                     }
-                    .onFailure {
-                        updateState { copy(isLoading = false) }
+                    .onFailure { result ->
+                        if (result == DataError.Network.NO_CONNECTION) {
+                            updateState {
+                                copy(
+                                    isLoading = false,
+                                    showNoConnectionError = true
+                                )
+                            }
+
+                        } else {
+                            updateState { copy(isLoading = false, showNoConnectionError = false) }
+                        }
                     }
             }
-            .onFailure {
-                updateState { copy(isLoading = false) }
+            .onFailure { result ->
+                if (result == DataError.Network.NO_CONNECTION) {
+                    updateState {
+                        copy(
+                            isLoading = false,
+                            showNoConnectionError = true
+                        )
+                    }
+
+                } else {
+                    updateState { copy(isLoading = false, showNoConnectionError = false) }
+                }
             }
     }
 

@@ -1,5 +1,6 @@
 package com.tbc.home.presentation.screen.home
 
+import android.util.Log.d
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -22,6 +23,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -36,7 +38,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.extension.capitalizeFirst
 import com.tbc.core_ui.components.button.BorderlessIconButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
-import com.tbc.core_ui.components.loading.LoadingScreen
+import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
+import com.tbc.core_ui.screen.internet.NoInternetConnection
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
@@ -51,29 +54,39 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
     navigateToFeed: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
-    navigateToAddToCart: () -> Unit,
-    navigateToRecentlyViewed: () -> Unit
+    navigateToRecentlyViewed: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val pullToRefreshState = rememberPullToRefreshState()
     val onEvent = viewModel::onEvent
 
     LaunchedEffect(Unit) {
         onEvent(HomeEvent.GetCategories)
-    }
-
-    LaunchedEffect(Unit) {
         onEvent(HomeEvent.GetRecentlyViewedItems)
     }
 
-    if (state.recentlyViewedItems.isEmpty() && state.categoryList.isEmpty()) {
-        LoadingScreen()
-    }else{
-        HomeContent(
-            state = state,
-            navigateToFeed = navigateToFeed,
-            navigateToItemDetails = navigateToItemDetails,
-            navigateToRecentlyViewed = navigateToRecentlyViewed,
-        )
+    if (state.showNoConnectionError) {
+        NoInternetConnection {
+            onEvent(HomeEvent.GetCategories)
+            onEvent(HomeEvent.GetRecentlyViewedItems)
+        }
+    } else {
+        d("asdd", "THIS THING CALLLLEDDDDDDDDDDDDDDDDDDDDDDDD")
+        VoltechPullToRefresh(
+            state = pullToRefreshState,
+            isRefreshing = state.isRefreshing,
+            onRefresh = {
+                viewModel.onEvent(HomeEvent.GetCategories)
+                viewModel.onEvent(HomeEvent.GetRecentlyViewedItems)
+            },
+        ) {
+            HomeContent(
+                state = state,
+                navigateToFeed = navigateToFeed,
+                navigateToItemDetails = navigateToItemDetails,
+                navigateToRecentlyViewed = navigateToRecentlyViewed,
+            )
+        }
     }
 }
 
@@ -82,8 +95,8 @@ private fun HomeContent(
     state: HomeState,
     navigateToFeed: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit,
-    navigateToRecentlyViewed: () -> Unit
-){
+    navigateToRecentlyViewed: () -> Unit,
+) {
 
     LazyColumn(
         modifier = Modifier
@@ -122,7 +135,7 @@ private fun HomeContent(
 
                 Spacer(Modifier.height(Dimen.size24))
 
-                if (state.recentlyViewedItems.isNotEmpty()){
+                if (state.recentlyViewedItems.isNotEmpty()) {
                     RecentlyViewedHeader(navigateToRecentlyViewed)
                 }
 
@@ -133,7 +146,7 @@ private fun HomeContent(
                     contentPadding = PaddingValues(horizontal = Dimen.size16),
                     horizontalArrangement = Arrangement.spacedBy(Dimen.size12)
                 ) {
-                    items(state.recentlyViewedItems){ item ->
+                    items(state.recentlyViewedItems) { item ->
                         RecentlyViewedItem(
                             recentlyViewedItems = item,
                             navigateToItemDetails = navigateToItemDetails
@@ -142,13 +155,14 @@ private fun HomeContent(
                 }
             }
         }
+
     }
 }
 
 @Composable
 private fun RecentlyViewedHeader(
-    navigateToRecentlyViewed: () -> Unit
-){
+    navigateToRecentlyViewed: () -> Unit,
+) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -173,18 +187,18 @@ private fun RecentlyViewedHeader(
 private fun RecentlyViewedItem(
     recentlyViewedItems: UiRecentlyItem,
     navigateToItemDetails: (Int) -> Unit,
-) = with(recentlyViewedItems){
+) = with(recentlyViewedItems) {
     Column(
         modifier = Modifier
             .width(Dimen.size150)
-            .clickable{ navigateToItemDetails(id) }
+            .clickable { navigateToItemDetails(id) }
     ) {
         Box(
             modifier = Modifier
                 .size(Dimen.size150)
                 .clip(VoltechRadius.radius24)
                 .background(VoltechFixedColor.lightGray)
-        ){
+        ) {
             images.firstOrNull()?.let { firstImageUrl ->
                 BaseAsyncImage(
                     url = firstImageUrl,
@@ -219,18 +233,18 @@ private fun RecentlyViewedItem(
 private fun CategoryItem(
     categoryItem: UiCategoryItem,
     navigateToFeed: (String) -> Unit,
-) = with(categoryItem){
+) = with(categoryItem) {
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.clickable{ navigateToFeed(category.name) }
+        modifier = Modifier.clickable { navigateToFeed(category.name) }
     ) {
         Box(
             modifier = Modifier
                 .size(Dimen.size100)
                 .clip(CircleShape)
                 .background(VoltechFixedColor.lightGray),
-        ){
+        ) {
             image?.let {
                 BaseAsyncImage(
                     url = image,

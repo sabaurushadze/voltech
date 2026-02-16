@@ -19,7 +19,7 @@ internal class FeedPagingSource @Inject constructor(
             val page = params.key ?: 1
 
 //            delay because it loads so fast we cant see loading animations
-//            delay(1000)
+            delay(500)
 
             val order = if (query.sortDescending) DESC else ASC
 

@@ -3,6 +3,8 @@ package com.tbc.home.presentation.screen.home
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyViewedByQuantityUseCase
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
+import com.tbc.core.domain.util.DataError
+import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.home.domain.usecase.GetCategoriesUseCase
@@ -19,43 +21,113 @@ class HomeViewModel @Inject constructor(
     private val getRecentlyViewedByQuantityUseCase: GetRecentlyViewedByQuantityUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val getItemsByIdsUseCase: GetItemsByIdsUseCase,
-) : BaseViewModel<HomeState, HomeSideEffect, HomeEvent>(HomeState()){
+) : BaseViewModel<HomeState, HomeSideEffect, HomeEvent>(HomeState()) {
 
     override fun onEvent(event: HomeEvent) {
-        when(event){
+        when (event) {
             HomeEvent.GetCategories -> getCategories()
             HomeEvent.GetRecentlyViewedItems -> getRecentlyIds()
         }
     }
 
 
-    private fun getCategories(){
+    private fun getCategories() {
+        updateState { copy(isLoadingCategories = true) }
+
         viewModelScope.launch {
             getCategoriesUseCase()
                 .onSuccess { categoryDomain ->
-                    updateState { copy(categoryList = categoryDomain.toPresentation()) }
+                    updateState {
+                        copy(
+                            categoryList = categoryDomain.toPresentation(),
+                            isLoadingCategories = false,
+                            showNoConnectionError = false
+                        )
+                    }
+                }
+                .onFailure { result ->
+                    if (result == DataError.Network.NO_CONNECTION) {
+                        updateState {
+                            copy(
+                                isLoadingCategories = false,
+                                showNoConnectionError = true
+                            )
+                        }
+
+                    } else {
+                        updateState {
+                            copy(
+                                isLoadingCategories = false,
+                                showNoConnectionError = false
+                            )
+                        }
+                    }
                 }
         }
     }
 
-    private fun getRecentlyIds(){
+    private fun getRecentlyIds() {
+        updateState { copy(isLoadingRecentlyViewed = true) }
         val user = getCurrentUserUseCase()
         user?.let { user ->
             viewModelScope.launch {
                 getRecentlyViewedByQuantityUseCase(user.uid)
                     .onSuccess { recentlyViewedDomain ->
-                        updateState { copy(recentlyItemsId = recentlyViewedDomain.map { it.itemId }) }
-                        getRecentlyViewedByIds(state.value.recentlyItemsId)
+                        val ids = recentlyViewedDomain.map { it.itemId }
+                        updateState { copy(recentlyItemsId = ids) }
+                        getRecentlyViewedByIds(ids)
+                    }
+                    .onFailure { result ->
+                        if (result == DataError.Network.NO_CONNECTION) {
+                            updateState {
+                                copy(
+                                    isLoadingRecentlyViewed = false,
+                                    showNoConnectionError = true
+                                )
+                            }
+
+                        } else {
+                            updateState {
+                                copy(
+                                    isLoadingRecentlyViewed = false,
+                                    showNoConnectionError = false
+                                )
+                            }
+                        }
                     }
             }
         }
     }
 
-    private fun getRecentlyViewedByIds(ids: List<Int>){
+    private fun getRecentlyViewedByIds(ids: List<Int>) {
         viewModelScope.launch {
             getItemsByIdsUseCase(ids)
                 .onSuccess { recentlyItemsDomain ->
-                    updateState { copy(recentlyViewedItems = recentlyItemsDomain.toPresentation()) }
+                    updateState {
+                        copy(
+                            recentlyViewedItems = recentlyItemsDomain.toPresentation(),
+                            isLoadingRecentlyViewed = false,
+                            showNoConnectionError = false
+                        )
+                    }
+                }
+                .onFailure { result ->
+                    if (result == DataError.Network.NO_CONNECTION) {
+                        updateState {
+                            copy(
+                                isLoadingRecentlyViewed = false,
+                                showNoConnectionError = true
+                            )
+                        }
+
+                    } else {
+                        updateState {
+                            copy(
+                                isLoadingRecentlyViewed = false,
+                                showNoConnectionError = false
+                            )
+                        }
+                    }
                 }
         }
     }

@@ -16,6 +16,7 @@ import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.FeedQuery
 import com.tbc.search.domain.model.feed.Item
 import com.tbc.search.domain.repository.feed.FeedRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -30,6 +31,8 @@ internal class FeedRepositoryImpl @Inject constructor(
         return Pager(
             config = PagingConfig(
                 pageSize = pageSize,
+                initialLoadSize = pageSize,
+                prefetchDistance = pageSize / 2
             ),
             pagingSourceFactory = { FeedPagingSource(service = feedService, query = query) }
         ).flow
@@ -53,6 +56,7 @@ internal class FeedRepositoryImpl @Inject constructor(
 
     override suspend fun getItemsByUid(uid: String): Resource<List<FeedItem>, DataError.Network> {
         return responseHandler.safeApiCall {
+            delay(500)
             feedService.getItemsByUid(uid)
         }.mapList { it.toDomain() }
     }

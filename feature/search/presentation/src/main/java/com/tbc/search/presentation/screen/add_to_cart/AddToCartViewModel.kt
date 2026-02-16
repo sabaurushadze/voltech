@@ -19,15 +19,15 @@ class AddToCartViewModel @Inject constructor(
     private val getCartItemsUseCase: GetCartItemsUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val getItemsByIdsUseCase: GetItemsByIdsUseCase,
-    private val deleteCartItemUseCase: DeleteCartItemUseCase
-) : BaseViewModel<AddToCartState, AddToCartSideEffect, AddToCartEvent>(AddToCartState()){
+    private val deleteCartItemUseCase: DeleteCartItemUseCase,
+) : BaseViewModel<AddToCartState, AddToCartSideEffect, AddToCartEvent>(AddToCartState()) {
 
     init {
         getCurrentUser()
     }
 
     override fun onEvent(event: AddToCartEvent) {
-        when(event){
+        when (event) {
             is AddToCartEvent.DeleteCartItems -> deleteFavoriteItemIds(event.cartId)
             AddToCartEvent.GetCartItems -> getCartItemIds()
             AddToCartEvent.BuyItem -> emitSideEffect(AddToCartSideEffect.ShowSnackBar(com.tbc.resource.R.string.this_service_not_work))
@@ -35,6 +35,8 @@ class AddToCartViewModel @Inject constructor(
     }
 
     private fun getCartItemIds() = viewModelScope.launch {
+        updateState { copy(isLoading = true) }
+
         val user = state.value.user ?: return@launch
 
         getCartItemsUseCase(user.uid)

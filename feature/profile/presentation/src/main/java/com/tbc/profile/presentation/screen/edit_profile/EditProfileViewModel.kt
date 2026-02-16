@@ -24,7 +24,7 @@ class EditProfileViewModel @Inject constructor(
     private val updateProfilePictureUseCase: UpdateProfilePictureUseCase,
     private val updateUserNameUseCase: UpdateUserNameUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
-    private val validateUserNameUseCase: ValidateUserNameUseCase
+    private val validateUserNameUseCase: ValidateUserNameUseCase,
 ) : BaseViewModel<EditProfileState, EditProfileSideEffect, EditProfileEvent>(EditProfileState()) {
 
     override fun onEvent(event: EditProfileEvent) {
@@ -83,7 +83,6 @@ class EditProfileViewModel @Inject constructor(
         } else {
             updateState { copy(showUsernameError = !showUserNameError, isLoading = false) }
         }
-
 
 
     }
