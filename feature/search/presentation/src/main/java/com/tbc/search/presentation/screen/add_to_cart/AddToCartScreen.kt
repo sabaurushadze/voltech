@@ -83,7 +83,8 @@ fun AddToCartScreen(
         ) {
             AddToCartContent(
                 state = state,
-                onEvent = onEvent
+                onEvent = onEvent,
+                navigateToItemDetails = navigateToItemDetails
             )
         }
         AddToCartContent(

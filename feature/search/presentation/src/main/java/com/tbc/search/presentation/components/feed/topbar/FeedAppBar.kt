@@ -37,8 +37,7 @@ fun FeedAppBar(
     isLoading: Boolean,
     scrollBehavior: TopAppBarScrollBehavior,
     modifier: Modifier = Modifier,
-    isContentReady: Boolean,
-    searchQuery: String = ""
+    searchQuery: String = "",
     isRefreshing: Boolean,
 ) {
     TopAppBar(
