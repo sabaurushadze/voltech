@@ -13,7 +13,7 @@ import com.tbc.search.domain.repository.cart.CartRepository
 import kotlinx.coroutines.delay
 import javax.inject.Inject
 
-class CartRepositoryImpl @Inject constructor(
+internal class CartRepositoryImpl @Inject constructor(
     private val cartService: CartService,
     private val apiResponseHandler: ApiResponseHandler
 ): CartRepository {

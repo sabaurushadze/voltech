@@ -5,7 +5,7 @@ import com.tbc.home.data.remote.dto.CategoryItemResponseDto
 import com.tbc.home.domain.model.CategoryItem
 
 
-fun CategoryItemResponseDto.toDomain() =
+internal fun CategoryItemResponseDto.toDomain() =
     CategoryItem(
         id = id,
         category = Category.fromString(category),

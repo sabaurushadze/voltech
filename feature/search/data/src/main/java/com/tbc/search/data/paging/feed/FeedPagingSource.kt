@@ -9,7 +9,7 @@ import com.tbc.search.domain.model.feed.FeedQuery
 import kotlinx.coroutines.delay
 import javax.inject.Inject
 
-class FeedPagingSource @Inject constructor(
+internal class FeedPagingSource @Inject constructor(
     private val service: FeedService,
     private val query: FeedQuery,
 

@@ -11,7 +11,7 @@ import com.tbc.home.domain.repository.CategoryRepository
 import kotlinx.coroutines.delay
 import javax.inject.Inject
 
-class CategoryRepositoryImpl @Inject constructor(
+internal class CategoryRepositoryImpl @Inject constructor(
     private val categoryService: CategoryService,
     private val responseHandler: ApiResponseHandler
 ) : CategoryRepository{

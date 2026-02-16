@@ -169,6 +169,8 @@ fun TextInputFieldDummy(
         colors = OutlinedTextFieldDefaults.colors(
             disabledBorderColor = VoltechColor.foregroundPrimary,
             unfocusedTextColor = VoltechColor.foregroundPrimary,
+            focusedTextColor = VoltechColor.foregroundPrimary,
+            disabledTextColor = VoltechColor.foregroundPrimary,
         ),
         label = label?.let {
             {

@@ -12,7 +12,7 @@ import com.tbc.search.domain.model.favorite.FavoriteRequestItem
 import com.tbc.search.domain.repository.favorite.FavoriteRepository
 import javax.inject.Inject
 
-class FavoriteRepositoryImpl @Inject constructor(
+internal class FavoriteRepositoryImpl @Inject constructor(
     private val favoriteService: FavoriteService,
     private val apiResponseHandler: ApiResponseHandler,
 ) : FavoriteRepository {

@@ -47,7 +47,8 @@ import com.tbc.search.presentation.model.cart.UiCartItem
 @Composable
 fun AddToCartScreen(
     viewModel: AddToCartViewModel = hiltViewModel(),
-) {
+    navigateToItemDetails: (Int) -> Unit
+){
     val onEvent = viewModel::onEvent
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = LocalSnackbarHostState.current
@@ -72,9 +73,8 @@ fun AddToCartScreen(
         LoadingScreen()
     } else if (state.cartItems.isEmpty()) {
         EmptyState(
-            title = stringResource(R.string.there_s_nothing_here),
-            subtitle = stringResource(R.string.recently_empty_state),
-            icon = R.drawable.ic_history
+            subtitle = stringResource(R.string.shopping_cart_empty_state),
+            icon = R.drawable.ic_shopping_cart
         )
     } else {
         VoltechPullToRefresh(
@@ -86,6 +86,11 @@ fun AddToCartScreen(
                 onEvent = onEvent
             )
         }
+        AddToCartContent(
+            state = state,
+            onEvent = onEvent,
+            navigateToItemDetails = navigateToItemDetails
+        )
     }
 }
 
@@ -94,7 +99,8 @@ fun AddToCartScreen(
 private fun AddToCartContent(
     state: AddToCartState,
     onEvent: (AddToCartEvent) -> Unit,
-) {
+    navigateToItemDetails: (Int) -> Unit
+){
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -106,10 +112,11 @@ private fun AddToCartContent(
             Spacer(Modifier.height(Dimen.size16))
         }
 
-        items(state.cartItems) { cartItem ->
+        items(state.cartItems){ cartItem ->
             CartItem(
                 cartItem = cartItem,
-                onEvent = onEvent
+                onEvent = onEvent,
+                navigateToItemDetails = navigateToItemDetails
             )
         }
 
@@ -126,11 +133,13 @@ private fun AddToCartContent(
 private fun CartItem(
     cartItem: UiCartItem,
     onEvent: (AddToCartEvent) -> Unit,
-) {
+    navigateToItemDetails: (Int) -> Unit
+){
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = Dimen.size16)
+            .clickable{ navigateToItemDetails(cartItem.id) }
     ) {
         ItemDetails(cartItem)
 
@@ -213,11 +222,12 @@ private fun ItemDetails(
 }
 
 
+
 @Composable
 private fun SubtotalAndCheckout(
     subtotal: Double,
-    onEvent: (AddToCartEvent) -> Unit,
-) {
+    onEvent: (AddToCartEvent) -> Unit
+){
     Column(
         modifier = Modifier
             .fillMaxWidth()

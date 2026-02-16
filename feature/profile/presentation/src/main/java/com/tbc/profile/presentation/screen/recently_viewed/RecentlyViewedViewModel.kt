@@ -101,7 +101,7 @@ class RecentlyViewedViewModel @Inject constructor(
                 getItemsByIdsUseCase(itemIds)
                     .onSuccess { items ->
 
-                        val uiRecently = itemIds.reversed().mapNotNull { id ->
+                        val uiRecently = itemIds.mapNotNull { id ->
                             val item = items.firstOrNull { it.id == id } ?: return@mapNotNull null
                             val recently = recently.first { it.itemId == id }
 

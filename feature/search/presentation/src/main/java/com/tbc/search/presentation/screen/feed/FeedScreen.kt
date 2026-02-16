@@ -123,6 +123,7 @@ fun FeedScreen(
             onEvent = viewModel::onEvent,
             listState = listState,
             isRefreshing = isRefreshing,
+            searchQuery = query,
             topAppBarScrollBehavior = topAppBarScrollBehavior,
             navigateToSearch = navigateToSearch
         )
@@ -164,6 +165,7 @@ fun FeedScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun FeedContent(
+    searchQuery: String?,
     modifier: Modifier = Modifier,
     pagingItems: LazyPagingItems<UiFeedItem>,
     onEvent: (FeedEvent) -> Unit,
@@ -185,6 +187,7 @@ private fun FeedContent(
             isLoading = isRefreshing,
             scrollBehavior = topAppBarScrollBehavior,
             isRefreshing = isRefreshing,
+            searchQuery = searchQuery.orEmpty()
         )
 
         LazyColumn(
@@ -217,6 +220,7 @@ private fun FeedContent(
 
             ) { index ->
                 val item = pagingItems[index]
+
                 item?.let {
                     FeedItemCard(
                         imageUrl = it.images.firstOrNull(),

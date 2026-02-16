@@ -10,7 +10,7 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface FeedService {
+internal interface FeedService {
     @GET(ITEMS)
     suspend fun getItemsWithPagination(
         @Query(TITLE_LIKE) query: String? = null,

@@ -13,7 +13,7 @@ import com.tbc.core.domain.util.mapList
 import kotlinx.coroutines.delay
 import javax.inject.Inject
 
-class RecentlyRepositoryImpl @Inject constructor(
+internal class RecentlyRepositoryImpl @Inject constructor(
     private val recentlyService: RecentlyService,
     private val apiResponseHandler: ApiResponseHandler
 ): RecentlyRepository{

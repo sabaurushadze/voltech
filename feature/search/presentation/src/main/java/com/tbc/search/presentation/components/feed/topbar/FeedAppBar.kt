@@ -37,6 +37,8 @@ fun FeedAppBar(
     isLoading: Boolean,
     scrollBehavior: TopAppBarScrollBehavior,
     modifier: Modifier = Modifier,
+    isContentReady: Boolean,
+    searchQuery: String = ""
     isRefreshing: Boolean,
 ) {
     TopAppBar(
@@ -49,6 +51,7 @@ fun FeedAppBar(
                         .fillMaxWidth()
                         .padding(end = Dimen.size16),
                     label = stringResource(R.string.search_on_voltech),
+                    value = searchQuery,
                     shape = VoltechRadius.radius24,
                     startIcon = ImageVector.vectorResource(R.drawable.ic_search),
                     onClick = onSearchClick,

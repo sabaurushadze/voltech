@@ -185,6 +185,8 @@ private fun SearchItem(
             text = title,
             style = VoltechTextStyle.bodyBold,
             color = VoltechColor.foregroundPrimary,
+            maxLines = 3,
+            overflow = TextOverflow.Ellipsis,
         )
     }
 }
@@ -203,14 +205,25 @@ private fun RecentSearchItem(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(
-            text = title,
-            style = VoltechTextStyle.body,
-            color = VoltechColor.foregroundPrimary,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.fillMaxWidth(0.9f)
-        )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+
+            Icon(
+                imageVector = ImageVector.vectorResource(R.drawable.ic_history),
+                contentDescription = null
+            )
+
+            Spacer(Modifier.width(Dimen.size8))
+
+            Text(
+                text = title,
+                style = VoltechTextStyle.body,
+                color = VoltechColor.foregroundPrimary,
+                maxLines = 3,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.fillMaxWidth(0.9f)
+            )
+
+        }
 
         IconButton(
             onClick = { onRemoveClick() }

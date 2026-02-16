@@ -10,4 +10,5 @@ dependencies {
     implementation(projects.core.domain)
     implementation(libs.coil.compose)
     implementation(projects.resource)
+    implementation(libs.kotlinx.datetime)
 }

@@ -1,7 +1,7 @@
 package com.tbc.core.data.remote.service.recently_viewed
 
-import com.tbc.core.data.remote.dto.recently_viewed.RecentlyRequestDto
-import com.tbc.core.data.remote.dto.recently_viewed.RecentlyResponseDto
+import com.tbc.core.data.remote.dto.recently_viewed.request.RecentlyRequestDto
+import com.tbc.core.data.remote.dto.recently_viewed.response.RecentlyResponseDto
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -10,10 +10,12 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface RecentlyService {
+internal interface RecentlyService {
     @GET(RECENTLY)
     suspend fun getRecentlyViewed(
         @Query(UID) uid: String,
+        @Query(SORT) sort: String = VIEWED_AT,
+        @Query(ORDER) order: String = DESC,
     ): Response<List<RecentlyResponseDto>>
 
     @GET(RECENTLY)

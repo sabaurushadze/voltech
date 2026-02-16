@@ -250,7 +250,8 @@ private fun CategoryItem(
                     url = image,
                     modifier = Modifier
                         .size(Dimen.size80)
-                        .align(Alignment.Center)
+                        .align(Alignment.Center),
+                    placeholderRes = R.drawable.circle_placeholder
                 )
             }
         }
