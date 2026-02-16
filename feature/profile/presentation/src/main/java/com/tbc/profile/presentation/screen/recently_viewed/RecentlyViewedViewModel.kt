@@ -86,65 +86,61 @@ class RecentlyViewedViewModel @Inject constructor(
     private fun getRecentlyViewedItems() = viewModelScope.launch {
         updateState { copy(isLoading = true) }
 
-        val user = state.value.user ?: return@launch
+        state.value.user?.let { user ->
+            getRecentlyUseCase(user.uid)
+                .onSuccess { recently ->
 
-        getRecentlyUseCase(user.uid)
-            .onSuccess { recently ->
+                    val itemIds = recently.map { it.itemId }
 
-//                if (recently.isEmpty()) {
-//                    updateState { copy(recentlyViewedItems = emptyList(), isLoading = false) }
-//                    return@onSuccess
-//                }
+                    getItemsByIdsUseCase(itemIds)
+                        .onSuccess { items ->
 
-                val itemIds = recently.map { it.itemId }
+                            val uiRecently = itemIds.mapNotNull { id ->
+                                val item = items.firstOrNull { it.id == id } ?: return@mapNotNull null
+                                val recently = recently.first { it.itemId == id }
 
-                getItemsByIdsUseCase(itemIds)
-                    .onSuccess { items ->
-
-                        val uiRecently = itemIds.mapNotNull { id ->
-                            val item = items.firstOrNull { it.id == id } ?: return@mapNotNull null
-                            val recently = recently.first { it.itemId == id }
-
-                            item.toPresentation(
-                                recentlyId = recently.id
-                            )
-                        }
-
-                        updateState {
-                            copy(
-                                recentlyViewedItems = uiRecently, isLoading = false,
-                                showNoConnectionError = false
-                            )
-                        }
-
-                    }
-                    .onFailure { result ->
-                        if (result == DataError.Network.NO_CONNECTION) {
-                            updateState {
-                                copy(
-                                    isLoading = false,
-                                    showNoConnectionError = true
+                                item.toPresentation(
+                                    recentlyId = recently.id
                                 )
                             }
 
-                        } else {
-                            updateState { copy(isLoading = false, showNoConnectionError = false) }
-                        }
-                    }
-            }
-            .onFailure { result ->
-                if (result == DataError.Network.NO_CONNECTION) {
-                    updateState {
-                        copy(
-                            isLoading = false,
-                            showNoConnectionError = true
-                        )
-                    }
+                            updateState {
+                                copy(
+                                    recentlyViewedItems = uiRecently, isLoading = false,
+                                    showNoConnectionError = false
+                                )
+                            }
 
-                } else {
-                    updateState { copy(isLoading = false, showNoConnectionError = false) }
+                        }
+                        .onFailure { result ->
+                            if (result == DataError.Network.NO_CONNECTION) {
+                                updateState {
+                                    copy(
+                                        isLoading = false,
+                                        showNoConnectionError = true
+                                    )
+                                }
+
+                            } else {
+                                updateState { copy(isLoading = false, showNoConnectionError = false) }
+                            }
+                        }
                 }
-            }
+                .onFailure { result ->
+                    if (result == DataError.Network.NO_CONNECTION) {
+                        updateState {
+                            copy(
+                                isLoading = false,
+                                showNoConnectionError = true
+                            )
+                        }
+
+                    } else {
+                        updateState { copy(isLoading = false, showNoConnectionError = false) }
+                    }
+                }
+        }
+
     }
 
     private fun getCurrentUser() = viewModelScope.launch {

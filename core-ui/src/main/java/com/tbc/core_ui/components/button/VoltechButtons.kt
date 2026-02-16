@@ -276,6 +276,7 @@ fun BorderlessButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
+    textColor: Color = VoltechColor.foregroundPrimary,
     onClick: () -> Unit
 ) {
     BaseFilledButton(
@@ -287,7 +288,7 @@ fun BorderlessButton(
     ) {
         Text(
             text = text,
-            color = VoltechColor.foregroundPrimary,
+            color = textColor,
             style = VoltechTextStyle.bodyBold
         )
     }

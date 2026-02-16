@@ -165,7 +165,7 @@ private fun FeedItemContent(
             modifier = Modifier.fillMaxWidth(),
             text = location,
             color = VoltechColor.foregroundSecondary,
-            style = VoltechTextStyle.body,
+            style = VoltechTextStyle.caption,
             maxLines = 1
         )
     }

@@ -43,6 +43,7 @@ import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
+import com.tbc.core_ui.components.image.ProfilePicturePlaceholder
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
@@ -171,10 +172,6 @@ private fun ItemDetailsContent(
                             color = VoltechColor.foregroundPrimary
                         )
 
-                        Spacer(Modifier.height(Dimen.size24))
-
-                        ItemDescription(description = state.itemDetails.userDescription)
-
                         Spacer(Modifier.height(Dimen.size32))
 
                         PrimaryButton(
@@ -204,6 +201,10 @@ private fun ItemDetailsContent(
                         )
 
                         Spacer(Modifier.height(Dimen.size24))
+
+                        ItemDescription(description = state.itemDetails.userDescription)
+
+                        Spacer(Modifier.height(Dimen.size32))
 
                         AboutItem(
                             conditionRes = conditionRes,
@@ -312,14 +313,17 @@ private fun SellerItem(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        sellerAvatar?.let {
-            BaseAsyncImage(
-                url = sellerAvatar,
-                modifier = Modifier
-                    .size(Dimen.size48)
-                    .clip(CircleShape)
-            )
-        }
+        BaseAsyncImage(
+            modifier = Modifier
+                .size(Dimen.size48)
+                .clip(CircleShape),
+            url = sellerAvatar,
+            fallback = {
+                ProfilePicturePlaceholder(
+                    text = sellerUserName,
+                )
+            }
+        )
 
         Spacer(Modifier.width(Dimen.size8))
 

@@ -219,19 +219,17 @@ private fun UserProfileSection(
                 .background(VoltechColor.foregroundAccent),
             contentAlignment = Alignment.Center
         ) {
-            if (imageUrl != null) {
-                BaseAsyncImage(
-                    url = imageUrl, modifier = Modifier.clip(VoltechRadius.radius64)
-                )
-            } else {
-                userName?.let {
+            BaseAsyncImage(
+                url = imageUrl,
+                modifier = Modifier.clip(VoltechRadius.radius64),
+                fallback = {
                     Text(
-                        text = if (userName.isNotEmpty()) userName.first().uppercase() else "",
+                        text = userName?.firstOrNull()?.uppercase() ?: "",
                         color = VoltechColor.foregroundOnAccent,
                         style = VoltechTextStyle.title1
                     )
                 }
-            }
+            )
         }
 
         Spacer(modifier = Modifier.width(Dimen.size16))

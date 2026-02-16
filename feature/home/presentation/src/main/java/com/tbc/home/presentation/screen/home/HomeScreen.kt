@@ -1,6 +1,5 @@
 package com.tbc.home.presentation.screen.home
 
-import android.util.Log.d
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -71,7 +70,6 @@ fun HomeScreen(
             onEvent(HomeEvent.GetRecentlyViewedItems)
         }
     } else {
-        d("asdd", "THIS THING CALLLLEDDDDDDDDDDDDDDDDDDDDDDDD")
         VoltechPullToRefresh(
             state = pullToRefreshState,
             isRefreshing = state.isRefreshing,
@@ -110,7 +108,7 @@ private fun HomeContent(
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16),
                     text = stringResource(R.string.categories),
-                    style = VoltechTextStyle.title1,
+                    style = VoltechTextStyle.title2,
                     color = VoltechColor.foregroundPrimary
                 )
 

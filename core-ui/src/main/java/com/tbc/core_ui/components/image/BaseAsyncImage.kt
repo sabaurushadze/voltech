@@ -6,6 +6,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
+import coil.compose.AsyncImagePainter
+import coil.compose.SubcomposeAsyncImage
+import coil.compose.SubcomposeAsyncImageContent
 import coil.request.ImageRequest
 import com.tbc.resource.R
 
@@ -29,4 +32,35 @@ fun BaseAsyncImage(
         contentScale = contentScale,
         modifier = modifier
     )
+}
+
+@Composable
+fun BaseAsyncImage(
+    modifier: Modifier = Modifier,
+    url: String?,
+    contentDescription: String = "",
+    contentScale: ContentScale = ContentScale.Crop,
+    fallback: @Composable () -> Unit
+) {
+    SubcomposeAsyncImage(
+        model = ImageRequest.Builder(LocalContext.current)
+            .data(url)
+            .crossfade(true)
+            .build(),
+        contentDescription = contentDescription,
+        contentScale = contentScale,
+        modifier = modifier
+    ) {
+        when (painter.state) {
+            is AsyncImagePainter.State.Loading -> {
+                fallback()
+            }
+            is AsyncImagePainter.State.Error -> {
+                fallback()
+            }
+            else -> {
+                SubcomposeAsyncImageContent()
+            }
+        }
+    }
 }

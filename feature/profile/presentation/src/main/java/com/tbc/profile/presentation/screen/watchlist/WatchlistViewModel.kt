@@ -83,71 +83,63 @@ class WatchlistViewModel @Inject constructor(
 
     private fun getFavoriteItems() = viewModelScope.launch {
         updateState { copy(isLoading = true) }
-        val user = state.value.user ?: return@launch
 
-        getFavoriteItemsUseCase(user.uid)
-            .onSuccess { favorites ->
+        state.value.user?.let { user ->
+            getFavoriteItemsUseCase(user.uid)
+                .onSuccess { favorites ->
 
-                if (favorites.isEmpty()) {
-                    updateState {
-                        copy(
-                            favoriteItems = emptyList(),
-                            isLoading = false,
-                            showNoConnectionError = false
-                        )
-                    }
-                    return@onSuccess
-                }
-
-                val itemIds = favorites.map { it.itemId }
-
-                getItemsByIdsUseCase(itemIds)
-                    .onSuccess { items ->
-
-                        val uiFavorites = items.map { item ->
-                            val favorite = favorites.first { it.itemId == item.id }
-
-                            item.toPresentation(
-                                favoriteId = favorite.id
-                            )
-                        }
-
+                    if (favorites.isEmpty()) {
                         updateState {
                             copy(
-                                favoriteItems = uiFavorites,
+                                favoriteItems = emptyList(),
                                 isLoading = false,
                                 showNoConnectionError = false
                             )
                         }
-
+                        return@onSuccess
                     }
-                    .onFailure { result ->
-                        if (result == DataError.Network.NO_CONNECTION) {
-                            updateState {
-                                copy(
-                                    isLoading = false,
-                                    showNoConnectionError = true
+
+                    val itemIds = favorites.map { it.itemId }
+
+                    getItemsByIdsUseCase(itemIds)
+                        .onSuccess { items ->
+
+                            val uiFavorites = items.map { item ->
+                                val favorite = favorites.first { it.itemId == item.id }
+
+                                item.toPresentation(
+                                    favoriteId = favorite.id
                                 )
                             }
 
-                        } else {
-                            updateState { copy(isLoading = false, showNoConnectionError = false) }
-                        }
-                    }
-            }
-            .onFailure { result ->
-                if (result == DataError.Network.NO_CONNECTION) {
-                    updateState {
-                        copy(
-                            isLoading = false,
-                            showNoConnectionError = true
-                        )
-                    }
+                            updateState {
+                                copy(
+                                    favoriteItems = uiFavorites,
+                                    isLoading = false,
+                                    showNoConnectionError = false
+                                )
+                            }
 
-                } else {
-                    updateState { copy(isLoading = false, showNoConnectionError = false) }
+                        }
+                        .onFailure { result ->
+                            if (result == DataError.Network.NO_CONNECTION) {
+                                updateState { copy(isLoading = false, showNoConnectionError = true) }
+
+                            } else {
+                                updateState { copy(isLoading = false, showNoConnectionError = false) }
+                            }
+                        }
                 }
-            }
+                .onFailure { result ->
+                    if (result == DataError.Network.NO_CONNECTION) {
+                        updateState { copy(isLoading = false, showNoConnectionError = true) }
+                    } else {
+                        updateState { copy(isLoading = false, showNoConnectionError = false) }
+                    }
+                }
+        }
+
+
     }
 
     private fun getCurrentUser() = viewModelScope.launch {

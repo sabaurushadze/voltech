@@ -1743,6 +1743,22 @@
       "sellerName": "vaniko",
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/166f5adc-7d2a-4d94-be12-4c03c5fb9f6bjpg?alt=media&token=12ac6b6e-2b15-4719-bfb6-56b3a90de356",
       "id": 97
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "title": "lol",
+      "category": "CASE",
+      "condition": "NEW",
+      "price": 123,
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/3eb4b88b-3133-4c2d-b1b3-17e4a258669djpg?alt=media&token=1289c0aa-f894-4767-bb07-6c47c866a311"
+      ],
+      "quantity": 123,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "hh",
+      "sellerName": "vighac",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/5a10f53d-e6e3-48ef-81ff-eb6ff6e2351djpg?alt=media&token=dd64e7c3-44d9-49d7-8a0d-4120ad012071",
+      "id": 98
     }
   ],
   "categories": [
@@ -1947,6 +1963,60 @@
       "itemId": 60,
       "viewedAt": "2026-02-16T07:08:18.309486Z",
       "id": 12
+    },
+    {
+      "uid": "",
+      "itemId": 98,
+      "viewedAt": "2026-02-16T15:00:13.755468Z",
+      "id": 17
+    },
+    {
+      "uid": "",
+      "itemId": 69,
+      "viewedAt": "2026-02-16T15:00:13.995160Z",
+      "id": 18
+    },
+    {
+      "uid": "",
+      "itemId": 45,
+      "viewedAt": "2026-02-16T15:01:54.150342Z",
+      "id": 19
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 98,
+      "viewedAt": "2026-02-16T15:53:26.245863Z",
+      "id": 20
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 45,
+      "viewedAt": "2026-02-16T15:57:02.281520Z",
+      "id": 21
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 68,
+      "viewedAt": "2026-02-16T16:21:42.658331Z",
+      "id": 22
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 69,
+      "viewedAt": "2026-02-16T16:21:45.877988Z",
+      "id": 23
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 73,
+      "viewedAt": "2026-02-16T16:21:48.887990Z",
+      "id": 24
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 90,
+      "viewedAt": "2026-02-16T16:21:51.222864Z",
+      "id": 25
     }
   ],
   "cart": [

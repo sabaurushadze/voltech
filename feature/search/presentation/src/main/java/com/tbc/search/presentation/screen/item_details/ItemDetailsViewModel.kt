@@ -23,9 +23,9 @@ import com.tbc.search.presentation.mapper.recently_viewed.toDomain
 import com.tbc.search.presentation.model.cart.UiCartItemRequest
 import com.tbc.search.presentation.model.favorite.UiFavoriteItemRequest
 import com.tbc.search.presentation.model.recently_viewed.UiRecentlyRequest
-import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.*
+import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.NavigateBackToFeed
+import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.ShowSnackBar
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

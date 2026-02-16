@@ -5,6 +5,7 @@ import com.tbc.search.presentation.model.cart.UiCartItem
 
 
 data class AddToCartState (
+    val showNoConnectionError: Boolean = false,
     val user: UiUser? = null,
     val isLoading: Boolean = true,
     val cartItemIds: List<Int> = emptyList(),
