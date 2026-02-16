@@ -3,7 +3,7 @@ package com.tbc.search.data.dto.feed.response
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class FeedItemResponseDto(
+internal data class FeedItemResponseDto(
     val id: Int,
     val uid: String,
     val title: String,

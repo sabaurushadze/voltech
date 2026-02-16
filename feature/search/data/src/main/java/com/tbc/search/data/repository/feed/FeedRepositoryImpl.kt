@@ -19,7 +19,7 @@ import com.tbc.search.domain.repository.feed.FeedRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class FeedRepositoryImpl @Inject constructor(
+internal class FeedRepositoryImpl @Inject constructor(
     private val feedService: FeedService,
     private val responseHandler: ApiResponseHandler,
 ) : FeedRepository {

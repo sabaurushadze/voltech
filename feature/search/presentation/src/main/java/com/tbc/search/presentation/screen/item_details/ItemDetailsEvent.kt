@@ -11,4 +11,6 @@ sealed class ItemDetailsEvent {
     data object AddRecentlyItem : ItemDetailsEvent()
     data object AddItemToCart : ItemDetailsEvent()
     data object BuyItem: ItemDetailsEvent()
+    data object GetCartItemIds: ItemDetailsEvent()
+    data object GetFavoriteItems: ItemDetailsEvent()
 }

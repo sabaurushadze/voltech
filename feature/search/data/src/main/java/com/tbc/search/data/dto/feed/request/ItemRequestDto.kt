@@ -3,7 +3,7 @@ package com.tbc.search.data.dto.feed.request
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ItemRequestDto(
+internal data class ItemRequestDto(
     val uid: String,
     val title: String,
     val category: String,

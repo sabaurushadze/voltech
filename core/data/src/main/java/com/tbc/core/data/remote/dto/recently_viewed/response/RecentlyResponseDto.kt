@@ -1,9 +1,9 @@
-package com.tbc.core.data.remote.dto.recently_viewed
+package com.tbc.core.data.remote.dto.recently_viewed.response
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class RecentlyResponseDto (
+internal data class RecentlyResponseDto (
     val id: Int,
     val uid: String,
     val itemId: Int,

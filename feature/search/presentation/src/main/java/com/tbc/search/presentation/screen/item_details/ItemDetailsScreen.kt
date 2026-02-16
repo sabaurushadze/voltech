@@ -64,6 +64,15 @@ fun ItemDetailsScreen(
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+
+    LaunchedEffect(Unit) {
+        viewModel.onEvent(ItemDetailsEvent.GetFavorites(state.user.uid))
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.onEvent(ItemDetailsEvent.GetCartItemIds)
+    }
+
     LaunchedEffect(Unit) {
         viewModel.onEvent(ItemDetailsEvent.GetItemDetails(id))
         viewModel.onEvent(ItemDetailsEvent.GetItemId(id))
