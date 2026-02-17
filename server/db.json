@@ -1946,6 +1946,12 @@
       "itemId": 45,
       "viewedAt": "2026-02-17T12:17:47.355081Z",
       "id": 16
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 20,
+      "viewedAt": "2026-02-17T18:02:42.250259Z",
+      "id": 17
     }
   ],
   "cart": [
@@ -1960,6 +1966,16 @@
       "itemId": 1,
       "addedAt": "2026-02-17T11:44:02.767208Z",
       "id": 4
+    }
+  ],
+  "reviews": [
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "reviewerUid": "vaniko",
+      "comment": "ux ra bandzi nivtia",
+      "rating": "negative",
+      "reviewAt": "2026-02-17T11:44:02.767208Z",
+      "id": 1
     }
   ]
 }

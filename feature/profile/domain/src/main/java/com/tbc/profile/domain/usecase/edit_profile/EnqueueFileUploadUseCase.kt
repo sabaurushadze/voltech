@@ -1,6 +1,6 @@
 package com.tbc.profile.domain.usecase.edit_profile
 
-import com.tbc.profile.domain.repository.FileUploadManager
+import com.tbc.profile.domain.repository.edit_profile.FileUploadManager
 import javax.inject.Inject
 
 class EnqueueFileUploadUseCase @Inject constructor(

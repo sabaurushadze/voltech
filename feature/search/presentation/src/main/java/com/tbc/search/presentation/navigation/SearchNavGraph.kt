@@ -9,6 +9,7 @@ import com.tbc.search.presentation.screen.add_to_cart.AddToCartScreen
 import com.tbc.search.presentation.screen.feed.FeedScreen
 import com.tbc.search.presentation.screen.item_details.ItemDetailsScreen
 import com.tbc.search.presentation.screen.search.SearchScreen
+import com.tbc.search.presentation.seler_profile.SellerProfileScreen
 import kotlinx.serialization.Serializable
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -18,6 +19,7 @@ fun NavGraphBuilder.searchNavGraph(
     navigateToSearch: () -> Unit,
     navigateBack: () -> Unit,
     navigateToAddToCart: () -> Unit,
+    navigateToSellerProfile: (String) -> Unit,
 ) {
 
     navigation<SearchNavGraphRoute>(startDestination = SearchScreenRoute) {
@@ -52,12 +54,20 @@ fun NavGraphBuilder.searchNavGraph(
                 id = route.id,
                 navigateBack = navigateBack,
                 navigateToAddToCart = navigateToAddToCart,
+                navigateToSellerProfile = navigateToSellerProfile,
+            )
+        }
+
+        composable<SellerProfileScreenRoute> { backStackEntry ->
+            val route = backStackEntry.toRoute<SellerProfileScreenRoute>()
+            SellerProfileScreen(
+                sellerUid = route.sellerUid
             )
         }
     }
-
-
 }
+@Serializable
+data class SellerProfileScreenRoute(val sellerUid: String)
 
 @Serializable
 data object SearchNavGraphRoute

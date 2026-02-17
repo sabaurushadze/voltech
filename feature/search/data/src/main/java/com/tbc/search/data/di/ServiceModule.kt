@@ -3,6 +3,7 @@ package com.tbc.search.data.di
 import com.tbc.search.data.service.cart.CartService
 import com.tbc.search.data.service.favorite.FavoriteService
 import com.tbc.search.data.service.feed.FeedService
+import com.tbc.search.data.service.review.ReviewService
 import com.tbc.search.data.service.search.SearchService
 import dagger.Module
 import dagger.Provides
@@ -36,5 +37,11 @@ internal object ServiceModule {
     @Singleton
     fun provideCartService(retrofit: Retrofit): CartService {
         return retrofit.create(CartService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideReviewService(retrofit: Retrofit): ReviewService {
+        return retrofit.create(ReviewService::class.java)
     }
 }
