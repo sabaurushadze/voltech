@@ -40,7 +40,7 @@ fun BaseAsyncImage(
     url: String?,
     contentDescription: String = "",
     contentScale: ContentScale = ContentScale.Crop,
-    fallback: @Composable () -> Unit
+    fallback: @Composable () -> Unit,
 ) {
     SubcomposeAsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
@@ -55,9 +55,11 @@ fun BaseAsyncImage(
             is AsyncImagePainter.State.Loading -> {
                 fallback()
             }
+
             is AsyncImagePainter.State.Error -> {
                 fallback()
             }
+
             else -> {
                 SubcomposeAsyncImageContent()
             }

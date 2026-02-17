@@ -44,6 +44,8 @@ accompanist = "0.37.3"
 paging = "3.3.6"
 foundationLayout = "1.10.2"
 exifinterface = "1.3.6"
+foundationLayoutVersion = "1.10.3"
+zoomableImageCoil = "0.18.0"
 
 
 [libraries]
@@ -117,6 +119,8 @@ material = { group = "com.google.android.material", name = "material", version.r
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
 androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "foundationLayout" }
 androidx-exifinterface = { group = "androidx.exifinterface", name = "exifinterface", version.ref = "exifinterface" }
+androidx-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "foundationLayoutVersion" }
+zoomable-image-coil = { module = "me.saket.telephoto:zoomable-image-coil", version.ref = "zoomableImageCoil" }
 
 
 [plugins]

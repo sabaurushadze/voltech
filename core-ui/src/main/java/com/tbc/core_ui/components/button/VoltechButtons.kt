@@ -297,32 +297,32 @@ fun BorderlessButton(
     }
 }
 
-@Composable
-fun CircleIconButton(
-    modifier: Modifier = Modifier,
-    onClick : () -> Unit,
-    size: Dp,
-    icon: ImageVector,
-    iconColor: Color,
-    backgroundColor: Color,
-){
-    IconButton(
-        onClick = onClick,
-        modifier = modifier
-            .padding(Dimen.size6)
-            .clip(CircleShape),
-        colors = iconButtonColors(
-            containerColor = backgroundColor
-        )
-    ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            modifier = Modifier.size(size),
-            tint = iconColor,
-        )
-    }
-}
+//@Composable
+//fun CircleIconButton(
+//    modifier: Modifier = Modifier,
+//    onClick : () -> Unit,
+//    size: Dp,
+//    icon: ImageVector,
+//    iconColor: Color,
+//    backgroundColor: Color,
+//){
+//    IconButton(
+//        onClick = onClick,
+//        modifier = modifier
+//            .padding(Dimen.size6)
+//            .clip(CircleShape),
+//        colors = iconButtonColors(
+//            containerColor = backgroundColor
+//        )
+//    ) {
+//        Icon(
+//            imageVector = icon,
+//            contentDescription = null,
+//            modifier = Modifier.size(size),
+//            tint = iconColor,
+//        )
+//    }
+//}
 
 @Composable
 fun CircleIconButton(

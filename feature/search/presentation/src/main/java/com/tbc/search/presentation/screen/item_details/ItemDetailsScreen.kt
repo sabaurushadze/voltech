@@ -3,11 +3,6 @@ package com.tbc.search.presentation.screen.item_details
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.gestures.detectTransformGestures
-import androidx.compose.foundation.gestures.rememberTransformableState
-import androidx.compose.foundation.gestures.transformable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -32,16 +28,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -50,8 +41,10 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import coil.request.ImageRequest
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
+import com.tbc.core_ui.components.button.CircleIconButton
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
@@ -64,6 +57,7 @@ import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.resource.R
 import com.tbc.search.presentation.components.feed.items.FavoriteButton
 import kotlinx.coroutines.flow.distinctUntilChanged
+import me.saket.telephoto.zoomable.coil.ZoomableAsyncImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -113,6 +107,7 @@ fun ItemDetailsScreen(
         onEvent = viewModel::onEvent,
         navigateToAddToCart = navigateToAddToCart
     )
+
     state.previewStartIndex?.let { startIndex ->
         val images = state.itemDetails?.images ?: emptyList()
 
@@ -129,10 +124,7 @@ fun ItemDetailsScreen(
         ) {
             Box(
                 modifier = Modifier
-                    .clip(VoltechRadius.radius16)
-                    .fillMaxWidth()
-                    .height(Dimen.size400)
-                    .clickable { viewModel.onEvent(ItemDetailsEvent.CloseImagePreview) },
+                    .fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
 
@@ -141,51 +133,36 @@ fun ItemDetailsScreen(
                         .fillMaxSize(),
                     state = pagerState,
                 ) { page ->
-                    var scale by remember { mutableStateOf(1f) }
-                    var offset by remember { mutableStateOf(Offset.Zero) }
 
-                    BaseAsyncImage(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .graphicsLayer(
-                                scaleX = scale,
-                                scaleY = scale,
-                                translationX = offset.x,
-                                translationY = offset.y
-                            )
-                            .transformable(
-                                state = rememberTransformableState { zoomChange, panChange, _ ->
-                                    scale = (scale * zoomChange).coerceIn(1f, 5f)
-                                    offset += panChange
-                                }
-                            )
-                            .combinedClickable(
-                                interactionSource = remember { MutableInteractionSource() },
-                                indication = null,
-                                onClick = {},
-                                onDoubleClick = {
-                                    scale = if (scale > 1f) 1f else 3f
-                                    if (scale == 1f) offset = Offset.Zero
-                                }
-                            ),
-                        url = images[page],
-                        contentScale = ContentScale.Crop
+                    ZoomableAsyncImage(
+                        modifier = Modifier.fillMaxSize(),
+                        model = ImageRequest.Builder(context)
+                            .data(images[page])
+                            .build(),
+                        contentDescription = null,
+                        alignment = Alignment.Center,
                     )
                 }
-                Box(
+                Row(
                     modifier = Modifier
-                        .align(Alignment.BottomCenter)
-                        .padding(bottom = Dimen.size8)
-                        .background(
-                            color = VoltechFixedColor.black.copy(alpha = 0.5f),
-                            shape = VoltechRadius.radius16
-                        )
-                        .padding(horizontal = Dimen.size12, vertical = Dimen.size4)
+                        .fillMaxWidth()
+                        .align(Alignment.TopCenter)
+                        .padding(Dimen.size8),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(
-                        text = "${pagerState.currentPage + 1} / ${images.size}",
-                        color = VoltechFixedColor.white,
-                        style = VoltechTextStyle.body
+                    CircleIconButton(
+                        modifier = Modifier
+                            .statusBarsPadding(),
+                        onClick = { viewModel.onEvent(ItemDetailsEvent.CloseImagePreview) },
+                        iconRes = R.drawable.ic_remove_x,
+                        iconColor = VoltechFixedColor.white,
+                        backgroundColor = VoltechFixedColor.black.copy(0.9f),
+                        size = Dimen.size16
+                    )
+                    CurrentPageOverlay(
+                        listSize = images.size,
+                        currentPosition = pagerState.currentPage + 1,
                     )
                 }
             }
@@ -277,9 +254,9 @@ private fun ItemDetailsContent(
                             modifier = Modifier
                                 .fillMaxWidth(),
                             onClick = {
-                                if (!state.isInCart){
+                                if (!state.isInCart) {
                                     onEvent(ItemDetailsEvent.AddItemToCart)
-                                }else{
+                                } else {
                                     navigateToAddToCart()
                                 }
                             },
@@ -311,7 +288,7 @@ private fun ItemDetailsContent(
 }
 
 @Composable
-private fun ItemDescription(description: String){
+private fun ItemDescription(description: String) {
     Column {
         Text(
             text = stringResource(R.string.description),
@@ -481,7 +458,7 @@ private fun ThumbnailBar(
 private fun CurrentPageOverlay(
     listSize: Int,
     currentPosition: Int,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier

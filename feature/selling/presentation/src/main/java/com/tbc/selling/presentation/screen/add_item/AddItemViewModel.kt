@@ -50,9 +50,10 @@ class AddItemViewModel @Inject constructor(
             AddItemEvent.LaunchGallery -> emitSideEffect(AddItemSideEffect.LaunchGallery)
             AddItemEvent.ResetImageError -> updateState { copy(showImageError = false) }
             is AddItemEvent.DeleteImageFromPreview -> updateState {
-                copy(
-                    selectedImageUris = selectedImageUris.filterNot { it == event.uri }
-                )
+                val updated = selectedImageUris.toMutableList().apply {
+                    removeAt(event.index)
+                }
+                copy(selectedImageUris = updated)
             }
             is AddItemEvent.OnPreviewImage -> updateState { copy(previewStartIndex = event.index) }
             AddItemEvent.DismissPreview -> updateState { copy(previewStartIndex = null) }
