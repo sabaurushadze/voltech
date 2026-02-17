@@ -1747,6 +1747,25 @@
       "sellerName": "vaniko",
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/166f5adc-7d2a-4d94-be12-4c03c5fb9f6bjpg?alt=media&token=12ac6b6e-2b15-4719-bfb6-56b3a90de356",
       "id": 97
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "title": "PATIVCEMULI",
+      "category": "GPU",
+      "condition": "NEW",
+      "price": 1222,
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/87680e06-8934-4dbe-ad4b-e587940d43a2jpg?alt=media&token=895a96fb-67bd-41d6-80a1-20f0d0bc7575",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/4ef3501e-f4d9-45a5-831a-d57e5c8ddf67jpg?alt=media&token=fe44b55e-e354-43f5-b2c6-a871d6f4e037",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/ccad5db0-4428-4df2-a476-155b8e608c94jpg?alt=media&token=ced7d3ef-6c49-420d-8323-40a2fa954f7e",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/37ae1ea8-6e82-4c46-83f3-15255b202bb6jpg?alt=media&token=6095871a-38b5-4112-9de9-875844dbc8f3"
+      ],
+      "quantity": 12,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "12",
+      "sellerName": "vighac",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/5a10f53d-e6e3-48ef-81ff-eb6ff6e2351djpg?alt=media&token=dd64e7c3-44d9-49d7-8a0d-4120ad012071",
+      "id": 98
     }
   ],
   "categories": [
@@ -1921,6 +1940,12 @@
       "itemId": 1,
       "viewedAt": "2026-02-16T20:26:08.497354Z",
       "id": 15
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 45,
+      "viewedAt": "2026-02-17T12:17:47.355081Z",
+      "id": 16
     }
   ],
   "cart": [

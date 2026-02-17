@@ -25,6 +25,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -39,7 +40,6 @@ import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
-import com.tbc.resource.R
 
 @Composable
 fun FeedItemCard(
@@ -273,15 +273,21 @@ private fun ThumbnailBar(
 @Composable
 private fun ImagePager(
     imagesList: List<String>,
+    resetTrigger: Int = 0,
 ) {
     val pagerState = rememberPagerState(
         pageCount = { imagesList.size },
     )
 
+    LaunchedEffect(resetTrigger) {
+        pagerState.scrollToPage(0)
+    }
+
+    val currentPosition by remember {
+        derivedStateOf { pagerState.currentPage }
+    }
+
     Box {
-        val currentPosition by remember {
-            derivedStateOf { pagerState.currentPage }
-        }
 
         HorizontalPager(state = pagerState) { page ->
             Box(
