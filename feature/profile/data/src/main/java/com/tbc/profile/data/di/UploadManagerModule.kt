@@ -1,7 +1,7 @@
 package com.tbc.profile.data.di
 
 import com.tbc.profile.data.manager.UploadManager
-import com.tbc.profile.domain.repository.FileUploadManager
+import com.tbc.profile.domain.repository.edit_profile.FileUploadManager
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

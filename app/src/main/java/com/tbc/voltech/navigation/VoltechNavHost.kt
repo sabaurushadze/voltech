@@ -19,6 +19,7 @@ import com.tbc.search.presentation.navigation.AddToCartScreenRoute
 import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.ItemDetailsScreenRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
+import com.tbc.search.presentation.navigation.SellerProfileScreenRoute
 import com.tbc.search.presentation.navigation.searchNavGraph
 import com.tbc.selling.presentation.navigation.AddItemScreenRoute
 import com.tbc.selling.presentation.navigation.sellingNavGraph
@@ -110,16 +111,26 @@ fun VoltechNavHost(
                 navController.navigate(SearchScreenRoute)
             },
             navigateToItemDetails = { id ->
-                navController.navigate(ItemDetailsScreenRoute(id)){
+                navController.navigate(ItemDetailsScreenRoute(id)) {
                     popUpTo(ItemDetailsScreenRoute(id)) { inclusive = true }
                 }
             },
             navigateBack = { navController.navigateUp() },
             navigateToAddToCart = {
-                navController.navigate(AddToCartScreenRoute){
+                navController.navigate(AddToCartScreenRoute) {
                     popUpTo(AddToCartScreenRoute) { inclusive = true }
                 }
-            }
+            },
+
+            navigateToSellerProfile = { sellerUid ->
+                navController.navigate(SellerProfileScreenRoute(sellerUid = sellerUid)){
+                    popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
+                    }
+                    launchSingleTop = true
+                    restoreState = true
+                }
+            },
         )
 
         profileNavGraph(

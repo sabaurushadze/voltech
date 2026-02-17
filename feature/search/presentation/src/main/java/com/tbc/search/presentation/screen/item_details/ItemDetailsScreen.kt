@@ -67,6 +67,7 @@ fun ItemDetailsScreen(
     viewModel: ItemDetailsViewModel = hiltViewModel(),
     navigateBack: () -> Unit,
     navigateToAddToCart: () -> Unit,
+    navigateToSellerProfile: (String) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -106,7 +107,8 @@ fun ItemDetailsScreen(
     ItemDetailsContent(
         state = state,
         onEvent = viewModel::onEvent,
-        navigateToAddToCart = navigateToAddToCart
+        navigateToAddToCart = navigateToAddToCart,
+        navigateToSellerProfile = navigateToSellerProfile
     )
 
     state.previewStartIndex?.let { startIndex ->
@@ -178,7 +180,8 @@ private fun ItemDetailsContent(
     state: ItemDetailsState,
     onEvent: (ItemDetailsEvent) -> Unit,
     navigateToAddToCart: () -> Unit,
-) {
+    navigateToSellerProfile: (String) -> Unit,
+    ) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -228,8 +231,10 @@ private fun ItemDetailsContent(
                         Spacer(Modifier.height(Dimen.size16))
 
                         SellerItem(
+                            sellerUid = state.itemDetails.uid,
                             sellerAvatar = state.itemDetails.sellerPhotoUrl,
-                            sellerUserName = state.itemDetails.sellerName
+                            sellerUserName = state.itemDetails.sellerName,
+                            navigateToSellerProfile = navigateToSellerProfile
                         )
 
                         Spacer(Modifier.height(Dimen.size16))
@@ -374,11 +379,15 @@ private fun AboutItem(
 
 @Composable
 private fun SellerItem(
+    sellerUid: String,
     sellerAvatar: String?,
     sellerUserName: String?,
+    navigateToSellerProfile: (String) -> Unit,
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable{ navigateToSellerProfile(sellerUid) },
         verticalAlignment = Alignment.CenterVertically
     ) {
         BaseAsyncImage(

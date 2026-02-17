@@ -62,7 +62,6 @@ fun NavGraphBuilder.profileNavGraph(
             )
 
         }
-
     }
 }
 

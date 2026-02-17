@@ -13,7 +13,7 @@ import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
 import com.tbc.profile.data.manager.FileUploadManagerKeys.RESULT_URL
 import com.tbc.profile.data.manager.FileUploadManagerKeys.URI_KEY
-import com.tbc.profile.domain.repository.FileUploadManager
+import com.tbc.profile.domain.repository.edit_profile.FileUploadManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
