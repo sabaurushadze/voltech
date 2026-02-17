@@ -13,4 +13,9 @@ sealed class ItemDetailsEvent {
     data object BuyItem: ItemDetailsEvent()
     data object GetCartItemIds: ItemDetailsEvent()
     data object GetFavoriteItems: ItemDetailsEvent()
+
+
+
+    data class OpenImagePreview(val index: Int) : ItemDetailsEvent()
+    object CloseImagePreview : ItemDetailsEvent()
 }

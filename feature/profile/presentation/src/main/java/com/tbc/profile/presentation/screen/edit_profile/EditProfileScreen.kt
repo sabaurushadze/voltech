@@ -205,31 +205,28 @@ private fun UserProfileSection(
 
         ) {
         Box(
-            modifier = Modifier.size(Dimen.size64)
+            modifier = Modifier.size(Dimen.size80)
         ) {
             Box(
                 modifier = Modifier
-                    .size(Dimen.size64)
+                    .size(Dimen.size80)
                     .clip(VoltechRadius.radius64)
                     .background(VoltechColor.foregroundAccent),
                 contentAlignment = Alignment.Center
             ) {
                 val imageToShow = selectedImageUri?.toString() ?: imageUrl
 
-                if (imageToShow != null) {
-                    BaseAsyncImage(
-                        url = imageToShow, modifier = Modifier.clip(VoltechRadius.radius64)
-                    )
-                } else {
-                    userName?.let {
+                BaseAsyncImage(
+                    modifier = Modifier.clip(VoltechRadius.radius64),
+                    url = imageToShow,
+                    fallback = {
                         Text(
-                            text = if (userName.isNotEmpty()) userName.first().uppercase() else "",
+                            text = userName?.firstOrNull()?.uppercase() ?: "",
                             color = VoltechColor.foregroundOnAccent,
-                            style = VoltechTextStyle.title1
+                            style = VoltechTextStyle.display2
                         )
                     }
-                }
-
+                )
             }
 
             Box(
@@ -264,7 +261,7 @@ private fun UserProfileSection(
                 Text(
                     text = userName,
                     color = VoltechColor.foregroundPrimary,
-                    style = VoltechTextStyle.title3
+                    style = VoltechTextStyle.title2
                 )
             }
 

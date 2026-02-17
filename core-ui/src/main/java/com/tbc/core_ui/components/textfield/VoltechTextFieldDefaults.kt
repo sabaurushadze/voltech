@@ -16,6 +16,7 @@ object VoltechTextFieldDefaults {
             focusedIndicatorColor = VoltechColor.backgroundTertiary,
             unfocusedIndicatorColor = VoltechColor.backgroundTertiary,
             disabledIndicatorColor = VoltechColor.backgroundTertiary,
+            disabledContainerColor = VoltechColor.backgroundDisabled,
             focusedLabelColor = VoltechColor.foregroundAccent,
             unfocusedLabelColor = VoltechColor.foregroundAccent,
             focusedTextColor = VoltechColor.foregroundPrimary,

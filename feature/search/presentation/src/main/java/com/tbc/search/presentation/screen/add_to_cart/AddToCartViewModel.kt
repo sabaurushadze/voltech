@@ -2,6 +2,7 @@ package com.tbc.search.presentation.screen.add_to_cart
 
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
+import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
@@ -37,20 +38,13 @@ class AddToCartViewModel @Inject constructor(
     private fun getCartItemIds() = viewModelScope.launch {
         updateState { copy(isLoading = true) }
 
-        val user = state.value.user ?: return@launch
+        state.value.user?.let { user ->
+            getCartItemsUseCase(user.uid)
+                .onSuccess { cartItems ->
 
-        getCartItemsUseCase(user.uid)
-            .onSuccess { cartItems ->
+                    val itemIds = cartItems.map { it.itemId }
 
-                if (cartItems.isEmpty()) {
-                    updateState { copy(cartItems = emptyList(), isLoading = false) }
-                    return@onSuccess
-                }
-
-                val itemIds = cartItems.map { it.itemId }
-
-                getItemsByIdsUseCase(itemIds)
-                    .onSuccess { items ->
+                    getItemsByIdsUseCase(itemIds).onSuccess { items ->
 
                         val uiCartItems = items.map { item ->
                             val cartItem = cartItems.first { it.itemId == item.id }
@@ -60,18 +54,34 @@ class AddToCartViewModel @Inject constructor(
                             )
                         }
 
-                        updateState { copy(cartItems = uiCartItems, isLoading = false) }
+                        updateState {
+                            copy(
+                                cartItems = uiCartItems,
+                                isLoading = false,
+                                showNoConnectionError = false
+                            )
+                        }
                         calculateSubTotal(items.map { it.price })
 
+                    }.onFailure { result ->
+                        if (result == DataError.Network.NO_CONNECTION) {
+                            updateState { copy(isLoading = false, showNoConnectionError = true) }
+                        } else {
+                            updateState { copy(isLoading = false, showNoConnectionError = false) }
+                        }
                     }
-                    .onFailure {
-                        updateState { copy(isLoading = false) }
+                }.onFailure { result ->
+                    if (result == DataError.Network.NO_CONNECTION) {
+                        updateState { copy(isLoading = false, showNoConnectionError = true) }
+                    } else {
+                        updateState { copy(isLoading = false, showNoConnectionError = false) }
                     }
-            }
-            .onFailure {
-                updateState { copy(isLoading = false) }
-            }
+                }
+        }
+
     }
+
+
 
     private fun getCurrentUser() = viewModelScope.launch {
         val currentUser = getCurrentUserUseCase()?.toPresentation()

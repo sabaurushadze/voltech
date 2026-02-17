@@ -121,6 +121,7 @@ fun TertiaryIconButton(
     borderThickness: Dp = VoltechBorder.medium,
     borderColor: Color = VoltechColor.foregroundPrimary,
     errorText: String = "",
+    showText: Boolean = true,
     onClick: () -> Unit
 ) {
     Column {
@@ -142,13 +143,15 @@ fun TertiaryIconButton(
                     contentDescription = null,
                 )
 
-                Spacer(modifier = Modifier.width(Dimen.size4))
+                if (showText) {
+                    Spacer(modifier = Modifier.width(Dimen.size4))
 
-                Text(
-                    text = text,
-                    color = VoltechColor.foregroundPrimary,
-                    style = VoltechTextStyle.bodyBold
-                )
+                    Text(
+                        text = text,
+                        color = VoltechColor.foregroundPrimary,
+                        style = VoltechTextStyle.bodyBold
+                    )
+                }
             }
         }
         if (errorText.isNotEmpty()) {
@@ -276,6 +279,7 @@ fun BorderlessButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
+    textColor: Color = VoltechColor.foregroundPrimary,
     onClick: () -> Unit
 ) {
     BaseFilledButton(
@@ -287,38 +291,38 @@ fun BorderlessButton(
     ) {
         Text(
             text = text,
-            color = VoltechColor.foregroundPrimary,
+            color = textColor,
             style = VoltechTextStyle.bodyBold
         )
     }
 }
 
-@Composable
-fun CircleIconButton(
-    modifier: Modifier = Modifier,
-    onClick : () -> Unit,
-    size: Dp,
-    icon: ImageVector,
-    iconColor: Color,
-    backgroundColor: Color,
-){
-    IconButton(
-        onClick = onClick,
-        modifier = modifier
-            .padding(Dimen.size6)
-            .clip(CircleShape),
-        colors = iconButtonColors(
-            containerColor = backgroundColor
-        )
-    ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            modifier = Modifier.size(size),
-            tint = iconColor,
-        )
-    }
-}
+//@Composable
+//fun CircleIconButton(
+//    modifier: Modifier = Modifier,
+//    onClick : () -> Unit,
+//    size: Dp,
+//    icon: ImageVector,
+//    iconColor: Color,
+//    backgroundColor: Color,
+//){
+//    IconButton(
+//        onClick = onClick,
+//        modifier = modifier
+//            .padding(Dimen.size6)
+//            .clip(CircleShape),
+//        colors = iconButtonColors(
+//            containerColor = backgroundColor
+//        )
+//    ) {
+//        Icon(
+//            imageVector = icon,
+//            contentDescription = null,
+//            modifier = Modifier.size(size),
+//            tint = iconColor,
+//        )
+//    }
+//}
 
 @Composable
 fun CircleIconButton(

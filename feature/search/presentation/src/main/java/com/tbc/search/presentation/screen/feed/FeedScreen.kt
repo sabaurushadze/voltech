@@ -203,7 +203,6 @@ private fun FeedContent(
                         pagingItems.retry()
                     }
                 }
-                return@LazyColumn
             }
 
             if (isRefreshing) {

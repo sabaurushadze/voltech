@@ -30,12 +30,15 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
 import com.tbc.core.presentation.util.toPriceUsStyle
+import com.tbc.core_ui.components.button.BorderlessButton
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.divider.Divider
 import com.tbc.core_ui.components.image.BaseAsyncImage
+import com.tbc.core_ui.components.image.ProfilePicturePlaceholder
 import com.tbc.core_ui.components.loading.LoadingScreen
 import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
 import com.tbc.core_ui.screen.empty_state.EmptyState
+import com.tbc.core_ui.screen.internet.NoInternetConnection
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechRadius
@@ -47,8 +50,8 @@ import com.tbc.search.presentation.model.cart.UiCartItem
 @Composable
 fun AddToCartScreen(
     viewModel: AddToCartViewModel = hiltViewModel(),
-    navigateToItemDetails: (Int) -> Unit
-){
+    navigateToItemDetails: (Int) -> Unit,
+) {
     val onEvent = viewModel::onEvent
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = LocalSnackbarHostState.current
@@ -69,7 +72,11 @@ fun AddToCartScreen(
         onEvent(AddToCartEvent.GetCartItems)
     }
 
-    if (state.isLoading) {
+    if (state.showNoConnectionError) {
+        NoInternetConnection {
+            onEvent(AddToCartEvent.GetCartItems)
+        }
+    } else if (state.isLoading) {
         LoadingScreen()
     } else if (state.cartItems.isEmpty()) {
         EmptyState(
@@ -87,11 +94,6 @@ fun AddToCartScreen(
                 navigateToItemDetails = navigateToItemDetails
             )
         }
-        AddToCartContent(
-            state = state,
-            onEvent = onEvent,
-            navigateToItemDetails = navigateToItemDetails
-        )
     }
 }
 
@@ -100,20 +102,17 @@ fun AddToCartScreen(
 private fun AddToCartContent(
     state: AddToCartState,
     onEvent: (AddToCartEvent) -> Unit,
-    navigateToItemDetails: (Int) -> Unit
-){
+    navigateToItemDetails: (Int) -> Unit,
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
-        item {
-            Divider()
-        }
 
         item {
             Spacer(Modifier.height(Dimen.size16))
         }
 
-        items(state.cartItems){ cartItem ->
+        items(state.cartItems) { cartItem ->
             CartItem(
                 cartItem = cartItem,
                 onEvent = onEvent,
@@ -134,38 +133,38 @@ private fun AddToCartContent(
 private fun CartItem(
     cartItem: UiCartItem,
     onEvent: (AddToCartEvent) -> Unit,
-    navigateToItemDetails: (Int) -> Unit
-){
+    navigateToItemDetails: (Int) -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = Dimen.size16)
-            .clickable{ navigateToItemDetails(cartItem.id) }
     ) {
-        ItemDetails(cartItem)
-
-        Spacer(Modifier.height(Dimen.size16))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceAround
+        Column(
+            modifier = Modifier.clickable { navigateToItemDetails(cartItem.id) }
         ) {
-            Text(
-                modifier = Modifier
-                    .clickable { onEvent(AddToCartEvent.BuyItem) },
-                text = stringResource(R.string.buy_it_now),
-                style = VoltechTextStyle.bodyBold,
-                color = VoltechColor.foregroundAccent
-            )
+            ItemDetails(cartItem)
 
-            Text(
-                modifier = Modifier
-                    .clickable { onEvent(AddToCartEvent.DeleteCartItems(cartItem.cartId)) },
-                text = stringResource(R.string.remove),
-                style = VoltechTextStyle.bodyBold,
-                color = VoltechColor.foregroundAccent
-            )
+            Spacer(Modifier.height(Dimen.size16))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceAround
+            ) {
+                BorderlessButton(
+                    text = stringResource(R.string.buy_it_now),
+                    textColor = VoltechColor.foregroundAccent,
+                    onClick = { onEvent(AddToCartEvent.BuyItem) }
+                )
+
+                BorderlessButton(
+                    text = stringResource(R.string.remove),
+                    textColor = VoltechColor.foregroundAccent,
+                    onClick = { onEvent(AddToCartEvent.DeleteCartItems(cartItem.cartId)) }
+                )
+            }
         }
+
 
         Spacer(Modifier.height(Dimen.size16))
 
@@ -185,12 +184,14 @@ private fun ItemDetails(
     Row(
         modifier = Modifier.fillMaxWidth()
     ) {
-        BaseAsyncImage(
-            url = sellerAvatar.orEmpty(),
-            modifier = Modifier
-                .size(Dimen.size132)
-                .clip(VoltechRadius.radius16),
-        )
+        images.firstOrNull()?.let { firstImageUrl ->
+            BaseAsyncImage(
+                url = firstImageUrl,
+                modifier = Modifier
+                    .size(Dimen.size132)
+                    .clip(VoltechRadius.radius16),
+            )
+        }
 
         Spacer(Modifier.width(Dimen.size12))
 
@@ -198,7 +199,7 @@ private fun ItemDetails(
             Text(
                 text = title,
                 color = VoltechColor.foregroundPrimary,
-                style = VoltechTextStyle.body,
+                style = VoltechTextStyle.subtitle2,
                 maxLines = 3,
                 overflow = TextOverflow.Ellipsis
             )
@@ -216,19 +217,18 @@ private fun ItemDetails(
 
             SellerItem(
                 sellerAvatar = sellerAvatar,
-                sellerUerName = sellerUserName
+                sellerUserName = sellerUserName
             )
         }
     }
 }
 
 
-
 @Composable
 private fun SubtotalAndCheckout(
     subtotal: Double,
-    onEvent: (AddToCartEvent) -> Unit
-){
+    onEvent: (AddToCartEvent) -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -265,23 +265,28 @@ private fun SubtotalAndCheckout(
 @Composable
 private fun SellerItem(
     sellerAvatar: String?,
-    sellerUerName: String?,
+    sellerUserName: String?,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically
     ) {
         BaseAsyncImage(
-            url = sellerAvatar.orEmpty(),
             modifier = Modifier
                 .size(Dimen.size40)
-                .clip(CircleShape)
+                .clip(CircleShape),
+            url = sellerAvatar,
+            fallback = {
+                ProfilePicturePlaceholder(
+                    text = sellerUserName,
+                )
+            }
         )
 
         Spacer(Modifier.width(Dimen.size8))
 
-        sellerUerName?.let {
+        sellerUserName?.let {
             Text(
-                text = sellerUerName,
+                text = sellerUserName,
                 style = VoltechTextStyle.bodyBold,
                 color = VoltechColor.foregroundPrimary
             )

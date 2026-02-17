@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -37,13 +38,18 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import coil.request.ImageRequest
 import com.tbc.core.presentation.compositionlocal.LocalSnackbarHostState
 import com.tbc.core.presentation.extension.collectSideEffect
+import com.tbc.core_ui.components.button.CircleIconButton
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
+import com.tbc.core_ui.components.image.ProfilePicturePlaceholder
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
@@ -52,6 +58,7 @@ import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.resource.R
 import com.tbc.search.presentation.components.feed.items.FavoriteButton
 import kotlinx.coroutines.flow.distinctUntilChanged
+import me.saket.telephoto.zoomable.coil.ZoomableAsyncImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -101,6 +108,67 @@ fun ItemDetailsScreen(
         onEvent = viewModel::onEvent,
         navigateToAddToCart = navigateToAddToCart
     )
+
+    state.previewStartIndex?.let { startIndex ->
+        val images = state.itemDetails?.images ?: emptyList()
+
+        val pagerState = rememberPagerState(
+            initialPage = startIndex,
+            pageCount = { images.size }
+        )
+
+        Dialog(
+            onDismissRequest = { viewModel.onEvent(ItemDetailsEvent.CloseImagePreview) },
+            properties = DialogProperties(
+                usePlatformDefaultWidth = false
+            )
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+
+                HorizontalPager(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    state = pagerState,
+                ) { page ->
+
+                    ZoomableAsyncImage(
+                        modifier = Modifier.fillMaxSize(),
+                        model = ImageRequest.Builder(context)
+                            .data(images[page])
+                            .build(),
+                        contentDescription = null,
+                        alignment = Alignment.Center,
+                    )
+                }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .align(Alignment.TopCenter)
+                        .padding(Dimen.size8),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    CircleIconButton(
+                        modifier = Modifier
+                            .statusBarsPadding(),
+                        onClick = { viewModel.onEvent(ItemDetailsEvent.CloseImagePreview) },
+                        iconRes = R.drawable.ic_remove_x,
+                        iconColor = VoltechFixedColor.white,
+                        backgroundColor = VoltechFixedColor.black.copy(0.9f),
+                        size = Dimen.size16
+                    )
+                    CurrentPageOverlay(
+                        listSize = images.size,
+                        currentPosition = pagerState.currentPage + 1,
+                    )
+                }
+            }
+        }
+    }
 }
 
 
@@ -172,10 +240,6 @@ private fun ItemDetailsContent(
                             color = VoltechColor.foregroundPrimary
                         )
 
-                        Spacer(Modifier.height(Dimen.size24))
-
-                        ItemDescription(description = state.itemDetails.userDescription)
-
                         Spacer(Modifier.height(Dimen.size32))
 
                         PrimaryButton(
@@ -191,9 +255,9 @@ private fun ItemDetailsContent(
                             modifier = Modifier
                                 .fillMaxWidth(),
                             onClick = {
-                                if (!state.isInCart){
+                                if (!state.isInCart) {
                                     onEvent(ItemDetailsEvent.AddItemToCart)
-                                }else{
+                                } else {
                                     navigateToAddToCart()
                                 }
                             },
@@ -205,6 +269,10 @@ private fun ItemDetailsContent(
                         )
 
                         Spacer(Modifier.height(Dimen.size24))
+
+                        ItemDescription(description = state.itemDetails.userDescription)
+
+                        Spacer(Modifier.height(Dimen.size32))
 
                         AboutItem(
                             conditionRes = conditionRes,
@@ -221,7 +289,7 @@ private fun ItemDetailsContent(
 }
 
 @Composable
-private fun ItemDescription(description: String){
+private fun ItemDescription(description: String) {
     Column {
         Text(
             text = stringResource(R.string.description),
@@ -313,14 +381,17 @@ private fun SellerItem(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        sellerAvatar?.let {
-            BaseAsyncImage(
-                url = sellerAvatar,
-                modifier = Modifier
-                    .size(Dimen.size48)
-                    .clip(CircleShape)
-            )
-        }
+        BaseAsyncImage(
+            modifier = Modifier
+                .size(Dimen.size48)
+                .clip(CircleShape),
+            url = sellerAvatar,
+            fallback = {
+                ProfilePicturePlaceholder(
+                    text = sellerUserName,
+                )
+            }
+        )
 
         Spacer(Modifier.width(Dimen.size8))
 
@@ -392,7 +463,7 @@ private fun ThumbnailBar(
 private fun CurrentPageOverlay(
     listSize: Int,
     currentPosition: Int,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier
@@ -481,7 +552,8 @@ private fun ImagePager(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(Dimen.size300)
-                    .background(VoltechColor.backgroundPrimary),
+                    .background(VoltechColor.backgroundPrimary)
+                    .clickable { onEvent(ItemDetailsEvent.OpenImagePreview(page)) },
             ) {
                 BaseAsyncImage(
                     contentScale = ContentScale.Fit,
