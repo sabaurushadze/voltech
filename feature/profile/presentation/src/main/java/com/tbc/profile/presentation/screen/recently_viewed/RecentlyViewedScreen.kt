@@ -112,7 +112,7 @@ private fun RecentlyViewedContent(
         ) {
             items(state.recentlyViewedItems) { item ->
                 FeedItemCard(
-                    imageUrl = item.images.firstOrNull(),
+                    imagesList = item.images,
                     title = item.title,
                     checked = item.isSelected,
                     price = item.price,

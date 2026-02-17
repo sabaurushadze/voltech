@@ -125,7 +125,7 @@ private fun MyItemsContent(
                     editModeOn = state.editModeOn,
                     condition = stringResource(item.condition),
                     location = stringResource(item.location),
-                    imageUrl = item.images.firstOrNull(),
+                    imagesList = item.images,
                     onRootClick = {
                         if (!state.editModeOn) {
                             onEvent(MyItemsEvent.NavigateToItemDetails(item.id))
