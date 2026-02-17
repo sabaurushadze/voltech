@@ -1,5 +1,6 @@
 package com.tbc.selling.presentation.screen.add_item
 
+import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.model.category.Category
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
@@ -11,12 +12,16 @@ import com.tbc.profile.domain.usecase.edit_profile.EnqueueMultipleFileUploadUseC
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.Location
 import com.tbc.search.domain.usecase.feed.AddItemUseCase
-import com.tbc.selling.domain.usecase.selling.add_item.ValidateDescriptionUseCase
-import com.tbc.selling.domain.usecase.selling.add_item.ValidatePriceUseCase
-import com.tbc.selling.domain.usecase.selling.add_item.ValidateQuantityUseCase
-import com.tbc.selling.domain.usecase.selling.add_item.ValidateTitleUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.add_seller.AddSellerUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.add_seller.GetSellersUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.form.ValidateDescriptionUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.form.ValidatePriceUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.form.ValidateQuantityUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.form.ValidateTitleUseCase
+import com.tbc.selling.presentation.mapper.add_item.toDomain
 import com.tbc.selling.presentation.mapper.my_items.toDomain
 import com.tbc.selling.presentation.model.add_item.UiItem
+import com.tbc.selling.presentation.model.add_item.UiSellerRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -30,6 +35,9 @@ class AddItemViewModel @Inject constructor(
     private val validateQuantityUseCase: ValidateQuantityUseCase,
     private val validatePriceUseCase: ValidatePriceUseCase,
     private val addItemUseCase: AddItemUseCase,
+
+    private val addSellerUseCase: AddSellerUseCase,
+    private val getSellersSeller: GetSellersUseCase,
 ) : BaseViewModel<AddItemState, AddItemSideEffect, AddItemEvent>(AddItemState()) {
 
     init {
@@ -55,6 +63,7 @@ class AddItemViewModel @Inject constructor(
                 }
                 copy(selectedImageUris = updated)
             }
+
             is AddItemEvent.OnPreviewImage -> updateState { copy(previewStartIndex = event.index) }
             AddItemEvent.DismissPreview -> updateState { copy(previewStartIndex = null) }
             is AddItemEvent.TitleChanged -> updateTitle(event.title)
@@ -66,9 +75,35 @@ class AddItemViewModel @Inject constructor(
         }
     }
 
+
+    private fun addSeller() = viewModelScope.launch {
+        state.value.user?.let { user ->
+            getSellersSeller(user.uid)
+                .onSuccess { sellers ->
+                    val sellers = sellers.map { it.uid }
+
+                    if (!sellers.contains(user.uid)) {
+
+                        val seller = UiSellerRequest(
+                            uid = user.uid,
+                            positive = 0,
+                            neutral = 0,
+                            negative = 0,
+                            sellerName = user.name,
+                            sellerPhotoUrl = user.photoUrl
+                        )
+
+                        val sellerDomain = seller.toDomain()
+
+                        addSellerUseCase(seller = sellerDomain)
+                    }
+                }
+                .onFailure { d("asdd", "onfailure getsellers $it") }
+        }
+    }
+
     private fun addItem() = with(state.value) {
         viewModelScope.launch {
-
             updateState {
                 copy(
                     isLoading = true,
@@ -96,14 +131,14 @@ class AddItemViewModel @Inject constructor(
 
             val isFormValid =
                 isTitleValid &&
-                isDescriptionValid &&
-                isQuantityValid &&
-                isPriceValid &&
-                isImageUploaded &&
-                currentUser != null &&
-                category != null &&
-                condition != null &&
-                location != null
+                        isDescriptionValid &&
+                        isQuantityValid &&
+                        isPriceValid &&
+                        isImageUploaded &&
+                        currentUser != null &&
+                        category != null &&
+                        condition != null &&
+                        location != null
 
             if (!isFormValid) {
                 updateState {
@@ -141,7 +176,9 @@ class AddItemViewModel @Inject constructor(
 
                     addItemUseCase(item)
                         .onSuccess {
-                            updateState { copy(isLoading = false,) }
+                            updateState { copy(isLoading = false) }
+                            //  aq vamatebt sellers sellerebis bazashi
+                            addSeller()
                             emitSideEffect(AddItemSideEffect.NavigateBackToMyItems)
                         }
                         .onFailure {

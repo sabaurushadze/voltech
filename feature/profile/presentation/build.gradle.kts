@@ -11,4 +11,5 @@ dependencies {
     implementation(projects.core.domain)
 
     implementation(projects.feature.search.domain)
+    implementation(projects.feature.selling.domain)
 }
