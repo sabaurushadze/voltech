@@ -7,9 +7,13 @@
       "condition": "USED",
       "price": 3000,
       "images": [
-        "https://i.ibb.co/3YFv9Jx6/s-l1600.png",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/3YFv9Jx6/s-l1600.png"
       ],
       "quantity": 17,
       "location": "DIDI_DIGHOMI",
@@ -1878,57 +1882,9 @@
   "recently": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 3,
-      "viewedAt": "2026-02-14T15:21:21.023025Z",
-      "id": 1
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 8,
-      "viewedAt": "2026-02-14T16:12:11.584939Z",
-      "id": 2
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 20,
-      "viewedAt": "2026-02-14T16:12:15.777446Z",
-      "id": 3
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 97,
-      "viewedAt": "2026-02-14T16:14:14.303024Z",
-      "id": 4
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 5,
-      "viewedAt": "2026-02-14T16:29:38.261687Z",
-      "id": 5
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 19,
-      "viewedAt": "2026-02-16T06:47:50.469012Z",
-      "id": 6
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 64,
       "viewedAt": "2026-02-16T06:48:01.302352Z",
       "id": 7
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 49,
-      "viewedAt": "2026-02-16T06:51:51.911642Z",
-      "id": 8
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 22,
-      "viewedAt": "2026-02-16T07:02:55.300530Z",
-      "id": 9
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
@@ -1947,14 +1903,38 @@
       "itemId": 60,
       "viewedAt": "2026-02-16T07:08:18.309486Z",
       "id": 12
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 45,
+      "viewedAt": "2026-02-16T07:51:55.722223Z",
+      "id": 13
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 5,
+      "viewedAt": "2026-02-16T18:43:43.593218Z",
+      "id": 14
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 1,
+      "viewedAt": "2026-02-16T20:26:08.497354Z",
+      "id": 15
     }
   ],
   "cart": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 60,
-      "addedAt": "2026-02-16T07:08:36.279308Z",
-      "id": 1
+      "itemId": 45,
+      "addedAt": "2026-02-16T07:51:57.714566Z",
+      "id": 2
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 1,
+      "addedAt": "2026-02-17T11:44:02.767208Z",
+      "id": 4
     }
   ]
 }
