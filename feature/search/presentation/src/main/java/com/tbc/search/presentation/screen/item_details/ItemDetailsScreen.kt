@@ -227,10 +227,14 @@ private fun ItemDetailsContent(
 
                         Spacer(Modifier.height(Dimen.size16))
 
-                        SellerItem(
-                            sellerAvatar = state.itemDetails.sellerPhotoUrl,
-                            sellerUserName = state.itemDetails.sellerName
-                        )
+                        state.seller?.let {
+                            SellerItem(
+                                sellerAvatar = state.seller.sellerPhotoUrl,
+                                sellerUserName = state.seller.sellerName
+    //                            sellerAvatar = state.itemDetails.sellerPhotoUrl,
+    //                            sellerUserName = state.itemDetails.sellerName
+                            )
+                        }
 
                         Spacer(Modifier.height(Dimen.size16))
 

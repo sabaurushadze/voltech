@@ -1,5 +1,6 @@
 package com.tbc.search.presentation.screen.item_details
 
+import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.recently_viewed.AddRecentlyItemUseCase
 import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyUseCase
@@ -19,12 +20,14 @@ import com.tbc.search.presentation.mapper.cart.toDomain
 import com.tbc.search.presentation.mapper.favorite.toDomain
 import com.tbc.search.presentation.mapper.favorite.toPresentation
 import com.tbc.search.presentation.mapper.feed.toPresentation
+import com.tbc.search.presentation.mapper.item_details.toPresentation
 import com.tbc.search.presentation.mapper.recently_viewed.toDomain
 import com.tbc.search.presentation.model.cart.UiCartItemRequest
 import com.tbc.search.presentation.model.favorite.UiFavoriteItemRequest
 import com.tbc.search.presentation.model.recently_viewed.UiRecentlyRequest
 import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.NavigateBackToFeed
 import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.ShowSnackBar
+import com.tbc.selling.domain.usecase.selling.add_item.add_seller.GetSellersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -40,6 +43,7 @@ class ItemDetailsViewModel @Inject constructor(
     private val toggleFavoriteItemUseCase: ToggleFavoriteItemUseCase,
     private val addRecentlyItemUseCase: AddRecentlyItemUseCase,
     private val addItemToCartUseCase: AddItemToCartUseCase,
+    private val getSellersUseCase: GetSellersUseCase
 ) :
     BaseViewModel<ItemDetailsState, ItemDetailsSideEffect, ItemDetailsEvent>(ItemDetailsState()) {
 
@@ -154,6 +158,7 @@ class ItemDetailsViewModel @Inject constructor(
             .onSuccess { itemDetailsDomain ->
                 updateState { copy(itemDetails = itemDetailsDomain.toPresentation()) }
                 updateState { copy(isLoading = false) }
+                getSeller()
             }
             .onFailure {
                 emitSideEffect(ShowSnackBar(errorRes = it.toStringResId()))
@@ -190,6 +195,23 @@ class ItemDetailsViewModel @Inject constructor(
                 updateState { copy(user = currentUser) }
             }
         }
+    }
+
+    private fun getSeller() = viewModelScope.launch {
+        state.value.itemDetails?.let { itemDetails ->
+            getSellersUseCase(itemDetails.uid)
+                .onSuccess { sellers ->
+                    val seller = sellers.map { it.toPresentation() }.firstOrNull()
+
+                    seller?.let {
+                        updateState { copy(seller = seller) }
+                    }
+                }
+                .onFailure {
+                    d("asdd", "failure message getSeller() $it")
+                }
+        }
+
     }
 
 }

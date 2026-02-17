@@ -1,6 +1,7 @@
 package com.tbc.profile.presentation.screen.edit_profile
 
 import android.net.Uri
+import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.onFailure
@@ -12,7 +13,11 @@ import com.tbc.profile.domain.usecase.edit_profile.EnqueueFileUploadUseCase
 import com.tbc.profile.domain.usecase.edit_profile.UpdateProfilePictureUseCase
 import com.tbc.profile.domain.usecase.edit_profile.UpdateUserNameUseCase
 import com.tbc.profile.domain.usecase.edit_profile.ValidateUserNameUseCase
+import com.tbc.profile.presentation.mapper.edit_profile.toPresentation
 import com.tbc.resource.R
+import com.tbc.selling.domain.model.SellerProfile
+import com.tbc.selling.domain.usecase.selling.add_item.add_seller.GetSellersUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.add_seller.UpdateSellerProfileUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,6 +30,9 @@ class EditProfileViewModel @Inject constructor(
     private val updateUserNameUseCase: UpdateUserNameUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val validateUserNameUseCase: ValidateUserNameUseCase,
+
+    private val getSellersUseCase: GetSellersUseCase,
+    private val updateSellerProfileUseCase: UpdateSellerProfileUseCase,
 ) : BaseViewModel<EditProfileState, EditProfileSideEffect, EditProfileEvent>(EditProfileState()) {
 
     override fun onEvent(event: EditProfileEvent) {
@@ -68,6 +76,15 @@ class EditProfileViewModel @Inject constructor(
         if (showUserNameError && state.value.userName?.isNotEmpty() == true) {
             updateUserNameUseCase(username)
                 .onSuccess {
+                    state.value.seller?.let { seller ->
+                        val updatedSeller = SellerProfile(
+                            sellerPhotoUrl = seller.sellerPhotoUrl,
+                            id = seller.id,
+                            sellerName = username
+                        )
+
+                        updateSellerProfileUseCase(updatedSeller)
+                    }
                     getCurrentUser()
                     emitSideEffect(
                         EditProfileSideEffect.ShowSnackBar(R.string.username_updated)
@@ -93,6 +110,16 @@ class EditProfileViewModel @Inject constructor(
                 deleteFileUseCase(url)
                     .onSuccess {
                         updateProfilePictureUseCase(null)
+
+                        state.value.seller?.let { seller ->
+                            val updatedSeller = SellerProfile(
+                                sellerPhotoUrl = null,
+                                id = seller.id,
+                                sellerName = seller.sellerName
+                            )
+
+                            updateSellerProfileUseCase(updatedSeller)
+                        }
 
                         emitSideEffect(
                             EditProfileSideEffect.ShowSnackBar(R.string.profile_picture_deleted)
@@ -120,6 +147,16 @@ class EditProfileViewModel @Inject constructor(
 
                     updateProfilePictureUseCase(newUrl)
                         .onSuccess {
+                            state.value.seller?.let { seller ->
+                                val updatedSeller = SellerProfile(
+                                    sellerPhotoUrl = newUrl,
+                                    id = seller.id,
+                                    sellerName = seller.sellerName
+                                )
+
+                                updateSellerProfileUseCase(updatedSeller)
+                            }
+
                             emitSideEffect(
                                 EditProfileSideEffect.ShowSnackBar(
                                     R.string.profile_picture_updated_successfully
@@ -136,6 +173,25 @@ class EditProfileViewModel @Inject constructor(
         viewModelScope.launch {
             val currentUser = getCurrentUserUseCase()?.toPresentation()
             updateState { copy(user = currentUser, userName = currentUser?.name) }
+            getSeller()
         }
+    }
+
+    private fun getSeller() = viewModelScope.launch {
+        state.value.user?.let { user ->
+            getSellersUseCase(user.uid)
+                .onSuccess { sellers ->
+                    val seller = sellers.map { it.toPresentation() }.firstOrNull()
+
+                    seller?.let {
+                        updateState { copy(seller = seller) }
+                    }
+                }
+                .onFailure {
+                    d("asdd", "failure message getSeller() $it")
+                }
+        }
+
+
     }
 }

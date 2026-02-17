@@ -3,6 +3,7 @@ package com.tbc.search.presentation.screen.item_details
 import com.tbc.core.presentation.model.UiUser
 import com.tbc.search.presentation.model.favorite.UiFavorite
 import com.tbc.search.presentation.model.feed.UiFeedItem
+import com.tbc.search.presentation.model.item_details.UiSeller
 
 data class ItemDetailsState(
     val user: UiUser = UiUser(
@@ -10,6 +11,7 @@ data class ItemDetailsState(
         name = "",
         photoUrl = ""
     ),
+    val seller: UiSeller? = null,
 
     val isLoading: Boolean = false,
     val itemDetails: UiFeedItem? = null,

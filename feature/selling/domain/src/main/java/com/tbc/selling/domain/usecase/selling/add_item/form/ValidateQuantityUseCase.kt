@@ -1,4 +1,4 @@
-package com.tbc.selling.domain.usecase.selling.add_item
+package com.tbc.selling.domain.usecase.selling.add_item.form
 
 import javax.inject.Inject
 
