@@ -1,13 +1,13 @@
-package com.tbc.profile.data.repository
+package com.tbc.profile.data.repository.edit_profile
 
 import androidx.core.net.toUri
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
-import com.tbc.profile.domain.repository.ProfileRepository
-import jakarta.inject.Inject
+import com.tbc.profile.domain.repository.edit_profile.ProfileRepository
 import kotlinx.coroutines.tasks.await
+import javax.inject.Inject
 
 class ProfileRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth,

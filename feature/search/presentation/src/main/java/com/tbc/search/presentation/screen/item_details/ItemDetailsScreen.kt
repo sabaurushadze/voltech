@@ -67,6 +67,7 @@ fun ItemDetailsScreen(
     viewModel: ItemDetailsViewModel = hiltViewModel(),
     navigateBack: () -> Unit,
     navigateToAddToCart: () -> Unit,
+    navigateToSellerProfile: (String) -> Unit,
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -106,7 +107,8 @@ fun ItemDetailsScreen(
     ItemDetailsContent(
         state = state,
         onEvent = viewModel::onEvent,
-        navigateToAddToCart = navigateToAddToCart
+        navigateToAddToCart = navigateToAddToCart,
+        navigateToSellerProfile = navigateToSellerProfile
     )
 
     state.previewStartIndex?.let { startIndex ->
@@ -178,7 +180,8 @@ private fun ItemDetailsContent(
     state: ItemDetailsState,
     onEvent: (ItemDetailsEvent) -> Unit,
     navigateToAddToCart: () -> Unit,
-) {
+    navigateToSellerProfile: (String) -> Unit,
+    ) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -229,12 +232,13 @@ private fun ItemDetailsContent(
 
                         state.seller?.let {
                             SellerItem(
+                                sellerUid = state.itemDetails.uid,
+                                navigateToSellerProfile = navigateToSellerProfile,
                                 sellerAvatar = state.seller.sellerPhotoUrl,
                                 sellerUserName = state.seller.sellerName
-    //                            sellerAvatar = state.itemDetails.sellerPhotoUrl,
-    //                            sellerUserName = state.itemDetails.sellerName
                             )
                         }
+
 
                         Spacer(Modifier.height(Dimen.size16))
 
@@ -378,11 +382,15 @@ private fun AboutItem(
 
 @Composable
 private fun SellerItem(
+    sellerUid: String,
     sellerAvatar: String?,
     sellerUserName: String?,
+    navigateToSellerProfile: (String) -> Unit,
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable{ navigateToSellerProfile(sellerUid) },
         verticalAlignment = Alignment.CenterVertically
     ) {
         BaseAsyncImage(
