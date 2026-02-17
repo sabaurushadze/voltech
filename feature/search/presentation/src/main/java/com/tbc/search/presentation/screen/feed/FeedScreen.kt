@@ -222,7 +222,7 @@ private fun FeedContent(
 
                 item?.let {
                     FeedItemCard(
-                        imageUrl = it.images.firstOrNull(),
+                        imagesList = it.images,
                         title = it.title,
                         condition = stringResource(it.conditionRes),
                         price = it.price,
@@ -268,3 +268,4 @@ private fun FeedContent(
     }
 
 }
+

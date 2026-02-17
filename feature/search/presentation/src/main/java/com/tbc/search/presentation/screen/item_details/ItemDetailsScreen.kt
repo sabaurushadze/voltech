@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
@@ -410,10 +411,16 @@ private fun ThumbnailBar(
     selectedImage: Int,
     onEvent: (ItemDetailsEvent) -> Unit,
 ) {
+
+    val listState = rememberLazyListState()
+
+    LaunchedEffect(selectedImage) {
+        listState.animateScrollToItem(selectedImage)
+    }
+
     LazyRow(
-        modifier = Modifier.padding(
-            vertical = Dimen.size12
-        ),
+        state = listState,
+        modifier = Modifier.padding(vertical = Dimen.size12),
         horizontalArrangement = Arrangement.spacedBy(Dimen.size8)
     ) {
         itemsIndexed(imagesList) { index, image ->
@@ -433,7 +440,6 @@ private fun ThumbnailBar(
                         .padding(Dimen.size6)
                         .clip(VoltechRadius.radius8)
                         .background(VoltechFixedColor.lightGray)
-
                 )
 
                 if (selectedImage == index) {
@@ -447,12 +453,11 @@ private fun ThumbnailBar(
                             )
                     )
                 }
-
             }
-
         }
     }
 }
+
 
 @Composable
 private fun CurrentPageOverlay(

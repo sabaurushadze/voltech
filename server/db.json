@@ -7,9 +7,13 @@
       "condition": "USED",
       "price": 3000,
       "images": [
-        "https://i.ibb.co/3YFv9Jx6/s-l1600.png",
         "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
-        "https://i.ibb.co/rRfz5wLq/s-l1600.webp"
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/rRfz5wLq/s-l1600.webp",
+        "https://i.ibb.co/3YFv9Jx6/s-l1600.png"
       ],
       "quantity": 17,
       "location": "DIDI_DIGHOMI",
@@ -1743,44 +1747,6 @@
       "sellerName": "vaniko",
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/166f5adc-7d2a-4d94-be12-4c03c5fb9f6bjpg?alt=media&token=12ac6b6e-2b15-4719-bfb6-56b3a90de356",
       "id": 97
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "title": "pp",
-      "category": "CPU",
-      "condition": "USED",
-      "price": 12,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/f487918f-265b-482c-9e3e-0531ae96fc0ejpg?alt=media&token=08ec481d-6cc4-4bd0-954b-c6fa03915788",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/e087658f-1f3a-448c-b4a5-63d6184ba20bjpg?alt=media&token=460f312c-f5b3-4eba-a85d-51f42a3debb6"
-      ],
-      "quantity": 1,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "wjwjwjsebe s hs he. ue ",
-      "sellerName": "vighac",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/5a10f53d-e6e3-48ef-81ff-eb6ff6e2351djpg?alt=media&token=dd64e7c3-44d9-49d7-8a0d-4120ad012071",
-      "id": 98
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "title": "esa",
-      "category": "HDD",
-      "condition": "USED",
-      "price": 12,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/26eb5f1b-69fe-48fe-9227-c917647ade3cjpg?alt=media&token=75eaea3d-6ffa-4e5e-b76f-1715a82f34bf",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/71d17b7c-6e24-42f8-9fcd-ded84bf8d4c7jpg?alt=media&token=5bece9cb-a83f-4bbe-a59a-9f50109b4064",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/579c138f-ad31-44d5-933a-4d38c5c33879jpg?alt=media&token=3221a79e-f13c-4225-acc8-068891dcc86c",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/851dc5d1-3b29-4247-8a77-3abf6c46e525jpg?alt=media&token=291ae32a-ef84-4ed0-9dc8-c8c98b558a81",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/13d8ac73-2fd9-4ac8-a73d-e2c7f980a3f5jpg?alt=media&token=15b45212-e1dd-4eff-8705-e6bc5165ff8c",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/c72caf83-dee0-4eef-b0f3-e4a02c43dc3ajpg?alt=media&token=7c063507-e1e5-4d4c-b18c-857e9fb9f9ef"
-      ],
-      "quantity": 12,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "qyj",
-      "sellerName": "vighac",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/5a10f53d-e6e3-48ef-81ff-eb6ff6e2351djpg?alt=media&token=dd64e7c3-44d9-49d7-8a0d-4120ad012071",
-      "id": 99
     }
   ],
   "categories": [
@@ -1916,57 +1882,9 @@
   "recently": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 3,
-      "viewedAt": "2026-02-14T15:21:21.023025Z",
-      "id": 1
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 8,
-      "viewedAt": "2026-02-14T16:12:11.584939Z",
-      "id": 2
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 20,
-      "viewedAt": "2026-02-14T16:12:15.777446Z",
-      "id": 3
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 97,
-      "viewedAt": "2026-02-14T16:14:14.303024Z",
-      "id": 4
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 5,
-      "viewedAt": "2026-02-14T16:29:38.261687Z",
-      "id": 5
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 19,
-      "viewedAt": "2026-02-16T06:47:50.469012Z",
-      "id": 6
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 64,
       "viewedAt": "2026-02-16T06:48:01.302352Z",
       "id": 7
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 49,
-      "viewedAt": "2026-02-16T06:51:51.911642Z",
-      "id": 8
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 22,
-      "viewedAt": "2026-02-16T07:02:55.300530Z",
-      "id": 9
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
@@ -1987,60 +1905,36 @@
       "id": 12
     },
     {
-      "uid": "",
-      "itemId": 69,
-      "viewedAt": "2026-02-16T15:00:13.995160Z",
-      "id": 18
-    },
-    {
-      "uid": "",
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 45,
-      "viewedAt": "2026-02-16T15:01:54.150342Z",
-      "id": 19
+      "viewedAt": "2026-02-16T07:51:55.722223Z",
+      "id": 13
     },
     {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 45,
-      "viewedAt": "2026-02-16T15:57:02.281520Z",
-      "id": 21
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 5,
+      "viewedAt": "2026-02-16T18:43:43.593218Z",
+      "id": 14
     },
     {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 68,
-      "viewedAt": "2026-02-16T16:21:42.658331Z",
-      "id": 22
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 69,
-      "viewedAt": "2026-02-16T16:21:45.877988Z",
-      "id": 23
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 73,
-      "viewedAt": "2026-02-16T16:21:48.887990Z",
-      "id": 24
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 98,
-      "viewedAt": "2026-02-16T21:40:06.510405Z",
-      "id": 25
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 99,
-      "viewedAt": "2026-02-17T11:53:34.363038Z",
-      "id": 26
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 1,
+      "viewedAt": "2026-02-16T20:26:08.497354Z",
+      "id": 15
     }
   ],
   "cart": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 60,
-      "addedAt": "2026-02-16T07:08:36.279308Z",
-      "id": 1
+      "itemId": 45,
+      "addedAt": "2026-02-16T07:51:57.714566Z",
+      "id": 2
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 1,
+      "addedAt": "2026-02-17T11:44:02.767208Z",
+      "id": 4
     }
   ]
 }
