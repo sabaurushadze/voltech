@@ -24,7 +24,9 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
@@ -57,6 +59,11 @@ import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.resource.R
 import com.tbc.search.presentation.components.feed.items.FavoriteButton
+import com.tbc.search.presentation.components.feed.sheet.ReviewBottomSheet
+import com.tbc.search.presentation.components.feed.sheet.SortBottomSheet
+import com.tbc.search.presentation.enums.feed.SortType
+import com.tbc.search.presentation.enums.item_details.Rating
+import com.tbc.search.presentation.screen.feed.FeedEvent
 import kotlinx.coroutines.flow.distinctUntilChanged
 import me.saket.telephoto.zoomable.coil.ZoomableAsyncImage
 
@@ -73,6 +80,9 @@ fun ItemDetailsScreen(
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    val reviewBottomSheetState = rememberModalBottomSheetState(
+        skipPartiallyExpanded = true
+    )
 
     LaunchedEffect(Unit) {
         viewModel.onEvent(ItemDetailsEvent.GetFavorites(state.user.uid))
@@ -110,6 +120,25 @@ fun ItemDetailsScreen(
         navigateToAddToCart = navigateToAddToCart,
         navigateToSellerProfile = navigateToSellerProfile
     )
+
+    if (state.showReviewSheet) {
+        ModalBottomSheet(
+            containerColor = VoltechColor.backgroundSecondary,
+            onDismissRequest = {
+                viewModel.onEvent(ItemDetailsEvent.HideReviewSheet)
+                viewModel.onEvent(ItemDetailsEvent.ClearDescription)
+                viewModel.onEvent(ItemDetailsEvent.ClearReviewErrors)
+            },
+            sheetState = reviewBottomSheetState
+        ) {
+            ReviewBottomSheet(
+                options = listOf(Rating.POSITIVE, Rating.NEUTRAL, Rating.NEGATIVE),
+                selectedSortType = state.selectedRating,
+                state = state,
+                onEvent = viewModel::onEvent,
+            )
+        }
+    }
 
     state.previewStartIndex?.let { startIndex ->
         val images = state.itemDetails?.images ?: emptyList()
@@ -276,7 +305,18 @@ private fun ItemDetailsContent(
                             }
                         )
 
-                        Spacer(Modifier.height(Dimen.size24))
+                        Spacer(Modifier.height(Dimen.size8))
+
+                        SecondaryButton(
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            onClick = {
+                                onEvent(ItemDetailsEvent.ShowReviewSheet)
+                            },
+                            text = stringResource(R.string.leave_a_review)
+                        )
+
+                        Spacer(Modifier.height(Dimen.size32))
 
                         ItemDescription(description = state.itemDetails.userDescription)
 

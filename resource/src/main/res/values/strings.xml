@@ -158,4 +158,9 @@
     <string name="shopping_cart_empty_state">You don\'t have any items in your cart. Let\'s get shopping!</string>
     <string name="this_service_not_work">This service does not work right now, try again later</string>
     <string name="edit">Edit</string>
+    <string name="leave_a_review">Leave a review</string>
+    <string name="submit_review">Submit review</string>
+    <string name="positive">Positive</string>
+    <string name="neutral">Neutral</string>
+    <string name="negative">Negative</string>
 </resources>

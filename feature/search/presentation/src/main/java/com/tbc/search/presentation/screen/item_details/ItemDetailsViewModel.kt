@@ -28,6 +28,7 @@ import com.tbc.search.presentation.model.recently_viewed.UiRecentlyRequest
 import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.NavigateBackToFeed
 import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.ShowSnackBar
 import com.tbc.selling.domain.usecase.selling.add_item.add_seller.GetSellersUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.form.ValidateDescriptionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -43,7 +44,10 @@ class ItemDetailsViewModel @Inject constructor(
     private val toggleFavoriteItemUseCase: ToggleFavoriteItemUseCase,
     private val addRecentlyItemUseCase: AddRecentlyItemUseCase,
     private val addItemToCartUseCase: AddItemToCartUseCase,
-    private val getSellersUseCase: GetSellersUseCase
+    private val getSellersUseCase: GetSellersUseCase,
+
+    private val validateDescriptionUseCase: ValidateDescriptionUseCase,
+
 ) :
     BaseViewModel<ItemDetailsState, ItemDetailsSideEffect, ItemDetailsEvent>(ItemDetailsState()) {
 
@@ -66,8 +70,31 @@ class ItemDetailsViewModel @Inject constructor(
             ItemDetailsEvent.GetFavoriteItems -> getFavorites(state.value.user.uid)
 
 
+
             ItemDetailsEvent.CloseImagePreview -> updateState { copy(previewStartIndex = null) }
             is ItemDetailsEvent.OpenImagePreview -> updateState { copy(previewStartIndex = event.index) }
+
+            ItemDetailsEvent.HideReviewSheet -> updateState { copy(showReviewSheet = false) }
+            ItemDetailsEvent.ShowReviewSheet -> updateState { copy(showReviewSheet = true) }
+            is ItemDetailsEvent.SelectRating -> updateState { copy(selectedRating = event.rating) }
+            ItemDetailsEvent.ClearDescription -> updateState { copy(description = "") }
+            is ItemDetailsEvent.DescriptionChanged -> updateState { copy(description = event.description) }
+            ItemDetailsEvent.SubmitReview -> submitReview()
+            ItemDetailsEvent.ClearReviewErrors -> updateState { copy(showDescriptionError = false) }
+        }
+    }
+
+    private fun submitReview() = with(state.value) {
+        viewModelScope.launch {
+            updateState { copy(showDescriptionError = false) }
+
+            val isDescriptionValid = validateDescriptionUseCase(state.value.description)
+
+            val currentUser = user
+
+            if (!isDescriptionValid) {
+                updateState { copy(showDescriptionError = true) }
+            }
         }
     }
 

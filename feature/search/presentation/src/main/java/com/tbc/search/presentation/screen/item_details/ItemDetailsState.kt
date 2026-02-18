@@ -1,6 +1,8 @@
 package com.tbc.search.presentation.screen.item_details
 
 import com.tbc.core.presentation.model.UiUser
+import com.tbc.search.presentation.enums.feed.SortType
+import com.tbc.search.presentation.enums.item_details.Rating
 import com.tbc.search.presentation.model.favorite.UiFavorite
 import com.tbc.search.presentation.model.feed.UiFeedItem
 import com.tbc.search.presentation.model.item_details.UiSeller
@@ -22,6 +24,11 @@ data class ItemDetailsState(
     val cartItemIds: List<Int> = emptyList(),
     val isInCart: Boolean = false,
 
+    val previewStartIndex: Int? = null,
 
-    val previewStartIndex: Int? = null
+    val description: String = "",
+    val showReviewSheet: Boolean = false,
+    val selectedRating: Rating = Rating.POSITIVE,
+    val showDescriptionError: Boolean = false,
+
     )
