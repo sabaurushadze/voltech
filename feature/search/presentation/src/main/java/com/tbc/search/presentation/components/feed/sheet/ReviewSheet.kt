@@ -38,10 +38,11 @@ import com.tbc.core_ui.theme.VoltechFixedColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.resource.R
-import com.tbc.search.presentation.enums.item_details.Rating
+import com.tbc.search.presentation.mapper.item_details.toIconRes
 import com.tbc.search.presentation.mapper.item_details.toStringRes
 import com.tbc.search.presentation.screen.item_details.ItemDetailsEvent
 import com.tbc.search.presentation.screen.item_details.ItemDetailsState
+import com.tbc.selling.domain.model.Rating
 
 @Composable
 fun ReviewBottomSheet(
@@ -51,7 +52,7 @@ fun ReviewBottomSheet(
     onEvent: (ItemDetailsEvent) -> Unit,
 ) {
     val descriptionError =
-        if (state.showDescriptionError) stringResource(R.string.enter_valid_description) else null
+        if (state.showDescriptionError) stringResource(R.string.enter_valid_feedback) else null
 
     Column(
         modifier = Modifier
@@ -69,6 +70,7 @@ fun ReviewBottomSheet(
         options.forEach { option ->
             RatingItem(
                 titleRes = option.toStringRes(),
+                iconRes = option.toIconRes(),
                 selected = option == selectedSortType,
                 onItemClick = { onEvent(ItemDetailsEvent.SelectRating(option)) }
             )
@@ -87,10 +89,10 @@ fun ReviewBottomSheet(
                 singleLine = false,
                 maxLines = 10,
                 onTextChanged = { onEvent(ItemDetailsEvent.DescriptionChanged(it)) },
-                label = stringResource(R.string.item_description),
+                label = stringResource(R.string.item_feedback),
                 shape = VoltechRadius.radius8,
                 errorText = descriptionError,
-                imeAction = ImeAction.Next,
+                imeAction = ImeAction.Done,
                 keyboardType = KeyboardType.Text,
                 endIcon = {
                     if (state.description.isNotEmpty()) {
@@ -115,7 +117,10 @@ fun ReviewBottomSheet(
                 .fillMaxWidth()
                 .padding(Dimen.size16),
             text = stringResource(R.string.submit_review),
-            onClick = { onEvent(ItemDetailsEvent.SubmitReview) }
+            onClick = {
+//                onEvent(ItemDetailsEvent.HideReviewSheet)
+                onEvent(ItemDetailsEvent.SubmitReview)
+            }
         )
 
         Spacer(modifier = Modifier.height(Dimen.size16))
@@ -126,6 +131,7 @@ fun ReviewBottomSheet(
 @Composable
 fun RatingItem(
     @StringRes titleRes: Int,
+    @DrawableRes iconRes: Int,
     selected: Boolean,
     onItemClick: () -> Unit,
 ) {
@@ -146,7 +152,19 @@ fun RatingItem(
 
         Spacer(modifier = Modifier.width(Dimen.size16))
 
-        Row(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier
+            .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                imageVector = ImageVector.vectorResource(iconRes),
+                contentDescription = null,
+                tint = Color.Unspecified
+            )
+
+            Spacer(modifier = Modifier.width(Dimen.size8))
+
             Text(
                 text = stringResource(titleRes),
                 style = VoltechTextStyle.body,

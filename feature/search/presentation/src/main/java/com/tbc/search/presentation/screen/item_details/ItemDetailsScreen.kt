@@ -26,6 +26,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -52,6 +53,7 @@ import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.image.ProfilePicturePlaceholder
+import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
@@ -60,10 +62,7 @@ import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.resource.R
 import com.tbc.search.presentation.components.feed.items.FavoriteButton
 import com.tbc.search.presentation.components.feed.sheet.ReviewBottomSheet
-import com.tbc.search.presentation.components.feed.sheet.SortBottomSheet
-import com.tbc.search.presentation.enums.feed.SortType
-import com.tbc.search.presentation.enums.item_details.Rating
-import com.tbc.search.presentation.screen.feed.FeedEvent
+import com.tbc.selling.domain.model.Rating
 import kotlinx.coroutines.flow.distinctUntilChanged
 import me.saket.telephoto.zoomable.coil.ZoomableAsyncImage
 
@@ -80,6 +79,7 @@ fun ItemDetailsScreen(
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    val pullToRefreshState = rememberPullToRefreshState()
     val reviewBottomSheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = true
     )
@@ -114,12 +114,22 @@ fun ItemDetailsScreen(
         }
     }
 
-    ItemDetailsContent(
-        state = state,
-        onEvent = viewModel::onEvent,
-        navigateToAddToCart = navigateToAddToCart,
-        navigateToSellerProfile = navigateToSellerProfile
-    )
+    VoltechPullToRefresh(
+        state = pullToRefreshState,
+        onRefresh = {
+            viewModel.onEvent(ItemDetailsEvent.GetItemDetails(id))
+            viewModel.onEvent(ItemDetailsEvent.GetCurrentSeller)
+
+        },
+    ) {
+        ItemDetailsContent(
+            state = state,
+            onEvent = viewModel::onEvent,
+            navigateToAddToCart = navigateToAddToCart,
+            navigateToSellerProfile = navigateToSellerProfile
+        )
+    }
+
 
     if (state.showReviewSheet) {
         ModalBottomSheet(
@@ -210,7 +220,7 @@ private fun ItemDetailsContent(
     onEvent: (ItemDetailsEvent) -> Unit,
     navigateToAddToCart: () -> Unit,
     navigateToSellerProfile: (String) -> Unit,
-    ) {
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -259,12 +269,14 @@ private fun ItemDetailsContent(
 
                         Spacer(Modifier.height(Dimen.size16))
 
-                        state.seller?.let {
+                        state.seller?.let { seller ->
                             SellerItem(
-                                sellerUid = state.itemDetails.uid,
+                                sellerUid = itemDetails.uid,
                                 navigateToSellerProfile = navigateToSellerProfile,
-                                sellerAvatar = state.seller.sellerPhotoUrl,
-                                sellerUserName = state.seller.sellerName
+                                sellerAvatar = seller.sellerPhotoUrl,
+                                sellerUserName = seller.sellerName,
+                                sellerFeedbackAmount = seller.totalFeedback.toString(),
+                                sellerPositiveFeedbackPercentage = seller.positiveFeedback.toString(),
                             )
                         }
 
@@ -305,17 +317,21 @@ private fun ItemDetailsContent(
                             }
                         )
 
-                        Spacer(Modifier.height(Dimen.size8))
 
-                        SecondaryButton(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            onClick = {
-                                onEvent(ItemDetailsEvent.ShowReviewSheet)
-                            },
-                            text = stringResource(R.string.leave_a_review)
-                        )
 
+                        if (state.canGiveFeedback) {
+                            Spacer(Modifier.height(Dimen.size8))
+
+                            SecondaryButton(
+                                modifier = Modifier
+                                    .fillMaxWidth(),
+                                onClick = {
+                                    onEvent(ItemDetailsEvent.ShowReviewSheet)
+                                },
+                                text = stringResource(R.string.leave_a_review)
+                            )
+
+                        }
                         Spacer(Modifier.height(Dimen.size32))
 
                         ItemDescription(description = state.itemDetails.userDescription)
@@ -425,12 +441,14 @@ private fun SellerItem(
     sellerUid: String,
     sellerAvatar: String?,
     sellerUserName: String?,
+    sellerFeedbackAmount: String,
+    sellerPositiveFeedbackPercentage: String,
     navigateToSellerProfile: (String) -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable{ navigateToSellerProfile(sellerUid) },
+            .clickable { navigateToSellerProfile(sellerUid) },
         verticalAlignment = Alignment.CenterVertically
     ) {
         BaseAsyncImage(
@@ -447,9 +465,30 @@ private fun SellerItem(
 
         Spacer(Modifier.width(Dimen.size8))
 
-        sellerUserName?.let {
+        Column {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                sellerUserName?.let {
+                    Text(
+                        text = sellerUserName,
+                        style = VoltechTextStyle.title3,
+                        color = VoltechColor.foregroundPrimary
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(Dimen.size4))
+
+                Text(
+                    text = "(${sellerFeedbackAmount})",
+                    style = VoltechTextStyle.bodyBold,
+                    color = VoltechColor.foregroundPrimary
+                )
+
+            }
+
             Text(
-                text = sellerUserName,
+                text = "$sellerPositiveFeedbackPercentage% positive feedback",
                 style = VoltechTextStyle.body,
                 color = VoltechColor.foregroundPrimary
             )

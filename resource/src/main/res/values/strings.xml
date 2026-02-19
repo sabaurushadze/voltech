@@ -136,8 +136,10 @@
     <string name="add_item">Add item</string>
     <string name="title">Title</string>
     <string name="item_description">Item description</string>
+    <string name="item_feedback">Item feedback</string>
     <string name="enter_valid_title">Title must be between 2 and 80 characters.</string>
     <string name="enter_valid_description">Description must be between 2 and 500 characters.</string>
+    <string name="enter_valid_feedback">Feedback must be between 2 and 500 characters.</string>
     <string name="select_a_category">Please select a category</string>
     <string name="please_select_at_least_one_image">Please select at least one image</string>
     <string name="add_images">Add images</string>

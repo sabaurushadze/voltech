@@ -16,10 +16,14 @@ import com.tbc.search.domain.usecase.cart.GetCartItemsUseCase
 import com.tbc.search.domain.usecase.favorite.GetFavoriteItemsUseCase
 import com.tbc.search.domain.usecase.favorite.ToggleFavoriteItemUseCase
 import com.tbc.search.domain.usecase.feed.GetItemDetailsUseCase
+import com.tbc.search.domain.usecase.item_details.CalculateSellerPositiveFeedbackUseCase
+import com.tbc.search.domain.usecase.item_details.CalculateTotalFeedbackReceivedUseCase
+import com.tbc.search.domain.usecase.item_details.CanGiveFeedbackUseCase
 import com.tbc.search.presentation.mapper.cart.toDomain
 import com.tbc.search.presentation.mapper.favorite.toDomain
 import com.tbc.search.presentation.mapper.favorite.toPresentation
 import com.tbc.search.presentation.mapper.feed.toPresentation
+import com.tbc.search.presentation.mapper.item_details.toDomain
 import com.tbc.search.presentation.mapper.item_details.toPresentation
 import com.tbc.search.presentation.mapper.recently_viewed.toDomain
 import com.tbc.search.presentation.model.cart.UiCartItemRequest
@@ -27,7 +31,9 @@ import com.tbc.search.presentation.model.favorite.UiFavoriteItemRequest
 import com.tbc.search.presentation.model.recently_viewed.UiRecentlyRequest
 import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.NavigateBackToFeed
 import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.ShowSnackBar
+import com.tbc.selling.domain.model.Rating
 import com.tbc.selling.domain.usecase.selling.add_item.add_seller.GetSellersUseCase
+import com.tbc.selling.domain.usecase.selling.add_item.add_seller.UpdateSellerRatingUseCase
 import com.tbc.selling.domain.usecase.selling.add_item.form.ValidateDescriptionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -47,7 +53,10 @@ class ItemDetailsViewModel @Inject constructor(
     private val getSellersUseCase: GetSellersUseCase,
 
     private val validateDescriptionUseCase: ValidateDescriptionUseCase,
-
+    private val updateSellerRatingUseCase: UpdateSellerRatingUseCase,
+    private val calculateSellerPositiveFeedback: CalculateSellerPositiveFeedbackUseCase,
+    private val calculateTotalFeedbackReceived: CalculateTotalFeedbackReceivedUseCase,
+    private val canGiveFeedbackUseCase: CanGiveFeedbackUseCase,
 ) :
     BaseViewModel<ItemDetailsState, ItemDetailsSideEffect, ItemDetailsEvent>(ItemDetailsState()) {
 
@@ -57,6 +66,8 @@ class ItemDetailsViewModel @Inject constructor(
 
     override fun onEvent(event: ItemDetailsEvent) {
         when (event) {
+            ItemDetailsEvent.GetCurrentSeller -> getSeller()
+
             is ItemDetailsEvent.GetItemDetails -> getItemDetails(event.id)
             is ItemDetailsEvent.GetItemId -> updateState { copy(itemId = event.id) }
             is ItemDetailsEvent.SelectImageByIndex -> updateState { copy(selectedImage = event.index) }
@@ -68,7 +79,6 @@ class ItemDetailsViewModel @Inject constructor(
             ItemDetailsEvent.BuyItem -> emitSideEffect(ShowSnackBar(R.string.this_service_not_work))
             ItemDetailsEvent.GetCartItemIds -> getCartItemIds()
             ItemDetailsEvent.GetFavoriteItems -> getFavorites(state.value.user.uid)
-
 
 
             ItemDetailsEvent.CloseImagePreview -> updateState { copy(previewStartIndex = null) }
@@ -88,15 +98,31 @@ class ItemDetailsViewModel @Inject constructor(
         viewModelScope.launch {
             updateState { copy(showDescriptionError = false) }
 
-            val isDescriptionValid = validateDescriptionUseCase(state.value.description)
-
-            val currentUser = user
+            val isDescriptionValid = validateDescriptionUseCase(description)
 
             if (!isDescriptionValid) {
                 updateState { copy(showDescriptionError = true) }
+                return@launch
             }
+
+            seller?.let { currentSeller ->
+
+                val updatedSellerRating = when (selectedRating) {
+                    Rating.POSITIVE -> currentSeller.copy(positive = currentSeller.positive + 1)
+                    Rating.NEUTRAL -> currentSeller.copy(neutral = currentSeller.neutral + 1)
+                    Rating.NEGATIVE -> currentSeller.copy(negative = currentSeller.negative + 1)
+                }
+
+                val updatedSellerProfile = updatedSellerRating.toDomain()
+                updateSellerRatingUseCase(updatedSellerProfile)
+
+                getSeller()
+            }
+
+
         }
     }
+
 
     private fun toggleFavorite(uid: String) {
         val favoriteItemRequest = getFavoriteItemRequest()
@@ -230,8 +256,28 @@ class ItemDetailsViewModel @Inject constructor(
                 .onSuccess { sellers ->
                     val seller = sellers.map { it.toPresentation() }.firstOrNull()
 
-                    seller?.let {
-                        updateState { copy(seller = seller) }
+                    seller?.let { currentSeller ->
+
+                        val positiveFeedback = calculateSellerPositiveFeedback(
+                            positive = currentSeller.positive,
+                            negative = currentSeller.negative
+                        )
+
+                        val totalFeedback = calculateTotalFeedbackReceived(
+                            positive = currentSeller.positive,
+                            neutral = currentSeller.neutral,
+                            negative = currentSeller.negative
+                        )
+
+                        val updatedSeller = currentSeller.copy(
+                            positiveFeedback = positiveFeedback,
+                            totalFeedback = totalFeedback
+                        )
+                        val canGiveFeedback = canGiveFeedbackUseCase(
+                            sellerUid = seller.uid,
+                            currentUid = state.value.user.uid
+                        )
+                        updateState { copy(seller = updatedSeller, canGiveFeedback = canGiveFeedback) }
                     }
                 }
                 .onFailure {

@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.voltech.dagger.hilt)
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.firebase.crashlytics)
+//    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -14,6 +16,12 @@ android {
 }
 
 dependencies {
+
+    implementation(platform(libs.firebase.bom))
+
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -48,6 +48,24 @@
       "sellerName": "RAGHAC",
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/4026ab28-e28a-476c-a8a4-037097d3caecjpg?alt=media&token=d738492a-d74b-4070-bf47-293faff14a81",
       "id": 3
+    },
+    {
+      "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
+      "title": "alo123",
+      "category": "CPU",
+      "condition": "NEW",
+      "price": 123465,
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/e5c0ba72-67fe-4713-acd5-425732ad3b83jpg?alt=media&token=b3b97bcf-f725-45dd-899e-77aa969eaf1d",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/f9466839-b80c-4d64-b5f8-d33dded94d86jpg?alt=media&token=44377a09-ff52-4304-9f18-2df9127502d7",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/1a20ff38-125c-49ea-acca-0635a3185b6bjpg?alt=media&token=7bd63b90-e4ad-416b-83fd-0ad90c48a8e2"
+      ],
+      "quantity": 123,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "Looʻao",
+      "sellerName": "alo123",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/eafd34bf-4de9-4506-a908-310be7ccc20djpg?alt=media&token=1b4fec6c-426c-4e40-9a28-45d3e198fbe5",
+      "id": 4
     }
   ],
   "categories": [
@@ -115,84 +133,12 @@
   "favorites": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 13,
-      "favoriteAt": "2026-02-14T15:18:02.983471Z",
-      "id": 2
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 16,
-      "favoriteAt": "2026-02-14T15:18:09.344806Z",
-      "id": 3
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 25,
-      "favoriteAt": "2026-02-14T15:18:14.696116Z",
-      "id": 4
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 19,
-      "favoriteAt": "2026-02-16T06:47:51.178443Z",
-      "id": 6
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 64,
-      "favoriteAt": "2026-02-16T06:48:02.208920Z",
-      "id": 7
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 8,
-      "favoriteAt": "2026-02-16T06:48:49.648460Z",
-      "id": 8
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 49,
-      "favoriteAt": "2026-02-16T06:51:52.783672Z",
-      "id": 10
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 97,
-      "favoriteAt": "2026-02-16T07:00:20.385305Z",
-      "id": 11
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 22,
-      "favoriteAt": "2026-02-16T07:02:57.112577Z",
-      "id": 12
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 2,
       "favoriteAt": "2026-02-16T07:20:11.003897Z",
       "id": 13
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 20,
-      "favoriteAt": "2026-02-16T07:21:00.058389Z",
-      "id": 14
     }
   ],
   "recently": [
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 64,
-      "viewedAt": "2026-02-16T06:48:01.302352Z",
-      "id": 7
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 14,
-      "viewedAt": "2026-02-16T07:06:17.320163Z",
-      "id": 10
-    },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 2,
@@ -201,33 +147,9 @@
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 60,
-      "viewedAt": "2026-02-16T07:08:18.309486Z",
-      "id": 12
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 45,
-      "viewedAt": "2026-02-16T07:51:55.722223Z",
-      "id": 13
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 5,
-      "viewedAt": "2026-02-16T18:43:43.593218Z",
-      "id": 14
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 1,
       "viewedAt": "2026-02-16T20:26:08.497354Z",
       "id": 15
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 45,
-      "viewedAt": "2026-02-17T12:17:47.355081Z",
-      "id": 16
     },
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
@@ -246,15 +168,27 @@
       "itemId": 2,
       "viewedAt": "2026-02-17T18:59:07.853089Z",
       "id": 19
+    },
+    {
+      "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
+      "itemId": 1,
+      "viewedAt": "2026-02-19T12:11:15.139021Z",
+      "id": 20
+    },
+    {
+      "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
+      "itemId": 4,
+      "viewedAt": "2026-02-19T12:13:31.256248Z",
+      "id": 21
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 4,
+      "viewedAt": "2026-02-19T12:38:18.891067Z",
+      "id": 22
     }
   ],
   "cart": [
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 45,
-      "addedAt": "2026-02-16T07:51:57.714566Z",
-      "id": 2
-    },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 1,
@@ -274,12 +208,21 @@
   "sellers": [
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "positive": 0,
-      "neutral": 0,
-      "negative": 0,
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/11efb2c2-1d08-421a-8e81-41398b62dfa3jpg?alt=media&token=8de444cf-0dd0-4ee2-830a-24be18ecf4bc",
+      "positive": 229,
+      "neutral": 12,
+      "negative": 77,
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
       "sellerName": "gpu var",
       "id": 1
+    },
+    {
+      "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
+      "positive": 2,
+      "neutral": 0,
+      "negative": 1,
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/eafd34bf-4de9-4506-a908-310be7ccc20djpg?alt=media&token=1b4fec6c-426c-4e40-9a28-45d3e198fbe5",
+      "sellerName": "alo123",
+      "id": 2
     }
   ]
 }
