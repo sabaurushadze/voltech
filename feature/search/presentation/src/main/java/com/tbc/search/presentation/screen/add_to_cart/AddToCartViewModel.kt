@@ -1,5 +1,6 @@
 package com.tbc.search.presentation.screen.add_to_cart
 
+import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.DataError
@@ -11,6 +12,8 @@ import com.tbc.search.domain.usecase.cart.DeleteCartItemUseCase
 import com.tbc.search.domain.usecase.cart.GetCartItemsUseCase
 import com.tbc.search.domain.usecase.feed.GetItemsByIdsUseCase
 import com.tbc.search.presentation.mapper.cart.toPresentation
+import com.tbc.search.presentation.model.cart.UiSeller
+import com.tbc.selling.domain.usecase.selling.add_item.add_seller.GetSellersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,7 +24,9 @@ class AddToCartViewModel @Inject constructor(
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val getItemsByIdsUseCase: GetItemsByIdsUseCase,
     private val deleteCartItemUseCase: DeleteCartItemUseCase,
-) : BaseViewModel<AddToCartState, AddToCartSideEffect, AddToCartEvent>(AddToCartState()) {
+    private val getSellersUseCase: GetSellersUseCase,
+
+    ) : BaseViewModel<AddToCartState, AddToCartSideEffect, AddToCartEvent>(AddToCartState()) {
 
     init {
         getCurrentUser()
@@ -63,6 +68,7 @@ class AddToCartViewModel @Inject constructor(
                         }
                         calculateSubTotal(items.map { it.price })
 
+                        getSellersForCart()
                     }.onFailure { result ->
                         if (result == DataError.Network.NO_CONNECTION) {
                             updateState { copy(isLoading = false, showNoConnectionError = true) }
@@ -70,7 +76,8 @@ class AddToCartViewModel @Inject constructor(
                             updateState { copy(isLoading = false, showNoConnectionError = false) }
                         }
                     }
-                }.onFailure { result ->
+                }
+                .onFailure { result ->
                     if (result == DataError.Network.NO_CONNECTION) {
                         updateState { copy(isLoading = false, showNoConnectionError = true) }
                     } else {
@@ -80,7 +87,6 @@ class AddToCartViewModel @Inject constructor(
         }
 
     }
-
 
 
     private fun getCurrentUser() = viewModelScope.launch {
@@ -99,4 +105,34 @@ class AddToCartViewModel @Inject constructor(
             copy(subtotal = subtotal)
         }
     }
+
+    private fun getSellersForCart() = viewModelScope.launch {
+        val cartItems = state.value.cartItems
+
+        val sellerUids = cartItems.map { it.uid }.distinct()
+
+        val sellerMap = mutableMapOf<String, UiSeller>()
+
+        sellerUids.forEach { uid ->
+            getSellersUseCase(uid)
+                .onSuccess { sellersDomain ->
+                    val seller = sellersDomain.map { it.toPresentation() }.firstOrNull()
+                    seller?.let { sellerMap[uid] = it }
+                }
+                .onFailure {
+                    d("Cart", "Failed to get seller $uid: $it")
+                }
+        }
+
+        val updatedCartItems = cartItems.map { item ->
+            val seller = sellerMap[item.uid]
+            item.copy(
+                sellerAvatar = seller?.photoUrl,
+                sellerUserName = seller?.name
+            )
+        }
+
+        updateState { copy(cartItems = updatedCartItems) }
+    }
+
 }

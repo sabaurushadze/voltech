@@ -4,6 +4,7 @@ import com.tbc.core.presentation.model.UiUser
 import com.tbc.search.presentation.model.favorite.UiFavorite
 import com.tbc.search.presentation.model.feed.UiFeedItem
 import com.tbc.search.presentation.model.item_details.UiSeller
+import com.tbc.selling.domain.model.Rating
 
 data class ItemDetailsState(
     val user: UiUser = UiUser(
@@ -12,6 +13,7 @@ data class ItemDetailsState(
         photoUrl = ""
     ),
     val seller: UiSeller? = null,
+    val canGiveFeedback: Boolean = true,
 
     val isLoading: Boolean = false,
     val itemDetails: UiFeedItem? = null,
@@ -22,6 +24,11 @@ data class ItemDetailsState(
     val cartItemIds: List<Int> = emptyList(),
     val isInCart: Boolean = false,
 
+    val previewStartIndex: Int? = null,
 
-    val previewStartIndex: Int? = null
+    val comment: String = "",
+    val showReviewSheet: Boolean = false,
+    val selectedRating: Rating = Rating.POSITIVE,
+    val showDescriptionError: Boolean = false,
+
     )

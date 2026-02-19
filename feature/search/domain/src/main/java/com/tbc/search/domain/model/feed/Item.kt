@@ -12,4 +12,5 @@ data class Item(
     val userDescription: String,
     val sellerName: String?,
     val sellerPhotoUrl: String?,
+    val active: Boolean = true,
 )

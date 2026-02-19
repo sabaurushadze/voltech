@@ -9,4 +9,5 @@ data class FeedQuery(
     val maxPrice: Float? = null,
     val sortBy: String? = null,
     val sortDescending: Boolean = false,
+    val active: Boolean = true,
 )

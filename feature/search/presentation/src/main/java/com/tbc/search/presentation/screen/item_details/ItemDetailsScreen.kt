@@ -24,7 +24,10 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
@@ -50,6 +53,7 @@ import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.button.SecondaryButton
 import com.tbc.core_ui.components.image.BaseAsyncImage
 import com.tbc.core_ui.components.image.ProfilePicturePlaceholder
+import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
@@ -57,6 +61,8 @@ import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.resource.R
 import com.tbc.search.presentation.components.feed.items.FavoriteButton
+import com.tbc.search.presentation.components.feed.sheet.ReviewBottomSheet
+import com.tbc.selling.domain.model.Rating
 import kotlinx.coroutines.flow.distinctUntilChanged
 import me.saket.telephoto.zoomable.coil.ZoomableAsyncImage
 
@@ -73,6 +79,10 @@ fun ItemDetailsScreen(
     val context = LocalContext.current
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    val pullToRefreshState = rememberPullToRefreshState()
+    val reviewBottomSheetState = rememberModalBottomSheetState(
+        skipPartiallyExpanded = true
+    )
 
     LaunchedEffect(Unit) {
         viewModel.onEvent(ItemDetailsEvent.GetFavorites(state.user.uid))
@@ -104,12 +114,41 @@ fun ItemDetailsScreen(
         }
     }
 
-    ItemDetailsContent(
-        state = state,
-        onEvent = viewModel::onEvent,
-        navigateToAddToCart = navigateToAddToCart,
-        navigateToSellerProfile = navigateToSellerProfile
-    )
+    VoltechPullToRefresh(
+        state = pullToRefreshState,
+        onRefresh = {
+            viewModel.onEvent(ItemDetailsEvent.GetItemDetails(id))
+            viewModel.onEvent(ItemDetailsEvent.GetCurrentSeller)
+
+        },
+    ) {
+        ItemDetailsContent(
+            state = state,
+            onEvent = viewModel::onEvent,
+            navigateToAddToCart = navigateToAddToCart,
+            navigateToSellerProfile = navigateToSellerProfile
+        )
+    }
+
+
+    if (state.showReviewSheet) {
+        ModalBottomSheet(
+            containerColor = VoltechColor.backgroundSecondary,
+            onDismissRequest = {
+                viewModel.onEvent(ItemDetailsEvent.HideReviewSheet)
+                viewModel.onEvent(ItemDetailsEvent.ClearDescription)
+                viewModel.onEvent(ItemDetailsEvent.ClearReviewErrors)
+            },
+            sheetState = reviewBottomSheetState
+        ) {
+            ReviewBottomSheet(
+                options = listOf(Rating.POSITIVE, Rating.NEUTRAL, Rating.NEGATIVE),
+                selectedSortType = state.selectedRating,
+                state = state,
+                onEvent = viewModel::onEvent,
+            )
+        }
+    }
 
     state.previewStartIndex?.let { startIndex ->
         val images = state.itemDetails?.images ?: emptyList()
@@ -181,7 +220,7 @@ private fun ItemDetailsContent(
     onEvent: (ItemDetailsEvent) -> Unit,
     navigateToAddToCart: () -> Unit,
     navigateToSellerProfile: (String) -> Unit,
-    ) {
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -189,9 +228,24 @@ private fun ItemDetailsContent(
             .systemBarsPadding()
     ) {
 
+
         state.itemDetails?.let { itemDetails ->
             val favoriteIds: List<Int> = state.favoriteItem.map { it.itemId }
             val isFavoriteItem: Boolean = itemDetails.id in favoriteIds
+
+            if (!state.itemDetails.active) {
+                item {
+                    Text(
+                        modifier = Modifier.padding(horizontal = Dimen.size16),
+                        text = stringResource(R.string.item_unavailable),
+                        style = VoltechTextStyle.title2,
+                        color = VoltechColor.foregroundPrimary,
+                    )
+
+                    Spacer(modifier = Modifier.height(Dimen.size24))
+                }
+
+            }
 
             with(itemDetails) {
                 item {
@@ -230,12 +284,14 @@ private fun ItemDetailsContent(
 
                         Spacer(Modifier.height(Dimen.size16))
 
-                        state.seller?.let {
+                        state.seller?.let { seller ->
                             SellerItem(
-                                sellerUid = state.itemDetails.uid,
+                                sellerUid = itemDetails.uid,
                                 navigateToSellerProfile = navigateToSellerProfile,
-                                sellerAvatar = state.seller.sellerPhotoUrl,
-                                sellerUserName = state.seller.sellerName
+                                sellerAvatar = seller.sellerPhotoUrl,
+                                sellerUserName = seller.sellerName,
+                                sellerFeedbackAmount = seller.totalFeedback.toString(),
+                                sellerPositiveFeedbackPercentage = seller.positiveFeedback.toString(),
                             )
                         }
 
@@ -248,35 +304,55 @@ private fun ItemDetailsContent(
                             color = VoltechColor.foregroundPrimary
                         )
 
-                        Spacer(Modifier.height(Dimen.size32))
 
-                        PrimaryButton(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            onClick = { onEvent(ItemDetailsEvent.BuyItem) },
-                            text = stringResource(R.string.buy_it_now),
-                        )
+                        if (state.itemDetails.active) {
 
-                        Spacer(Modifier.height(Dimen.size8))
+                            Spacer(Modifier.height(Dimen.size32))
 
-                        SecondaryButton(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            onClick = {
-                                if (!state.isInCart) {
-                                    onEvent(ItemDetailsEvent.AddItemToCart)
+                            PrimaryButton(
+                                modifier = Modifier
+                                    .fillMaxWidth(),
+                                onClick = { onEvent(ItemDetailsEvent.BuyItem) },
+                                text = stringResource(R.string.buy_it_now),
+                            )
+
+                            Spacer(Modifier.height(Dimen.size8))
+
+                            SecondaryButton(
+                                modifier = Modifier
+                                    .fillMaxWidth(),
+                                onClick = {
+                                    if (!state.isInCart) {
+                                        onEvent(ItemDetailsEvent.AddItemToCart)
+                                    } else {
+                                        navigateToAddToCart()
+                                    }
+                                },
+                                text = if (state.isInCart) {
+                                    stringResource(R.string.see_in_cart)
                                 } else {
-                                    navigateToAddToCart()
+                                    stringResource(R.string.add_to_cart)
                                 }
-                            },
-                            text = if (state.isInCart) {
-                                stringResource(R.string.see_in_cart)
-                            } else {
-                                stringResource(R.string.add_to_cart)
-                            }
-                        )
+                            )
 
-                        Spacer(Modifier.height(Dimen.size24))
+
+
+                            if (state.canGiveFeedback) {
+                                Spacer(Modifier.height(Dimen.size8))
+
+                                SecondaryButton(
+                                    modifier = Modifier
+                                        .fillMaxWidth(),
+                                    onClick = {
+                                        onEvent(ItemDetailsEvent.ShowReviewSheet)
+                                    },
+                                    text = stringResource(R.string.leave_a_review)
+                                )
+
+                            }
+
+                        }
+                        Spacer(Modifier.height(Dimen.size32))
 
                         ItemDescription(description = state.itemDetails.userDescription)
 
@@ -285,7 +361,8 @@ private fun ItemDetailsContent(
                         AboutItem(
                             conditionRes = conditionRes,
                             quantity = quantity,
-                            locationRes = locationRes
+                            locationRes = locationRes,
+                            categoryRes = categoryRes
                         )
 
                         Spacer(Modifier.height(Dimen.size32))
@@ -352,6 +429,7 @@ private fun AboutItem(
     conditionRes: Int,
     quantity: String,
     locationRes: Int,
+    categoryRes: Int
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
 
@@ -377,6 +455,11 @@ private fun AboutItem(
             label = stringResource(R.string.location),
             value = stringResource(locationRes)
         )
+
+        InfoRow(
+            label = stringResource(R.string.category),
+            value = stringResource(categoryRes)
+        )
     }
 }
 
@@ -385,12 +468,14 @@ private fun SellerItem(
     sellerUid: String,
     sellerAvatar: String?,
     sellerUserName: String?,
+    sellerFeedbackAmount: String,
+    sellerPositiveFeedbackPercentage: String,
     navigateToSellerProfile: (String) -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable{ navigateToSellerProfile(sellerUid) },
+            .clickable { navigateToSellerProfile(sellerUid) },
         verticalAlignment = Alignment.CenterVertically
     ) {
         BaseAsyncImage(
@@ -407,9 +492,30 @@ private fun SellerItem(
 
         Spacer(Modifier.width(Dimen.size8))
 
-        sellerUserName?.let {
+        Column {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                sellerUserName?.let {
+                    Text(
+                        text = sellerUserName,
+                        style = VoltechTextStyle.title3,
+                        color = VoltechColor.foregroundPrimary
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(Dimen.size4))
+
+                Text(
+                    text = "(${sellerFeedbackAmount})",
+                    style = VoltechTextStyle.bodyBold,
+                    color = VoltechColor.foregroundPrimary
+                )
+
+            }
+
             Text(
-                text = sellerUserName,
+                text = "$sellerPositiveFeedbackPercentage% positive feedback",
                 style = VoltechTextStyle.body,
                 color = VoltechColor.foregroundPrimary
             )
