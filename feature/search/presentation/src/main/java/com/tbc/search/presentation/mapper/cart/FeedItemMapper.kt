@@ -11,8 +11,7 @@ fun FeedItem.toPresentation(cartId: Int) =
         title = title,
         price = price.toPriceUsStyle(),
         images = images,
-        sellerAvatar = sellerPhotoUrl,
-        sellerUserName = sellerName
+        sellerAvatar = null,
+        sellerUserName = null,
+        uid = uid
     )
-
-//fun List<FeedItem>.toPresentation() = this.map { it.toPresentation(favoriteId: Int) }

@@ -228,9 +228,24 @@ private fun ItemDetailsContent(
             .systemBarsPadding()
     ) {
 
+
         state.itemDetails?.let { itemDetails ->
             val favoriteIds: List<Int> = state.favoriteItem.map { it.itemId }
             val isFavoriteItem: Boolean = itemDetails.id in favoriteIds
+
+            if (!state.itemDetails.active) {
+                item {
+                    Text(
+                        modifier = Modifier.padding(horizontal = Dimen.size16),
+                        text = stringResource(R.string.item_unavailable),
+                        style = VoltechTextStyle.title2,
+                        color = VoltechColor.foregroundPrimary,
+                    )
+
+                    Spacer(modifier = Modifier.height(Dimen.size24))
+                }
+
+            }
 
             with(itemDetails) {
                 item {
@@ -289,47 +304,52 @@ private fun ItemDetailsContent(
                             color = VoltechColor.foregroundPrimary
                         )
 
-                        Spacer(Modifier.height(Dimen.size32))
 
-                        PrimaryButton(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            onClick = { onEvent(ItemDetailsEvent.BuyItem) },
-                            text = stringResource(R.string.buy_it_now),
-                        )
+                        if (state.itemDetails.active) {
 
-                        Spacer(Modifier.height(Dimen.size8))
+                            Spacer(Modifier.height(Dimen.size32))
 
-                        SecondaryButton(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            onClick = {
-                                if (!state.isInCart) {
-                                    onEvent(ItemDetailsEvent.AddItemToCart)
-                                } else {
-                                    navigateToAddToCart()
-                                }
-                            },
-                            text = if (state.isInCart) {
-                                stringResource(R.string.see_in_cart)
-                            } else {
-                                stringResource(R.string.add_to_cart)
-                            }
-                        )
+                            PrimaryButton(
+                                modifier = Modifier
+                                    .fillMaxWidth(),
+                                onClick = { onEvent(ItemDetailsEvent.BuyItem) },
+                                text = stringResource(R.string.buy_it_now),
+                            )
 
-
-
-                        if (state.canGiveFeedback) {
                             Spacer(Modifier.height(Dimen.size8))
 
                             SecondaryButton(
                                 modifier = Modifier
                                     .fillMaxWidth(),
                                 onClick = {
-                                    onEvent(ItemDetailsEvent.ShowReviewSheet)
+                                    if (!state.isInCart) {
+                                        onEvent(ItemDetailsEvent.AddItemToCart)
+                                    } else {
+                                        navigateToAddToCart()
+                                    }
                                 },
-                                text = stringResource(R.string.leave_a_review)
+                                text = if (state.isInCart) {
+                                    stringResource(R.string.see_in_cart)
+                                } else {
+                                    stringResource(R.string.add_to_cart)
+                                }
                             )
+
+
+
+                            if (state.canGiveFeedback) {
+                                Spacer(Modifier.height(Dimen.size8))
+
+                                SecondaryButton(
+                                    modifier = Modifier
+                                        .fillMaxWidth(),
+                                    onClick = {
+                                        onEvent(ItemDetailsEvent.ShowReviewSheet)
+                                    },
+                                    text = stringResource(R.string.leave_a_review)
+                                )
+
+                            }
 
                         }
                         Spacer(Modifier.height(Dimen.size32))
@@ -341,7 +361,8 @@ private fun ItemDetailsContent(
                         AboutItem(
                             conditionRes = conditionRes,
                             quantity = quantity,
-                            locationRes = locationRes
+                            locationRes = locationRes,
+                            categoryRes = categoryRes
                         )
 
                         Spacer(Modifier.height(Dimen.size32))
@@ -408,6 +429,7 @@ private fun AboutItem(
     conditionRes: Int,
     quantity: String,
     locationRes: Int,
+    categoryRes: Int
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
 
@@ -432,6 +454,11 @@ private fun AboutItem(
         InfoRow(
             label = stringResource(R.string.location),
             value = stringResource(locationRes)
+        )
+
+        InfoRow(
+            label = stringResource(R.string.category),
+            value = stringResource(categoryRes)
         )
     }
 }

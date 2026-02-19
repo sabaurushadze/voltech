@@ -15,4 +15,5 @@ internal data class ItemRequestDto(
     val userDescription: String,
     val sellerName: String?,
     val sellerPhotoUrl: String?,
+    val active: Boolean,
 )

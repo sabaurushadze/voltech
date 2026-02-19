@@ -1,12 +1,10 @@
-package com.tbc.search.domain.model.review
+package com.tbc.search.presentation.model.review
 
-data class ReviewResponse(
-    val id: Int,
+data class UiReviewRequest(
     val itemId: Int,
     val uid: String,
     val reviewerUid: String,
     val comment: String,
     val rating: String,
-    val reviewAt: String,
     val title: String,
 )

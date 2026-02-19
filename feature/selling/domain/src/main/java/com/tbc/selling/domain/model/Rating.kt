@@ -13,5 +13,14 @@ enum class Rating {
                 NEGATIVE -> "negative"
             }
         }
+
+        fun fromString(rating: String): Rating {
+            return when (rating) {
+                "positive" -> POSITIVE
+                "neutral" -> NEUTRAL
+                "negative" -> NEGATIVE
+                else -> POSITIVE
+            }
+        }
     }
 }

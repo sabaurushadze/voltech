@@ -1,5 +1,6 @@
 package com.tbc.selling.presentation.screen.my_items
 
+import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.DataError
@@ -7,10 +8,12 @@ import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.core.presentation.mapper.user.toPresentation
-import com.tbc.search.domain.usecase.feed.DeleteItemByIdUseCase
 import com.tbc.search.domain.usecase.feed.GetItemsByUidUseCase
+import com.tbc.search.domain.usecase.feed.UpdateItemStatusUseCase
 import com.tbc.selling.domain.usecase.selling.my_items.CheckUserItemAmountUseCase
+import com.tbc.selling.presentation.mapper.my_items.toDomain
 import com.tbc.selling.presentation.mapper.my_items.toPresentation
+import com.tbc.selling.presentation.model.my_items.UiItemStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,7 +23,7 @@ class MyItemsViewModel @Inject constructor(
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val getItemsByUidUseCase: GetItemsByUidUseCase,
     private val checkUserItemAmountUseCase: CheckUserItemAmountUseCase,
-    private val deleteItemByIdUseCase: DeleteItemByIdUseCase,
+    private val updateItemStatusUseCase: UpdateItemStatusUseCase,
 ) : BaseViewModel<MyItemsState, MyItemsSideEffect, MyItemsEvent>(MyItemsState()) {
 
     init {
@@ -33,7 +36,7 @@ class MyItemsViewModel @Inject constructor(
             is MyItemsEvent.NavigateToItemDetails -> navigateToItemDetails(event.id)
             MyItemsEvent.NavigateToAddItem -> navigateToAddItem()
             MyItemsEvent.CanUserPostItems -> checkUserItemAmount()
-            MyItemsEvent.DeleteFavoriteItemById -> deleteFavoriteItemIds()
+            MyItemsEvent.DeleteFavoriteItemById -> deleteMyItemIds()
             MyItemsEvent.EditModeOff -> turnOffEditMode()
             MyItemsEvent.EditModeOn -> turnOnEditMode()
             is MyItemsEvent.ToggleSelectAll -> toggleSelectAll(event.selectAll)
@@ -54,13 +57,15 @@ class MyItemsViewModel @Inject constructor(
         }
     }
 
-    private fun deleteFavoriteItemIds() = viewModelScope.launch {
-        val selectedFavoriteIds = state.value.myItems
+    private fun deleteMyItemIds() = viewModelScope.launch {
+        val mySelectedItemIds = state.value.myItems
             .filter { it.isSelected }
             .map { it.id }
 
-        selectedFavoriteIds.forEach { id ->
-            deleteItemByIdUseCase(id)
+        mySelectedItemIds.forEach { id ->
+            updateItemStatusUseCase(id = id, itemStatus = UiItemStatus(active = false).toDomain())
+                .onSuccess { d("asdd", "SCAHUSDHAUSD$it") }
+                .onFailure { d("asdd", "FAAAILL$it") }
         }
 
         getMyItems()

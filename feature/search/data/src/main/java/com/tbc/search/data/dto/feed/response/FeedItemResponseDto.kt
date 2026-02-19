@@ -15,5 +15,6 @@ internal data class FeedItemResponseDto(
     val location: String,
     val userDescription: String,
     val sellerName: String?,
-    val sellerPhotoUrl: String?
+    val sellerPhotoUrl: String?,
+    val active: Boolean,
 )

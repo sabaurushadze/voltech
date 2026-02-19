@@ -20,5 +20,6 @@ internal fun FeedItemResponseDto.toDomain(): FeedItem {
         userDescription = userDescription,
         sellerName = sellerName,
         sellerPhotoUrl = sellerPhotoUrl,
+        active = active,
     )
 }

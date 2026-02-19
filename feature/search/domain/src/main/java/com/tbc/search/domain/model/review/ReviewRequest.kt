@@ -1,7 +1,6 @@
 package com.tbc.search.domain.model.review
 
-data class ReviewResponse(
-    val id: Int,
+data class ReviewRequest(
     val itemId: Int,
     val uid: String,
     val reviewerUid: String,

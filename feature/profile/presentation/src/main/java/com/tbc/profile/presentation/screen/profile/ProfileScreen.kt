@@ -221,7 +221,8 @@ private fun UserProfileSection(
         ) {
             BaseAsyncImage(
                 url = imageUrl,
-                modifier = Modifier.clip(VoltechRadius.radius64),
+                modifier = Modifier
+                    .clip(VoltechRadius.radius64),
                 fallback = {
                     Text(
                         text = userName?.firstOrNull()?.uppercase() ?: "",

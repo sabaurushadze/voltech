@@ -26,7 +26,7 @@ data class ItemDetailsState(
 
     val previewStartIndex: Int? = null,
 
-    val description: String = "",
+    val comment: String = "",
     val showReviewSheet: Boolean = false,
     val selectedRating: Rating = Rating.POSITIVE,
     val showDescriptionError: Boolean = false,

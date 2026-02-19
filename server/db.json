@@ -2,70 +2,88 @@
   "items": [
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "title": "GPU MAGARI",
-      "category": "GPU",
+      "title": "123",
+      "category": "CPU",
       "condition": "NEW",
       "price": 123,
       "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/3d5c0627-29c6-4ad9-a971-4f99f6cd7162jpg?alt=media&token=424c003a-4373-4cd7-b77b-049409962efe",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/9e0868c1-b00d-4487-9243-2dd3a9a959fejpg?alt=media&token=b353ce2a-b59f-454d-94af-8ae713f40360"
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/338544ed-c405-49c0-92a4-665c4168b0cajpg?alt=media&token=71033d56-49c2-4e7f-af8a-ab59b59b8e37"
       ],
-      "quantity": 1,
+      "quantity": 123,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "123123123123132",
-      "sellerName": "vighac",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/5a10f53d-e6e3-48ef-81ff-eb6ff6e2351djpg?alt=media&token=dd64e7c3-44d9-49d7-8a0d-4120ad012071",
+      "userDescription": "123",
+      "sellerName": "gpu var",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
+      "active": true,
       "id": 1
     },
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "title": "rtx 5090",
+      "title": "as",
       "category": "GPU",
-      "condition": "NEW",
-      "price": 12322,
+      "condition": "USED",
+      "price": 123,
       "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/d6a1981e-ce65-4c06-8cdb-d34790a81aa3jpg?alt=media&token=dce97aef-7896-4f36-ab96-bdc14918523b"
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/480b14ae-6a4a-4556-bfe4-297f8abc0988jpg?alt=media&token=072616d8-9fca-4a9a-9fd8-a937a05e0bb9"
       ],
-      "quantity": 1,
+      "quantity": 123,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "maguari",
-      "sellerName": "RAGHAC",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/4026ab28-e28a-476c-a8a4-037097d3caecjpg?alt=media&token=d738492a-d74b-4070-bf47-293faff14a81",
+      "userDescription": "asd",
+      "sellerName": "gpu var",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
+      "active": true,
       "id": 2
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "title": "12",
+      "category": "GPU",
+      "condition": "USED",
+      "price": 123,
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/d09ff0ec-9579-43d2-869e-dc5d74efac73jpg?alt=media&token=0e77d6fe-e6fd-40f5-b436-0d1125fce9c6"
+      ],
+      "quantity": 123,
+      "location": "GLDANI",
+      "userDescription": "123",
+      "sellerName": "gpu var",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
+      "active": true,
+      "id": 3
     },
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
       "title": "asd",
       "category": "GPU",
-      "condition": "NEW",
+      "condition": "USED",
       "price": 123,
       "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/8f094e7b-7d5d-4935-8994-ed78483682ebjpg?alt=media&token=588594c3-5829-4d7d-8734-47fe9d786234"
-      ],
-      "quantity": 128,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "asd",
-      "sellerName": "RAGHAC",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/4026ab28-e28a-476c-a8a4-037097d3caecjpg?alt=media&token=d738492a-d74b-4070-bf47-293faff14a81",
-      "id": 3
-    },
-    {
-      "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
-      "title": "alo123",
-      "category": "CPU",
-      "condition": "NEW",
-      "price": 123465,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/e5c0ba72-67fe-4713-acd5-425732ad3b83jpg?alt=media&token=b3b97bcf-f725-45dd-899e-77aa969eaf1d",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/f9466839-b80c-4d64-b5f8-d33dded94d86jpg?alt=media&token=44377a09-ff52-4304-9f18-2df9127502d7",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/1a20ff38-125c-49ea-acca-0635a3185b6bjpg?alt=media&token=7bd63b90-e4ad-416b-83fd-0ad90c48a8e2"
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/839f27b8-1f0a-44ee-a99f-c0c1d650a6efjpg?alt=media&token=0f12e654-b53c-4204-822e-d76a82b8e5db"
       ],
       "quantity": 123,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "Looʻao",
-      "sellerName": "alo123",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/eafd34bf-4de9-4506-a908-310be7ccc20djpg?alt=media&token=1b4fec6c-426c-4e40-9a28-45d3e198fbe5",
+      "userDescription": "asd",
+      "sellerName": "gpu var",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
+      "active": true,
       "id": 4
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "title": "asdasd",
+      "category": "GPU",
+      "condition": "NEW",
+      "price": 123,
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/c151fe3f-1f2a-4f7c-9670-3a389543215djpg?alt=media&token=b48df185-dab5-4737-bc01-14544271b814"
+      ],
+      "quantity": 123,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "asd",
+      "sellerName": "vanik3",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/886dd609-de97-4210-89fc-ffd279da37e0jpg?alt=media&token=322d7e75-7cd0-4b23-af6d-d9ba0e96dc88",
+      "active": true,
+      "id": 5
     }
   ],
   "categories": [
@@ -130,44 +148,13 @@
       "image": "https://i.ibb.co/8Dqx7nFF/Purple-Custom-Extension-Sleeve-Cable.png"
     }
   ],
-  "favorites": [
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 2,
-      "favoriteAt": "2026-02-16T07:20:11.003897Z",
-      "id": 13
-    }
-  ],
+  "favorites": [],
   "recently": [
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 2,
-      "viewedAt": "2026-02-16T07:08:04.381190Z",
-      "id": 11
-    },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 1,
       "viewedAt": "2026-02-16T20:26:08.497354Z",
       "id": 15
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 3,
-      "viewedAt": "2026-02-17T16:16:34.134355Z",
-      "id": 17
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 1,
-      "viewedAt": "2026-02-17T17:10:33.136410Z",
-      "id": 18
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 2,
-      "viewedAt": "2026-02-17T18:59:07.853089Z",
-      "id": 19
     },
     {
       "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
@@ -176,53 +163,139 @@
       "id": 20
     },
     {
-      "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
-      "itemId": 4,
-      "viewedAt": "2026-02-19T12:13:31.256248Z",
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 2,
+      "viewedAt": "2026-02-19T16:44:19.614654Z",
       "id": 21
     },
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 4,
-      "viewedAt": "2026-02-19T12:38:18.891067Z",
+      "itemId": 3,
+      "viewedAt": "2026-02-19T17:11:19.478015Z",
       "id": 22
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 1,
+      "viewedAt": "2026-02-19T17:15:22.533683Z",
+      "id": 23
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 2,
+      "viewedAt": "2026-02-19T17:17:31.360436Z",
+      "id": 24
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 5,
+      "viewedAt": "2026-02-19T19:42:45.074082Z",
+      "id": 25
     }
   ],
   "cart": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 1,
-      "addedAt": "2026-02-17T11:44:02.767208Z",
-      "id": 4
+      "itemId": 5,
+      "addedAt": "2026-02-19T19:53:39.728588Z",
+      "id": 1
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 2,
+      "addedAt": "2026-02-19T20:00:54.242544Z",
+      "id": 2
     }
   ],
   "reviews": [
     {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "reviewerUid": "vaniko",
-      "comment": "ux ra bandzi nivtia",
+      "itemId": 2,
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "comment": "kaia",
+      "rating": "positive",
+      "reviewAt": "2026-02-19T18:18:22.472024Z",
+      "title": "as",
+      "id": 1
+    },
+    {
+      "itemId": 2,
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "comment": "sdasd",
+      "rating": "positive",
+      "reviewAt": "2026-02-19T18:18:38.757606Z",
+      "title": "as",
+      "id": 2
+    },
+    {
+      "itemId": 2,
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "comment": "asd",
+      "rating": "positive",
+      "reviewAt": "2026-02-19T18:20:22.471033Z",
+      "title": "as",
+      "id": 3
+    },
+    {
+      "itemId": 1,
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "comment": "arvarga",
       "rating": "negative",
-      "reviewAt": "2026-02-17T11:44:02.767208Z"
+      "reviewAt": "2026-02-19T18:26:30.585817Z",
+      "title": "123",
+      "id": 4
+    },
+    {
+      "itemId": 2,
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "comment": "asd",
+      "rating": "positive",
+      "reviewAt": "2026-02-19T18:36:05.786680Z",
+      "title": "as",
+      "id": 5
+    },
+    {
+      "itemId": 1,
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "comment": "ASD",
+      "rating": "positive",
+      "reviewAt": "2026-02-19T18:37:18.220072Z",
+      "title": "123",
+      "id": 6
     }
   ],
   "sellers": [
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "positive": 229,
-      "neutral": 12,
-      "negative": 77,
+      "positive": 248,
+      "neutral": 13,
+      "negative": 79,
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
       "sellerName": "gpu var",
       "id": 1
     },
     {
       "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
-      "positive": 2,
-      "neutral": 0,
-      "negative": 1,
+      "positive": 24,
+      "neutral": 6,
+      "negative": 3,
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/eafd34bf-4de9-4506-a908-310be7ccc20djpg?alt=media&token=1b4fec6c-426c-4e40-9a28-45d3e198fbe5",
       "sellerName": "alo123",
       "id": 2
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "positive": 0,
+      "neutral": 0,
+      "negative": 0,
+      "sellerPhotoUrl": null,
+      "sellerName": "vanik3",
+      "id": 3
     }
   ]
 }

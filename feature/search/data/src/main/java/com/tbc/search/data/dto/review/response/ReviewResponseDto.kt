@@ -1,6 +1,9 @@
-package com.tbc.search.domain.model.review
+package com.tbc.search.data.dto.review.response
 
-data class ReviewResponse(
+import kotlinx.serialization.Serializable
+
+@Serializable
+internal class ReviewResponseDto (
     val id: Int,
     val itemId: Int,
     val uid: String,

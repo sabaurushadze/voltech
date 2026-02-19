@@ -85,7 +85,7 @@ fun ReviewBottomSheet(
                 modifier = Modifier
                     .heightIn(Dimen.size100, Dimen.size350)
                     .fillMaxWidth(),
-                value = state.description,
+                value = state.comment,
                 singleLine = false,
                 maxLines = 10,
                 onTextChanged = { onEvent(ItemDetailsEvent.DescriptionChanged(it)) },
@@ -95,7 +95,7 @@ fun ReviewBottomSheet(
                 imeAction = ImeAction.Done,
                 keyboardType = KeyboardType.Text,
                 endIcon = {
-                    if (state.description.isNotEmpty()) {
+                    if (state.comment.isNotEmpty()) {
                         DeleteCircleButton(
                             onIconClick = { onEvent(ItemDetailsEvent.ClearDescription) },
                             backgroundColor = VoltechColor.backgroundInverse,
@@ -106,7 +106,7 @@ fun ReviewBottomSheet(
             )
             LiveTextSizeViewer(
                 maxAmount = stringResource(R.string.max_description_length),
-                currentAmount = state.description.length.toString()
+                currentAmount = state.comment.length.toString()
             )
         }
 
@@ -118,7 +118,7 @@ fun ReviewBottomSheet(
                 .padding(Dimen.size16),
             text = stringResource(R.string.submit_review),
             onClick = {
-//                onEvent(ItemDetailsEvent.HideReviewSheet)
+                onEvent(ItemDetailsEvent.HideReviewSheet)
                 onEvent(ItemDetailsEvent.SubmitReview)
             }
         )
