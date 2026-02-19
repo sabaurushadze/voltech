@@ -8,4 +8,5 @@ data class UiCartItem (
     val images: List<String>,
     val sellerAvatar: String?,
     val sellerUserName: String?,
+    val uid: String,
 )

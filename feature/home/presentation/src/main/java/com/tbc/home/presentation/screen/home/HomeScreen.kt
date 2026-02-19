@@ -154,6 +154,10 @@ private fun HomeContent(
             }
         }
 
+        item {
+            Spacer(Modifier.height(Dimen.size24))
+        }
+
     }
 }
 

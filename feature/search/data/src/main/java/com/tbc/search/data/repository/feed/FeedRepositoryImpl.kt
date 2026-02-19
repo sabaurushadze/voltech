@@ -8,6 +8,7 @@ import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
 import com.tbc.core.domain.util.map
 import com.tbc.core.domain.util.mapList
+import com.tbc.search.data.mapper.favorite.toDto
 import com.tbc.search.data.mapper.feed.toDomain
 import com.tbc.search.data.mapper.feed.toDto
 import com.tbc.search.data.paging.feed.FeedPagingSource
@@ -15,6 +16,7 @@ import com.tbc.search.data.service.feed.FeedService
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.FeedQuery
 import com.tbc.search.domain.model.feed.Item
+import com.tbc.search.domain.model.feed.ItemStatus
 import com.tbc.search.domain.repository.feed.FeedRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -83,6 +85,15 @@ internal class FeedRepositoryImpl @Inject constructor(
     override suspend fun deleteItem(id: Int): Resource<Unit, DataError.Network> {
         return responseHandler.safeApiCall {
             feedService.deleteItem(id)
+        }
+    }
+
+    override suspend fun updateItemStatus(
+        id: Int,
+        itemStatus: ItemStatus,
+    ): Resource<Unit, DataError.Network> {
+        return responseHandler.safeApiCall {
+            feedService.updateItem(id = id, itemStatusPatchDto = itemStatus.toDto())
         }
     }
 }

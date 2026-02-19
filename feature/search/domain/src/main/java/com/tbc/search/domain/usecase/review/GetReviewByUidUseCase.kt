@@ -1,0 +1,15 @@
+package com.tbc.search.domain.usecase.review
+
+import com.tbc.core.domain.util.DataError
+import com.tbc.core.domain.util.Resource
+import com.tbc.search.domain.model.review.ReviewResponse
+import com.tbc.search.domain.repository.review.ReviewRepository
+import javax.inject.Inject
+
+class GetReviewByUidUseCase @Inject constructor(
+    private val repository: ReviewRepository
+){
+    suspend operator fun invoke(itemId: Int, uid: String) : Resource<List<ReviewResponse>, DataError.Network> {
+        return repository.getReviewsByReviewerUid(itemId = itemId, uid = uid)
+    }
+}

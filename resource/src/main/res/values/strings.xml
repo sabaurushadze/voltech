@@ -77,6 +77,7 @@
     <string name="item">Item</string>
     <string name="voltech_shopping_cart">Voltech shopping cart</string>
     <string name="description">Description</string>
+    <string name="item_unavailable">This item is no longer available.</string>
 
 
     <string name="select_app_theme">Select App Theme</string>
@@ -139,8 +140,10 @@
     <string name="add_item">Add item</string>
     <string name="title">Title</string>
     <string name="item_description">Item description</string>
+    <string name="item_feedback">Item feedback</string>
     <string name="enter_valid_title">Title must be between 2 and 80 characters.</string>
     <string name="enter_valid_description">Description must be between 2 and 500 characters.</string>
+    <string name="enter_valid_feedback">Feedback must be between 2 and 500 characters.</string>
     <string name="select_a_category">Please select a category</string>
     <string name="please_select_at_least_one_image">Please select at least one image</string>
     <string name="add_images">Add images</string>
@@ -161,4 +164,9 @@
     <string name="shopping_cart_empty_state">You don\'t have any items in your cart. Let\'s get shopping!</string>
     <string name="this_service_not_work">This service does not work right now, try again later</string>
     <string name="edit">Edit</string>
+    <string name="leave_a_review">Leave a review</string>
+    <string name="submit_review">Submit review</string>
+    <string name="positive">Positive</string>
+    <string name="neutral">Neutral</string>
+    <string name="negative">Negative</string>
 </resources>

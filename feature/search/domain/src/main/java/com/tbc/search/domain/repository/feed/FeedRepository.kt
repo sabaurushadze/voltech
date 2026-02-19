@@ -6,6 +6,7 @@ import com.tbc.core.domain.util.Resource
 import com.tbc.search.domain.model.feed.FeedItem
 import com.tbc.search.domain.model.feed.FeedQuery
 import com.tbc.search.domain.model.feed.Item
+import com.tbc.search.domain.model.feed.ItemStatus
 import kotlinx.coroutines.flow.Flow
 
 
@@ -23,4 +24,5 @@ interface FeedRepository {
     suspend fun getLimitedItemsByUid(uid: String, limit: Int): Resource<List<FeedItem>, DataError.Network>
     suspend fun addItem(item: Item): Resource<Unit, DataError.Network>
     suspend fun deleteItem(id: Int): Resource<Unit, DataError.Network>
+    suspend fun updateItemStatus(id: Int, itemStatus: ItemStatus): Resource<Unit, DataError.Network>
 }

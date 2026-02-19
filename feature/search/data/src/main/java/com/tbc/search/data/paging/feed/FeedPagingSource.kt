@@ -35,6 +35,7 @@ internal class FeedPagingSource @Inject constructor(
                 order = order,
                 page = page,
                 perPage = PER_PAGE_COUNT,
+                active = query.active
             )
 
             if (response.isSuccessful) {

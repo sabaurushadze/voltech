@@ -9,20 +9,10 @@ dependencies {
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
-    compileOnly(libs.room.gradlePlugin)
-    compileOnly(libs.firebase.crashlytics.gradlePlugin)
 }
 
 gradlePlugin {
     plugins {
-        register("androidFirebase") {
-            id = "com.tbc.android.firebase"
-            implementationClass = "AndroidApplicationFirebaseConventionPlugin"
-        }
-        register("androidRoom") {
-            id = "com.tbc.android.room"
-            implementationClass = "AndroidRoomConventionPlugin"
-        }
         register("androidApplication") {
             id = "com.tbc.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"

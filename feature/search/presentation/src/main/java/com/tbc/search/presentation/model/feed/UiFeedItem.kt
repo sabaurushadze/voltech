@@ -14,5 +14,6 @@ data class UiFeedItem(
     @param:StringRes val locationRes: Int,
     val userDescription: String,
     val sellerName: String?,
-    val sellerPhotoUrl: String?
+    val sellerPhotoUrl: String?,
+    val active: Boolean,
 )
