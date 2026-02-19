@@ -61,6 +61,18 @@ internal class FeedRepositoryImpl @Inject constructor(
         }.mapList { it.toDomain() }
     }
 
+    override suspend fun getLimitedItemsByUid(
+        uid: String,
+        limit: Int
+    ): Resource<List<FeedItem>, DataError.Network> {
+        return responseHandler.safeApiCall {
+            feedService.getLimitedItemsByUid(
+                uid = uid,
+                limit = limit
+            )
+        }.mapList { it.toDomain() }
+    }
+
     override suspend fun addItem(item: Item): Resource<Unit, DataError.Network> {
         val itemRequestDto = item.toDto()
         return responseHandler.safeApiCall {

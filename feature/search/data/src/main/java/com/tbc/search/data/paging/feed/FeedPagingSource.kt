@@ -24,6 +24,7 @@ internal class FeedPagingSource @Inject constructor(
             val order = if (query.sortDescending) DESC else ASC
 
             val response = service.getItemsWithPagination(
+                uid = query.uid,
                 query = query.titleLike,
                 category = query.category,
                 minPrice = query.minPrice,

@@ -62,6 +62,7 @@ class FeedViewModel @Inject constructor(
             }
 
             is FeedEvent.FeedItemClick -> navigateToDetails(event.id)
+            is FeedEvent.GetSellerItemsByUid -> getSellerItemsByUid(event.sellerUid)
         }
     }
 
@@ -134,6 +135,19 @@ class FeedViewModel @Inject constructor(
         }
     }
 
+    private fun getSellerItemsByUid(sellerUid: String) {
+        updateState {
+            copy(
+                query = query.copy(
+                    titleLike = null,
+                    category = null,
+                    uid = sellerUid
+                )
+            )
+        }
+    }
+
+
     private fun saveCategoryQuery(category: String) {
         val categoryEnum = Category.fromString(category)
 
@@ -156,6 +170,19 @@ class FeedViewModel @Inject constructor(
     }
 
 
+    private fun saveSearchQuery(searchQuery: String) {
+        updateState {
+            val initQuery = query.copy(
+                sortBy = "price",
+                sortDescending = false,
+                titleLike = searchQuery
+            )
+            copy(
+                query = initQuery
+            )
+        }
+    }
+
     private fun showSortBottomSheet() {
         updateState { copy(selectedSort = true) }
     }
@@ -170,19 +197,6 @@ class FeedViewModel @Inject constructor(
 
     private fun hideFilterBottomSheet() {
         updateState { copy(selectedFilter = false) }
-    }
-
-    private fun saveSearchQuery(searchQuery: String) {
-        updateState {
-            val initQuery = query.copy(
-                sortBy = "price",
-                sortDescending = false,
-                titleLike = searchQuery
-            )
-            copy(
-                query = initQuery
-            )
-        }
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)

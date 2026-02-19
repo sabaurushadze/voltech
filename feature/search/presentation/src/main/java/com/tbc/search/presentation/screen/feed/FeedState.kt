@@ -13,7 +13,8 @@ data class FeedState(
     val selectedFilter: Boolean = false,
     val selectedSortType: SortType = SortType.PRICE_LOWEST,
     val filterState: FilterSheetState = FilterSheetState(),
-    val initialCategoryConsumed: Boolean = false
+    val initialCategoryConsumed: Boolean = false,
+    val showNoConnectionError: Boolean = false,
 )
 
 data class FilterSheetState(

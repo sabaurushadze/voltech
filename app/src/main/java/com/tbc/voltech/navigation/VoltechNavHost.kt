@@ -123,13 +123,16 @@ fun VoltechNavHost(
             },
 
             navigateToSellerProfile = { sellerUid ->
-                navController.navigate(SellerProfileScreenRoute(sellerUid = sellerUid)){
+                navController.navigate(SellerProfileScreenRoute(sellerUid = sellerUid)) {
                     popUpTo(navController.graph.findStartDestination().id) {
                         saveState = true
                     }
                     launchSingleTop = true
                     restoreState = true
                 }
+            },
+            navigateToFeedWithUid = { sellerUid ->
+                navController.navigate(FeedScreenRoute(sellerUid = sellerUid))
             },
         )
 

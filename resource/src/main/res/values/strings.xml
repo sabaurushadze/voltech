@@ -25,6 +25,7 @@
     <string name="search">Search</string>
     <string name="profile">Profile</string>
     <string name="search_on_voltech">Search on Voltech</string>
+    <string name="store">Store</string>
 
     <string name="recent_searchs">Recent Searchs</string>
     <string name="didi_digohmi">Didi dighomi</string>
@@ -108,6 +109,7 @@
     <string name="profile_picture_deleted">Profile picture deleted</string>
     <string name="profile_picture_updated_successfully">Profile picture updated successfully</string>
     <string name="username">Username</string>
+    <string name="no_exact_matches_found">No exact matches found</string>
     <string name="username_update_failed">Username could not be updated</string>
     <string name="username_updated">Username updated</string>
     <string name="error_username_length">Username must be at least 2 letters and no more than 16 letters</string>
@@ -116,6 +118,7 @@
     <string name="categories">Categories</string>
     <string name="your_recently_viewed">Your recently viewed items</string>
     <string name="see_all">See all</string>
+    <string name="latest">Latest</string>
 
     <!--Recently viewed screen-->
     <string name="recently_viewed">Recently viewed</string>

@@ -19,6 +19,8 @@ interface FeedRepository {
 
     suspend fun getItemsByIds(ids: List<Int>): Resource<List<FeedItem>, DataError.Network>
     suspend fun getItemsByUid(uid: String): Resource<List<FeedItem>, DataError.Network>
+
+    suspend fun getLimitedItemsByUid(uid: String, limit: Int): Resource<List<FeedItem>, DataError.Network>
     suspend fun addItem(item: Item): Resource<Unit, DataError.Network>
     suspend fun deleteItem(id: Int): Resource<Unit, DataError.Network>
 }
