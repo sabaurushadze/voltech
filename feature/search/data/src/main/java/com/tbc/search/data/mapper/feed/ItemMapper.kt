@@ -14,7 +14,5 @@ internal fun Item.toDto() =
         quantity = quantity,
         location = location,
         userDescription = userDescription,
-        sellerName = sellerName,
-        sellerPhotoUrl = sellerPhotoUrl,
         active = active,
     )

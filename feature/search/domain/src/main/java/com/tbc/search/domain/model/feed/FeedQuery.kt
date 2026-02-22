@@ -1,6 +1,7 @@
 package com.tbc.search.domain.model.feed
 
 data class FeedQuery(
+    val uid: String? = null,
     val titleLike: String? = null,
     val category: List<String>? = null,
     val location: List<String>? = null,

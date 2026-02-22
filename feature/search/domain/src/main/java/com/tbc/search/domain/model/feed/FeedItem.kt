@@ -13,53 +13,17 @@ data class FeedItem(
     val quantity: Int,
     val location: Location,
     val userDescription: String,
-    val sellerName: String?,
-    val sellerPhotoUrl: String?,
     val active: Boolean,
 )
 
 
 enum class Condition {
-    NEW, USED, PARTS;
-
-    companion object {
-        fun fromString(value: String): Condition {
-            return when (value) {
-                "NEW" -> NEW
-                "USED" -> USED
-                "PARTS" -> PARTS
-                else -> NEW
-            }
-        }
-
-        fun toServerString(condition: Condition): String {
-            return when (condition) {
-                NEW -> "NEW"
-                USED -> "USED"
-                PARTS -> "PARTS"
-            }
-        }
-    }
-
+    NEW,
+    USED,
+    PARTS;
 }
 
 enum class Location {
-    DIDI_DIGHOMI, GLDANI;
-
-    companion object {
-        fun fromString(value: String): Location {
-            return when (value) {
-                "DIDI_DIGHOMI" -> DIDI_DIGHOMI
-                "GLDANI" -> GLDANI
-                else -> DIDI_DIGHOMI
-            }
-        }
-
-        fun toServerString(location: Location): String {
-            return when (location) {
-                DIDI_DIGHOMI -> "DIDI_DIGHOMI"
-                GLDANI -> "GLDANI"
-            }
-        }
-    }
+    DIDI_DIGHOMI,
+    GLDANI;
 }

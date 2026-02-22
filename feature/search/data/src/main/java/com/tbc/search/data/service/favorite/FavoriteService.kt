@@ -32,8 +32,8 @@ internal interface FavoriteService {
         private const val FAVORITES = "favorites"
         private const val UID = "uid"
         private const val SORT = "_sort"
-        private const val ORDER = "_order"
         private const val FAVORITE_AT = "favoriteAt"
+        private const val ORDER = "_order"
         private const val DESC = "desc"
     }
 }

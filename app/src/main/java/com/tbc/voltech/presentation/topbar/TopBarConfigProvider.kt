@@ -19,7 +19,9 @@ import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.WatchlistScreenRoute
 import com.tbc.resource.R
 import com.tbc.search.presentation.navigation.AddToCartScreenRoute
+import com.tbc.search.presentation.navigation.FeedBackScreenRoute
 import com.tbc.search.presentation.navigation.ItemDetailsScreenRoute
+import com.tbc.search.presentation.navigation.SellerProfileScreenRoute
 import com.tbc.selling.presentation.navigation.AddItemScreenRoute
 import com.tbc.selling.presentation.navigation.MyItemsScreenRoute
 import com.tbc.voltech.navigation.TopLevelDestination
@@ -31,6 +33,32 @@ fun getTopBarConfig(
     appState: AppState
 ): TopBarConfig? {
     return when {
+        currentDestination.isRouteInHierarchy(FeedBackScreenRoute::class) ->
+            TopBarConfig(
+                title = R.string.feedback,
+                showBackButton = true,
+                backButtonAction = { appState.navController.navigateUp() },
+                actions = listOf(
+                    TopBarAction(
+                        iconRes = R.drawable.ic_shopping_cart,
+                        onClick = { appState.navController.navigate(AddToCartScreenRoute) }
+                    )
+                )
+            )
+
+        currentDestination.isRouteInHierarchy(SellerProfileScreenRoute::class) ->
+            TopBarConfig(
+                title = R.string.store,
+                showBackButton = true,
+                backButtonAction = { appState.navController.navigateUp() },
+                actions = listOf(
+                    TopBarAction(
+                        iconRes = R.drawable.ic_shopping_cart,
+                        onClick = { appState.navController.navigate(AddToCartScreenRoute) }
+                    )
+                )
+            )
+
         currentDestination.isRouteInHierarchy(HomeScreenRoute::class) ->
             TopBarConfig(
                 searchContent = {

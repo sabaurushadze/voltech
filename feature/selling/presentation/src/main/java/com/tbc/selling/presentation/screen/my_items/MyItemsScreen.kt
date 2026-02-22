@@ -43,11 +43,6 @@ fun MyItemsScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     val pullToRefreshState = rememberPullToRefreshState()
 
-    LaunchedEffect(Unit) {
-        viewModel.onEvent(MyItemsEvent.GetMyItems)
-        viewModel.onEvent(MyItemsEvent.CanUserPostItems)
-    }
-
     viewModel.sideEffect.collectSideEffect { sideEffect ->
         when (sideEffect) {
             is MyItemsSideEffect.ShowSnackBar -> {
@@ -61,6 +56,10 @@ fun MyItemsScreen(
 
             is MyItemsSideEffect.NavigateToItemDetails -> navigateToItemDetails(sideEffect.id)
         }
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.onEvent(MyItemsEvent.GetMyItems)
     }
 
     if (state.showNoConnectionError) {

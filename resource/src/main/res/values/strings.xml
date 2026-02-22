@@ -25,6 +25,12 @@
     <string name="search">Search</string>
     <string name="profile">Profile</string>
     <string name="search_on_voltech">Search on Voltech</string>
+    <string name="store">Store</string>
+    <string name="feedback">Feedback</string>
+    <string name="all_feedback">All Feedback</string>
+    <string name="positive_feedback">Positive Feedback</string>
+    <string name="neutral_feedback">Neutral Feedback</string>
+    <string name="negative_feedback">Negative Feedback</string>
 
     <string name="recent_searchs">Recent Searchs</string>
     <string name="didi_digohmi">Didi dighomi</string>
@@ -77,6 +83,8 @@
     <string name="voltech_shopping_cart">Voltech shopping cart</string>
     <string name="description">Description</string>
     <string name="item_unavailable">This item is no longer available.</string>
+    <string name="newsest_reviews">Newest reviews</string>
+    <string name="oldest_reviews">Oldest reviews</string>
 
 
     <string name="select_app_theme">Select App Theme</string>
@@ -103,20 +111,25 @@
     <string name="take_photo">Take Photo</string>
     <string name="remove_photo">Remove Photo</string>
     <string name="see_in_cart">See in a cart</string>
+    <string name="seller_feedback">Seller feedback</string>
+    <string name="feedback_rating">Feedback rating</string>
 
     <string name="save">Save</string>
     <string name="delete_failed">Deletion failed</string>
     <string name="profile_picture_deleted">Profile picture deleted</string>
     <string name="profile_picture_updated_successfully">Profile picture updated successfully</string>
     <string name="username">Username</string>
+    <string name="no_exact_matches_found">No exact matches found</string>
     <string name="username_update_failed">Username could not be updated</string>
     <string name="username_updated">Username updated</string>
+    <string name="no_review">No review yet</string>
     <string name="error_username_length">Username must be at least 2 letters and no more than 16 letters</string>
 
     <!--Home screen-->
     <string name="categories">Categories</string>
     <string name="your_recently_viewed">Your recently viewed items</string>
     <string name="see_all">See all</string>
+    <string name="latest">Latest</string>
 
     <!--Recently viewed screen-->
     <string name="recently_viewed">Recently viewed</string>

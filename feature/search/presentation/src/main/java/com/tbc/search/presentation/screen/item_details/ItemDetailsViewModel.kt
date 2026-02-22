@@ -6,6 +6,7 @@ import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyUseCase
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.onFailure
 import com.tbc.core.domain.util.onSuccess
+import com.tbc.core.domain.util.toServerString
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.core.presentation.mapper.toStringResId
 import com.tbc.core.presentation.mapper.user.toPresentation
@@ -31,7 +32,7 @@ import com.tbc.search.presentation.mapper.review.toDomain
 import com.tbc.search.presentation.model.cart.UiCartItemRequest
 import com.tbc.search.presentation.model.favorite.UiFavoriteItemRequest
 import com.tbc.search.presentation.model.recently_viewed.UiRecentlyRequest
-import com.tbc.search.presentation.model.review.UiReviewRequest
+import com.tbc.search.presentation.model.review.request.UiReviewRequest
 import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.NavigateBackToFeed
 import com.tbc.search.presentation.screen.item_details.ItemDetailsSideEffect.ShowSnackBar
 import com.tbc.selling.domain.model.Rating
@@ -128,8 +129,9 @@ class ItemDetailsViewModel @Inject constructor(
                         itemId = itemDetails.id,
                         uid = itemDetails.uid,
                         reviewerUid = user.uid,
+                        reviewerUserName = user.name.orEmpty(),
                         comment = comment,
-                        rating = Rating.toServerString(selectedRating),
+                        rating = selectedRating.toServerString(),
                         title = itemDetails.title
                     ).toDomain()
 
@@ -140,7 +142,6 @@ class ItemDetailsViewModel @Inject constructor(
                 canUserLeaveReview()
 
             }
-
 
         }
     }

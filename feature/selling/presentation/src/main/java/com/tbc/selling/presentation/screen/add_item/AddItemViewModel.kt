@@ -168,14 +168,11 @@ class AddItemViewModel @Inject constructor(
                         quantity = quantity,
                         location = location,
                         userDescription = description,
-                        sellerName = currentUser.name,
-                        sellerPhotoUrl = currentUser.photoUrl,
                     ).toDomain()
 
                     addItemUseCase(item)
                         .onSuccess {
                             updateState { copy(isLoading = false) }
-                            //  aq vamatebt sellers sellerebis bazashi
                             addSeller()
                             emitSideEffect(AddItemSideEffect.NavigateBackToMyItems)
                         }

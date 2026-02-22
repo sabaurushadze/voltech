@@ -31,7 +31,7 @@ class MyItemsViewModel @Inject constructor(
 
     override fun onEvent(event: MyItemsEvent) {
         when (event) {
-            is MyItemsEvent.GetMyItems -> getMyItems()
+            is MyItemsEvent.GetMyItems -> getCurrentUser()
             is MyItemsEvent.NavigateToItemDetails -> navigateToItemDetails(event.id)
             MyItemsEvent.NavigateToAddItem -> navigateToAddItem()
             MyItemsEvent.CanUserPostItems -> checkUserItemAmount()
@@ -108,9 +108,9 @@ class MyItemsViewModel @Inject constructor(
     }
 
     private fun getMyItems() = viewModelScope.launch {
-        updateState { copy(isLoading = true) }
 
         state.value.user?.let { user ->
+            updateState { copy(isLoading = true) }
             getItemsByUidUseCase(user.uid)
                 .onSuccess { itemsDomain ->
                     updateState {
@@ -140,6 +140,11 @@ class MyItemsViewModel @Inject constructor(
     private fun getCurrentUser() = viewModelScope.launch {
         val currentUser = getCurrentUserUseCase()?.toPresentation()
         updateState { copy(user = currentUser) }
+
+        if (currentUser != null) {
+            checkUserItemAmount()
+            getMyItems()
+        }
     }
 
 }

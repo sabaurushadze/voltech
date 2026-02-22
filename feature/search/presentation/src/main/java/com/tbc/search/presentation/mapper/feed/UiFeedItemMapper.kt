@@ -20,8 +20,6 @@ fun FeedItem.toPresentation(): UiFeedItem {
         quantity = quantity.toString(),
         locationRes = location.toStringRes(),
         userDescription = userDescription,
-        sellerName = sellerName,
-        sellerPhotoUrl = sellerPhotoUrl,
         active = active
     )
 }

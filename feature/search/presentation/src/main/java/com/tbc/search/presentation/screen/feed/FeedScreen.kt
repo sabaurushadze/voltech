@@ -1,6 +1,7 @@
 package com.tbc.search.presentation.screen.feed
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -21,6 +22,7 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
@@ -37,15 +39,18 @@ import com.tbc.core_ui.components.item.FeedItemCard
 import com.tbc.core_ui.components.item.FeedItemPlaceholderCard
 import com.tbc.core_ui.components.loading.LoadingIcon
 import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
+import com.tbc.core_ui.screen.empty_state.EmptyState
 import com.tbc.core_ui.screen.internet.NoInternetConnection
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
-import com.tbc.search.presentation.components.feed.sheet.FilterBottomSheet
-import com.tbc.search.presentation.components.feed.sheet.SortBottomSheet
+import com.tbc.resource.R
+import com.tbc.search.presentation.components.feed.sheet.feed.FilterBottomSheet
+import com.tbc.search.presentation.components.feed.sheet.feed.SortBottomSheet
 import com.tbc.search.presentation.components.feed.topbar.FeedAppBar
 import com.tbc.search.presentation.enums.feed.SortType
 import com.tbc.search.presentation.model.feed.UiFeedItem
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -55,6 +60,7 @@ fun FeedScreen(
     navigateToItemDetails: (Int) -> Unit,
     query: String?,
     categoryQuery: String?,
+    sellerUid: String?
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -62,6 +68,7 @@ fun FeedScreen(
     val topAppBarScrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val onEvent = viewModel::onEvent
 
     val pagingItems = viewModel.feedPagingFlow.collectAsLazyPagingItems()
     val loadState = pagingItems.loadState
@@ -80,7 +87,7 @@ fun FeedScreen(
     LaunchedEffect(query) {
         query?.let {
             if (query.isNotEmpty()) {
-                viewModel.onEvent(FeedEvent.SaveSearchQuery(query))
+                onEvent(FeedEvent.SaveSearchQuery(query))
             }
         }
     }
@@ -88,8 +95,14 @@ fun FeedScreen(
     LaunchedEffect(categoryQuery) {
         if (state.query.category == null) {
             categoryQuery?.let { category ->
-                viewModel.onEvent(FeedEvent.SaveCategoryQuery(category))
+                onEvent(FeedEvent.SaveCategoryQuery(category))
             }
+        }
+    }
+
+    LaunchedEffect(sellerUid) {
+        sellerUid?.let {
+            onEvent(FeedEvent.GetSellerItemsByUid(sellerUid))
         }
     }
 
@@ -211,8 +224,20 @@ private fun FeedContent(
 
                     Spacer(modifier = Modifier.height(Dimen.size4))
                 }
+            } else if (pagingItems.loadState.refresh is LoadState.NotLoading && pagingItems.itemCount == 0) {
+                item {
+                    Box(
+                        modifier = Modifier
+                            .fillParentMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        EmptyState(
+                            title = stringResource(R.string.no_exact_matches_found),
+                            icon = R.drawable.ic_shopping_cart
+                        )
+                    }
+                }
             }
-
             items(
                 count = pagingItems.itemCount,
                 key = pagingItems.itemKey { it.id }

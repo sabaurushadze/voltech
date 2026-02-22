@@ -7,8 +7,8 @@ import com.tbc.core.domain.util.mapList
 import com.tbc.search.data.mapper.review.toDomain
 import com.tbc.search.data.mapper.review.toDto
 import com.tbc.search.data.service.review.ReviewService
-import com.tbc.search.domain.model.review.ReviewRequest
-import com.tbc.search.domain.model.review.ReviewResponse
+import com.tbc.search.domain.model.review.request.ReviewRequest
+import com.tbc.search.domain.model.review.response.ReviewResponse
 import com.tbc.search.domain.repository.review.ReviewRepository
 import javax.inject.Inject
 
@@ -20,6 +20,15 @@ internal class ReviewRepositoryImpl @Inject constructor(
     override suspend fun getReviews(uid: String): Resource<List<ReviewResponse>, DataError.Network> {
         return apiResponseHandler.safeApiCall {
             reviewService.getReviews(uid)
+        }.mapList { it.toDomain() }
+    }
+
+    override suspend fun getLimitedReviews(uid: String, limit: Int): Resource<List<ReviewResponse>, DataError.Network> {
+        return apiResponseHandler.safeApiCall {
+            reviewService.getLimitedReviews(
+                uid = uid,
+                limit = limit
+            )
         }.mapList { it.toDomain() }
     }
 

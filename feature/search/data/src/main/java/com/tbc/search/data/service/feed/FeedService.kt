@@ -15,6 +15,7 @@ import retrofit2.http.Query
 internal interface FeedService {
     @GET(ITEMS)
     suspend fun getItemsWithPagination(
+        @Query(UID) uid: String? = null,
         @Query(TITLE_LIKE) query: String? = null,
         @Query(CATEGORY, encoded = true) category: List<String>? = null,
         @Query(CONDITION, encoded = true) condition: List<String>? = null,
@@ -42,6 +43,14 @@ internal interface FeedService {
     suspend fun getItemsByUid(
         @Query(UID) uid: String,
         @Query(ACTIVE) active: Boolean = true,
+    ): Response<List<FeedItemResponseDto>>
+
+    @GET(ITEMS)
+    suspend fun getLimitedItemsByUid(
+        @Query(UID) uid: String,
+        @Query(SORT) sort: String = ID,
+        @Query(ORDER) order: String = DESC,
+        @Query(LIMIT) limit: Int
     ): Response<List<FeedItemResponseDto>>
 
     @POST(ITEMS)
@@ -74,6 +83,9 @@ internal interface FeedService {
         private const val PAGE = "_page"
         private const val PER_PAGE = "_per_page"
         private const val UID = "uid"
+        private const val LIMIT = "_limit"
+        private const val ID = "id"
+        private const val DESC = "desc"
         private const val ACTIVE = "active"
     }
 }

@@ -2,7 +2,7 @@ package com.tbc.search.domain.usecase.review
 
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.Resource
-import com.tbc.search.domain.model.review.ReviewRequest
+import com.tbc.search.domain.model.review.request.ReviewRequest
 import com.tbc.search.domain.repository.review.ReviewRepository
 import javax.inject.Inject
 

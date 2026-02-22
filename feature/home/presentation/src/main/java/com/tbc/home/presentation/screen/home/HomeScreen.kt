@@ -203,6 +203,7 @@ private fun RecentlyViewedItem(
         ) {
             images.firstOrNull()?.let { firstImageUrl ->
                 BaseAsyncImage(
+                    modifier = Modifier.align (Alignment.Center),
                     url = firstImageUrl,
                 )
             }

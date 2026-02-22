@@ -1,4 +1,4 @@
-package com.tbc.search.presentation.components.feed.sheet
+package com.tbc.search.presentation.components.feed.sheet.review
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -51,7 +51,7 @@ fun ReviewBottomSheet(
     state: ItemDetailsState,
     onEvent: (ItemDetailsEvent) -> Unit,
 ) {
-    val descriptionError =
+    val commentError =
         if (state.showDescriptionError) stringResource(R.string.enter_valid_feedback) else null
 
     Column(
@@ -91,7 +91,7 @@ fun ReviewBottomSheet(
                 onTextChanged = { onEvent(ItemDetailsEvent.DescriptionChanged(it)) },
                 label = stringResource(R.string.item_feedback),
                 shape = VoltechRadius.radius8,
-                errorText = descriptionError,
+                errorText = commentError,
                 imeAction = ImeAction.Done,
                 keyboardType = KeyboardType.Text,
                 endIcon = {
@@ -118,7 +118,9 @@ fun ReviewBottomSheet(
                 .padding(Dimen.size16),
             text = stringResource(R.string.submit_review),
             onClick = {
-                onEvent(ItemDetailsEvent.HideReviewSheet)
+                if(state.comment.isNotBlank()){
+                    onEvent(ItemDetailsEvent.HideReviewSheet)
+                }
                 onEvent(ItemDetailsEvent.SubmitReview)
             }
         )

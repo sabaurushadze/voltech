@@ -8,6 +8,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
 import com.tbc.core_ui.R
 
@@ -130,6 +131,14 @@ data class VoltechTypography(
     val bodyBold: TextStyle = TextStyle(
         fontSize = VoltechFontSize.body,
         fontWeight = VoltechFontWeight.W600,
+        letterSpacing = VoltechLetterSpacing.none,
+        lineHeight = VoltechLineHeight.lineHeight250,
+        fontFamily = MarketSans,
+    ),
+    val bodyUnderLine: TextStyle = TextStyle(
+        fontSize = VoltechFontSize.body,
+        fontWeight = VoltechFontWeight.W400,
+        textDecoration = TextDecoration.Underline,
         letterSpacing = VoltechLetterSpacing.none,
         lineHeight = VoltechLineHeight.lineHeight250,
         fontFamily = MarketSans,
