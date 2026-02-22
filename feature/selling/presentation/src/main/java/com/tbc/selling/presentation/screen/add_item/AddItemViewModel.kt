@@ -1,6 +1,5 @@
 package com.tbc.selling.presentation.screen.add_item
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.model.category.Category
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
@@ -98,7 +97,6 @@ class AddItemViewModel @Inject constructor(
                         addSellerUseCase(seller = sellerDomain)
                     }
                 }
-                .onFailure { d("asdd", "onfailure getsellers $it") }
         }
     }
 

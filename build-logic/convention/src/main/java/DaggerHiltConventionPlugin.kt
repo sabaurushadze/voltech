@@ -12,6 +12,8 @@ class DaggerHiltConventionPlugin : Plugin<Project> {
 
             dependencies {
                 add("ksp",libs.findLibrary("hilt.compiler").get())
+
+                add("ksp", libs.findLibrary("androidx.hilt.work.compiler").get())
             }
 
 
@@ -26,6 +28,8 @@ class DaggerHiltConventionPlugin : Plugin<Project> {
                 apply(plugin = "dagger.hilt.android.plugin")
                 dependencies {
                     add("implementation",libs.findLibrary("hilt.android").get())
+
+                    add("implementation", libs.findLibrary("androidx.hilt.work").get())
                 }
             }
         }

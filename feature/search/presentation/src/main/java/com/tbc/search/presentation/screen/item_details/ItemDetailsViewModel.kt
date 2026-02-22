@@ -1,6 +1,5 @@
 package com.tbc.search.presentation.screen.item_details
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.recently_viewed.AddRecentlyItemUseCase
 import com.tbc.core.domain.usecase.recently_viewed.GetRecentlyUseCase
@@ -276,7 +275,7 @@ class ItemDetailsViewModel @Inject constructor(
     }
 
     private fun canUserLeaveReview() = viewModelScope.launch {
-        with (state.value) {
+        with(state.value) {
             itemDetails?.let { itemDetails ->
                 getReviewByUidUseCase(itemId = itemDetails.id, uid = user.uid)
                     .onSuccess { reviews ->
@@ -312,16 +311,18 @@ class ItemDetailsViewModel @Inject constructor(
                             totalFeedback = totalFeedback
                         )
 
-                        val isSellingItemMine =  canGiveFeedbackUseCase(
+                        val isSellingItemMine = canGiveFeedbackUseCase(
                             sellerUid = seller.uid,
                             currentUid = state.value.user.uid
                         )
 
-                        updateState { copy(seller = updatedSeller, canGiveFeedback = isSellingItemMine) }
+                        updateState {
+                            copy(
+                                seller = updatedSeller,
+                                canGiveFeedback = isSellingItemMine
+                            )
+                        }
                     }
-                }
-                .onFailure {
-                    d("asdd", "failure message getSeller() $it")
                 }
         }
 
