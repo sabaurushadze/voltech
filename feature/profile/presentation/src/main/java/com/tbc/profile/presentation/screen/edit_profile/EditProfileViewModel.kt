@@ -1,7 +1,6 @@
 package com.tbc.profile.presentation.screen.edit_profile
 
 import android.net.Uri
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.onFailure
@@ -138,34 +137,33 @@ class EditProfileViewModel @Inject constructor(
     }
 
     private fun updateProfileImage(uri: Uri?) = viewModelScope.launch {
-        updateState { copy(isLoading = true) }
 
         state.value.selectedImageUri?.let {
-            enqueueFileUploadUseCase(uri.toString())
-                .onSuccess { newUrl ->
-                    updateState { copy(selectedImageUri = null) }
+            state.value.seller?.let { seller ->
 
-                    updateProfilePictureUseCase(newUrl)
-                        .onSuccess {
-                            state.value.seller?.let { seller ->
-                                val updatedSeller = SellerProfile(
-                                    sellerPhotoUrl = newUrl,
-                                    id = seller.id,
-                                    sellerName = seller.sellerName
-                                )
+                updateState { copy(isLoading = true) }
 
-                                updateSellerProfileUseCase(updatedSeller)
-                            }
+                enqueueFileUploadUseCase(
+                    uri = uri.toString(),
+                    userId = seller.id,
+                    userName = state.value.userName,
+                )
+                    .onSuccess {
 
-                            emitSideEffect(
-                                EditProfileSideEffect.ShowSnackBar(
-                                    R.string.profile_picture_updated_successfully
-                                )
+                        updateState { copy(selectedImageUri = null, isLoading = false) }
+                        emitSideEffect(
+                            EditProfileSideEffect.ShowSnackBar(
+                                R.string.profile_picture_updated_successfully
                             )
-                            updateState { copy(isLoading = false) }
-                            getCurrentUser()
-                        }
-                }
+                        )
+                        getCurrentUser()
+                    }
+                    .onFailure {
+                        updateState { copy(selectedImageUri = null, isLoading = false) }
+
+                    }
+            }
+
         }
     }
 
@@ -186,9 +184,6 @@ class EditProfileViewModel @Inject constructor(
                     seller?.let {
                         updateState { copy(seller = seller) }
                     }
-                }
-                .onFailure {
-                    d("asdd", "failure message getSeller() $it")
                 }
         }
 

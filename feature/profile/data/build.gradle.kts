@@ -10,12 +10,14 @@ android {
 
 dependencies {
     implementation(projects.feature.profile.domain)
+    implementation(projects.feature.selling.domain)
 
     implementation(projects.core.domain)
     implementation(projects.core.data)
 
     implementation(libs.androidx.hilt.work)
     implementation(libs.androidx.work.runtime)
+    ksp(libs.androidx.hilt.work.compiler)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)

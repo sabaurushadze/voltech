@@ -14,7 +14,7 @@
       "userDescription": "123",
       "sellerName": "gpu var",
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
-      "active": true,
+      "active": false,
       "id": 1
     },
     {
@@ -31,7 +31,7 @@
       "userDescription": "asd",
       "sellerName": "gpu var",
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
-      "active": true,
+      "active": false,
       "id": 2
     },
     {
@@ -48,7 +48,7 @@
       "userDescription": "123",
       "sellerName": "gpu var",
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
-      "active": true,
+      "active": false,
       "id": 3
     },
     {
@@ -65,7 +65,7 @@
       "userDescription": "asd",
       "sellerName": "gpu var",
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
-      "active": true,
+      "active": false,
       "id": 4
     },
     {
@@ -84,6 +84,77 @@
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/886dd609-de97-4210-89fc-ffd279da37e0jpg?alt=media&token=322d7e75-7cd0-4b23-af6d-d9ba0e96dc88",
       "active": true,
       "id": 5
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "title": "ga",
+      "category": "CPU",
+      "condition": "NEW",
+      "price": 123,
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/39745b70-0afc-4d07-80b6-7af2afd2818b.jpg?alt=media&token=1e127628-0586-4175-8f69-ae4e52c880be",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/4308b51c-1a38-41b3-9ff2-553a8b855bf2.jpg?alt=media&token=cdd40a6d-f306-41da-ae83-6fe3957d42cd"
+      ],
+      "quantity": 1,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "123",
+      "sellerName": "gpu var",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/1c084f37-bf64-428a-bcbb-25129e3d9096.jpg?alt=media&token=8a89a800-8363-47cc-919e-9df54ac1f704",
+      "active": true,
+      "id": 6
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "title": "ara",
+      "category": "GPU",
+      "condition": "NEW",
+      "price": 123,
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/e4c6e10b-0c79-43a9-8967-7e7e9f2cb738.jpg?alt=media&token=3e78acb5-d359-4f50-b28e-2eb5f9346a9e"
+      ],
+      "quantity": 90,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "ki",
+      "sellerName": "gpu var",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/5476b459-b4a7-40d2-b492-119134f004c7.jpg?alt=media&token=e13ba0d1-e69e-4e88-99bf-fe9443b19062",
+      "active": true,
+      "id": 7
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "title": "asd",
+      "category": "GPU",
+      "condition": "NEW",
+      "price": 123,
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/c595fc9f-1520-4361-bb24-bb412a3e8e19.jpg?alt=media&token=afc3b0d9-0b93-4d9f-8239-31508744ac71",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/f243de62-9238-44a5-9961-44cfb84dbae8.jpg?alt=media&token=7260f442-3960-44c7-b48c-b4a4b96128ce"
+      ],
+      "quantity": 123,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "123",
+      "sellerName": "gpu var",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/5476b459-b4a7-40d2-b492-119134f004c7.jpg?alt=media&token=e13ba0d1-e69e-4e88-99bf-fe9443b19062",
+      "active": false,
+      "id": 8
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "title": "12",
+      "category": "GPU",
+      "condition": "USED",
+      "price": 123,
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/02cb09c7-bd5b-4956-b1eb-eaaba1b3e729.jpg?alt=media&token=7318f85f-8ca2-4860-84f7-745a374b164e",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/a3f34900-efcd-43ed-b43f-0676d63e2c42.jpg?alt=media&token=b937e9be-c9d8-4721-9426-ea65e1037bd3"
+      ],
+      "quantity": 123,
+      "location": "DIDI_DIGHOMI",
+      "userDescription": "23",
+      "sellerName": "gpu var",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/729d8a8f-fe80-4752-b5d4-65930fd9e38a.jpg?alt=media&token=a2c48ee9-94cd-4b3f-9f3c-218d17a67b84",
+      "active": true,
+      "id": 9
     }
   ],
   "categories": [
@@ -191,6 +262,24 @@
       "itemId": 5,
       "viewedAt": "2026-02-19T19:42:45.074082Z",
       "id": 25
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 4,
+      "viewedAt": "2026-02-22T17:42:51.990811Z",
+      "id": 26
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 6,
+      "viewedAt": "2026-02-22T18:28:10.601838Z",
+      "id": 27
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 7,
+      "viewedAt": "2026-02-22T18:57:06.224586Z",
+      "id": 28
     }
   ],
   "cart": [
@@ -275,7 +364,7 @@
       "positive": 248,
       "neutral": 13,
       "negative": 79,
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
+      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/729d8a8f-fe80-4752-b5d4-65930fd9e38a.jpg?alt=media&token=a2c48ee9-94cd-4b3f-9f3c-218d17a67b84",
       "sellerName": "gpu var",
       "id": 1
     },

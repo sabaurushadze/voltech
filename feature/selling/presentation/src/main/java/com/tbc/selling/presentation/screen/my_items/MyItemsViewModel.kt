@@ -1,6 +1,5 @@
 package com.tbc.selling.presentation.screen.my_items
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.DataError
@@ -64,8 +63,6 @@ class MyItemsViewModel @Inject constructor(
 
         mySelectedItemIds.forEach { id ->
             updateItemStatusUseCase(id = id, itemStatus = UiItemStatus(active = false).toDomain())
-                .onSuccess { d("asdd", "SCAHUSDHAUSD$it") }
-                .onFailure { d("asdd", "FAAAILL$it") }
         }
 
         getMyItems()
