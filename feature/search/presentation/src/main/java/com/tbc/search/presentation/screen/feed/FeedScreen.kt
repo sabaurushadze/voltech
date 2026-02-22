@@ -1,6 +1,7 @@
 package com.tbc.search.presentation.screen.feed
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -21,6 +22,7 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
@@ -42,12 +44,12 @@ import com.tbc.core_ui.screen.internet.NoInternetConnection
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
-import com.tbc.search.presentation.components.feed.sheet.FilterBottomSheet
-import com.tbc.search.presentation.components.feed.sheet.SortBottomSheet
+import com.tbc.resource.R
+import com.tbc.search.presentation.components.feed.sheet.feed.FilterBottomSheet
+import com.tbc.search.presentation.components.feed.sheet.feed.SortBottomSheet
 import com.tbc.search.presentation.components.feed.topbar.FeedAppBar
 import com.tbc.search.presentation.enums.feed.SortType
 import com.tbc.search.presentation.model.feed.UiFeedItem
-import com.tbc.resource.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -224,10 +226,16 @@ private fun FeedContent(
                 }
             } else if (pagingItems.loadState.refresh is LoadState.NotLoading && pagingItems.itemCount == 0) {
                 item {
-                    EmptyState(
-                        title = stringResource(R.string.no_exact_matches_found),
-                        icon = R.drawable.ic_shopping_cart
-                    )
+                    Box(
+                        modifier = Modifier
+                            .fillParentMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        EmptyState(
+                            title = stringResource(R.string.no_exact_matches_found),
+                            icon = R.drawable.ic_shopping_cart
+                        )
+                    }
                 }
             }
             items(

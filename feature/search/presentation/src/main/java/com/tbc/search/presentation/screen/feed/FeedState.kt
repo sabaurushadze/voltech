@@ -7,7 +7,7 @@ import com.tbc.search.domain.model.feed.Location
 import com.tbc.search.presentation.enums.feed.SortType
 
 data class FeedState(
-    val query: FeedQuery = FeedQuery(),
+    val query: FeedQuery = FeedQuery(sortBy = "price"),
     val isLoading: Boolean = false,
     val selectedSort: Boolean = false,
     val selectedFilter: Boolean = false,

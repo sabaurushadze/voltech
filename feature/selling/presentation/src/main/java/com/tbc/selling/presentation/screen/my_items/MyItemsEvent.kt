@@ -14,6 +14,4 @@ sealed class MyItemsEvent {
     data object DeleteFavoriteItemById : MyItemsEvent()
     data class ToggleItemForDeletion(val id: Int) : MyItemsEvent()
 
-
-
 }

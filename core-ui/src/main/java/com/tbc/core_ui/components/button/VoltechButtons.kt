@@ -2,6 +2,8 @@ package com.tbc.core_ui.components.button
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -17,7 +19,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults.iconButtonColors
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,6 +35,7 @@ import androidx.compose.ui.unit.Dp
 import com.tbc.core_ui.theme.Dimen
 import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
+import com.tbc.core_ui.theme.VoltechFixedColor
 import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.core_ui.theme.VoltechTheme
@@ -72,6 +77,86 @@ fun PrimaryIconButton(
 
     }
 }
+
+@Composable
+fun PrimaryDoubleIconButton(
+    modifier: Modifier = Modifier,
+    leftText: String,
+    rightText: String,
+    @DrawableRes leftIcon: Int,
+    @DrawableRes rightIcon: Int,
+    enabled: Boolean = true,
+    leftOnClick: () -> Unit,
+    rightOnClick: () -> Unit
+) {
+    Surface(
+        modifier = modifier,
+        shape = VoltechRadius.radius24,
+        color = VoltechColor.foregroundAccent,
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // LEFT SIDE
+            Row(modifier = Modifier
+                .clickable(enabled = enabled) { leftOnClick() }
+                .padding(
+                    horizontal = Dimen.size16,
+                    vertical = Dimen.size12
+                ),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center) {
+                Icon(
+                    modifier = Modifier.size(Dimen.size16),
+                    imageVector = ImageVector.vectorResource(leftIcon),
+                    contentDescription = null,
+                    tint = VoltechFixedColor.white
+                )
+
+                Spacer(Modifier.width(Dimen.size6))
+
+                Text(
+                    text = leftText,
+                    style = VoltechTextStyle.bodyBold,
+                    color = VoltechFixedColor.white
+                )
+            }
+
+
+            VerticalDivider(
+                modifier = Modifier.height(Dimen.size24),
+                color = VoltechFixedColor.white,
+                thickness = Dimen.size2
+            )
+
+            // RIGHT SIDE
+            Row(modifier = Modifier
+                .clickable(enabled = enabled) { rightOnClick() }
+                .padding(
+                    horizontal = Dimen.size16,
+                    vertical = Dimen.size12
+                ),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center) {
+                Icon(
+                    modifier = Modifier.size(Dimen.size16),
+                    imageVector = ImageVector.vectorResource(rightIcon),
+                    contentDescription = null,
+                    tint = VoltechFixedColor.white
+                )
+
+                Spacer(Modifier.width(Dimen.size6))
+
+                Text(
+                    text = rightText,
+                    style = VoltechTextStyle.bodyBold,
+                    color = VoltechFixedColor.white
+                )
+            }
+            }
+        }
+}
+
 
 @Composable
 fun SecondaryIconButton(
@@ -208,8 +293,8 @@ fun BorderlessIconButton(
 @Composable
 fun PrimaryButton(
     modifier: Modifier = Modifier,
-    text: String,
-    enabled: Boolean = true,
+    text: String, enabled:
+    Boolean = true,
     onClick: () -> Unit
 ) {
     BaseFilledButton(
@@ -230,8 +315,8 @@ fun PrimaryButton(
 @Composable
 fun SecondaryButton(
     modifier: Modifier = Modifier,
-    text: String,
-    enabled: Boolean = true,
+    text: String, enabled:
+    Boolean = true,
     onClick: () -> Unit
 ) {
     BaseOutlinedButton(
@@ -255,7 +340,10 @@ fun TertiaryButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
-    border: BorderStroke = BorderStroke(VoltechBorder.medium, VoltechColor.foregroundPrimary),
+    border: BorderStroke = BorderStroke(
+        VoltechBorder.medium,
+        VoltechColor.foregroundPrimary
+    ),
     onClick: () -> Unit
 ) {
     BaseOutlinedButton(
@@ -300,12 +388,12 @@ fun BorderlessButton(
 @Composable
 fun CircleIconButton(
     modifier: Modifier = Modifier,
-    onClick : () -> Unit,
+    onClick: () -> Unit,
     @DrawableRes iconRes: Int,
     size: Dp,
     iconColor: Color,
     backgroundColor: Color,
-){
+) {
     IconButton(
         onClick = onClick,
         modifier = modifier
@@ -327,13 +415,13 @@ fun CircleIconButton(
 @Composable
 fun TertiaryCircleIconButton(
     modifier: Modifier = Modifier,
-    onClick : () -> Unit,
+    onClick: () -> Unit,
     @DrawableRes icon: Int,
     enabled: Boolean = true,
     size: Dp,
     iconColor: Color,
     backgroundColor: Color,
-){
+) {
     IconButton(
         onClick = onClick,
         enabled = enabled,
@@ -406,7 +494,7 @@ fun PrimaryButtonPreview() {
                 enabled = true,
                 onClick = {}
             )
-            SecondaryButton (
+            SecondaryButton(
                 text = "Buy it now",
                 enabled = true,
                 onClick = {}
@@ -421,31 +509,36 @@ fun PrimaryButtonPreview() {
                 enabled = true,
                 onClick = {}
             )
-            PrimaryIconButton (
+            PrimaryIconButton(
                 text = "Buy it now",
                 enabled = true,
                 icon = R.drawable.ic_outlined_heart,
-                onClick = {}
+                onClick = {})
+            PrimaryDoubleIconButton(
+                leftText = "Sort",
+                rightText = "Filter",
+                enabled = true,
+                leftIcon = R.drawable.ic_sort,
+                rightIcon = R.drawable.ic_filter,
+                leftOnClick = {},
+                rightOnClick = {},
             )
             SecondaryIconButton(
                 text = "Buy it now",
                 enabled = true,
                 icon = R.drawable.ic_outlined_heart,
-                onClick = {}
-            )
+                onClick = {})
             BorderlessIconButton(
                 text = "Buy it now",
                 enabled = true,
                 icon = R.drawable.ic_outlined_heart,
-                onClick = {}
-            )
+                onClick = {})
             TertiaryIconButton(
                 text = "Buy it now",
                 enabled = true,
                 icon = R.drawable.ic_outlined_heart,
                 errorText = "Please select at least one image",
-                onClick = {}
-            )
+                onClick = {})
         }
     }
 }

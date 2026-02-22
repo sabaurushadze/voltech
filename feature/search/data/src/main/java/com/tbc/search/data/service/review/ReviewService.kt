@@ -17,17 +17,25 @@ internal interface ReviewService {
     ): Response<List<ReviewResponseDto>>
 
     @GET(REVIEWS)
+    suspend fun getLimitedReviews(
+        @Query(UID) uid: String,
+        @Query(SORT) sort: String = VIEWED_AT,
+        @Query(ORDER) order: String = DESC,
+        @Query(LIMIT) limit: Int
+    ): Response<List<ReviewResponseDto>>
+
+    @GET(REVIEWS)
     suspend fun getReviewsByReviewUid(
         @Query(REVIEWER_UID) uid: String,
         @Query(ITEM_ID) itemId: Int,
         @Query(SORT) sort: String = VIEWED_AT,
         @Query(ORDER) order: String = DESC,
     ): Response<List<ReviewResponseDto>>
+
     @POST(REVIEWS)
     suspend fun addReview(
         @Body reviewRequestDto: ReviewRequestDto
     ): Response<Unit>
-
 
 
     companion object{
@@ -39,5 +47,6 @@ internal interface ReviewService {
         private const val ORDER = "_order"
         private const val VIEWED_AT = "reviewAt"
         private const val DESC = "desc"
+        private const val LIMIT = "_limit"
     }
 }

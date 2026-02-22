@@ -1,4 +1,4 @@
-package com.tbc.search.presentation.components.feed.sheet
+package com.tbc.search.presentation.components.feed.sheet.feed
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

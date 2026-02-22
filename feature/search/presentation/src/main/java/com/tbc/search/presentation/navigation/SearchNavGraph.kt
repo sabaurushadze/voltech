@@ -7,6 +7,7 @@ import androidx.navigation.navigation
 import androidx.navigation.toRoute
 import com.tbc.search.presentation.screen.add_to_cart.AddToCartScreen
 import com.tbc.search.presentation.screen.feed.FeedScreen
+import com.tbc.search.presentation.screen.feedback.FeedBackScreen
 import com.tbc.search.presentation.screen.item_details.ItemDetailsScreen
 import com.tbc.search.presentation.screen.search.SearchScreen
 import com.tbc.search.presentation.screen.seler_profile.SellerProfileScreen
@@ -20,7 +21,8 @@ fun NavGraphBuilder.searchNavGraph(
     navigateBack: () -> Unit,
     navigateToAddToCart: () -> Unit,
     navigateToSellerProfile: (String) -> Unit,
-    navigateToFeedWithUid: (String) -> Unit
+    navigateToFeedWithUid: (String) -> Unit,
+    navigateToFeedback: (String) -> Unit
 ) {
 
     navigation<SearchNavGraphRoute>(startDestination = SearchScreenRoute) {
@@ -62,13 +64,29 @@ fun NavGraphBuilder.searchNavGraph(
 
         composable<SellerProfileScreenRoute> { backStackEntry ->
             val route = backStackEntry.toRoute<SellerProfileScreenRoute>()
+
             SellerProfileScreen(
                 sellerUid = route.sellerUid,
                 navigateToFeedWithUid = navigateToFeedWithUid,
+                navigateToItemDetails = navigateToItemDetails,
+                navigateToFeedback = navigateToFeedback
+            )
+        }
+
+        composable<FeedBackScreenRoute> { backStackEntry ->
+            val route = backStackEntry.toRoute<SellerProfileScreenRoute>()
+
+            FeedBackScreen(
+                sellerUid = route.sellerUid,
+                navigateToItemDetails = navigateToItemDetails
             )
         }
     }
 }
+
+@Serializable
+data class FeedBackScreenRoute(val sellerUid: String)
+
 @Serializable
 data class SellerProfileScreenRoute(val sellerUid: String)
 

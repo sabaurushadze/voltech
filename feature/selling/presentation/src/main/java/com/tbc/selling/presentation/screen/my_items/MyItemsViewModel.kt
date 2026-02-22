@@ -1,6 +1,5 @@
 package com.tbc.selling.presentation.screen.my_items
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.DataError
@@ -32,7 +31,7 @@ class MyItemsViewModel @Inject constructor(
 
     override fun onEvent(event: MyItemsEvent) {
         when (event) {
-            is MyItemsEvent.GetMyItems -> getMyItems()
+            is MyItemsEvent.GetMyItems -> getCurrentUser()
             is MyItemsEvent.NavigateToItemDetails -> navigateToItemDetails(event.id)
             MyItemsEvent.NavigateToAddItem -> navigateToAddItem()
             MyItemsEvent.CanUserPostItems -> checkUserItemAmount()
@@ -64,8 +63,6 @@ class MyItemsViewModel @Inject constructor(
 
         mySelectedItemIds.forEach { id ->
             updateItemStatusUseCase(id = id, itemStatus = UiItemStatus(active = false).toDomain())
-                .onSuccess { d("asdd", "SCAHUSDHAUSD$it") }
-                .onFailure { d("asdd", "FAAAILL$it") }
         }
 
         getMyItems()
@@ -111,9 +108,9 @@ class MyItemsViewModel @Inject constructor(
     }
 
     private fun getMyItems() = viewModelScope.launch {
-        updateState { copy(isLoading = true) }
 
         state.value.user?.let { user ->
+            updateState { copy(isLoading = true) }
             getItemsByUidUseCase(user.uid)
                 .onSuccess { itemsDomain ->
                     updateState {
@@ -143,6 +140,11 @@ class MyItemsViewModel @Inject constructor(
     private fun getCurrentUser() = viewModelScope.launch {
         val currentUser = getCurrentUserUseCase()?.toPresentation()
         updateState { copy(user = currentUser) }
+
+        if (currentUser != null) {
+            checkUserItemAmount()
+            getMyItems()
+        }
     }
 
 }

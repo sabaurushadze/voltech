@@ -189,10 +189,12 @@ data class VoltechFixedColors(
     val black: Color = Color.Unspecified,
     val white: Color = Color.Unspecified,
     val lightGray: Color = Color.Unspecified,
+    val gray: Color = Color.Unspecified,
 )
 
 internal val fixedVoltechColors = VoltechFixedColors(
     black = Color(0xFF000000),
     white = Color(0xFFFFFFFF),
     lightGray = Color(0xFFF3F1F1),
+    gray = Color(0xFF8F8F8F),
 )

@@ -244,27 +244,29 @@ private fun ThumbnailBar(
     ) {
 
         itemsIndexed(imagesList) { index, _ ->
+            if(imagesList.size > 1){
+                val distance = kotlin.math.abs(index - currentPosition)
 
-            val distance = kotlin.math.abs(index - currentPosition)
+                val size = when (distance) {
+                    0 -> Dimen.size10
+                    1 -> Dimen.size8
+                    else -> Dimen.size6
+                }
 
-            val size = when (distance) {
-                0 -> Dimen.size10
-                1 -> Dimen.size8
-                else -> Dimen.size6
+                val alpha = when (distance) {
+                    0 -> 1f
+                    1 -> 0.7f
+                    else -> 0.4f
+                }
+
+                Box(
+                    modifier = Modifier
+                        .size(size)
+                        .clip(CircleShape)
+                        .background(VoltechFixedColor.white.copy(alpha = alpha))
+                )
             }
 
-            val alpha = when (distance) {
-                0 -> 1f
-                1 -> 0.7f
-                else -> 0.4f
-            }
-
-            Box(
-                modifier = Modifier
-                    .size(size)
-                    .clip(CircleShape)
-                    .background(VoltechFixedColor.white.copy(alpha = alpha))
-            )
         }
     }
 
@@ -294,7 +296,7 @@ private fun ImagePager(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(Dimen.size300)
-                    .background(VoltechColor.backgroundPrimary),
+                    .background(VoltechFixedColor.lightGray),
             ) {
                 BaseAsyncImage(
                     modifier = Modifier

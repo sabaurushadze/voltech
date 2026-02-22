@@ -16,6 +16,7 @@ import com.tbc.profile.presentation.navigation.SettingsScreenRoute
 import com.tbc.profile.presentation.navigation.WatchlistScreenRoute
 import com.tbc.profile.presentation.navigation.profileNavGraph
 import com.tbc.search.presentation.navigation.AddToCartScreenRoute
+import com.tbc.search.presentation.navigation.FeedBackScreenRoute
 import com.tbc.search.presentation.navigation.FeedScreenRoute
 import com.tbc.search.presentation.navigation.ItemDetailsScreenRoute
 import com.tbc.search.presentation.navigation.SearchScreenRoute
@@ -111,9 +112,10 @@ fun VoltechNavHost(
                 navController.navigate(SearchScreenRoute)
             },
             navigateToItemDetails = { id ->
-                navController.navigate(ItemDetailsScreenRoute(id)) {
-                    popUpTo(ItemDetailsScreenRoute(id)) { inclusive = true }
-                }
+                navController.navigate(ItemDetailsScreenRoute(id))
+//                navController.navigate(ItemDetailsScreenRoute(id)) {
+//                    popUpTo(ItemDetailsScreenRoute(id)) { inclusive = true }
+//                }
             },
             navigateBack = { navController.navigateUp() },
             navigateToAddToCart = {
@@ -123,10 +125,16 @@ fun VoltechNavHost(
             },
 
             navigateToSellerProfile = { sellerUid ->
-                navController.navigate(SellerProfileScreenRoute(sellerUid))
+//                navController.navigate(SellerProfileScreenRoute(sellerUid))
+                navController.navigate(SellerProfileScreenRoute(sellerUid)) {
+                    popUpTo(SellerProfileScreenRoute(sellerUid)) { inclusive = true }
+                }
             },
             navigateToFeedWithUid = { sellerUid ->
                 navController.navigate(FeedScreenRoute(sellerUid = sellerUid))
+            },
+            navigateToFeedback = { sellerUid ->
+                navController.navigate(FeedBackScreenRoute(sellerUid))
             },
         )
 

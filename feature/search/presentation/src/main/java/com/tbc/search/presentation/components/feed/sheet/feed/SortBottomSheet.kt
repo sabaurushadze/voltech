@@ -1,4 +1,4 @@
-package com.tbc.search.presentation.components.feed.sheet
+package com.tbc.search.presentation.components.feed.sheet.feed
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable

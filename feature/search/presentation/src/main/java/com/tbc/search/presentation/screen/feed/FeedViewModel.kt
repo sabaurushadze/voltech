@@ -5,6 +5,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
 import com.tbc.core.domain.model.category.Category
+import com.tbc.core.domain.util.enumValueOfOrNull
 import com.tbc.core.presentation.base.BaseViewModel
 import com.tbc.search.domain.model.feed.Condition
 import com.tbc.search.domain.model.feed.Location
@@ -149,23 +150,25 @@ class FeedViewModel @Inject constructor(
 
 
     private fun saveCategoryQuery(category: String) {
-        val categoryEnum = Category.fromString(category)
+        val categoryEnum = enumValueOfOrNull<Category>(category)
 
-        updateState {
-            if (initialCategoryConsumed) return@updateState this
+        categoryEnum?.let {
+            updateState {
+                if (initialCategoryConsumed) return@updateState this
 
-            val updatedQuery = query.copy(
-                titleLike = null,
-                category = listOf(categoryEnum.name)
-            )
+                val updatedQuery = query.copy(
+                    titleLike = null,
+                    category = listOf(categoryEnum.name)
+                )
 
-            copy(
-                query = updatedQuery,
-                filterState = filterState.copy(
-                    selectedCategories = setOf(categoryEnum)
-                ),
-                initialCategoryConsumed = true
-            )
+                copy(
+                    query = updatedQuery,
+                    filterState = filterState.copy(
+                        selectedCategories = setOf(categoryEnum)
+                    ),
+                    initialCategoryConsumed = true
+                )
+            }
         }
     }
 

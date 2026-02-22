@@ -1,89 +1,20 @@
 {
   "items": [
     {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "title": "123",
-      "category": "CPU",
-      "condition": "NEW",
-      "price": 123,
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "title": "FDSF",
+      "category": "MOTHERBOARD",
+      "condition": "USED",
+      "price": 1212,
       "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/338544ed-c405-49c0-92a4-665c4168b0cajpg?alt=media&token=71033d56-49c2-4e7f-af8a-ab59b59b8e37"
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/fcc67e25-ba96-46e4-9639-f69ec018a616jpg?alt=media&token=67f898b7-6627-4d4e-b6f9-49c0b36cc423",
+        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/72d6885a-b2a2-45ce-9027-e493c7af9a08jpg?alt=media&token=7ebbb762-5113-42d2-9187-f81cc2349336"
       ],
       "quantity": 123,
       "location": "DIDI_DIGHOMI",
-      "userDescription": "123",
-      "sellerName": "gpu var",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
+      "userDescription": "ASDDASD",
       "active": true,
       "id": 1
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "title": "as",
-      "category": "GPU",
-      "condition": "USED",
-      "price": 123,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/480b14ae-6a4a-4556-bfe4-297f8abc0988jpg?alt=media&token=072616d8-9fca-4a9a-9fd8-a937a05e0bb9"
-      ],
-      "quantity": 123,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "asd",
-      "sellerName": "gpu var",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
-      "active": true,
-      "id": 2
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "title": "12",
-      "category": "GPU",
-      "condition": "USED",
-      "price": 123,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/d09ff0ec-9579-43d2-869e-dc5d74efac73jpg?alt=media&token=0e77d6fe-e6fd-40f5-b436-0d1125fce9c6"
-      ],
-      "quantity": 123,
-      "location": "GLDANI",
-      "userDescription": "123",
-      "sellerName": "gpu var",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
-      "active": true,
-      "id": 3
-    },
-    {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "title": "asd",
-      "category": "GPU",
-      "condition": "USED",
-      "price": 123,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/839f27b8-1f0a-44ee-a99f-c0c1d650a6efjpg?alt=media&token=0f12e654-b53c-4204-822e-d76a82b8e5db"
-      ],
-      "quantity": 123,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "asd",
-      "sellerName": "gpu var",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
-      "active": true,
-      "id": 4
-    },
-    {
-      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "title": "asdasd",
-      "category": "GPU",
-      "condition": "NEW",
-      "price": 123,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/c151fe3f-1f2a-4f7c-9670-3a389543215djpg?alt=media&token=b48df185-dab5-4737-bc01-14544271b814"
-      ],
-      "quantity": 123,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "asd",
-      "sellerName": "vanik3",
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/886dd609-de97-4210-89fc-ffd279da37e0jpg?alt=media&token=322d7e75-7cd0-4b23-af6d-d9ba0e96dc88",
-      "active": true,
-      "id": 5
     }
   ],
   "categories": [
@@ -148,14 +79,27 @@
       "image": "https://i.ibb.co/8Dqx7nFF/Purple-Custom-Extension-Sleeve-Cable.png"
     }
   ],
-  "favorites": [],
-  "recently": [
+  "favorites": [
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 2,
+      "favoriteAt": "2026-02-19T22:42:36.266699Z",
+      "id": 1
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 5,
+      "favoriteAt": "2026-02-22T20:06:50.273068Z",
+      "id": 2
+    },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 1,
-      "viewedAt": "2026-02-16T20:26:08.497354Z",
-      "id": 15
-    },
+      "favoriteAt": "2026-02-22T20:20:35.364901Z",
+      "id": 3
+    }
+  ],
+  "recently": [
     {
       "uid": "vYkgo0sQKrh8GvbBtja1OI3Sz1j2",
       "itemId": 1,
@@ -182,99 +126,123 @@
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 2,
-      "viewedAt": "2026-02-19T17:17:31.360436Z",
+      "itemId": 5,
+      "viewedAt": "2026-02-22T20:06:47.517873Z",
       "id": 24
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 5,
-      "viewedAt": "2026-02-19T19:42:45.074082Z",
+      "itemId": 8,
+      "viewedAt": "2026-02-22T20:09:03.756821Z",
       "id": 25
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 4,
+      "viewedAt": "2026-02-22T20:15:19.890905Z",
+      "id": 26
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 1,
+      "viewedAt": "2026-02-22T20:20:34.998219Z",
+      "id": 27
     }
   ],
   "cart": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 5,
-      "addedAt": "2026-02-19T19:53:39.728588Z",
-      "id": 1
+      "itemId": 3,
+      "addedAt": "2026-02-20T14:07:47.753934Z",
+      "id": 3
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "itemId": 2,
-      "addedAt": "2026-02-19T20:00:54.242544Z",
-      "id": 2
+      "itemId": 1,
+      "addedAt": "2026-02-22T14:16:43.362734Z",
+      "id": 4
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 8,
+      "addedAt": "2026-02-22T20:09:09.456414Z",
+      "id": 5
     }
   ],
   "reviews": [
     {
-      "itemId": 2,
+      "itemId": 4,
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
       "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "comment": "kaia",
-      "rating": "positive",
-      "reviewAt": "2026-02-19T18:18:22.472024Z",
-      "title": "as",
+      "reviewerUserName": "vanik3",
+      "comment": "sad",
+      "rating": "POSITIVE",
+      "reviewAt": "2026-02-20T18:52:35.149608Z",
+      "title": "asd",
       "id": 1
     },
     {
-      "itemId": 2,
+      "itemId": 1,
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
       "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "comment": "sdasd",
-      "rating": "positive",
-      "reviewAt": "2026-02-19T18:18:38.757606Z",
-      "title": "as",
+      "reviewerUserName": "magati kaci",
+      "comment": "Georgia[c] is a country in the Caucasus region on the coast of the Black Sea. It is located at the intersection of Eastern Europe and West Asia,[17][18][d] and is today generally regarded as part of Europe.[19] It is bordered to the north and northeast by Russia; to the west by the Black Sea, to the south by Turkey and Armenia, and to the southeast by Azerbaijan Georgia[c] is a country in the Caucasus region on the coast asddasadad adha he a da dahdgahdg ahdag and had adahj",
+      "rating": "POSITIVE",
+      "reviewAt": "2026-02-20T22:09:37.055444Z",
+      "title": "123",
       "id": 2
     },
     {
-      "itemId": 2,
+      "itemId": 1,
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
       "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "comment": "asd",
-      "rating": "positive",
-      "reviewAt": "2026-02-19T18:20:22.471033Z",
-      "title": "as",
+      "reviewerUserName": "normaluri kaci",
+      "comment": "Georgia[c] is a country in the Caucasus region on the coast of the Black Sea. It is located at the intersection of Eastern Europe and West Asia,[17][18][d] and is today generally regarded as part of Europe.[19] It is bordered to the north and northeast by Russia; to the west by the Black Sea, to the south by Turkey and Armenia, and to the southeast by Azerbaijan Georgia[c] is a country in the Caucasus region on the coast asddasadad adha he a da dahdgahdg ahdag and had adahj",
+      "rating": "POSITIVE",
+      "reviewAt": "2026-02-20T22:09:37.055444Z",
+      "title": "123",
       "id": 3
     },
     {
       "itemId": 1,
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
       "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "comment": "arvarga",
-      "rating": "negative",
-      "reviewAt": "2026-02-19T18:26:30.585817Z",
+      "reviewerUserName": "cudi kaci",
+      "comment": "Georgia[c] is a country in the Caucasus region on the coast of the Black Sea. It is located at the intersection of Eastern Europe and West Asia,[17][18][d] and is today generally regarded as part of Europe.[19] It is bordered to the north and northeast by Russia; to the west by the Black Sea, to the south by Turkey and Armenia, and to the southeast by Azerbaijan Georgia[c] is a country in the Caucasus region on the coast asddasadad adha he a da dahdgahdg ahdag and had adahj",
+      "rating": "NEUTRAL",
+      "reviewAt": "2026-02-20T22:09:37.055444Z",
       "title": "123",
       "id": 4
     },
     {
-      "itemId": 2,
+      "itemId": 1,
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "comment": "asd",
-      "rating": "positive",
-      "reviewAt": "2026-02-19T18:36:05.786680Z",
-      "title": "as",
+      "reviewerUid": "ZmZMBLY9J1XePhd5vHTLUY0FaWl1",
+      "reviewerUserName": "kai kaci",
+      "comment": "Georgia[c] is a country in the Caucasus region on the coast of the Black Sea. It is located at the intersection of Eastern Europe and West Asia,[17][18][d] and is today generally regarded as part of Europe.[19] It is bordered to the north and northeast by Russia; to the west by the Black Sea, to the south by Turkey and Armenia, and to the southeast by Azerbaijan Georgia[c] is a country in the Caucasus region on the coast asddasadad adha he a da dahdgahdg ahdag and had adahj",
+      "rating": "NEGATIVE",
+      "reviewAt": "2026-02-20T22:09:37.055444Z",
+      "title": "123",
       "id": 5
     },
     {
-      "itemId": 1,
+      "itemId": 3,
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
       "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "comment": "ASD",
-      "rating": "positive",
-      "reviewAt": "2026-02-19T18:37:18.220072Z",
-      "title": "123",
+      "reviewerUserName": "vanik3",
+      "comment": "sashinelebaaaa!",
+      "rating": "POSITIVE",
+      "reviewAt": "2026-02-22T19:46:37.330456Z",
+      "title": "12",
       "id": 6
     }
   ],
   "sellers": [
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "positive": 248,
-      "neutral": 13,
-      "negative": 79,
+      "positive": 256,
+      "neutral": 15,
+      "negative": 81,
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/df3ddffd-c0ba-45bf-b821-f9fac80fa858jpg?alt=media&token=57bff2bb-fa35-4aae-9d96-eb06305bc7a0",
       "sellerName": "gpu var",
       "id": 1

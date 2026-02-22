@@ -61,7 +61,7 @@ import com.tbc.core_ui.theme.VoltechRadius
 import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.resource.R
 import com.tbc.search.presentation.components.feed.items.FavoriteButton
-import com.tbc.search.presentation.components.feed.sheet.ReviewBottomSheet
+import com.tbc.search.presentation.components.feed.sheet.review.ReviewBottomSheet
 import com.tbc.selling.domain.model.Rating
 import kotlinx.coroutines.flow.distinctUntilChanged
 import me.saket.telephoto.zoomable.coil.ZoomableAsyncImage
@@ -676,7 +676,7 @@ private fun ImagePager(
                 BaseAsyncImage(
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.fillMaxSize(),
-                    url = imagesList[page]
+                    url = imagesList[page],
                 )
             }
         }
