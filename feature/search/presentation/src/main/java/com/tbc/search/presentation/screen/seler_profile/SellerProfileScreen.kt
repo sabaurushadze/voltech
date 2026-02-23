@@ -246,7 +246,7 @@ private fun ReviewsContent(
 ) = with(state){
     LazyColumn(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .padding(horizontal = Dimen.size16),
     ) {
         item {

@@ -235,6 +235,17 @@
       "reviewAt": "2026-02-22T19:46:37.330456Z",
       "title": "12",
       "id": 6
+    },
+    {
+      "itemId": 1,
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "reviewerUid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "reviewerUserName": "gpu var",
+      "comment": "nichieri bichia es",
+      "rating": "POSITIVE",
+      "reviewAt": "2026-02-22T21:00:47.031773Z",
+      "title": "FDSF",
+      "id": 7
     }
   ],
   "sellers": [
@@ -258,7 +269,7 @@
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "positive": 0,
+      "positive": 1,
       "neutral": 0,
       "negative": 0,
       "sellerPhotoUrl": null,
