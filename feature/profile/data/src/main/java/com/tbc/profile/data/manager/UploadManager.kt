@@ -45,7 +45,7 @@ class UploadManager @Inject constructor(
 
     override suspend fun enqueueProfilePictureUpload(
         uri: String,
-        userId: Int,
+        userId: Int?,
         userName: String?,
     ): Resource<String, DataError.Firestore> {
         val localPath = copyToInternalStorage(uri)

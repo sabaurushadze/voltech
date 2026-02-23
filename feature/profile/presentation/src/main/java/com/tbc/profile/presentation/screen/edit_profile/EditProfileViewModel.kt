@@ -139,13 +139,12 @@ class EditProfileViewModel @Inject constructor(
     private fun updateProfileImage(uri: Uri?) = viewModelScope.launch {
 
         state.value.selectedImageUri?.let {
-            state.value.seller?.let { seller ->
 
                 updateState { copy(isLoading = true) }
 
                 enqueueFileUploadUseCase(
                     uri = uri.toString(),
-                    userId = seller.id,
+                    userId = state.value.seller?.id,
                     userName = state.value.userName,
                 )
                     .onSuccess {
@@ -163,8 +162,6 @@ class EditProfileViewModel @Inject constructor(
 
                     }
             }
-
-        }
     }
 
     private fun getCurrentUser() {

@@ -10,7 +10,7 @@ class EnqueueFileUploadUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(
         uri: String,
-        userId: Int,
+        userId: Int?,
         userName: String?,
         ): Resource<String, DataError.Firestore> {
         return uploadManager.enqueueProfilePictureUpload(
