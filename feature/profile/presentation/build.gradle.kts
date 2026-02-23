@@ -4,6 +4,7 @@ plugins {
 
 android {
     namespace = "com.tbc.profile.presentation"
+
 }
 
 dependencies {
@@ -12,4 +13,5 @@ dependencies {
 
     implementation(projects.feature.search.domain)
     implementation(projects.feature.selling.domain)
+    implementation(projects.coreTesting)
 }
