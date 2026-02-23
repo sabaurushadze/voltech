@@ -12,4 +12,6 @@ dependencies {
     implementation(projects.core.domain)
     implementation(libs.androidx.paging.compose)
     implementation(libs.zoomable.image.coil)
+
+    testImplementation(projects.coreTesting)
 }
