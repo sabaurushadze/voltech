@@ -6,6 +6,7 @@ import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
+import com.google.android.gms.common.util.DataUtils
 import com.google.firebase.storage.FirebaseStorage
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.profile.data.manager.FileUploadManagerKeys.RESULT_URL
@@ -56,7 +57,8 @@ class UploadProfilePictureWorker @AssistedInject constructor(
 
             val extension = file.extension.ifEmpty { "jpg" }
 
-            val fileRef = storageRef.child("${UUID.randomUUID()}.$extension")
+            val fileRef = storageRef.child("users/${UUID.randomUUID()}.$extension")
+
 
             val fileUri = Uri.fromFile(file)
 

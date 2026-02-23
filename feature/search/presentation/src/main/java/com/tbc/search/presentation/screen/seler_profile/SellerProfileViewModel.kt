@@ -133,6 +133,6 @@ class SellerProfileViewModel @Inject constructor(
     }
 
     companion object{
-        const val ITEMS_LIMIT = 4
+        const val ITEMS_LIMIT = 50
     }
 }

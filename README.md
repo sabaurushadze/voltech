@@ -1,6 +1,6 @@
 # Voltech
 
-A modern Android e-commerce application for PC components and technical hardware built with Jetpack Compose. Browse and shop for your desired Computer parts with a clean, intuitive interface.
+A modern Android e-commerce application for PC components and technical hardware built with Jetpack Compose. Browse and shop for your favorite computer parts with a clean, intuitive interface.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Navigate to `app/src/main/res/xml/network_security_config.xml` and update the do
 </network-security-config>
 ```
 
-**Note:** 
+**Note:**
 - Use `10.0.2.2` for **emulator only**
 - Use your actual IPv4 address for **physical device**
 
@@ -105,65 +105,144 @@ Once the JSON Server is running:
 2. Build the project
 3. Run the app on your emulator or physical device
 
+
+---
+
+
 ## API Endpoints
 
 The JSON Server provides the following endpoints:
 
-- `http://localhost:3000/items` - Access your data locally
-- `http://YOUR_IP:3000/items` - Access from physical device (when configured)
-
-## Tech Stack
-
-### Architecture & Design Pattern
-- **Modular MVI Architecture** - Unidirectional data flow with intent-based state management
-- **Clean Architecture** - Separation of concerns with clear dependency rules
+- `http://localhost:3000/items`
+- `http://localhost:3000/categories`
+- `http://localhost:3000/favorites`
+- `http://localhost:3000/recently`
+- `http://localhost:3000/cart`
+- `http://localhost:3000/reviews`
+- `http://localhost:3000/sellers`
 
 The project follows a **multi-module architecture** organized into feature modules and shared core modules:
 ```
 :app                         
-:build-logic                  
+:build-logic    
+  └─ :convention
 :core       
   ├─ :presentation                
   ├─ :data                  
   └─ :domain    
 :core-ui                         
 :feature
-  ├─ :auth                  
-  ├─ :home
-  ├─ :search           
+  ├─ :auth 
+      ├─ :presentation                
+      ├─ :data                  
+      └─ :domain   
+├─ :home
+      ├─ :presentation                
+      ├─ :data                  
+      └─ :domain 
+├─ :profile
+      ├─ :presentation                
+      ├─ :data                  
+      └─ :domain 
+├─ :search
+      ├─ :presentation                
+      ├─ :data                  
+      └─ :domain 
+├─ :selling
+      ├─ :presentation                
+      ├─ :data                  
+      └─ :domain       
 ```
 
+---
+
+## Features & Details
+
+### Authentication
+- **Register/Login**: Users can create an account with email and password and log in.
+
+### Home Screen
+- **Browse Categories**: View items grouped by category.
+- **Recently Viewed Items**: Quickly access items the user has interacted with.
+
+### Search
+- **Live Search**: Search items with live suggestions.
+- **Recently Searched Items**: Quick access to previous searches.
+- **Filtering & Sorting**: Filter search results by price, category, or other attributes, and sort them.
+
+### Item Details
+- **Item Information**: View full details of each item.
+- **Image Zoom**: Zoom in on photos; supports multiple images per item.
+- **Favorite from Details**: Add/remove item from watchlist directly.
+- **Reviews**: Leave positive, neutral, or negative feedback with comments.
+- **Cart**: Add items to the cart and view them.
+
+### User Profile
+- **View User Items**: See items listed by any user.
+- **View Feedback**: Check all reviews given to the user and their average positive feedback.
+- **Sorting & Filtering Reviews**: Easily sort feedback for clarity.
+- **Profile Management**: Change profile picture, username, and toggle between light/dark theme.
+- **Recently Viewed Items**: Check all recently viewed items and delete single or multiple items.
+- **Watchlist**: Check all watchlisted items and delete single or multiple items.
+- **Sign Out**: Log out from the account.
+
+### Selling
+- **View My Items**: See all items posted by the logged-in user.
+- **Add Items**: Add up to 5 items with multiple photos per item.
+- **Edit/Delete Items**: Modify or remove your items.
+
+### Real-Time Updates
+- **Live Updates**: Changes in items, watchlist, or reviews appear in real-time using JSON Server.
+
+### Extras
+- **Unit Testing**: Features covered with JUnit, MockK, Turbine, and Coroutines Test.
+- **Smooth Navigation**: Handles complex flows with Navigation Compose 2.
+- **Asynchronous & Reactive**: Kotlin Coroutines and Flow for efficient background and reactive data handling.
+
+---
+# Tech Stack
+
+### Architecture & Design
+- Modular MVI Architecture
+- Clean Architecture
+
 ### UI
-- **[Jetpack Compose](https://developer.android.com/jetpack/compose)** - Modern declarative UI toolkit
-- **[Material Design 3](https://m3.material.io/)** - Latest Material Design components
-- **[Material Icons Extended](https://developer.android.com/jetpack/androidx/releases/compose-material)** - Comprehensive icon set
-- **[Coil](https://coil-kt.github.io/coil/)** - Image loading library
-- **[Google Fonts](https://fonts.google.com/)** - Custom typography
+- Jetpack Compose
+- Material Design 3
+- Coil
 
 ### Dependency Injection
-- **[Dagger Hilt](https://dagger.dev/hilt/)** - Dependency injection framework
+- Dagger Hilt
 
-### Networking
-- **[Retrofit](https://square.github.io/retrofit/)** - Type-safe HTTP client
-- **[OkHttp](https://square.github.io/okhttp/)** - HTTP client and interceptor
-- **[Kotlinx Serialization](https://kotlinlang.org/docs/serialization.html)** - JSON serialization/deserialization
-- **JSON Server v0.17.4** - Mock REST API backend
-
-### Navigation
-- **[Navigation Compose](https://developer.android.com/jetpack/compose/navigation)** - Jetpack Navigation for Compose
-- **[Type-Safe Navigation](https://developer.android.com/guide/navigation/design/type-safety)** - Kotlinx Serialization for navigation arguments
+## Networking
+- Retrofit
+- Kotlinx Serialization
+- JSON Server (mock backend)
 
 ### Local Storage
-- **[DataStore](https://developer.android.com/topic/libraries/architecture/datastore)** - Modern data storage solution for preferences
+- DataStore
 
 ### Asynchronous Programming
-- **[Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)** - Asynchronous programming
-- **[Flow](https://kotlinlang.org/docs/flow.html)** - Reactive streams
+- Kotlin Coroutines
+- Flow
 
 ### Pagination
-- **[Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)** - Efficient data pagination
-- **[Paging Compose](https://developer.android.com/jetpack/androidx/releases/paging#compose-integration)** - Paging integration with Compose
+- Paging 3
+- Paging Compose
 
 ### Firebase Services
-- **[Firebase Authentication](https://firebase.google.com/docs/auth)** - User authentication
-- **[Firebase Crashlytics](https://firebase.google.com/docs/crashlytics)** - Crash reporting
+- Authentication
+- Storage
+- Crashlytics
+
+### Testing
+- JUnit
+- MockK
+- Turbine
+- Coroutines Test
+- Espresso
+
+### Other Utilities
+- Splash Screen
+- ExifInterface
+- Zoomable Image [Telephoto](https://github.com/saket/telephoto)

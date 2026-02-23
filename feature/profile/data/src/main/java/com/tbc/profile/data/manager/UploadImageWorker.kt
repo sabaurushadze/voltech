@@ -15,6 +15,7 @@ import dagger.assisted.AssistedInject
 import kotlinx.coroutines.tasks.await
 import java.io.File
 import java.util.UUID
+import kotlin.uuid.Uuid
 
 @HiltWorker
 class UploadImageWorker @AssistedInject constructor(
@@ -45,7 +46,7 @@ class UploadImageWorker @AssistedInject constructor(
 
             val extension = file.extension.ifEmpty { "jpg" }
 
-            val fileRef = storageRef.child("${UUID.randomUUID()}.$extension")
+            val fileRef = storageRef.child("items/${UUID.randomUUID()}.$extension")
 
             val fileUri = Uri.fromFile(file)
 
