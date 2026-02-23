@@ -54,3 +54,4 @@ include(":feature:selling:domain")
 
 include(":core-ui")
 include(":resource")
+include(":core-testing")

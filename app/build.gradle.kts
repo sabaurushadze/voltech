@@ -78,4 +78,5 @@ dependencies {
     implementation(projects.coreUi)
 
     implementation(projects.resource)
+    implementation(projects.coreTesting)
 }

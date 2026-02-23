@@ -41,7 +41,8 @@ class RegisterViewModel @Inject constructor(
         updateState { copy(
             isLoading = true,
             showPasswordError = false,
-            showEmailError = false
+            showEmailError = false,
+            showUsernameError = false
         ) }
         val isEmailValid = validateEmailUseCase(state.value.email)
         val isPasswordValid = validateRegistrationPasswordUseCase(state.value.password)

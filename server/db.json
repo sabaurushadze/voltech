@@ -15,37 +15,6 @@
       "userDescription": "ASDDASD",
       "active": true,
       "id": 1
-    },
-    {
-      "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "title": "123",
-      "category": "GPU",
-      "condition": "NEW",
-      "price": 123,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/6b31d00f-fee8-42fa-9b0e-30d1f2fc5432.jpg?alt=media&token=a83739ec-3a7f-4220-ae5b-7d3f6a6315be",
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/584dda65-9d87-4952-a4b2-3670d33de23a.jpg?alt=media&token=19d29d30-56bf-4cd5-8187-22a79f6eba93"
-      ],
-      "quantity": 12,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "123",
-      "active": true,
-      "id": 2
-    },
-    {
-      "uid": "GXqrGVI1FqQR1nsrp9rU8hx3foy2",
-      "title": "123",
-      "category": "GPU",
-      "condition": "NEW",
-      "price": 123,
-      "images": [
-        "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/cb488483-a4f0-40f7-bc04-12cdc6d077d0.jpg?alt=media&token=0fc9c701-38f0-4541-ac50-8c7b50ac6551"
-      ],
-      "quantity": 1,
-      "location": "DIDI_DIGHOMI",
-      "userDescription": "123",
-      "active": true,
-      "id": 3
     }
   ],
   "categories": [
@@ -113,6 +82,18 @@
   "favorites": [
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 2,
+      "favoriteAt": "2026-02-19T22:42:36.266699Z",
+      "id": 1
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 5,
+      "favoriteAt": "2026-02-22T20:06:50.273068Z",
+      "id": 2
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 1,
       "favoriteAt": "2026-02-22T20:20:35.364901Z",
       "id": 3
@@ -127,30 +108,54 @@
     },
     {
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 2,
+      "viewedAt": "2026-02-19T16:44:19.614654Z",
+      "id": 21
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "itemId": 3,
+      "viewedAt": "2026-02-19T17:11:19.478015Z",
+      "id": 22
+    },
+    {
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
       "itemId": 1,
       "viewedAt": "2026-02-19T17:15:22.533683Z",
       "id": 23
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 5,
+      "viewedAt": "2026-02-22T20:06:47.517873Z",
+      "id": 24
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 8,
+      "viewedAt": "2026-02-22T20:09:03.756821Z",
+      "id": 25
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 4,
+      "viewedAt": "2026-02-22T20:15:19.890905Z",
+      "id": 26
+    },
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 1,
       "viewedAt": "2026-02-22T20:20:34.998219Z",
       "id": 27
-    },
-    {
-      "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "itemId": 2,
-      "viewedAt": "2026-02-23T14:35:16.716954Z",
-      "id": 28
-    },
-    {
-      "uid": "GXqrGVI1FqQR1nsrp9rU8hx3foy2",
-      "itemId": 3,
-      "viewedAt": "2026-02-23T14:54:20.166555Z",
-      "id": 29
     }
   ],
   "cart": [
+    {
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 3,
+      "addedAt": "2026-02-20T14:07:47.753934Z",
+      "id": 3
+    },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
       "itemId": 1,
@@ -158,13 +163,24 @@
       "id": 4
     },
     {
-      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
-      "itemId": 1,
-      "addedAt": "2026-02-23T12:31:23.222644Z",
-      "id": 6
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "itemId": 8,
+      "addedAt": "2026-02-22T20:09:09.456414Z",
+      "id": 5
     }
   ],
   "reviews": [
+    {
+      "itemId": 4,
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "reviewerUserName": "vanik3",
+      "comment": "sad",
+      "rating": "POSITIVE",
+      "reviewAt": "2026-02-20T18:52:35.149608Z",
+      "title": "asd",
+      "id": 1
+    },
     {
       "itemId": 1,
       "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
@@ -208,6 +224,28 @@
       "reviewAt": "2026-02-20T22:09:37.055444Z",
       "title": "123",
       "id": 5
+    },
+    {
+      "itemId": 3,
+      "uid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "reviewerUid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "reviewerUserName": "vanik3",
+      "comment": "sashinelebaaaa!",
+      "rating": "POSITIVE",
+      "reviewAt": "2026-02-22T19:46:37.330456Z",
+      "title": "12",
+      "id": 6
+    },
+    {
+      "itemId": 1,
+      "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
+      "reviewerUid": "4fODsdOZzXYhlLQNXakRJsq3kz92",
+      "reviewerUserName": "gpu var",
+      "comment": "nichieri bichia es",
+      "rating": "POSITIVE",
+      "reviewAt": "2026-02-22T21:00:47.031773Z",
+      "title": "FDSF",
+      "id": 7
     }
   ],
   "sellers": [
@@ -231,30 +269,12 @@
     },
     {
       "uid": "ZmZMBLY9J1XePhj5vHTLUY0FaWl1",
-      "positive": 0,
+      "positive": 1,
       "neutral": 0,
       "negative": 0,
       "sellerPhotoUrl": null,
       "sellerName": "vanik3",
       "id": 3
-    },
-    {
-      "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "positive": 0,
-      "neutral": 0,
-      "negative": 0,
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/8ac40065-047b-440b-8bc0-37d462c6f11f.jpg?alt=media&token=85e0096e-5c72-4d40-bf44-3f7102ad2383",
-      "sellerName": "PcShop",
-      "id": 4
-    },
-    {
-      "uid": "GXqrGVI1FqQR1nsrp9rU8hx3foy2",
-      "positive": 0,
-      "neutral": 0,
-      "negative": 0,
-      "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/3b1103ac-9edb-44d3-a11e-93dc539c562c.jpg?alt=media&token=3974418b-5d33-429a-ab71-4677e4394625",
-      "sellerName": "PcRoom",
-      "id": 5
     }
   ]
 }
