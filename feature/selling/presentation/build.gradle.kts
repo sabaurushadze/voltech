@@ -12,4 +12,5 @@ dependencies {
     implementation(projects.feature.search.domain)
     implementation(projects.feature.profile.domain)
     implementation(libs.androidx.compose.foundation.layout)
+    implementation(projects.coreTesting)
 }
