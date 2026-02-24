@@ -1,12 +1,16 @@
 package com.tbc.profile.data.manager
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.net.Uri
+import android.os.Build
+import androidx.core.app.NotificationCompat
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
+import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
-import com.google.android.gms.common.util.DataUtils
 import com.google.firebase.storage.FirebaseStorage
 import com.tbc.core.domain.util.onSuccess
 import com.tbc.profile.data.manager.FileUploadManagerKeys.RESULT_URL
@@ -15,6 +19,7 @@ import com.tbc.profile.data.manager.FileUploadManagerKeys.USER_ID
 import com.tbc.profile.data.manager.FileUploadManagerKeys.USER_NAME
 import com.tbc.profile.data.util.ImageUtils
 import com.tbc.profile.domain.usecase.edit_profile.UpdateProfilePictureUseCase
+import com.tbc.resource.R
 import com.tbc.selling.domain.model.SellerProfile
 import com.tbc.selling.domain.usecase.selling.add_item.add_seller.UpdateSellerProfileUseCase
 import dagger.assisted.Assisted
@@ -36,6 +41,30 @@ class UploadProfilePictureWorker @AssistedInject constructor(
     companion object {
         private const val MAX_RETRY_ATTEMPTS = 3
         private const val DEFAULT_THRESHOLD = 200 * 1024L
+        private const val SILENT_PROFILE_UPLOAD_CHANNEL = "silent_profile_upload_channel"
+
+    }
+
+    override suspend fun getForegroundInfo(): ForegroundInfo {
+        val channelId = SILENT_PROFILE_UPLOAD_CHANNEL
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                channelId,
+                "Uploads",
+                NotificationManager.IMPORTANCE_LOW
+            )
+            val manager = applicationContext.getSystemService(NotificationManager::class.java)
+            manager.createNotificationChannel(channel)
+        }
+
+        val notification = NotificationCompat.Builder(applicationContext, channelId)
+            .setContentTitle("")
+            .setContentText("")
+            .setSmallIcon(R.drawable.ic_camera)
+            .setOngoing(true)
+            .build()
+
+        return ForegroundInfo(1, notification)
     }
 
     override suspend fun doWork(): Result {
@@ -82,7 +111,7 @@ class UploadProfilePictureWorker @AssistedInject constructor(
 
 
             Result.success(workDataOf(RESULT_URL to resultUrl))
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             if (runAttemptCount < MAX_RETRY_ATTEMPTS) Result.retry()
             else Result.failure()
         }

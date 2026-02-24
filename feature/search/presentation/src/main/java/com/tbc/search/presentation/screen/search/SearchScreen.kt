@@ -209,7 +209,8 @@ private fun RecentSearchItem(
 
             Icon(
                 imageVector = ImageVector.vectorResource(R.drawable.ic_history),
-                contentDescription = null
+                contentDescription = null,
+                tint = VoltechColor.foregroundPrimary
             )
 
             Spacer(Modifier.width(Dimen.size8))

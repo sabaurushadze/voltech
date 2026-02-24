@@ -11,6 +11,7 @@ android {
 dependencies {
     implementation(projects.feature.profile.domain)
     implementation(projects.feature.selling.domain)
+    implementation(projects.resource)
 
     implementation(projects.core.domain)
     implementation(projects.core.data)

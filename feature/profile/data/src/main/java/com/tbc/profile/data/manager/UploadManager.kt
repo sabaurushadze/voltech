@@ -136,7 +136,7 @@ class UploadManager @Inject constructor(
                 .await()
 
             Resource.Success(Unit)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             Resource.Failure(DataError.Firestore.Unknown)
         }
     }
@@ -158,13 +158,11 @@ class UploadManager @Inject constructor(
             try {
                 val uri = uriString.toUri()
                 val inputStream = appContext.contentResolver.openInputStream(uri)
-                    ?: return@withContext null
+                    ?: run {
+                        return@withContext null
+                    }
 
-                val file = File(
-                    appContext.filesDir,
-                    "upload_${UUID.randomUUID()}.jpg"
-                )
-
+                val file = File(appContext.cacheDir, "upload_${UUID.randomUUID()}.jpg")
                 inputStream.use { input ->
                     file.outputStream().use { output ->
                         input.copyTo(output)
@@ -172,7 +170,7 @@ class UploadManager @Inject constructor(
                 }
 
                 file.absolutePath
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 null
             }
         }
