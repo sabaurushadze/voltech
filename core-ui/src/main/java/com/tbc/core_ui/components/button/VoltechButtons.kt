@@ -97,7 +97,6 @@ fun PrimaryDoubleIconButton(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // LEFT SIDE
             Row(
                 modifier = Modifier
                     .clickable(enabled = enabled) { leftOnClick() }
@@ -130,7 +129,6 @@ fun PrimaryDoubleIconButton(
                 thickness = Dimen.size2
             )
 
-            // RIGHT SIDE
             Row(
                 modifier = Modifier
                     .clickable(enabled = enabled) { rightOnClick() }

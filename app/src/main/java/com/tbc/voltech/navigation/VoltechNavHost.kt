@@ -109,13 +109,12 @@ fun VoltechNavHost(
                 navController.navigate(FeedScreenRoute(query = query))
             },
             navigateToSearch = {
-                navController.navigate(SearchScreenRoute)
+                navController.navigate(SearchScreenRoute) {
+                    popUpTo(SearchScreenRoute) { inclusive = true }
+                }
             },
             navigateToItemDetails = { id ->
                 navController.navigate(ItemDetailsScreenRoute(id))
-//                navController.navigate(ItemDetailsScreenRoute(id)) {
-//                    popUpTo(ItemDetailsScreenRoute(id)) { inclusive = true }
-//                }
             },
             navigateBack = { navController.navigateUp() },
             navigateToAddToCart = {
@@ -125,7 +124,6 @@ fun VoltechNavHost(
             },
 
             navigateToSellerProfile = { sellerUid ->
-//                navController.navigate(SellerProfileScreenRoute(sellerUid))
                 navController.navigate(SellerProfileScreenRoute(sellerUid)) {
                     popUpTo(SellerProfileScreenRoute(sellerUid)) { inclusive = true }
                 }

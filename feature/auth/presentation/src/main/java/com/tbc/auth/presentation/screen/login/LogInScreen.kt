@@ -145,7 +145,6 @@ fun LogInContent(
                     .fillMaxWidth(),
                 text = stringResource(R.string.log_in),
                 enabled = state.isLoginEnabled,
-//                sha/pe = VoltechRadius.radius16,
                 onClick = {
                     onEvent(LogInEvent.LogIn)
                 },

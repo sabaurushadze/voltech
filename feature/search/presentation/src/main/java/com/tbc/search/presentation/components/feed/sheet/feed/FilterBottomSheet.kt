@@ -81,7 +81,6 @@ fun FilterBottomSheet(
                 .weight(1f)
                 .fillMaxWidth()
         ) {
-            // FASI
             item {
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size16),
@@ -101,7 +100,6 @@ fun FilterBottomSheet(
                 Spacer(modifier = Modifier.height(Dimen.size24))
             }
 
-            // MDGOMAREOBA
             item {
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size8),
@@ -121,7 +119,6 @@ fun FilterBottomSheet(
             }
             item { Spacer(modifier = Modifier.height(Dimen.size24)) }
 
-            // LOKACIA
             item {
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size8),
@@ -141,7 +138,6 @@ fun FilterBottomSheet(
             }
             item { Spacer(modifier = Modifier.height(Dimen.size24)) }
 
-            // KATEGORIA
             item {
                 Text(
                     modifier = Modifier.padding(start = Dimen.size16, bottom = Dimen.size8),
