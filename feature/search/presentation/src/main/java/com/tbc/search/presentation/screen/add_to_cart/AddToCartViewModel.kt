@@ -1,6 +1,5 @@
 package com.tbc.search.presentation.screen.add_to_cart
 
-import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.usecase.user.GetCurrentUserUseCase
 import com.tbc.core.domain.util.DataError
@@ -119,9 +118,6 @@ class AddToCartViewModel @Inject constructor(
                     val seller = sellersDomain.map { it.toPresentation() }.firstOrNull()
                     seller?.let { sellerMap[uid] = it }
                 }
-                .onFailure {
-                    d("Cart", "Failed to get seller $uid: $it")
-                }
         }
 
         val updatedCartItems = cartItems.map { item ->
@@ -131,7 +127,6 @@ class AddToCartViewModel @Inject constructor(
                 sellerUserName = seller?.name
             )
         }
-
         updateState { copy(cartItems = updatedCartItems) }
     }
 

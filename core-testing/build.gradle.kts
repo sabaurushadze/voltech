@@ -9,4 +9,8 @@ dependencies{
 
 dependencies{
     implementation(libs.kotlinx.coroutines.test)
-    implementation(libs.junit)}
+    implementation(libs.junit)
+    implementation(projects.core.domain)
+    implementation(projects.feature.search.domain)
+    implementation(projects.feature.selling.domain)
+}
