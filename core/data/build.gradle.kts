@@ -12,7 +12,8 @@ android{
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"http://10.0.2.2:3000/\""
+                "\"https://continuing-apparel-installing-consolidated.trycloudflare.com/\""
+//                "\"http://10.0.2.2:3000/\""
             )
         }
         release {
@@ -24,7 +25,8 @@ android{
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"http://10.0.2.2:3000/\""
+                "\"https://continuing-apparel-installing-consolidated.trycloudflare.com/\""
+//                "\"http://10.0.2.2:3000/\""
             )
         }
     }

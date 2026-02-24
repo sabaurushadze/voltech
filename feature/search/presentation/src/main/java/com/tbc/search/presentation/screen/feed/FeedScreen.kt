@@ -56,11 +56,12 @@ import com.tbc.search.presentation.model.feed.UiFeedItem
 @Composable
 fun FeedScreen(
     viewModel: FeedViewModel = hiltViewModel(),
-    navigateToSearch: () -> Unit,
-    navigateToItemDetails: (Int) -> Unit,
     query: String?,
     categoryQuery: String?,
-    sellerUid: String?
+    sellerUid: String?,
+    navigateToSearch: () -> Unit,
+    navigateToItemDetails: (Int) -> Unit,
+    navigateBack: () -> Unit
 ) {
     val snackbarHostState = LocalSnackbarHostState.current
     val context = LocalContext.current
@@ -138,7 +139,8 @@ fun FeedScreen(
             isRefreshing = isRefreshing,
             searchQuery = query,
             topAppBarScrollBehavior = topAppBarScrollBehavior,
-            navigateToSearch = navigateToSearch
+            navigateToSearch = navigateToSearch,
+            navigateBack = navigateBack
         )
     }
 
@@ -186,6 +188,7 @@ private fun FeedContent(
     listState: LazyListState,
     isRefreshing: Boolean,
     topAppBarScrollBehavior: TopAppBarScrollBehavior,
+    navigateBack: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -200,7 +203,8 @@ private fun FeedContent(
             isLoading = isRefreshing,
             scrollBehavior = topAppBarScrollBehavior,
             isRefreshing = isRefreshing,
-            searchQuery = searchQuery.orEmpty()
+            searchQuery = searchQuery.orEmpty(),
+            navigateBack = navigateBack
         )
 
         LazyColumn(

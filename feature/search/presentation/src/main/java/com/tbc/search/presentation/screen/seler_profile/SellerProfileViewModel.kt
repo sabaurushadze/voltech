@@ -1,5 +1,6 @@
 package com.tbc.search.presentation.screen.seler_profile
 
+import android.util.Log.d
 import androidx.lifecycle.viewModelScope
 import com.tbc.core.domain.util.DataError
 import com.tbc.core.domain.util.onFailure
@@ -46,6 +47,7 @@ class SellerProfileViewModel @Inject constructor(
         viewModelScope.launch {
             getLimitedItemsByUidUseCase(state.value.sellerUid, ITEMS_LIMIT)
                 .onSuccess { sellerProducts ->
+                    d("asd", "sellerproduct size: ${sellerProducts.size}")
                     updateState {
                         copy(
                             sellerProductItem = sellerProducts.toPresentation(),

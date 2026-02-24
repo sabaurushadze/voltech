@@ -17,12 +17,14 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Tab
@@ -51,6 +53,7 @@ import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
 import com.tbc.core_ui.screen.empty_state.EmptyState
 import com.tbc.core_ui.screen.internet.NoInternetConnection
 import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
 import com.tbc.core_ui.theme.VoltechFixedColor
 import com.tbc.core_ui.theme.VoltechRadius
@@ -257,19 +260,27 @@ private fun ReviewsContent(
                     negative = seller.negative
                 )
 
-                Spacer(Modifier.height(Dimen.size24))
+                Spacer(Modifier.height(Dimen.size32))
 
                 SellerFeedBack(seller.totalFeedback)
             }
         }
 
         items(state.sellerReviewItems){ sellerReview ->
-            Spacer(Modifier.height(Dimen.size16))
-
             SellerReviewItem(
                 review = sellerReview,
                 navigateToItemDetails = navigateToItemDetails
             )
+
+            Spacer(Modifier.height(Dimen.size16))
+
+            HorizontalDivider(
+                modifier = Modifier.fillMaxWidth(),
+                thickness = VoltechBorder.medium,
+                color = VoltechColor.borderSubtle
+            )
+
+            Spacer(Modifier.height(Dimen.size16))
         }
 
         item {
@@ -305,7 +316,7 @@ private fun SellerFeedBack(
             Text(
                 text = "(${totalFeedback})",
                 style = VoltechTextStyle.title2,
-                color = VoltechColor.backgroundDisabled
+                color = VoltechColor.foregroundSecondary
             )
         }
 
@@ -332,25 +343,25 @@ private fun SellerReviewItem(
 
             Text(
                 text = reviewerUserName,
-                style = VoltechTextStyle.bodyBold,
-                color = VoltechFixedColor.gray
+                style = VoltechTextStyle.body,
+                color = VoltechColor.foregroundSecondary
             )
 
             Spacer(Modifier.width(Dimen.size8))
 
             Box(
                 modifier = Modifier
-                    .size(Dimen.size8)
+                    .size(Dimen.size4)
                     .clip(CircleShape)
-                    .background(VoltechColor.backgroundDisabled)
+                    .background(VoltechColor.foregroundSecondary)
             ){}
 
             Spacer(Modifier.width(Dimen.size8))
 
             Text(
                 text = reviewAt.toFormattedDate(),
-                style = VoltechTextStyle.bodyBold,
-                color = VoltechFixedColor.gray
+                style = VoltechTextStyle.body,
+                color = VoltechColor.foregroundSecondary
             )
         }
 
@@ -367,7 +378,7 @@ private fun SellerReviewItem(
         Text(
             text = title,
             style = VoltechTextStyle.bodyUnderLine,
-            color = VoltechColor.backgroundDisabled,
+            color = VoltechColor.foregroundSecondary,
             modifier = Modifier
                 .clickable{ navigateToItemDetails(itemId) }
         )
@@ -423,49 +434,47 @@ private fun StoreContent(
     state: SellerProfileState,
     navigateToFeedWithUid: (String) -> Unit,
     navigateToItemDetails: (Int) -> Unit
-){
-    Column (
+) {
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = Dimen.size16)
+            .padding(horizontal = Dimen.size16),
+        contentPadding = PaddingValues(vertical = Dimen.size16),
+        horizontalArrangement = Arrangement.spacedBy(Dimen.size12),
+        verticalArrangement = Arrangement.spacedBy(Dimen.size12)
     ) {
+        item(span = { GridItemSpan(2) }) {
+            Spacer(Modifier.height(Dimen.size16))
 
-        Spacer(Modifier.height(Dimen.size16))
-
-        Text(
-            text = stringResource(R.string.latest),
-            style = VoltechTextStyle.title2,
-            color = VoltechColor.foregroundPrimary
-        )
-
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            modifier = Modifier.fillMaxWidth(),
-            contentPadding = PaddingValues(vertical = Dimen.size16),
-            horizontalArrangement = Arrangement.spacedBy(Dimen.size12),
-            verticalArrangement = Arrangement.spacedBy(Dimen.size12)
-        ) {
-            items(state.sellerProductItem) { sellerProduct ->
-                SellerProductItem(
-                    sellerProductItem = sellerProduct,
-                    navigateToItemDetails = navigateToItemDetails
-                )
-            }
-        }
-
-        Spacer(Modifier.height(Dimen.size16))
-
-        if (state.sellerProductItem.size >= 4 ){
-            PrimaryButton(
-                modifier = Modifier.fillMaxWidth(),
-                text = stringResource(R.string.see_all),
-                onClick = { navigateToFeedWithUid(state.sellerUid)}
+            Text(
+                text = stringResource(R.string.latest),
+                style = VoltechTextStyle.title2,
+                color = VoltechColor.foregroundPrimary
             )
         }
 
-        Spacer(Modifier.height(Dimen.size12))
-    }
+        items(state.sellerProductItem) { sellerProduct ->
+            SellerProductItem(
+                sellerProductItem = sellerProduct,
+                navigateToItemDetails = navigateToItemDetails
+            )
+        }
 
+        if (state.sellerProductItem.size >= 4) {
+            item(span = { GridItemSpan(2) }) {
+                Spacer(Modifier.height(Dimen.size24))
+
+                PrimaryButton(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = stringResource(R.string.see_all),
+                    onClick = { navigateToFeedWithUid(state.sellerUid) }
+                )
+
+                Spacer(Modifier.height(Dimen.size12))
+            }
+        }
+    }
 }
 
 @Composable

@@ -8,7 +8,6 @@ import androidx.compose.material.icons.rounded.Visibility
 import androidx.compose.material.icons.rounded.VisibilityOff
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -41,20 +40,12 @@ fun PasswordTextField(
         modifier = modifier,
         value = value,
         enabled = enabled,
-        colors = OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = VoltechColor.foregroundPrimary,
-            unfocusedBorderColor = VoltechColor.foregroundPrimary,
-            focusedLabelColor = VoltechColor.foregroundAccent,
-            unfocusedLabelColor = VoltechColor.foregroundPrimary,
-            focusedTextColor = VoltechColor.foregroundPrimary,
-            unfocusedTextColor = VoltechColor.foregroundPrimary
-        ),
+        colors = VoltechOutlinedTextFieldDefaults.primaryColors,
         label = label?.let {
             {
                 Text(
                     text = it,
                     style = VoltechTextStyle.body,
-                    color = VoltechColor.foregroundPrimary
                 )
             }
         },

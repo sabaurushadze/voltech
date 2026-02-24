@@ -2,7 +2,7 @@
   "items": [
     {
       "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "title": "ASUS RTX 5090 ROG Astral OC BTF 32GB NVIDIA GeForce - New Sealed",
+      "title": "MSI RTX 5090 ROG Astral OC BTF 32GB NVIDIA GeForce - New Sealed",
       "category": "GPU",
       "condition": "NEW",
       "price": 4099.99,
@@ -579,50 +579,73 @@
   "favorites": [],
   "recently": [
     {
-      "uid": "9pNRolYh7cNPR28wbu6pqMGUNmt1",
-      "itemId": 6,
-      "viewedAt": "2026-02-24T14:53:17.839876Z",
+      "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
+      "itemId": 15,
+      "viewedAt": "2026-02-24T09:00:24.901463Z",
       "id": 1
     },
     {
       "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "itemId": 1,
-      "viewedAt": "2026-02-24T14:53:36.450256Z",
+      "itemId": 10,
+      "viewedAt": "2026-02-24T09:00:28.085052Z",
       "id": 2
     },
     {
       "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "itemId": 2,
-      "viewedAt": "2026-02-24T14:58:42.169522Z",
+      "itemId": 7,
+      "viewedAt": "2026-02-24T09:00:32.208674Z",
       "id": 3
     },
     {
       "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "itemId": 15,
-      "viewedAt": "2026-02-24T15:00:31.552602Z",
+      "itemId": 2,
+      "viewedAt": "2026-02-24T09:00:34.871091Z",
       "id": 4
     },
     {
       "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "itemId": 13,
-      "viewedAt": "2026-02-24T15:00:40.487827Z",
+      "itemId": 6,
+      "viewedAt": "2026-02-24T09:00:38.138217Z",
       "id": 5
-    }
-  ],
-  "cart": [
+    },
     {
       "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "itemId": 8,
-      "addedAt": "2026-02-24T14:03:29.419606Z",
-      "id": 1
+      "itemId": 9,
+      "viewedAt": "2026-02-24T09:00:42.989208Z",
+      "id": 6
+    },
+    {
+      "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
+      "itemId": 16,
+      "viewedAt": "2026-02-24T12:24:49.347296Z",
+      "id": 7
+    },
+    {
+      "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
+      "itemId": 18,
+      "viewedAt": "2026-02-24T12:27:29.352097Z",
+      "id": 8
+    },
+    {
+      "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
+      "itemId": 17,
+      "viewedAt": "2026-02-24T12:37:07.178379Z",
+      "id": 9
+    },
+    {
+      "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
+      "itemId": 13,
+      "viewedAt": "2026-02-24T12:37:25.002257Z",
+      "id": 10
     },
     {
       "uid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
       "itemId": 14,
-      "addedAt": "2026-02-24T14:04:02.010662Z",
-      "id": 2
+      "viewedAt": "2026-02-24T12:37:38.928Z",
+      "id": 11
     }
   ],
+  "cart": [],
   "reviews": [
     {
       "itemId": 15,
@@ -667,28 +690,6 @@
       "reviewAt": "2026-02-24T12:39:46.267033Z",
       "title": "ASUS TUF Gaming GeForce RTX 3070 Ti",
       "id": 4
-    },
-    {
-      "itemId": 8,
-      "uid": "GXqrGVI1FqQR1nsrp9rU8hx3foy2",
-      "reviewerUid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "reviewerUserName": "PcShop",
-      "comment": "Item arrived as described!",
-      "rating": "POSITIVE",
-      "reviewAt": "2026-02-24T14:02:34.256617Z",
-      "title": "ASUS PRIME GeForce RTX 5070 Ti 16GB GDDR7 Nvidia Graphics Card",
-      "id": 5
-    },
-    {
-      "itemId": 13,
-      "uid": "NqrlDZtnQcP3zNxuFzBB0o8JCGA2",
-      "reviewerUid": "UXgVq2jpbDhCotiBmTZAHnzXP763",
-      "reviewerUserName": "PcShop",
-      "comment": "Very good",
-      "rating": "POSITIVE",
-      "reviewAt": "2026-02-24T15:01:12.273931Z",
-      "title": "ASUS RTX 5090 ROG Astral OC BTF 32GB NVIDIA GeForce - New Sealed",
-      "id": 6
     }
   ],
   "sellers": [
@@ -703,7 +704,7 @@
     },
     {
       "uid": "GXqrGVI1FqQR1nsrp9rU8hx3foy2",
-      "positive": 1,
+      "positive": 0,
       "neutral": 0,
       "negative": 0,
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/users%2F7a26b112-15aa-4d56-9e25-94cad20b8304.jpg?alt=media&token=3452aa82-d4a1-4ff8-8cb3-cfd4b3822313",
@@ -712,7 +713,7 @@
     },
     {
       "uid": "NqrlDZtnQcP3zNxuFzBB0o8JCGA2",
-      "positive": 3,
+      "positive": 2,
       "neutral": 1,
       "negative": 1,
       "sellerPhotoUrl": "https://firebasestorage.googleapis.com/v0/b/voltech-499e2.firebasestorage.app/o/users%2Fa1ed5410-fb64-426d-a609-8176cb731014.jpg?alt=media&token=b029a5f0-52e1-4a2d-acdc-a000ee0f12db",
