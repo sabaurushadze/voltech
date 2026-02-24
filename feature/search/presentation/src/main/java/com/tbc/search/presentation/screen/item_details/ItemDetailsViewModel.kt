@@ -18,7 +18,7 @@ import com.tbc.search.domain.usecase.favorite.ToggleFavoriteItemUseCase
 import com.tbc.search.domain.usecase.feed.GetItemDetailsUseCase
 import com.tbc.search.domain.usecase.item_details.CalculateSellerPositiveFeedbackUseCase
 import com.tbc.search.domain.usecase.item_details.CalculateTotalFeedbackReceivedUseCase
-import com.tbc.search.domain.usecase.item_details.CanGiveFeedbackUseCase
+import com.tbc.search.domain.usecase.item_details.IsItemMineUseCase
 import com.tbc.search.domain.usecase.review.AddReviewUseCase
 import com.tbc.search.domain.usecase.review.GetReviewByUidUseCase
 import com.tbc.search.presentation.mapper.cart.toDomain
@@ -60,7 +60,7 @@ class ItemDetailsViewModel @Inject constructor(
     private val updateSellerRatingUseCase: UpdateSellerRatingUseCase,
     private val calculateSellerPositiveFeedback: CalculateSellerPositiveFeedbackUseCase,
     private val calculateTotalFeedbackReceived: CalculateTotalFeedbackReceivedUseCase,
-    private val canGiveFeedbackUseCase: CanGiveFeedbackUseCase,
+    private val isItemMineUseCase: IsItemMineUseCase,
 
     private val addReviewUseCase: AddReviewUseCase,
     private val getReviewByUidUseCase: GetReviewByUidUseCase,
@@ -275,16 +275,19 @@ class ItemDetailsViewModel @Inject constructor(
     }
 
     private fun canUserLeaveReview() = viewModelScope.launch {
-        with(state.value) {
-            itemDetails?.let { itemDetails ->
-                getReviewByUidUseCase(itemId = itemDetails.id, uid = user.uid)
-                    .onSuccess { reviews ->
-                        if (reviews.isNotEmpty()) {
-                            updateState { copy(canGiveFeedback = false) }
-                        }
-                    }
+        val currentState = state.value
+        val itemDetails = currentState.itemDetails ?: return@launch
+
+        getReviewByUidUseCase(itemId = itemDetails.id, uid = currentState.user.uid)
+            .onSuccess { reviews ->
+                val alreadyReviewed = reviews.isNotEmpty()
+
+                val isItemMine = isItemMineUseCase(itemDetails.uid, currentState.user.uid)
+
+                val canGiveFeedBack = !isItemMine && !alreadyReviewed
+
+                updateState { copy(canGiveFeedback = canGiveFeedBack) }
             }
-        }
     }
 
     private fun getSeller() = viewModelScope.launch {
@@ -311,15 +314,9 @@ class ItemDetailsViewModel @Inject constructor(
                             totalFeedback = totalFeedback
                         )
 
-                        val isSellingItemMine = canGiveFeedbackUseCase(
-                            sellerUid = seller.uid,
-                            currentUid = state.value.user.uid
-                        )
-
                         updateState {
                             copy(
                                 seller = updatedSeller,
-                                canGiveFeedback = isSellingItemMine
                             )
                         }
                     }

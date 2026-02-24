@@ -28,8 +28,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.tbc.core_ui.theme.Dimen
@@ -47,7 +47,7 @@ fun PrimaryIconButton(
     text: String,
     @DrawableRes icon: Int,
     enabled: Boolean = true,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     BaseFilledButton(
         modifier = modifier,
@@ -87,7 +87,7 @@ fun PrimaryDoubleIconButton(
     @DrawableRes rightIcon: Int,
     enabled: Boolean = true,
     leftOnClick: () -> Unit,
-    rightOnClick: () -> Unit
+    rightOnClick: () -> Unit,
 ) {
     Surface(
         modifier = modifier,
@@ -98,12 +98,13 @@ fun PrimaryDoubleIconButton(
             verticalAlignment = Alignment.CenterVertically
         ) {
             // LEFT SIDE
-            Row(modifier = Modifier
-                .clickable(enabled = enabled) { leftOnClick() }
-                .padding(
-                    horizontal = Dimen.size16,
-                    vertical = Dimen.size12
-                ),
+            Row(
+                modifier = Modifier
+                    .clickable(enabled = enabled) { leftOnClick() }
+                    .padding(
+                        horizontal = Dimen.size16,
+                        vertical = Dimen.size12
+                    ),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center) {
                 Icon(
@@ -130,12 +131,13 @@ fun PrimaryDoubleIconButton(
             )
 
             // RIGHT SIDE
-            Row(modifier = Modifier
-                .clickable(enabled = enabled) { rightOnClick() }
-                .padding(
-                    horizontal = Dimen.size16,
-                    vertical = Dimen.size12
-                ),
+            Row(
+                modifier = Modifier
+                    .clickable(enabled = enabled) { rightOnClick() }
+                    .padding(
+                        horizontal = Dimen.size16,
+                        vertical = Dimen.size12
+                    ),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center) {
                 Icon(
@@ -153,8 +155,8 @@ fun PrimaryDoubleIconButton(
                     color = VoltechFixedColor.white
                 )
             }
-            }
         }
+    }
 }
 
 
@@ -164,7 +166,7 @@ fun SecondaryIconButton(
     text: String,
     @DrawableRes icon: Int,
     enabled: Boolean = true,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     BaseOutlinedButton(
         modifier = modifier,
@@ -207,7 +209,7 @@ fun TertiaryIconButton(
     borderColor: Color = VoltechColor.foregroundPrimary,
     errorText: String = "",
     showText: Boolean = true,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Column {
         BaseOutlinedButton(
@@ -259,7 +261,8 @@ fun BorderlessIconButton(
     text: String,
     @DrawableRes icon: Int,
     enabled: Boolean = true,
-    onClick: () -> Unit
+    textStyle: TextStyle = VoltechTextStyle.bodyBold,
+    onClick: () -> Unit,
 ) {
     BaseFilledButton(
         modifier = modifier,
@@ -274,7 +277,7 @@ fun BorderlessIconButton(
             Text(
                 text = text,
                 color = VoltechColor.foregroundAccent,
-                style = VoltechTextStyle.bodyBold
+                style = textStyle
             )
 
             Spacer(modifier = Modifier.width(Dimen.size4))
@@ -293,9 +296,10 @@ fun BorderlessIconButton(
 @Composable
 fun PrimaryButton(
     modifier: Modifier = Modifier,
-    text: String, enabled:
+    text: String,
+    enabled:
     Boolean = true,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     BaseFilledButton(
         modifier = modifier,
@@ -315,9 +319,10 @@ fun PrimaryButton(
 @Composable
 fun SecondaryButton(
     modifier: Modifier = Modifier,
-    text: String, enabled:
+    text: String,
+    enabled:
     Boolean = true,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     BaseOutlinedButton(
         modifier = modifier,
@@ -344,7 +349,7 @@ fun TertiaryButton(
         VoltechBorder.medium,
         VoltechColor.foregroundPrimary
     ),
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     BaseOutlinedButton(
         modifier = modifier,
@@ -367,8 +372,9 @@ fun BorderlessButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
+    textStyle: TextStyle = VoltechTextStyle.body,
     textColor: Color = VoltechColor.foregroundPrimary,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     BaseFilledButton(
         modifier = modifier,
@@ -380,7 +386,7 @@ fun BorderlessButton(
         Text(
             text = text,
             color = textColor,
-            style = VoltechTextStyle.bodyBold
+            style = textStyle
         )
     }
 }
@@ -405,35 +411,6 @@ fun CircleIconButton(
     ) {
         Icon(
             imageVector = ImageVector.vectorResource(iconRes),
-            contentDescription = null,
-            modifier = Modifier.size(size),
-            tint = iconColor,
-        )
-    }
-}
-
-@Composable
-fun TertiaryCircleIconButton(
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit,
-    @DrawableRes icon: Int,
-    enabled: Boolean = true,
-    size: Dp,
-    iconColor: Color,
-    backgroundColor: Color,
-) {
-    IconButton(
-        onClick = onClick,
-        enabled = enabled,
-        modifier = modifier
-            .padding(Dimen.size6)
-            .clip(CircleShape),
-        colors = iconButtonColors(
-            containerColor = backgroundColor
-        )
-    ) {
-        Icon(
-            painter = painterResource(icon),
             contentDescription = null,
             modifier = Modifier.size(size),
             tint = iconColor,

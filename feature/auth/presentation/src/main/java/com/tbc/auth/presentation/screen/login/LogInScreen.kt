@@ -155,7 +155,7 @@ fun LogInContent(
 
             Divider(
                 text = stringResource(R.string.or),
-                 dividerColor = VoltechColor.borderMedium
+                dividerColor = VoltechColor.borderMedium
             )
 
             Spacer(modifier = Modifier.height(Dimen.size16))
@@ -172,7 +172,7 @@ fun LogInContent(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, uiMode = android.content.res.Configuration.UI_MODE_NIGHT_NO)
 @Composable
 fun SimpleComposablePreview() {
     VoltechTheme() {

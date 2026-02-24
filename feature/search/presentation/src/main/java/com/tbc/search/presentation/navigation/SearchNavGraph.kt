@@ -42,6 +42,7 @@ fun NavGraphBuilder.searchNavGraph(
                 sellerUid = route.sellerUid,
                 navigateToSearch = navigateToSearch,
                 navigateToItemDetails = navigateToItemDetails,
+                navigateBack = navigateBack
             )
         }
 

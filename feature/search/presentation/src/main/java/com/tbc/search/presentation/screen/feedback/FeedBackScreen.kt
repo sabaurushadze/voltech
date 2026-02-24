@@ -17,6 +17,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
@@ -43,8 +44,8 @@ import com.tbc.core_ui.components.pull_to_refresh.VoltechPullToRefresh
 import com.tbc.core_ui.screen.empty_state.EmptyState
 import com.tbc.core_ui.screen.internet.NoInternetConnection
 import com.tbc.core_ui.theme.Dimen
+import com.tbc.core_ui.theme.VoltechBorder
 import com.tbc.core_ui.theme.VoltechColor
-import com.tbc.core_ui.theme.VoltechFixedColor
 import com.tbc.core_ui.theme.VoltechTextStyle
 import com.tbc.resource.R
 import com.tbc.search.presentation.components.feedback.sheet.filter.FeedbackFilterBottomSheet
@@ -61,7 +62,7 @@ fun FeedBackScreen(
     sellerUid: String,
     viewModel: FeedBackViewModel = hiltViewModel(),
     navigateToItemDetails: (Int) -> Unit,
-    ){
+) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val onEvent = viewModel::onEvent
     val sortBottomSheetState = rememberModalBottomSheetState()
@@ -77,7 +78,7 @@ fun FeedBackScreen(
         onEvent(FeedBackEvent.GetReviews)
     }
 
-    if(state.isFilterShow){
+    if (state.isFilterShow) {
         ModalBottomSheet(
             containerColor = VoltechColor.backgroundSecondary,
             onDismissRequest = { onEvent(FeedBackEvent.UpdateFilterVisibilityStatus) },
@@ -93,7 +94,7 @@ fun FeedBackScreen(
         }
     }
 
-    if(state.isSortShow){
+    if (state.isSortShow) {
         ModalBottomSheet(
             containerColor = VoltechColor.backgroundSecondary,
             onDismissRequest = { onEvent(FeedBackEvent.UpdateSortVisibilityStatus) },
@@ -141,8 +142,8 @@ fun FeedBackScreen(
 private fun FeedBackContent(
     state: FeedBackState,
     onEvent: (FeedBackEvent) -> Unit,
-    navigateToItemDetails: (Int) -> Unit
-)= with(state){
+    navigateToItemDetails: (Int) -> Unit,
+) = with(state) {
 
     Column {
 
@@ -159,14 +160,23 @@ private fun FeedBackContent(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(horizontal = Dimen.size16),
-                contentPadding = PaddingValues(bottom = Dimen.size80)
+                contentPadding = PaddingValues(bottom = Dimen.size80, top = Dimen.size24)
             ) {
                 items(state.modifiedSellerReviewItems) { sellerReview ->
-                    Spacer(Modifier.height(Dimen.size16))
                     SellerReviewItem(
                         review = sellerReview,
                         navigateToItemDetails = navigateToItemDetails
                     )
+
+                    Spacer(Modifier.height(Dimen.size16))
+
+                    HorizontalDivider(
+                        modifier = Modifier.fillMaxWidth(),
+                        thickness = VoltechBorder.medium,
+                        color = VoltechColor.borderSubtle
+                    )
+
+                    Spacer(Modifier.height(Dimen.size16))
                 }
             }
 
@@ -190,8 +200,8 @@ private fun FeedBackContent(
 private fun SellerReviewItem(
     review: UiReviewResponse,
     navigateToItemDetails: (Int) -> Unit,
-) = with(review){
-    Column{
+) = with(review) {
+    Column {
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -205,25 +215,25 @@ private fun SellerReviewItem(
 
             Text(
                 text = reviewerUserName,
-                style = VoltechTextStyle.bodyBold,
-                color = VoltechFixedColor.gray
+                style = VoltechTextStyle.body,
+                color = VoltechColor.foregroundSecondary
             )
 
             Spacer(Modifier.width(Dimen.size8))
 
             Box(
                 modifier = Modifier
-                    .size(Dimen.size8)
+                    .size(Dimen.size4)
                     .clip(CircleShape)
-                    .background(VoltechColor.backgroundDisabled)
-            ){}
+                    .background(VoltechColor.foregroundSecondary)
+            ) {}
 
             Spacer(Modifier.width(Dimen.size8))
 
             Text(
                 text = reviewAt.toFormattedDate(),
-                style = VoltechTextStyle.bodyBold,
-                color = VoltechFixedColor.gray
+                style = VoltechTextStyle.body,
+                color = VoltechColor.foregroundSecondary
             )
         }
 
@@ -240,17 +250,17 @@ private fun SellerReviewItem(
         Text(
             text = title,
             style = VoltechTextStyle.bodyUnderLine,
-            color = VoltechColor.backgroundDisabled,
+            color = VoltechColor.foregroundSecondary,
             modifier = Modifier
-                .clickable{ navigateToItemDetails(itemId) }
+                .clickable { navigateToItemDetails(itemId) }
         )
     }
 }
 
 @Composable
 private fun SellerFeedBack(
-    totalFeedback: Int
-){
+    totalFeedback: Int,
+) {
     Column(
         modifier = Modifier.padding(horizontal = Dimen.size16)
     ) {
@@ -266,7 +276,7 @@ private fun SellerFeedBack(
             Text(
                 text = "(${totalFeedback})",
                 style = VoltechTextStyle.title2,
-                color = VoltechColor.backgroundDisabled
+                color = VoltechColor.foregroundSecondary
             )
         }
 
@@ -276,8 +286,8 @@ private fun SellerFeedBack(
 
 @Composable
 private fun SellerItem(
-    sellerInfo: UiSellerItem
-) = with(sellerInfo){
+    sellerInfo: UiSellerItem,
+) = with(sellerInfo) {
     Row(
         modifier = Modifier
             .fillMaxWidth()

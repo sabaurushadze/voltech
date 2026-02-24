@@ -33,10 +33,16 @@ object VoltechOutlinedTextFieldDefaults {
     val primaryColors: TextFieldColors
         @Composable
         get() = OutlinedTextFieldDefaults.colors(
+            focusedContainerColor = VoltechColor.backgroundPrimary,
+            unfocusedContainerColor = VoltechColor.backgroundPrimary,
             focusedBorderColor = VoltechColor.foregroundAccent,
             unfocusedBorderColor = VoltechColor.foregroundSecondary,
             focusedLabelColor = VoltechColor.foregroundAccent,
             unfocusedLabelColor = VoltechColor.foregroundPrimary,
+            disabledContainerColor = VoltechColor.backgroundPrimary,
+            disabledTextColor = VoltechColor.foregroundDisabled,
+            disabledLabelColor = VoltechColor.foregroundDisabled,
+            disabledBorderColor = VoltechColor.foregroundDisabled,
             focusedTextColor = VoltechColor.foregroundPrimary,
             unfocusedTextColor = VoltechColor.foregroundSecondary,
             cursorColor = VoltechColor.foregroundAccent,

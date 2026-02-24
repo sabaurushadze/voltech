@@ -1,6 +1,7 @@
 package com.tbc.search.presentation.components.feed.sheet.feed
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -22,6 +23,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import com.tbc.core.domain.model.category.Category
 import com.tbc.core.presentation.mapper.category.toStringRes
+import com.tbc.core_ui.components.button.BorderlessButton
 import com.tbc.core_ui.components.button.PrimaryButton
 import com.tbc.core_ui.components.checkbox.VoltechCheckBoxDefaults
 import com.tbc.core_ui.components.textfield.TextInputField
@@ -46,12 +48,26 @@ fun FilterBottomSheet(
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        Text(
-            modifier = Modifier.padding(start = Dimen.size16),
-            text = stringResource(R.string.filter),
-            style = VoltechTextStyle.title1,
-            color = VoltechColor.foregroundPrimary
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = Dimen.size16),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = stringResource(R.string.filter),
+                style = VoltechTextStyle.title1,
+                color = VoltechColor.foregroundPrimary
+            )
+            BorderlessButton(
+                text = stringResource(R.string.reset),
+                textColor = VoltechColor.foregroundAccent,
+                textStyle = VoltechTextStyle.title3,
+                onClick = { onEvent(FeedEvent.ResetFilter) }
+            )
+        }
+
         Spacer(modifier = Modifier.height(Dimen.size16))
 
         HorizontalDivider(

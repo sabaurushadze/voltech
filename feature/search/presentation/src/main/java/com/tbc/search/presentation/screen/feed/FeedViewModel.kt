@@ -64,6 +64,7 @@ class FeedViewModel @Inject constructor(
 
             is FeedEvent.FeedItemClick -> navigateToDetails(event.id)
             is FeedEvent.GetSellerItemsByUid -> getSellerItemsByUid(event.sellerUid)
+            FeedEvent.ResetFilter -> updateState { copy(filterState = FilterSheetState()) }
         }
     }
 

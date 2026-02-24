@@ -1,7 +1,6 @@
 package com.tbc.core.domain.util
 
 interface Error
-interface Retryable
 
 sealed interface SessionError : Error {
     data object Unauthenticated : SessionError
@@ -22,24 +21,7 @@ sealed interface DataError : Error {
     }
 
     sealed interface Firestore : DataError {
-        data object DocumentNotFound : Firestore
-        data object PermissionDenied : Firestore
         data object Unauthenticated : Firestore
-        data object Internal : Firestore
-        data object Unavailable : Firestore
         data object Unknown : Firestore
     }
-}
-
-sealed interface ValidationError : Error {
-
-    enum class Email : ValidationError {
-        EMPTY, FORMAT
-    }
-
-    enum class Password : ValidationError {
-        EMPTY, TOO_WEAK,
-    }
-
-
 }

@@ -103,6 +103,8 @@ class FeedBackViewModel @Inject constructor(
     }
 
     private fun getSeller() = viewModelScope.launch {
+        updateState { copy(isSellerLoading = true) }
+
         getSellersUseCase(state.value.sellerUid)
             .onSuccess { sellers ->
                 val seller = sellers.toPresentation().firstOrNull()
@@ -128,7 +130,7 @@ class FeedBackViewModel @Inject constructor(
                     updateState {
                         copy(
                             seller = updatedSeller,
-                            isLoading = false,
+                            isSellerLoading = false,
                             showNoConnectionError = false
                         )
                     }
@@ -136,22 +138,24 @@ class FeedBackViewModel @Inject constructor(
             }
             .onFailure { result ->
                 if (result == DataError.Network.NO_CONNECTION) {
-                    updateState { copy(isLoading = false, showNoConnectionError = true) }
+                    updateState { copy(isSellerLoading = false, showNoConnectionError = true) }
 
                 } else {
-                    updateState { copy(isLoading = false, showNoConnectionError = false) }
+                    updateState { copy(isSellerLoading = false, showNoConnectionError = false) }
                 }
             }
     }
 
     private fun getReviews(){
         viewModelScope.launch {
+            updateState { copy(isReviewsLoading = true) }
+
             getReviewUseCase(uid = state.value.sellerUid)
                 .onSuccess { sellerReviews ->
                     updateState {
                         copy(
                             sellerReviewItems = sellerReviews.toPresentation(),
-                            isLoading = false,
+                            isReviewsLoading = false,
                             showNoConnectionError = false
                         )
                     }
@@ -161,10 +165,10 @@ class FeedBackViewModel @Inject constructor(
                 }
                 .onFailure { result ->
                     if (result == DataError.Network.NO_CONNECTION) {
-                        updateState { copy(isLoading = false, showNoConnectionError = true) }
+                        updateState { copy(isReviewsLoading = false, showNoConnectionError = true) }
 
                     } else {
-                        updateState { copy(isLoading = false, showNoConnectionError = false) }
+                        updateState { copy(isReviewsLoading = false, showNoConnectionError = false) }
                     }
                 }
         }

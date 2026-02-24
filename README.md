@@ -2,14 +2,24 @@
 
 A modern Android e-commerce application for PC components and technical hardware built with Jetpack Compose. Browse and shop for your favorite computer parts with a clean, intuitive interface.
 
-## Prerequisites
+## 📚 Table of Contents
+
+- [Installation & Setup](#installation--setup)
+- [API Endpoints](#api-endpoints)
+- [Architecture](#architecture)
+- [Features & Details](#features--details)
+- [Tech Stack](#tech-stack)
+- [Contributors](#-contributors)
+
+
+## Installation & Setup
+
+### Prerequisites
 
 Before you begin, ensure you have the following installed:
 - Android Studio (latest stable version)
 - Node.js and npm
 - A physical Android device or emulator
-
-## Installation & Setup
 
 ### 1. JSON Server Setup
 
@@ -106,8 +116,6 @@ Once the JSON Server is running:
 3. Run the app on your emulator or physical device
 
 
----
-
 
 ## API Endpoints
 
@@ -121,7 +129,10 @@ The JSON Server provides the following endpoints:
 - `http://localhost:3000/reviews`
 - `http://localhost:3000/sellers`
 
+## Architecture
+
 The project follows a **multi-module architecture** organized into feature modules and shared core modules:
+
 ```
 :app                         
 :build-logic    
@@ -153,8 +164,6 @@ The project follows a **multi-module architecture** organized into feature modul
       ├─ :data                  
       └─ :domain       
 ```
-
----
 
 ## Features & Details
 
@@ -199,8 +208,8 @@ The project follows a **multi-module architecture** organized into feature modul
 - **Smooth Navigation**: Handles complex flows with Navigation Compose 2.
 - **Asynchronous & Reactive**: Kotlin Coroutines and Flow for efficient background and reactive data handling.
 
----
-# Tech Stack
+
+## Tech Stack
 
 ### Architecture & Design
 - Modular MVI Architecture
@@ -214,7 +223,7 @@ The project follows a **multi-module architecture** organized into feature modul
 ### Dependency Injection
 - Dagger Hilt
 
-## Networking
+### Networking
 - Retrofit
 - Kotlinx Serialization
 - JSON Server (mock backend)
@@ -246,3 +255,8 @@ The project follows a **multi-module architecture** organized into feature modul
 - Splash Screen
 - ExifInterface
 - Zoomable Image [Telephoto](https://github.com/saket/telephoto)
+
+## 👥 Contributors
+
+* [Vaniko Geladze](https://github.com/geladzevaniko)
+* [Saba Urushadze](https://github.com/sabaurushadze)
