@@ -20,7 +20,7 @@ import com.tbc.search.domain.usecase.favorite.ToggleFavoriteItemUseCase
 import com.tbc.search.domain.usecase.feed.GetItemDetailsUseCase
 import com.tbc.search.domain.usecase.item_details.CalculateSellerPositiveFeedbackUseCase
 import com.tbc.search.domain.usecase.item_details.CalculateTotalFeedbackReceivedUseCase
-import com.tbc.search.domain.usecase.item_details.CanGiveFeedbackUseCase
+import com.tbc.search.domain.usecase.item_details.IsItemMineUseCase
 import com.tbc.search.domain.usecase.review.AddReviewUseCase
 import com.tbc.search.domain.usecase.review.GetReviewByUidUseCase
 import com.tbc.search.presentation.test.TestFixtures
@@ -61,7 +61,7 @@ class ItemDetailsViewModelTest : CoroutineTestRule() {
     private val updateSellerRatingUseCase = mockk<UpdateSellerRatingUseCase>()
     private val calculateSellerPositiveFeedback = CalculateSellerPositiveFeedbackUseCase()
     private val calculateTotalFeedbackReceived = CalculateTotalFeedbackReceivedUseCase()
-    private val canGiveFeedbackUseCase = CanGiveFeedbackUseCase()
+    private val isItemMineUseCase = IsItemMineUseCase()
     private val addReviewUseCase = mockk<AddReviewUseCase>()
     private val getReviewByUidUseCase = mockk<GetReviewByUidUseCase>()
 
@@ -83,7 +83,7 @@ class ItemDetailsViewModelTest : CoroutineTestRule() {
             updateSellerRatingUseCase = updateSellerRatingUseCase,
             calculateSellerPositiveFeedback = calculateSellerPositiveFeedback,
             calculateTotalFeedbackReceived = calculateTotalFeedbackReceived,
-            canGiveFeedbackUseCase = canGiveFeedbackUseCase,
+            isItemMineUseCase = isItemMineUseCase,
             addReviewUseCase = addReviewUseCase,
             getReviewByUidUseCase = getReviewByUidUseCase,
         )

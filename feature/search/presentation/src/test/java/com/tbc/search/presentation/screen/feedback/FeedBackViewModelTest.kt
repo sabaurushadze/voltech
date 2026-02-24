@@ -137,7 +137,7 @@ class FeedBackViewModelTest : CoroutineTestRule() {
         viewModel.onEvent(FeedBackEvent.GetReviews)
         advanceUntilIdle()
         // Then
-        assertFalse(viewModel.state.value.isLoading)
+        assertFalse(viewModel.state.value.isReviewsLoading)
         assertEquals(2, viewModel.state.value.sellerReviewItems.size)
         assertEquals(2, viewModel.state.value.modifiedSellerReviewItems.size)
     }
@@ -152,7 +152,7 @@ class FeedBackViewModelTest : CoroutineTestRule() {
         viewModel.onEvent(FeedBackEvent.GetReviews)
         advanceUntilIdle()
         // Then
-        assertFalse(viewModel.state.value.isLoading)
+        assertFalse(viewModel.state.value.isReviewsLoading)
         assertTrue(viewModel.state.value.showNoConnectionError)
     }
 
@@ -168,7 +168,7 @@ class FeedBackViewModelTest : CoroutineTestRule() {
         viewModel.onEvent(FeedBackEvent.GetSeller)
         advanceUntilIdle()
         // Then
-        assertFalse(viewModel.state.value.isLoading)
+        assertFalse(viewModel.state.value.isSellerLoading)
         assertEquals("Seller", viewModel.state.value.seller?.sellerName)
         assertEquals(80.0, viewModel.state.value.seller?.positiveFeedback ?: 0.0, 0.01)
         assertEquals(10, viewModel.state.value.seller?.totalFeedback)
@@ -184,7 +184,7 @@ class FeedBackViewModelTest : CoroutineTestRule() {
         viewModel.onEvent(FeedBackEvent.GetSeller)
         advanceUntilIdle()
         // Then
-        assertFalse(viewModel.state.value.isLoading)
+        assertFalse(viewModel.state.value.isSellerLoading)
         assertTrue(viewModel.state.value.showNoConnectionError)
     }
 
@@ -288,7 +288,7 @@ class FeedBackViewModelTest : CoroutineTestRule() {
         viewModel.onEvent(FeedBackEvent.GetReviews)
         advanceUntilIdle()
         // Then
-        assertFalse(viewModel.state.value.isLoading)
+        assertFalse(viewModel.state.value.isReviewsLoading)
         assertFalse(viewModel.state.value.showNoConnectionError)
     }
 
@@ -302,7 +302,7 @@ class FeedBackViewModelTest : CoroutineTestRule() {
         viewModel.onEvent(FeedBackEvent.GetSeller)
         advanceUntilIdle()
         // Then
-        assertFalse(viewModel.state.value.isLoading)
+        assertFalse(viewModel.state.value.isSellerLoading)
         assertFalse(viewModel.state.value.showNoConnectionError)
     }
 

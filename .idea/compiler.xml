@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="11">
       <module name="resource" target="21" />
+      <module name="voltech.benchmark" target="21" />
       <module name="voltech.core-test" target="21" />
       <module name="voltech.core.designsystem" target="21" />
       <module name="voltech.datastore.data" target="21" />
